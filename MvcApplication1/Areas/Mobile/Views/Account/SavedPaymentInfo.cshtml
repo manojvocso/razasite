@@ -1,0 +1,113 @@
+﻿@model MvcApplication1.Areas.Mobile.ViewModels.SavedPaymentCardsViewModel
+@{
+    ViewBag.Title = "SavedPaymentInfo";
+}
+
+
+<div class="container-fluid">
+    <div class="container">
+        <h1 class=" title_login">Manage Credit Card(s)</h1>
+    </div>
+</div>
+@if (!string.IsNullOrEmpty(Model.Message))
+{
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="container">
+                @Html.MessageBox(Model.Message, Model.MessageType)
+            </div>
+        </div>
+    </div>
+}
+<div class="container-fluid plan_tbg">
+    <div class="container">
+        <div class="row ">
+            <div class="col-xs-3 col-sm-3">
+                <h3 class=" review_titile">Your cards</h3>
+            </div>
+            <div class="col-xs-3 col-sm-3  ">
+                <h3 class=" review_titile">Expires On</h3>
+            </div>
+            <div class="col-xs-2 col-sm-2">
+                <h3 class=" review_titile">Status</h3>
+            </div>
+            <div class="col-xs-2 col-sm-2">
+                <h3 class=" review_titile">Edit</h3>
+            </div>
+            <div class="col-xs-2 col-sm-2  ">
+                <h3 class=" order_titile text-center">Delete Card</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="container">
+        @foreach (var item in Model.ExistingCards)
+        {
+            var encCardId = @Html.EncodedParameterValue(item.CreditCardId.ToString());
+            
+            <div class="row card_border profile">
+                <div class="col-xs-3 col-sm-3">
+                    <div class="@item.CreditCardType.ToLower()_cc"></div>
+                    <h3 class="review_titile">Ending in @item.CreditCardNo</h3>
+                </div>
+                <div class="col-xs-3 col-sm-2   ">
+                    <h3 class=" review_titile">@item.ExpiryMonth/@item.ExpiryYear  </h3>
+                </div>
+                <div class="col-xs-2 col-sm-2 col-sm-offset-1">
+                    @Html.CardStatus(item.ExpiryMonth, item.ExpiryYear)
+                </div>
+                <div class="col-xs-2 col-sm-2">
+                    <h3 class=" review_titile"><a href="@Url.Action("EditCardInfo", "Payment", new { id = @Html.EncodedParameterValue(item.CreditCardId.ToString()) })">Edit</a>
+                    </h3>
+                </div>
+
+
+
+                <div class="col-xs-2 col-sm-2  ">
+                    <h3 class=" order_titile text-center">
+                        <a href="javascript:void(0);" data-toggle="modal" data-target=".del-@item.CreditCardId">
+                            <span class="flaticon-cross108"></span>
+                        </a>
+                    </h3>
+                </div>
+
+                <div class="modal fade demo_dilogbox del-@item.CreditCardId" role="dialog" aria-labelledby="gridSystemModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                @using (Html.BeginForm("DeleteCreditCard", "Account", FormMethod.Post))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    @Html.Hidden("creditCardId", item.CreditCardId)
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <input type="hidden" name="pinlessNumber" value="@item.CreditCardId"/>
+                                            <div class="col-xs-12 col-sm-6">
+                                                <h4>Do you want to delete?</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">cancel</button>
+                                        <button type="submit" class="btn btn-primary">Delete</button>
+                                    </div>
+                                }
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+                    <!-- /.modal -->
+                </div>
+
+            </div>    
+        }
+
+
+    </div>
+</div>
+
+
+
+

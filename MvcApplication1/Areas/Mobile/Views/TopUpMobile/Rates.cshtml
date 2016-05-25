@@ -1,0 +1,104 @@
+﻿@model MvcApplication1.Areas.Mobile.ViewModels.MobileTopupRatesViewModel
+@{
+    ViewBag.Title = "Rates";
+}
+
+<div class="container-fluid">
+    <div class="container demo">
+        <h1 class=" title_login">International Top-Up</h1>
+        @if (!string.IsNullOrEmpty(Model.Message))
+        {
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="container">
+                        @Html.MessageBox(Model.Message, Model.MessageType)
+                    </div>
+                </div>
+            </div>
+        }
+
+
+        @using (Html.BeginForm("Rates", "TopUpMobile", FormMethod.Post))
+        {
+            @Html.HiddenFor(a => a.CountryCode)
+            @Html.HiddenFor(a => a.MobileNumber)
+            <div class="row">
+                <div class="col-xs-12">
+                    @*@Html.DropDownListFor(a => a.RateFromCountry, new SelectList(Model.RatesFromCountryList, "Id", "Name"), new { @class = "form-control " })
+                    @Html.ValidationMessageFor(a => a.RateFromCountry)*@
+                    <p>
+                        Rates From : <b>@Model.RateFromCountryName</b>
+                    </p>
+                    @Html.HiddenFor(a => a.RateFromCountry)
+                    @Html.HiddenFor(a => a.RateFromCountryName)
+                </div>
+                <div class="col-xs-12">
+                    <p>
+                        Carrier :
+                        @if (!string.IsNullOrEmpty(Model.CarrierImage))
+                        {
+                            <span class="carrier_img">
+                                <img src="@Model.CarrierImage"></span>
+                        }
+                        else
+                        {
+                            <span class="carrier_img">@Model.Carrier</span>
+                        }
+                    </p>
+                </div>
+                <div class="col-xs-12">
+                    <p>
+                        Phone Number : <b>+@Model.CountryCode-@Model.MobileNumber</b>
+                    </p>
+                </div>
+                <div class="col-xs-12">
+                    <p>Amount</p>
+                    <div class="btn-group" data-toggle="buttons">
+                        @{
+                        var recvCurrency = string.Empty;
+                        }
+                        @foreach (var item in Model.DenominationList)
+                        {
+                            recvCurrency = item.Currency;
+                            <label class="btn amount_list amount-selection">
+                                @*<input type="radio" name="SourceAmount" id="option1" value="@item.SourceAmount" autocomplete="off" checked="">*@
+                                @Html.RadioButtonFor(a => a.SourceAmount, item.SourceAmount)$ @Html.Encode(item.SourceAmount)
+                                @Html.RadioButtonFor(a => a.DestinationAmount, item.DestinationAmount)
+                                @Html.RadioButtonFor(a => a.OperatorCode, item.OperatorCode)
+                            </label>
+                        }
+                    </div>
+                </div>
+                <div id="div-recvAmtDiv" style="display: none" class="col-xs-12">
+                    <p>
+                        Amount Send :<b>@recvCurrency &nbsp;</b><b id="lbl-recvAmount"> </b>
+                    </p>
+                </div>
+                @Html.ValidationMessageFor(a => a.SourceAmount)
+                <div class="col-xs-12">
+                    <button type="submit" class="btn btn-primary btn-block form_mar btn_bgreen">Top-Up Now <span class=" btn_next fa fa-chevron-right"></span></button>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $('.amount-selection').click(function () {
+            //var val = $(this).find('input:radio').prop('checked') ? false : true;
+            $(this).find('input:radio').prop('checked', true);
+            var val = $("input[name='DestinationAmount']:checked").val();
+            ShowDestinationAmount(val);
+        });
+
+        function ShowDestinationAmount(val) {
+            $("#lbl-recvAmount").text(val);
+            $("#div-recvAmtDiv").slideDown();
+        }
+
+
+    </script>
+}

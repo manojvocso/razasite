@@ -1,0 +1,39 @@
+﻿@model MvcApplication1.Models.GenericModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+    <title>Raza</title>
+     <link href="@Url.Content("~/css/style-raza-offerchoosing.css")" rel="stylesheet" />
+</head>
+<body>
+<div class="customer-banner">
+	<ul>
+    	<li><img src="@Url.Content("~/images/customer-banner-top-left.jpg")" alt="" /></li>
+        <li><img src="@Url.Content("~/images/customer-banner-top-right.jpg")" alt="" /></li>
+        <li><img src="@Url.Content("~/images/customer-banner-bottom-left.jpg")" alt="" /></li>
+        <li><img src="@Url.Content("~/images/customer-banner-bottom-right.jpg")" alt="" /></li>
+    </ul>
+</div>
+
+<div class="customer-price-table">
+	<div class="customer-price-table-top"><img src="@Url.Content("~/images/customer-price-table-top-bg.png")" alt="" /></div>
+    <div class="customer-price-table-content">
+    	<div class="customer-price-top-section">
+        	<div class="customer-price-top-section-column"><img src="@Url.Content("~/images/img-usa.jpg")" alt="" /></div>
+            <div class="customer-price-top-section-column"><img src="@Url.Content("~/images/img-selectcountry.jpg")" alt="" /></div>
+            <div class="customer-price-top-section-column"><a href="@Url.Action("NewCustomer","Account")" class="new-customers-tab">New Customers</a></div>
+            <div class="customer-price-top-section-column"><a href="@Url.Action("ExistCustomer","Account")" class="existing-customer-tab">Existing Customers</a></div>
+        </div>
+    </div>
+    <div><img src="@Url.Content("~/images/customer-price-table-bottom-bg.png")" alt="" /></div>
+</div>
+
+
+</body>
+</html>

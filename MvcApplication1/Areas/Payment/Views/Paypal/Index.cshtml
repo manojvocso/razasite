@@ -1,0 +1,15 @@
+﻿@using System.Web.Optimization
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+@using (@Ajax.BeginForm("Index", "Paypal", new AjaxOptions() {}))
+{
+    <button>submit</button>
+}
+
+@Scripts.Render("~/bundles/jqueryMobile")
+@Scripts.Render("~/bundles/jqueryval")

@@ -1,0 +1,288 @@
+#main_content select{border:solid 1px #b2b2b2;padding:8px;font:18px arial;line-height:38px;height:44px;width:417px;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;background:-moz-linear-gradient(center top,#d0d0d0 0,#fff 45%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0,#d0d0d0),color-stop(0.45,#fff))}
+#main_content #main_topup_btn{margin-left:120px}
+#topup_country{height:421px;background:url(../images/topup_countrybg.jpg) no-repeat left bottom;overflow:hidden;padding-left:27px}
+#topup_country h2.hdr{font:bold 22px arial;line-height:24px;margin-top:23px;margin-bottom:10px;color:#0f6499}
+#index_flags{border:1px solid #1970a4;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;display:block;overflow:hidden;white-space:nowrap;height:height:340px !important;width:1000px}
+#index_flags span{margin-top:4px;margin-right:10px}
+.sm_sprite{display:inline-block;overflow:hidden;float:left;background-image:url('../images/flags_sprite_sm.jpg');background-color:transparent;background-repeat:no-repeat}
+.sm_afghanistan{width:18px;height:12px;background-position:0 0}
+.sm_antiguabarbuda{width:18px;height:12px;background-position:-18px 0}
+.sm_barbados{width:18px;height:12px;background-position:-36px 0}
+.sm_benin{width:18px;height:12px;background-position:-54px 0}
+.sm_bolivia{width:18px;height:12px;background-position:-72px 0}
+.sm_brazil{width:18px;height:12px;background-position:-90px 0}
+.sm_britishvirginislands{width:18px;height:12px;background-position:-108px 0}
+.sm_burundi{width:18px;height:12px;background-position:-126px 0}
+.sm_cambodia{width:18px;height:12px;background-position:-144px 0}
+.sm_cameroon{width:18px;height:12px;background-position:-162px 0}
+.sm_caymanislands{width:18px;height:12px;background-position:-180px 0}
+.sm_chile{width:18px;height:12px;background-position:-198px 0}
+.sm_china{width:18px;height:12px;background-position:-216px 0}
+.sm_colombia{width:18px;height:12px;background-position:-234px 0}
+.sm_congo{width:18px;height:12px;background-position:-252px 0}
+.sm_costarica{width:18px;height:12px;background-position:-270px 0}
+.sm_cuba{width:18px;height:12px;background-position:-288px 0}
+.sm_cyprus{width:18px;height:12px;background-position:-306px 0}
+.sm_dominica{width:18px;height:12px;background-position:-324px 0}
+.sm_dominicanrepublic{width:18px;height:12px;background-position:-342px 0}
+.sm_ecuador{width:20px;height:12px;background-position:-360px 0}
+.sm_elsalvador{width:18px;height:12px;background-position:-380px 0}
+.sm_equador{width:18px;height:12px;background-position:-398px 0}
+.sm_fiji{width:18px;height:12px;background-position:-416px 0}
+.sm_ghana{width:18px;height:12px;background-position:-434px 0}
+.sm_grenada{width:18px;height:12px;background-position:-452px 0}
+.sm_guatemala{width:18px;height:12px;background-position:-470px 0}
+.sm_guinea{width:18px;height:12px;background-position:-488px 0}
+.sm_haiti{width:18px;height:12px;background-position:-506px 0}
+.sm_honduras{width:18px;height:12px;background-position:-524px 0}
+.sm_india{width:18px;height:12px;background-position:-542px 0}
+.sm_iraq{width:18px;height:12px;background-position:-560px 0}
+.sm_ivorycoast{width:18px;height:12px;background-position:-578px 0}
+.sm_jamaica{width:18px;height:12px;background-position:-596px 0}
+.sm_jordan{width:18px;height:12px;background-position:-614px 0}
+.sm_kazakhstan{width:18px;height:12px;background-position:-632px 0}
+.sm_kenya{width:18px;height:12px;background-position:-650px 0}
+.sm_laos{width:18px;height:12px;background-position:-668px 0}
+.sm_liberia{width:18px;height:12px;background-position:-686px 0}
+.sm_madagascar{width:18px;height:12px;background-position:-704px 0}
+.sm_malaysia{width:18px;height:12px;background-position:-722px 0}
+.sm_mexico{width:18px;height:12px;background-position:-740px 0}
+.sm_montserrat{width:18px;height:12px;background-position:-758px 0}
+.sm_morocco{width:18px;height:12px;background-position:-776px 0}
+.sm_mozambique{width:18px;height:12px;background-position:-794px 0}
+.sm_nepal{width:18px;height:12px;background-position:-812px 0}
+.sm_nicaragua{width:18px;height:12px;background-position:-830px 0}
+.sm_niger{width:18px;height:12px;background-position:-848px 0}
+.sm_palestinianterritory{width:18px;height:12px;background-position:-866px 0}
+.sm_panama{width:18px;height:12px;background-position:-884px 0}
+.sm_peru{width:18px;height:12px;background-position:-902px 0}
+.sm_philippines{width:18px;height:12px;background-position:-920px 0}
+.sm_poland{width:18px;height:12px;background-position:-938px 0}
+.sm_romania{width:18px;height:12px;background-position:-956px 0}
+.sm_russia{width:18px;height:12px;background-position:-974px 0}
+.sm_rwanda{width:18px;height:12px;background-position:-992px 0}
+.sm_senegal{width:18px;height:12px;background-position:-1010px 0}
+.sm_srilanka{width:18px;height:12px;background-position:-1028px 0}
+.sm_stkitts{width:18px;height:12px;background-position:-1046px 0}
+.sm_stlucia{width:18px;height:12px;background-position:-1064px 0}
+.sm_stvincents{width:18px;height:12px;background-position:-1082px 0}
+.sm_sudan{width:18px;height:12px;background-position:-1100px 0}
+.sm_suriname{width:18px;height:12px;background-position:-1118px 0}
+.sm_syria{width:18px;height:12px;background-position:-1136px 0}
+.sm_tanzania{width:18px;height:12px;background-position:-1154px 0}
+.sm_thailand{width:18px;height:12px;background-position:-1172px 0}
+.sm_trinidad{width:20px;height:12px;background-position:-1190px 0}
+.sm_trinidad_tobago{width:18px;height:12px;background-position:-1210px 0}
+.sm_tunisia{width:18px;height:12px;background-position:-1228px 0}
+.sm_turkey{width:18px;height:12px;background-position:-1246px 0}
+.sm_turks_caicos{width:18px;height:12px;background-position:-1264px 0}
+.sm_uganda{width:18px;height:12px;background-position:-1282px 0}
+.sm_usa{width:18px;height:12px;background-position:-1300px 0}
+.sm_zimbabwe{width:18px;height:12px;background-position:-1318px 0}
+.sm_albania{width:18px;height:12px;background-position:-1336px 0}
+.sm_argentina{width:18px;height:12px;background-position:-1354px 0}
+.sm_burkinafaso{width:18px;height:12px;background-position:-1372px 0}
+.sm_bangladesh{width:18px;height:12px;background-position:-1390px 0}
+.sm_cameroon{width:18px;height:12px;background-position:-1408px 0}
+.sm_democraticrepubliccongo{width:18px;height:12px;background-position:-1426px 0}
+.sm_centralafrica{width:18px;height:12px;background-position:-1444px 0}
+.sm_egypt{width:18px;height:12px;background-position:-1462px 0}
+.sm_spain{width:18px;height:12px;background-position:-1480px 0}
+.sm_france{width:18px;height:12px;background-position:-1498px 0}
+.sm_gambia{width:18px;height:12px;background-position:-1516px 0}
+.sm_equatorialguinea{width:18px;height:12px;background-position:-1534px 0}
+.sm_guineabissau{width:18px;height:12px;background-position:-1552px 0}
+.sm_guyana{width:18px;height:12px;background-position:-1570px 0}
+.sm_indonesia{width:18px;height:12px;background-position:-1588px 0}
+.sm_mali{width:18px;height:12px;background-position:-1606px 0}
+.sm_nigeria{width:18px;height:12px;background-position:-1624px 0}
+.sm_pakistan{width:18px;height:12px;background-position:-1642px 0}
+.sm_puertorico{width:18px;height:12px;background-position:-1660px 0}
+.sm_paraguay{width:18px;height:12px;background-position:-1678px 0}
+.sm_singapore{width:18px;height:12px;background-position:-1696px 0}
+.sm_somalia{width:18px;height:12px;background-position:-1714px 0}
+.sm_ukraine{width:18px;height:12px;background-position:-1732px 0}
+.sm_uruguay{width:18px;height:12px;background-position:-1750px 0}
+.sm_venezuela{width:18px;height:12px;background-position:-1768px 0}
+.sm_vietnam{width:18px;height:12px;background-position:-1786px 0}
+.sm_yemen{width:18px;height:12px;background-position:-1804px 0}
+.sm_southafrica{width:18px;height:12px;background-position:-1822px 0}
+.sm_zambia{width:18px;height:12px;background-position:-1840px 0}
+.flag_list{margin:0;padding:0;list-style:none;float:left;overflow:hidden;white-space:nowrap}
+.flag_list li{margin:0;padding:0;-moz-outline-style:none;height:21px;width:235px;vertical-align:bottom;text-align:left}
+.flag_list li a{margin:0;padding:0;float:left;font:13px arial;color:#fff;text-decoration:none;outline:0;line-height:21px;height:21px;display:block;width:195px;background-image:url(../images/flag_arrow.png);background-repeat:no-repeat;background-position:center right;margin-left:10px;text-align:left}
+.flag_list li a:hover{color:#222}
+.flag_list li:nth-child(even){background-color:#3d88b6}
+.flag_list li:nth-child(odd){background-color:#5199c5}
+#selectbg_container{float:left;font:20px arial;line-height:26px;color:#fff;margin-right:10px}
+#carrier_box{float:left;width:360px;height:917px;background:url(../images/index_carrier_bg.png) no-repeat;margin-top:-5px;margin-left:-6px;margin-right:-20px}
+#carrier_box .hdr{margin:0;padding:0;font:22px arial;line-height:24px;margin-top:30px;margin-bottom:10px;color:#76cdff;padding-left:25px;overflow:hidden}
+#carrier_list{height:800px;width:346px;margin-left:25px;overflow:hidden;white-space:nowrap;z-index:1}
+#carrier_list ul{margin:0;padding:0;list-style:none;overflow:hidden;white-space:nowrap;float:left}
+#carrier_list ul li{margin:0;padding:0;-moz-outline-style:none;width:87px;height:136px;vertical-align:bottom;text-align:left;margin-bottom:0;margin-right:20px}
+.carrier-sprite_set1{display:block;overflow:hidden;background-image:url('../images/carrier_logos1.png');background-color:transparent;background-repeat:no-repeat}
+.carrier-sprite_set2{display:block;overflow:hidden;background-image:url('../images/carrier_logos2.png');background-color:transparent;background-repeat:no-repeat}
+.carrier-sprite_set3{display:block;overflow:hidden;background-image:url('../images/carrier_logos3.png');background-color:transparent;background-repeat:no-repeat}
+.carrier-sprite_set4{display:block;overflow:hidden;background-image:url('../images/carrier_logos4.png');background-color:transparent;background-repeat:no-repeat}
+.carrier-sprite_set5{display:block;overflow:hidden;background-image:url('../images/carrier_logos5.png');background-color:transparent;background-repeat:no-repeat}
+.carrier-sprite_set6{display:block;overflow:hidden;background-image:url('../images/carrier_logos6.png');background-color:transparent;background-repeat:no-repeat}
+.carrier-sprite_set7{display:block;overflow:hidden;background-image:url('../images/carrier_logos7.png');background-color:transparent;background-repeat:no-repeat}
+.carrier-airtel{width:87px;height:87px;background-position:0 0}
+.carrier-allegro{width:87px;height:87px;background-position:-87px 0}
+.carrier-asiacell{width:87px;height:87px;background-position:-174px 0}
+.carrier-att{width:87px;height:87px;background-position:-261px 0}
+.carrier-boostmobile{width:87px;height:87px;background-position:-348px 0}
+.carrier-bsnl{width:87px;height:87px;background-position:-435px 0}
+.carrier-claro{width:87px;height:87px;background-position:0 -87px}
+.carrier-comcel{width:87px;height:87px;background-position:-87px -87px}
+.carrier-cubacel{width:87px;height:87px;background-position:-174px -87px}
+.carrier-dialog{width:87px;height:87px;background-position:-261px -87px}
+.carrier-digicel{width:87px;height:87px;background-position:-348px -87px}
+.carrier-entel{width:87px;height:87px;background-position:-435px -87px}
+.carrier-etisalat{width:87px;height:87px;background-position:0 0}
+.carrier-evntelecom{width:87px;height:87px;background-position:-87px 0}
+.carrier-excelcom{width:87px;height:87px;background-position:-174px 0}
+.carrier-globe{width:87px;height:87px;background-position:-261px 0}
+.carrier-hits{width:87px;height:87px;background-position:-348px 0}
+.carrier-idea{width:87px;height:87px;background-position:-435px 0}
+.carrier-iusacell{width:87px;height:87px;background-position:0 -87px}
+.carrier-jazz{width:87px;height:87px;background-position:-87px -87px}
+.carrier-lime{width:87px;height:87px;background-position:-174px -87px}
+.carrier-mobifone{width:87px;height:87px;background-position:-261px -87px}
+.carrier-mobinil{width:87px;height:87px;background-position:-348px -87px}
+.carrier-moov{width:87px;height:87px;background-position:-435px -87px}
+.carrier-movistar{width:87px;height:87px;background-position:0 0}
+.carrier-mtn{width:87px;height:87px;background-position:-87px 0}
+.carrier-mts{width:87px;height:87px;background-position:-174px 0}
+.carrier-orange{width:87px;height:87px;background-position:-261px 0}
+.carrier-reliance{width:87px;height:87px;background-position:-348px 0}
+.carrier-sfone{width:87px;height:87px;background-position:-435px 0}
+.carrier-smart{width:87px;height:87px;background-position:0 -87px}
+.carrier-stel{width:87px;height:87px;background-position:-87px -87px}
+.carrier-suntel{width:87px;height:87px;background-position:-174px -87px}
+.carrier-docomo{width:87px;height:87px;background-position:-261px -87px}
+.carrier-tataindicom{width:87px;height:87px;background-position:-348px -87px}
+.carrier-telcel{width:87px;height:87px;background-position:-435px -87px}
+.carrier-tigo{width:87px;height:87px;background-position:0 0}
+.carrier-tmobile{width:87px;height:87px;background-position:-87px 0}
+.carrier-tricom{width:87px;height:87px;background-position:-174px 0}
+.carrier-uff{width:87px;height:87px;background-position:-261px 0}
+.carrier-ufone{width:87px;height:87px;background-position:-348px 0}
+.carrier-umniah{width:87px;height:87px;background-position:-435px 0}
+.carrier-unefon{width:87px;height:87px;background-position:0 -87px}
+.carrier-uninor{width:87px;height:87px;background-position:-87px -87px}
+.carrier-utel{width:87px;height:87px;background-position:-174px -87px}
+.carrier-verizon{width:87px;height:87px;background-position:-261px -87px}
+.carrier-videocon{width:87px;height:87px;background-position:-348px -87px}
+.carrier-vinaphone{width:87px;height:87px;background-position:-435px -87px}
+.carrier-virginmobile{width:87px;height:87px;background-position:0 0}
+.carrier-viva{width:87px;height:87px;background-position:-87px 0}
+.carrier-vodacom{width:87px;height:87px;background-position:-174px 0}
+.carrier-vodafone{width:87px;height:87px;background-position:-261px 0}
+.carrier-voila{width:87px;height:87px;background-position:-348px 0}
+.carrier-warid{width:87px;height:87px;background-position:-435px 0}
+.carrier-zantel{width:87px;height:87px;background-position:0 -87px}
+.carrier-zong{width:87px;height:87px;background-position:-87px -87px}
+.carrier-ais{width:87px;height:87px;background-position:0 0}
+.carrier-bmobile{width:87px;height:87px;background-position:-87px 0}
+.carrier-beeline{width:87px;height:87px;background-position:-174px 0}
+.carrier-chinamobile{width:87px;height:87px;background-position:-261px 0}
+.carrier-telecom{width:87px;height:87px;background-position:-348px 0}
+.carrier-smartgold{width:87px;height:87px;background-position:-435px 0}
+.carrier-heyah{width:87px;height:87px;background-position:0 -87px}
+.carrier-kolbi{width:87px;height:87px;background-position:-87px -87px}
+.carrier-maroc{width:87px;height:87px;background-position:-174px -87px}
+.carrier-megafon{width:87px;height:87px;background-position:-261px -87px}
+.carrier-ntc{width:87px;height:87px;background-position:-348px -87px}
+.carrier-oi{width:87px;height:87px;background-position:-435px -87px}
+.carrier-plus{width:87px;height:87px;background-position:0 0}
+.carrier-roshan{width:87px;height:87px;background-position:-87px 0}
+.carrier-safaricom{width:87px;height:87px;background-position:-174px 0}
+.carrier-suncellular{width:87px;height:87px;background-position:-261px 0}
+.carrier-tele2{width:87px;height:87px;background-position:-348px 0}
+.carrier-tim{width:87px;height:87px;background-position:-435px 0}
+.carrier-tunisiana{width:87px;height:87px;background-position:0 -87px}
+.carrier-unicom{width:87px;height:87px;background-position:-87px -87px}
+.carrier-aircel{width:87px;height:87px;background-position:-174px -87px}
+#carrier_list span{margin-bottom:4px}
+#carrier_list span:hover{filter:alpha(opacity=80);opacity:.8}
+#carrier_list .buy-btn{margin-left:0;display:block;background:-webkit-gradient(linear,left top,left bottom,color-stop(0.05,#9dce2c),color-stop(1,#299111));background:-moz-linear-gradient(center top,#9dce2c 5%,#299111 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#9dce2c',endColorstr='#299111');background-color:#9dce2c;-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;border:1px solid #44af1f;display:inline-block;color:#fff;font-family:Arial;font-size:12px;font-weight:bold;padding:3px 6px;font-style:normal;text-decoration:none;text-shadow:1px 1px 1px #689324}
+#carrier_list .buy-btn:hover{background:-webkit-gradient(linear,left top,left bottom,color-stop(0.05,#299111),color-stop(1,#9dce2c));background:-moz-linear-gradient(center top,#299111 5%,#9dce2c 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#299111',endColorstr='#9dce2c');background-color:#299111}
+#carrier_list .buy-btn:active{position:relative;top:1px}
+#news_promo{height:50px;overflow:hidden;background:url(images/index_newsbg.jpg) repeat-x;border-top:1px solid #9d9d9d;border-bottom:1px solid #fff}
+#news_promo h2.hdr{float:left;color:#fbad15;font:bold 15px arial;line-height:20px;padding-top:15px;padding-left:25px}
+#news_promo #feed_content{float:left;width:650px;padding-left:5px;height:20px;overflow:hidden;margin-top:15px}
+#news_promo #feed_content ul{margin:0;padding:0;margin-top:0;color:white;list-style:none;text-align:left}
+#news_promo #feed_content ul#feedlist li{margin-right:10px}
+#news_promo #feed_content ul#feedlist li div{color:white;min-height:20px}
+#news_promo #feed_content ul#feedlist li div a{font:bold 15px arial;line-height:20px;color:white;text-decoration:none}
+#news_promo #feed_content ul#feedlist li div a:hover{color:#aeff04}
+#news_promo #feed_content ul#feedlist li div span{padding-left:10px}
+#news_promo.subnews{border-bottom:0}
+#news_viewall{float:left;width:60px;padding-left:10px;padding-top:15px;font:bold 15px arial;line-height:20px;color:#e0ff13;text-decoration:none}
+#news_viewall a{color:#e0ff13;text-decoration:none}
+#news_viewall a:hover{color:#fff;text-decoration:underline}
+.info_popupbox{text-align:left;display:none;position:absolute;z-index:100;margin-left:355px;margin-top:-12px;background:url(../images/info_popupbg.png) no-repeat;width:229px;height:177px;font:15px arial;line-height:16px;color:#6d6d6d}
+.clearfix{float:none;clear:both}
+#carrier_box #prev{background:transparent url(../images/blank.gif) repeat-y;background-position:0 0;display:block;text-indent:-999px;overflow:hidden;width:15px;float:left;margin-left:6px;margin-top:-816px;height:800px;outline:0;-moz-outline-style:none;position:relative}
+#carrier_box #prev:hover{background:transparent url(../images/carousel_control2.png) repeat-y;filter:alpha(opacity=30);opacity:.3;outline:0;-moz-outline-style:none}
+#carrier_box #next{background:transparent url(../images/blank.gif) repeat-y;background-position:-18px 0;display:block;text-indent:-999px;overflow:hidden;width:15px;float:right;margin-right:14px;margin-top:-816px;height:800px;z-index:20;outline:0;-moz-outline-style:none;position:relative}
+#carrier_box #next:hover{background:transparent url(../images/carousel_control2.png) repeat-y;background-position:-18px 0;filter:alpha(opacity=30);opacity:.3;z-index:20;outline:0;-moz-outline-style:none}
+#carrier_box #prev2{background:transparent url(../images/carousel_control.png) no-repeat 0 0;background-position:0 0;text-indent:-999px;display:block;overflow:hidden;width:15px;height:21px;float:left;margin-left:10px;outline:0;-moz-outline-style:none}
+#carrier_box #next2{background:transparent url(../images/carousel_control.png) no-repeat 0 0;background-position:-18px 0;text-indent:-999px;display:block;overflow:hidden;width:15px;height:21px;float:right;margin-right:10px;outline:0;-moz-outline-style:none}
+#carrier_box .pager{text-align:center;width:200px;margin:0 auto}
+#carrier_box .pager a{background:transparent url(../images/carousel_control.png) no-repeat -2px -32px;text-decoration:none;text-indent:-999px;display:inline-block;overflow:hidden;width:8px;height:8px;margin:0 5px 0 0}
+#carrier_box .pager a.selected{background:transparent url(../images/carousel_control.png) no-repeat -12px -32px;text-decoration:underline}
+#aToolTip{position:absolute;display:none;z-index:50000}
+#aToolTip .aToolTipContent{position:relative;margin:0;padding:0}
+.defaultTheme{border:2px solid #444;background:#777;color:#fff;margin:0;padding:6px 12px;font:13px arial;max-width:300px;-moz-border-radius:12px 12px 12px 0;-webkit-border-radius:12px 12px 12px 0;-khtml-border-radius:12px 12px 12px 0;border-radius:12px 12px 12px 0;-moz-box-shadow:2px 2px 5px #111;-webkit-box-shadow:2px 2px 5px #111;box-shadow:2px 2px 5px #111}
+.defaultTheme h2{margin:0;padding:0;padding-bottom:5px;font:bold 14px arial;line-height:18px;text-align:left}
+.defaultTheme #aToolTipCloseBtn{display:block;height:18px;width:18px;background:url(../images/closeBtn.png) no-repeat;text-indent:-9999px;outline:0;position:absolute;top:-20px;right:-30px;margin:2px;padding:4px}
+.footer-hdr{font:25px Georgia;line-height:30px;color:#b9b9b9;padding-left:5px}
+#bottom-section-divider{float:none;clear:both;height:10px;background-color:#292929}
+#footer-wrapper{background-color:#373737;min-height:112px;height:auto !important;background:url(../images/footer_bg.png) repeat-x #373737}
+#footer-content{width:1240px;min-height:112px;height:auto !important;margin:0 auto 0 auto}
+footer-content table{margin:0 auto;border-collapse:collapse;border-spacing:0}
+#footer-content ul{margin:0;padding:0;list-style:none;margin-top:10px;padding-right:10px}
+#footer-content ul li{padding-top:3px}
+#footer-content ul li img{margin-bottom:-2px;margin-right:8px}
+#footer-content a,#footer-content a:link,#footer-content a:visited{font:12px arial;color:#ebff9c;text-decoration:none}
+#footer-content a:hover{text-decoration:underline;color:#eee}
+#footer-content ul.inline li{padding-top:3px;float:left}
+#footer-content ul.inline a{font:13px arial}
+#footer-content ul.inline img{margin-top:-10px;margin-left:5px;margin-right:10px}
+.footer-text-box{background-color:#454545;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;font:15px arial;color:#b9b9b9;margin-top:5px;min-height:200px}
+.footer-text-box p{padding-top:6px;padding-left:10px;padding-right:10px;padding-bottom:6px}
+.footer-text-box p.about{font:16px arial;line-height:20px;padding-right:10px}
+#footer-content .footer-text-box p.cloud2 a{text-decoration:none;font:13px arial;line-height:20px;color:#b9b9b9}
+#footer-content .footer-text-box p.cloud2 a:hover{text-decoration:underline}
+#footer-content .footer-text-box p.cloud2 .w1{color:#b9b9b9}
+#footer-content .footer-text-box p.cloud2 .w2{color:#b9b9b9}
+#footer-content .footer-text-box p.cloud2 .w3{color:#b9b9b9}
+#footer-content .footer-text-box p.cloud2 .w4{color:#b9b9b9}
+#footer-content .cloud2 .w5{color:#4d7e51}
+#footer-content .footer-text-box p.cloud2 .w9,.footer-text-box p.cloud2 .w8{color:#b9b9b9}
+#footer-content .footer-text-box p.cloud2 h2{margin:0;padding:0;text-align:left;font:16px arial;color:black}
+#footer-content table.footer-nav{width:256px;padding-top:8px;margin:0 auto}
+#footer-content table.footer-nav a{font:14px arial;color:#8ed0fd}
+#footer-content table.footer-nav td{background:url(../images/footer-nav-divider.png) no-repeat left bottom;text-align:left;height:33px;white-space:nowrap}
+#footer-content table.footer-nav tr td:first-child{width:130px}
+#footer-content table.footer-nav tr:last-child td{background:url(/images/blank.gif)}
+.footer-colorline{height:13px;background-color:#296aab;border-top:1px solid #959595;border-bottom:1px solid #959595}
+#footer-copyright{font:14px arial;line-height:15px;color:#b9b9b9;clear:both;text-align:left;padding-top:15px;padding-bottom:20px;padding-left:300px}
+#cpopup_dropmenucombo{width:449px;background:url(../images/carrier_combomenubg.png) no-repeat;float:left;height:27px}
+#dropmenu-cpopup{position:absolute;z-index:1000;width:394px;overflow:auto;background-color:white;display:none;margin:8px 0 0 0}
+#dropmenu-cpopup ul{margin:0;padding:0;list-style:none}
+#dropmenu-cpopup li{padding-left:5px}
+#dropmenu-cpopup li:hover{background-color:#8adbfc}
+#dropmenu-cpopup li img{padding:6px 0 0 0}
+#dropmenu-cpopup li span.custom-country{font:13px arial;font-weight:bold;color:black;line-height:44px;padding-left:5px}
+#dropmenu-cpopup li span.custom-code{float:right;padding-right:30px;font:12px arial;color:#296aab;line-height:44px}
+input#PhoneNumber:focus{outline:0}
+#cpopup_dropmenucombo #PhoneCC{font:bold 14px arial;color:#000 !important}
+#cpopup_dropmenucombo #PhoneNumber{font:18px arial}
+.submit_btn{-moz-box-shadow:inset 0 1px 0 0 #fff6af;-webkit-box-shadow:inset 0 1px 0 0 #fff6af;box-shadow:inset 0 1px 0 0 #fff6af;background:-webkit-gradient(linear,left top,left bottom,color-stop(0.05,#ffec64),color-stop(1,#ffab23));background:-moz-linear-gradient(center top,#ffec64 5%,#ffab23 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffec64',endColorstr='#ffab23');background-color:#ffec64;-moz-border-radius:6px;-webkit-border-radius:6px;border-radius:6px;border:1px solid #fa2;display:inline-block;color:#333;font-family:arial;font-size:17px;font-weight:bold;padding:9px 24px;text-decoration:none;text-shadow:1px 1px 0 #fe6}
+.submit_btn:hover{background:-webkit-gradient(linear,left top,left bottom,color-stop(0.05,#ffab23),color-stop(1,#ffec64));background:-moz-linear-gradient(center top,#ffab23 5%,#ffec64 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffab23',endColorstr='#ffec64');background-color:#ffab23}
+.submit_btn:active{position:relative;top:1px}
+#cpopup_dropmenucombo div img{width:23px !important;height:16px !important;margin:6px 0 5px 5px !important;float:left !important}
+.flag_arrow{background:url(../images/dd_arrow.png) no-repeat 190px 11px;border-right:2px solid #c1c1c1;float:left !important;margin:0 2px 0 -1px;padding:0 22px 21px 0;width:185px}

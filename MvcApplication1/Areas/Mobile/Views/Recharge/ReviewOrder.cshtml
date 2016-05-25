@@ -1,0 +1,193 @@
+﻿@model MvcApplication1.Areas.Mobile.ViewModels.RechargeReviewOrderViewModel
+@{
+    ViewBag.Title = "ReviewOrder";
+}
+@using (Html.BeginForm("ProcessPayment", "Payment", FormMethod.Post))
+{
+    <div class="container-fluid">
+        <div class="container">
+            <h1 class=" title_login">Review Order</h1>
+        </div>
+    </div>
+    <div class="plan_tbg">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-10 col-sm-11">
+                        <h1 class=" title_review">Personal Information</h1>
+                    </div>
+                    <div class="col-xs-2 col-sm-1 ">
+                        <h4><a href="#">Edit</a></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row profile">
+                <div class="col-xs-4 col-sm-6">
+                    <h3 class=" review_titile">First Name :</h3>
+                </div>
+                <div class="col-xs-8 col-sm-2 col-sm-offset-4 ">
+                    <h3 class=" review_sub">@Html.Encode(Model.FirstName)</h3>
+                </div>
+            </div>
+            <div class="row profile">
+                <div class="col-xs-4 col-sm-6">
+                    <h3 class=" review_titile">Last Name :</h3>
+                </div>
+                <div class="col-xs-8 col-sm-2 col-sm-offset-4 ">
+                    <h3 class=" review_sub">@Html.Encode(Model.LastName)</h3>
+                </div>
+            </div>
+            <div class="row profile">
+                <div class="col-xs-4 col-sm-6">
+                    <h3 class=" review_titile">Phone No :</h3>
+                </div>
+                <div class="col-xs-8 col-sm-2 col-sm-offset-4 ">
+                    <h3 class=" review_sub">@Html.Encode(Model.PhoneNumber)</h3>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-xs-4 col-sm-6">
+                    <h3 class=" review_titile">Email : </h3>
+                </div>
+                <div class="col-xs-8 col-sm-2 col-sm-offset-4 ">
+                    <h3 class=" review_sub">@Html.Encode(Model.Email)</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="plan_tbg">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-10 col-sm-11">
+                        <h1 class=" title_review">Billing Information</h1>
+                    </div>
+                    <div class="col-xs-2 col-sm-1 ">
+                        <h4><a href="#">Edit</a></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row profile">
+                <div class="col-xs-4 col-sm-6">
+                    <h3 class=" review_titile">Address:</h3>
+                </div>
+                <div class="col-xs-8 col-sm-2 col-sm-offset-4 ">
+                    <h3 class=" review_sub">@Html.Encode(Model.Address)</h3>
+                </div>
+            </div>
+            <div class="row profile">
+                <div class="col-xs-4 col-sm-6">
+                    <h3 class=" review_titile">City : </h3>
+                </div>
+                <div class="col-xs-8 col-sm-2 col-sm-offset-4 ">
+                    <h3 class=" review_sub">@Html.Encode(Model.City)</h3>
+                </div>
+            </div>
+            <div class="row profile">
+                <div class="col-xs-4 col-sm-6">
+                    <h3 class=" review_titile">State :</h3>
+                </div>
+                <div class="col-xs-8 col-sm-2 col-sm-offset-4 ">
+                    <h3 class=" review_sub">@Html.Encode(Model.State)</h3>
+                </div>
+            </div>
+            <div class="row profile">
+                <div class="col-xs-4 col-sm-6">
+                    <h3 class=" review_titile">Contry :</h3>
+                </div>
+                <div class="col-xs-8 col-sm-2 col-sm-offset-4 ">
+                    <h3 class=" review_sub">@Html.Encode(Model.Country)</h3>
+                </div>
+            </div>
+            <div class="row profile">
+                <div class="col-xs-4 col-sm-6">
+                    <h3 class=" review_titile">Zip Postal code:</h3>
+                </div>
+                <div class="col-xs-8 col-sm-2 col-sm-offset-4 ">
+                    <h3 class=" review_sub">@Html.Encode(Model.ZipCode)</h3>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="plan_tbg">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-10 col-sm-11">
+                        <h1 class=" title_review">Payment Information</h1>
+                    </div>
+                    <div class="col-xs-2 col-sm-1 ">
+                        <h4><a href="#">Edit</a></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row profile">
+                <div class="col-xs-4 col-sm-6">
+                    <h3 class=" review_titile">Credit Card Type :</h3>
+                </div>
+                <div class="col-xs-8 col-sm-2 col-sm-offset-4 ">
+                    <h3 class=" review_sub">@Html.Encode(Model.CardType)</h3>
+                </div>
+            </div>
+            <div class="row profile">
+                <div class="col-xs-4 col-sm-6">
+                    <h3 class=" review_titile">Credit Card No :</h3>
+                </div>
+                <div class="col-xs-8 col-sm-2 col-sm-offset-4 ">
+                    <h3 class=" review_sub">@Html.Encode(Model.CardNumber)</h3>
+                </div>
+            </div>
+            <div class="row profile">
+                <div class="col-xs-4 col-sm-6">
+                    <h3 class=" review_titile">Cvv :</h3>
+                </div>
+                <div class="col-xs-8 col-sm-2 col-sm-offset-4 ">
+                    <h3 class=" review_sub">***</h3>
+                </div>
+            </div>
+            @if (!string.IsNullOrEmpty(Model.CouponCode))
+            {
+                <div class="row profile">
+                    <div class="col-xs-4 col-sm-6">
+                        <h3 class=" review_titile">Coupon : </h3>
+                    </div>
+                    <div class="col-xs-8 col-sm-2 col-sm-offset-4 ">
+                        <h3 class=" review_sub">@Html.Encode(Model.CouponCode)</h3>
+                    </div>
+                </div>
+            }
+            <div class="row profile">
+                <div class="col-xs-4 col-sm-6">
+                    <h3 class=" review_titile">Amount :</h3>
+                </div>
+                <div class="col-xs-8 col-sm-2 col-sm-offset-4 ">
+                    <h3 class=" review_sub">@Html.CurrencySign(Model.CurrencyCode)@Html.Encode(Model.Amount)</h3>
+                </div>
+            </div>
+
+            
+            <div class="row">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block form_mar btn_bgreen">Check Out</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}

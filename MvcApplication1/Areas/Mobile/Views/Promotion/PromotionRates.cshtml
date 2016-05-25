@@ -1,0 +1,105 @@
+﻿@model MvcApplication1.Areas.Mobile.ViewModels.PromotionRateViewModel
+@{
+    ViewBag.Title = "PromotionRates";
+}
+
+@helper RenderPlanInfo(dynamic data)
+{
+    <div class="col-xs-8  ">
+        <h5>REGULAR</h5>
+    </div>
+    <div class="col-xs-4  ">
+        <h5>@data.RegularMin mins</h5>
+    </div>
+    <div class="col-xs-8 profile plan_bg">
+        <h5>EXTRA </h5>
+    </div>
+    <div class="col-xs-4 profile plan_bg">
+        <h5>@data.ExtraMin mins</h5>
+    </div>
+    <div class="col-xs-8 profile">
+        <h4>TOTAL</h4>
+    </div>
+    <div class="col-xs-4 profile">
+        <h4>@data.TotalMin mins</h4>
+    </div>
+    <div class="col-xs-8 profile ">
+        <h4>RATE/MIN</h4>
+    </div>
+    <div class="col-xs-4 profile ">
+        <h4>@data.RatePerMin ¢/min</h4>
+    </div>    
+}
+
+<div class="container-fluid">
+    <div class="container demo country_mar">
+        <form id="mainform" method="POST">
+            @Html.HiddenFor(a => a.CustomerType)
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 ">
+                    @Html.DropDownListFor(a => a.CountryFrom, new SelectList(Model.FromCountryList, "Id", "Name"), new { @class = "form-control " })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 form_mar">
+                    @Html.DropDownListFor(a => a.CountryTo, new SelectList(Model.ToCountryList, "Id", "Name"), new { @class = "form-control " })
+                </div>
+            </div>
+        </form>
+
+        <div class="row">
+            <div class="col-xs-12 ">
+                @Html.DropDownListFor(a => a.Denomination, new SelectList(Model.Denominations, "Denomination", "Denomination"), new { @class = "form-control " })
+            </div>
+
+            @{
+                var data = Model.Denominations.FirstOrDefault();
+                
+            }
+
+            @if (data != null)
+            {
+                if ((Model.IsOnlyForNewCustomer && Model.IsNewCustomer)|| !User.Identity.IsAuthenticated)
+                {
+                    using (Html.BeginForm("BuyPromotion", "Promotion", FormMethod.Post))
+                    {
+
+                @Html.HiddenFor(a => a.CountryFrom)
+                @Html.HiddenFor(a => a.CountryTo)
+                @Html.HiddenFor(a => a.CouponCode)
+                @Html.Hidden("Denomination", data.Denomination)
+
+                @RenderPlanInfo(data)
+                <div class="col-xs-12">
+                    <button type="submit" class="btn btn-primary btn-block form_mar btn_bgreen">Buy</button>
+                    <a href="@Url.Action("Faq", "Promotion")" class="btn btn-primary btn-block form_mar btn_bgray ">FAQ</a>
+                </div>
+                    }
+                }
+                else
+                {
+                @RenderPlanInfo(data)
+                    <div class="col-xs-12">
+                        <a href="@Url.Action("Faq", "Promotion")" class="btn btn-primary btn-block form_mar btn_bgray ">FAQ</a>
+                    </div>
+                <div class="col-xs-12">
+                    <p class="col_red">**Only New Customers are eligible to purchase this plan, Existing customers should recharge their existing plan.</p>
+                </div>
+                }
+            }
+        </div>
+    </div>
+
+
+</div>
+
+@section scripts{
+    <script>
+        $("#CountryFrom").change(function () {
+            $("#mainform").submit();
+        });
+        $("#CountryTo").change(function () {
+            $("#mainform").submit();
+        });
+    </script>
+}

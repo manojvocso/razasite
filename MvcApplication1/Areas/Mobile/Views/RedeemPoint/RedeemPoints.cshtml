@@ -1,0 +1,58 @@
+﻿@model MvcApplication1.Areas.Mobile.ViewModels.RedeemPointsViewModel
+@{
+    ViewBag.Title = "RedeemPoints";
+}
+
+
+<div class="container-fluid">
+    <div class="container">
+        <h1 class=" title_login">Redeem Points</h1>
+
+
+        <div class="row">
+
+            @using (Html.BeginForm("Index", "RedeemPoint"))
+            {
+                <div class="form-group">
+                    <div class="text_bold">
+                        <div class="col-xs-12">
+                            <h3 class=" review_titile">Plan Name : @Html.Encode(Model.PlanName)</h3>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 form_mar">
+                        @Html.DropDownListFor(a => a.RedeemPointAmount, new SelectList(Model.RedeemOptions, "Value", "Text"), "Select points", new { @class = "form-control " })
+                        @Html.ValidationMessageFor(a => a.RedeemPointAmount)
+                    </div>
+
+                    @*                    <div class="text_bold">
+                        <div class="col-xs-12  ">
+                            <h3 class=" review_titile">Payment Method : Redeem Raza Rewards</h3>
+                        </div>
+                    </div>*@
+
+                    <div class="col-xs-12 mar_top">
+                        <button type="submit" class="btn btn-primary btn-block form_mar btn_bgreen">Continue <span class=" btn_next fa fa-chevron-right"></span></button>
+                    </div>
+                    <div class="col-xs-12 mar_top">
+                        <a href="@Url.Action("MyAccount", "Account")" class="btn btn-primary btn-block form_mar btn_bgray"><i class=" btn_prev fa fa-chevron-left"></i>Back</a>
+                    </div>
+                </div>   
+            }
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+
+}
+
+
+
+

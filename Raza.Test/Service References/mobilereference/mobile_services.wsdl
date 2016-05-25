@@ -1,0 +1,1457 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Device_ID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Raza_AuthHeader" type="tns:Raza_AuthHeader" />
+      <s:complexType name="Raza_AuthHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AuthUsername" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuthPassword" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Customer_Registration">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ZipCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Device_ID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Customer_RegistrationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Customer_RegistrationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Billing_Info">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MemberID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Billing_InfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Billing_InfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Billing_Information">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MemberID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Billing_InformationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Billing_InformationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update_Billing_Info">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MemberID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ZipCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update_Billing_InfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Update_Billing_InfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update_Billing_Information">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MemberID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ZipCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update_Billing_InformationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Update_Billing_InformationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Issue_New_Pin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MemberID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserType" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Card_ID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="TransAmt" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountryFrom" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountryTo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="CouponCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AniNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Payment_Method" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Card_Number" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Exp_Date" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CVV2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ZipCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IP_Address" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Issue_New_PinResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Issue_New_PinResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Issue_New_Pin_Redeem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MemberID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserType" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Card_ID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="TransAmt" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountryFrom" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountryTo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="CouponCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AniNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ZipCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IP_Address" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Issue_New_Pin_RedeemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Issue_New_Pin_RedeemResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Recharge_Pin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MemberID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Pin" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Purchase_Amount" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="Card_Number" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Exp_Date" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CVV2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ZipCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IP_Address" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Recharge_PinResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Recharge_PinResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Recharge_Pin_Redeem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MemberID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Pin" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Purchase_Amount" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ZipCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IP_Address" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Recharge_Pin_RedeemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Recharge_Pin_RedeemResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Recharge_Pin_FreeTrial">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MemberID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Pin" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Purchase_Amount" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ZipCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IP_Address" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Recharge_Pin_FreeTrialResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Recharge_Pin_FreeTrialResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Does_FreeTrial_Exist">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MemberID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Does_FreeTrial_ExistResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Does_FreeTrial_ExistResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Does_DeviceID_Exist">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Device_ID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Does_DeviceID_ExistResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Does_DeviceID_ExistResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Does_DeviceID_FreeTrial_Exist1">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Device_ID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Does_DeviceID_FreeTrial_Exist1Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Does_DeviceID_FreeTrial_Exist1Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Reward_Points">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MemberID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Reward_PointsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Reward_PointsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Ani_Numbers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Pin" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Device_ID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Ani_NumbersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Ani_NumbersResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Quickeys_Numbers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Pin" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Quickeys_NumbersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Quickeys_NumbersResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Recharge_Amount_List">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_Recharge_Amount_ListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Recharge_Amount_ListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Pin_Balance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Pin" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Pin_BalanceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Pin_BalanceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Order_History">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MemberID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Order_HistoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Order_HistoryResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Access_Number">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Pin" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Access_NumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Access_NumberResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Access_Number_By_State">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Access_Number_By_StateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Access_Number_By_StateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Search_Access_Number">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AreaCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Search_Access_NumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Search_Access_NumberResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Country_List">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Country_ListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Country_ListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_State_List">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_State_ListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_State_ListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Rates_By_Country">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Alphabet" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Rates_By_CountryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Rates_By_CountryResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Call_History">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Pin" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Call_HistoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Call_HistoryResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PinLess_SetUp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AniName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Requested_By" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Pin" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AniNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CountryCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Device_ID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PinLess_SetUpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PinLess_SetUpResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Delete_PinLess_SetUp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Pin" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AniNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CountryCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Requested_By" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Delete_PinLess_SetUpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Delete_PinLess_SetUpResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Quickeys_SetUp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MemberID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Pin" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CountryCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Destination_Number" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SpeedDial_Number" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NickName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Quickeys_SetUpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Quickeys_SetUpResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Delete_Quickeys_SetUp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Pin" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Destination_Number" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SpeedDial_Number" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Requested_By" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Delete_Quickeys_SetUpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Delete_Quickeys_SetUpResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Password">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_PasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_PasswordResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Set_Destination_To_Make_Call">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Pin" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Access_Number" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Destination_Number" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Set_Destination_To_Make_CallResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Set_Destination_To_Make_CallResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Make_A_Call">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Device_ID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Make_A_CallResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Make_A_CallResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Make_Call">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Pin" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Device_ID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Make_CallResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Make_CallResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginRaza_AuthHeader">
+    <wsdl:part name="Raza_AuthHeader" element="tns:Raza_AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Customer_RegistrationSoapIn">
+    <wsdl:part name="parameters" element="tns:Customer_Registration" />
+  </wsdl:message>
+  <wsdl:message name="Customer_RegistrationSoapOut">
+    <wsdl:part name="parameters" element="tns:Customer_RegistrationResponse" />
+  </wsdl:message>
+  <wsdl:message name="Customer_RegistrationRaza_AuthHeader">
+    <wsdl:part name="Raza_AuthHeader" element="tns:Raza_AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Get_Billing_InfoSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Billing_Info" />
+  </wsdl:message>
+  <wsdl:message name="Get_Billing_InfoSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Billing_InfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Billing_InfoRaza_AuthHeader">
+    <wsdl:part name="Raza_AuthHeader" element="tns:Raza_AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Get_Billing_InformationSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Billing_Information" />
+  </wsdl:message>
+  <wsdl:message name="Get_Billing_InformationSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Billing_InformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Billing_InformationRaza_AuthHeader">
+    <wsdl:part name="Raza_AuthHeader" element="tns:Raza_AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Update_Billing_InfoSoapIn">
+    <wsdl:part name="parameters" element="tns:Update_Billing_Info" />
+  </wsdl:message>
+  <wsdl:message name="Update_Billing_InfoSoapOut">
+    <wsdl:part name="parameters" element="tns:Update_Billing_InfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Update_Billing_InfoRaza_AuthHeader">
+    <wsdl:part name="Raza_AuthHeader" element="tns:Raza_AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Update_Billing_InformationSoapIn">
+    <wsdl:part name="parameters" element="tns:Update_Billing_Information" />
+  </wsdl:message>
+  <wsdl:message name="Update_Billing_InformationSoapOut">
+    <wsdl:part name="parameters" element="tns:Update_Billing_InformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="Update_Billing_InformationRaza_AuthHeader">
+    <wsdl:part name="Raza_AuthHeader" element="tns:Raza_AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Issue_New_PinSoapIn">
+    <wsdl:part name="parameters" element="tns:Issue_New_Pin" />
+  </wsdl:message>
+  <wsdl:message name="Issue_New_PinSoapOut">
+    <wsdl:part name="parameters" element="tns:Issue_New_PinResponse" />
+  </wsdl:message>
+  <wsdl:message name="Issue_New_PinRaza_AuthHeader">
+    <wsdl:part name="Raza_AuthHeader" element="tns:Raza_AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Issue_New_Pin_RedeemSoapIn">
+    <wsdl:part name="parameters" element="tns:Issue_New_Pin_Redeem" />
+  </wsdl:message>
+  <wsdl:message name="Issue_New_Pin_RedeemSoapOut">
+    <wsdl:part name="parameters" element="tns:Issue_New_Pin_RedeemResponse" />
+  </wsdl:message>
+  <wsdl:message name="Issue_New_Pin_RedeemRaza_AuthHeader">
+    <wsdl:part name="Raza_AuthHeader" element="tns:Raza_AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Recharge_PinSoapIn">
+    <wsdl:part name="parameters" element="tns:Recharge_Pin" />
+  </wsdl:message>
+  <wsdl:message name="Recharge_PinSoapOut">
+    <wsdl:part name="parameters" element="tns:Recharge_PinResponse" />
+  </wsdl:message>
+  <wsdl:message name="Recharge_PinRaza_AuthHeader">
+    <wsdl:part name="Raza_AuthHeader" element="tns:Raza_AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Recharge_Pin_RedeemSoapIn">
+    <wsdl:part name="parameters" element="tns:Recharge_Pin_Redeem" />
+  </wsdl:message>
+  <wsdl:message name="Recharge_Pin_RedeemSoapOut">
+    <wsdl:part name="parameters" element="tns:Recharge_Pin_RedeemResponse" />
+  </wsdl:message>
+  <wsdl:message name="Recharge_Pin_RedeemRaza_AuthHeader">
+    <wsdl:part name="Raza_AuthHeader" element="tns:Raza_AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Recharge_Pin_FreeTrialSoapIn">
+    <wsdl:part name="parameters" element="tns:Recharge_Pin_FreeTrial" />
+  </wsdl:message>
+  <wsdl:message name="Recharge_Pin_FreeTrialSoapOut">
+    <wsdl:part name="parameters" element="tns:Recharge_Pin_FreeTrialResponse" />
+  </wsdl:message>
+  <wsdl:message name="Recharge_Pin_FreeTrialRaza_AuthHeader">
+    <wsdl:part name="Raza_AuthHeader" element="tns:Raza_AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Does_FreeTrial_ExistSoapIn">
+    <wsdl:part name="parameters" element="tns:Does_FreeTrial_Exist" />
+  </wsdl:message>
+  <wsdl:message name="Does_FreeTrial_ExistSoapOut">
+    <wsdl:part name="parameters" element="tns:Does_FreeTrial_ExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="Does_FreeTrial_ExistRaza_AuthHeader">
+    <wsdl:part name="Raza_AuthHeader" element="tns:Raza_AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Does_DeviceID_ExistSoapIn">
+    <wsdl:part name="parameters" element="tns:Does_DeviceID_Exist" />
+  </wsdl:message>
+  <wsdl:message name="Does_DeviceID_ExistSoapOut">
+    <wsdl:part name="parameters" element="tns:Does_DeviceID_ExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="Does_DeviceID_ExistRaza_AuthHeader">
+    <wsdl:part name="Raza_AuthHeader" element="tns:Raza_AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Does_DeviceID_FreeTrial_Exist1SoapIn">
+    <wsdl:part name="parameters" element="tns:Does_DeviceID_FreeTrial_Exist1" />
+  </wsdl:message>
+  <wsdl:message name="Does_DeviceID_FreeTrial_Exist1SoapOut">
+    <wsdl:part name="parameters" element="tns:Does_DeviceID_FreeTrial_Exist1Response" />
+  </wsdl:message>
+  <wsdl:message name="Does_DeviceID_FreeTrial_Exist1Raza_AuthHeader">
+    <wsdl:part name="Raza_AuthHeader" element="tns:Raza_AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Get_Reward_PointsSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Reward_Points" />
+  </wsdl:message>
+  <wsdl:message name="Get_Reward_PointsSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Reward_PointsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Reward_PointsRaza_AuthHeader">
+    <wsdl:part name="Raza_AuthHeader" element="tns:Raza_AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Get_Ani_NumbersSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Ani_Numbers" />
+  </wsdl:message>
+  <wsdl:message name="Get_Ani_NumbersSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Ani_NumbersResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Ani_NumbersRaza_AuthHeader">
+    <wsdl:part name="Raza_AuthHeader" element="tns:Raza_AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Get_Quickeys_NumbersSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Quickeys_Numbers" />
+  </wsdl:message>
+  <wsdl:message name="Get_Quickeys_NumbersSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Quickeys_NumbersResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Quickeys_NumbersRaza_AuthHeader">
+    <wsdl:part name="Raza_AuthHeader" element="tns:Raza_AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Get_Recharge_Amount_ListSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Recharge_Amount_List" />
+  </wsdl:message>
+  <wsdl:message name="Get_Recharge_Amount_ListSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Recharge_Amount_ListResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Recharge_Amount_ListRaza_AuthHeader">
+    <wsdl:part name="Raza_AuthHeader" element="tns:Raza_AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Get_Pin_BalanceSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Pin_Balance" />
+  </wsdl:message>
+  <wsdl:message name="Get_Pin_BalanceSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Pin_BalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Pin_BalanceRaza_AuthHeader">
+    <wsdl:part name="Raza_AuthHeader" element="tns:Raza_AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Get_Order_HistorySoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Order_History" />
+  </wsdl:message>
+  <wsdl:message name="Get_Order_HistorySoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Order_HistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Order_HistoryRaza_AuthHeader">
+    <wsdl:part name="Raza_AuthHeader" element="tns:Raza_AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Get_Access_NumberSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Access_Number" />
+  </wsdl:message>
+  <wsdl:message name="Get_Access_NumberSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Access_NumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Access_NumberRaza_AuthHeader">
+    <wsdl:part name="Raza_AuthHeader" element="tns:Raza_AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Get_Access_Number_By_StateSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Access_Number_By_State" />
+  </wsdl:message>
+  <wsdl:message name="Get_Access_Number_By_StateSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Access_Number_By_StateResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Access_Number_By_StateRaza_AuthHeader">
+    <wsdl:part name="Raza_AuthHeader" element="tns:Raza_AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Search_Access_NumberSoapIn">
+    <wsdl:part name="parameters" element="tns:Search_Access_Number" />
+  </wsdl:message>
+  <wsdl:message name="Search_Access_NumberSoapOut">
+    <wsdl:part name="parameters" element="tns:Search_Access_NumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="Search_Access_NumberRaza_AuthHeader">
+    <wsdl:part name="Raza_AuthHeader" element="tns:Raza_AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Get_Country_ListSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Country_List" />
+  </wsdl:message>
+  <wsdl:message name="Get_Country_ListSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Country_ListResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Country_ListRaza_AuthHeader">
+    <wsdl:part name="Raza_AuthHeader" element="tns:Raza_AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Get_State_ListSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_State_List" />
+  </wsdl:message>
+  <wsdl:message name="Get_State_ListSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_State_ListResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_State_ListRaza_AuthHeader">
+    <wsdl:part name="Raza_AuthHeader" element="tns:Raza_AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Get_Rates_By_CountrySoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Rates_By_Country" />
+  </wsdl:message>
+  <wsdl:message name="Get_Rates_By_CountrySoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Rates_By_CountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Rates_By_CountryRaza_AuthHeader">
+    <wsdl:part name="Raza_AuthHeader" element="tns:Raza_AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Get_Call_HistorySoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Call_History" />
+  </wsdl:message>
+  <wsdl:message name="Get_Call_HistorySoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Call_HistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Call_HistoryRaza_AuthHeader">
+    <wsdl:part name="Raza_AuthHeader" element="tns:Raza_AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="PinLess_SetUpSoapIn">
+    <wsdl:part name="parameters" element="tns:PinLess_SetUp" />
+  </wsdl:message>
+  <wsdl:message name="PinLess_SetUpSoapOut">
+    <wsdl:part name="parameters" element="tns:PinLess_SetUpResponse" />
+  </wsdl:message>
+  <wsdl:message name="PinLess_SetUpRaza_AuthHeader">
+    <wsdl:part name="Raza_AuthHeader" element="tns:Raza_AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Delete_PinLess_SetUpSoapIn">
+    <wsdl:part name="parameters" element="tns:Delete_PinLess_SetUp" />
+  </wsdl:message>
+  <wsdl:message name="Delete_PinLess_SetUpSoapOut">
+    <wsdl:part name="parameters" element="tns:Delete_PinLess_SetUpResponse" />
+  </wsdl:message>
+  <wsdl:message name="Delete_PinLess_SetUpRaza_AuthHeader">
+    <wsdl:part name="Raza_AuthHeader" element="tns:Raza_AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Quickeys_SetUpSoapIn">
+    <wsdl:part name="parameters" element="tns:Quickeys_SetUp" />
+  </wsdl:message>
+  <wsdl:message name="Quickeys_SetUpSoapOut">
+    <wsdl:part name="parameters" element="tns:Quickeys_SetUpResponse" />
+  </wsdl:message>
+  <wsdl:message name="Quickeys_SetUpRaza_AuthHeader">
+    <wsdl:part name="Raza_AuthHeader" element="tns:Raza_AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Delete_Quickeys_SetUpSoapIn">
+    <wsdl:part name="parameters" element="tns:Delete_Quickeys_SetUp" />
+  </wsdl:message>
+  <wsdl:message name="Delete_Quickeys_SetUpSoapOut">
+    <wsdl:part name="parameters" element="tns:Delete_Quickeys_SetUpResponse" />
+  </wsdl:message>
+  <wsdl:message name="Delete_Quickeys_SetUpRaza_AuthHeader">
+    <wsdl:part name="Raza_AuthHeader" element="tns:Raza_AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Get_PasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Password" />
+  </wsdl:message>
+  <wsdl:message name="Get_PasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_PasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_PasswordRaza_AuthHeader">
+    <wsdl:part name="Raza_AuthHeader" element="tns:Raza_AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Set_Destination_To_Make_CallSoapIn">
+    <wsdl:part name="parameters" element="tns:Set_Destination_To_Make_Call" />
+  </wsdl:message>
+  <wsdl:message name="Set_Destination_To_Make_CallSoapOut">
+    <wsdl:part name="parameters" element="tns:Set_Destination_To_Make_CallResponse" />
+  </wsdl:message>
+  <wsdl:message name="Set_Destination_To_Make_CallRaza_AuthHeader">
+    <wsdl:part name="Raza_AuthHeader" element="tns:Raza_AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Make_A_CallSoapIn">
+    <wsdl:part name="parameters" element="tns:Make_A_Call" />
+  </wsdl:message>
+  <wsdl:message name="Make_A_CallSoapOut">
+    <wsdl:part name="parameters" element="tns:Make_A_CallResponse" />
+  </wsdl:message>
+  <wsdl:message name="Make_A_CallRaza_AuthHeader">
+    <wsdl:part name="Raza_AuthHeader" element="tns:Raza_AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Make_CallSoapIn">
+    <wsdl:part name="parameters" element="tns:Make_Call" />
+  </wsdl:message>
+  <wsdl:message name="Make_CallSoapOut">
+    <wsdl:part name="parameters" element="tns:Make_CallResponse" />
+  </wsdl:message>
+  <wsdl:message name="Make_CallRaza_AuthHeader">
+    <wsdl:part name="Raza_AuthHeader" element="tns:Raza_AuthHeader" />
+  </wsdl:message>
+  <wsdl:portType name="Mobile_ServicesSoap">
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Customer_Registration">
+      <wsdl:input message="tns:Customer_RegistrationSoapIn" />
+      <wsdl:output message="tns:Customer_RegistrationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Billing_Info">
+      <wsdl:input message="tns:Get_Billing_InfoSoapIn" />
+      <wsdl:output message="tns:Get_Billing_InfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Billing_Information">
+      <wsdl:input message="tns:Get_Billing_InformationSoapIn" />
+      <wsdl:output message="tns:Get_Billing_InformationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update_Billing_Info">
+      <wsdl:input message="tns:Update_Billing_InfoSoapIn" />
+      <wsdl:output message="tns:Update_Billing_InfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update_Billing_Information">
+      <wsdl:input message="tns:Update_Billing_InformationSoapIn" />
+      <wsdl:output message="tns:Update_Billing_InformationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Issue_New_Pin">
+      <wsdl:input message="tns:Issue_New_PinSoapIn" />
+      <wsdl:output message="tns:Issue_New_PinSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Issue_New_Pin_Redeem">
+      <wsdl:input message="tns:Issue_New_Pin_RedeemSoapIn" />
+      <wsdl:output message="tns:Issue_New_Pin_RedeemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Recharge_Pin">
+      <wsdl:input message="tns:Recharge_PinSoapIn" />
+      <wsdl:output message="tns:Recharge_PinSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Recharge_Pin_Redeem">
+      <wsdl:input message="tns:Recharge_Pin_RedeemSoapIn" />
+      <wsdl:output message="tns:Recharge_Pin_RedeemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Recharge_Pin_FreeTrial">
+      <wsdl:input message="tns:Recharge_Pin_FreeTrialSoapIn" />
+      <wsdl:output message="tns:Recharge_Pin_FreeTrialSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Does_FreeTrial_Exist">
+      <wsdl:input message="tns:Does_FreeTrial_ExistSoapIn" />
+      <wsdl:output message="tns:Does_FreeTrial_ExistSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Does_DeviceID_Exist">
+      <wsdl:input message="tns:Does_DeviceID_ExistSoapIn" />
+      <wsdl:output message="tns:Does_DeviceID_ExistSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Does_DeviceID_FreeTrial_Exist1">
+      <wsdl:input message="tns:Does_DeviceID_FreeTrial_Exist1SoapIn" />
+      <wsdl:output message="tns:Does_DeviceID_FreeTrial_Exist1SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Reward_Points">
+      <wsdl:input message="tns:Get_Reward_PointsSoapIn" />
+      <wsdl:output message="tns:Get_Reward_PointsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Ani_Numbers">
+      <wsdl:input message="tns:Get_Ani_NumbersSoapIn" />
+      <wsdl:output message="tns:Get_Ani_NumbersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Quickeys_Numbers">
+      <wsdl:input message="tns:Get_Quickeys_NumbersSoapIn" />
+      <wsdl:output message="tns:Get_Quickeys_NumbersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Recharge_Amount_List">
+      <wsdl:input message="tns:Get_Recharge_Amount_ListSoapIn" />
+      <wsdl:output message="tns:Get_Recharge_Amount_ListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Pin_Balance">
+      <wsdl:input message="tns:Get_Pin_BalanceSoapIn" />
+      <wsdl:output message="tns:Get_Pin_BalanceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Order_History">
+      <wsdl:input message="tns:Get_Order_HistorySoapIn" />
+      <wsdl:output message="tns:Get_Order_HistorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Access_Number">
+      <wsdl:input message="tns:Get_Access_NumberSoapIn" />
+      <wsdl:output message="tns:Get_Access_NumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Access_Number_By_State">
+      <wsdl:input message="tns:Get_Access_Number_By_StateSoapIn" />
+      <wsdl:output message="tns:Get_Access_Number_By_StateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Search_Access_Number">
+      <wsdl:input message="tns:Search_Access_NumberSoapIn" />
+      <wsdl:output message="tns:Search_Access_NumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Country_List">
+      <wsdl:input message="tns:Get_Country_ListSoapIn" />
+      <wsdl:output message="tns:Get_Country_ListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_State_List">
+      <wsdl:input message="tns:Get_State_ListSoapIn" />
+      <wsdl:output message="tns:Get_State_ListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Rates_By_Country">
+      <wsdl:input message="tns:Get_Rates_By_CountrySoapIn" />
+      <wsdl:output message="tns:Get_Rates_By_CountrySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Call_History">
+      <wsdl:input message="tns:Get_Call_HistorySoapIn" />
+      <wsdl:output message="tns:Get_Call_HistorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PinLess_SetUp">
+      <wsdl:input message="tns:PinLess_SetUpSoapIn" />
+      <wsdl:output message="tns:PinLess_SetUpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete_PinLess_SetUp">
+      <wsdl:input message="tns:Delete_PinLess_SetUpSoapIn" />
+      <wsdl:output message="tns:Delete_PinLess_SetUpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Quickeys_SetUp">
+      <wsdl:input message="tns:Quickeys_SetUpSoapIn" />
+      <wsdl:output message="tns:Quickeys_SetUpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete_Quickeys_SetUp">
+      <wsdl:input message="tns:Delete_Quickeys_SetUpSoapIn" />
+      <wsdl:output message="tns:Delete_Quickeys_SetUpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Password">
+      <wsdl:input message="tns:Get_PasswordSoapIn" />
+      <wsdl:output message="tns:Get_PasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Set_Destination_To_Make_Call">
+      <wsdl:input message="tns:Set_Destination_To_Make_CallSoapIn" />
+      <wsdl:output message="tns:Set_Destination_To_Make_CallSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Make_A_Call">
+      <wsdl:input message="tns:Make_A_CallSoapIn" />
+      <wsdl:output message="tns:Make_A_CallSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Make_Call">
+      <wsdl:input message="tns:Make_CallSoapIn" />
+      <wsdl:output message="tns:Make_CallSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Mobile_ServicesSoap" type="tns:Mobile_ServicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:LoginRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:LoginRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Customer_Registration">
+      <soap:operation soapAction="http://tempuri.org/Customer_Registration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Customer_RegistrationRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:Customer_RegistrationRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Billing_Info">
+      <soap:operation soapAction="http://tempuri.org/Get_Billing_Info" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Get_Billing_InfoRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:Get_Billing_InfoRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Billing_Information">
+      <soap:operation soapAction="http://tempuri.org/Get_Billing_Information" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Get_Billing_InformationRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:Get_Billing_InformationRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update_Billing_Info">
+      <soap:operation soapAction="http://tempuri.org/Update_Billing_Info" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Update_Billing_InfoRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:Update_Billing_InfoRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update_Billing_Information">
+      <soap:operation soapAction="http://tempuri.org/Update_Billing_Information" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Update_Billing_InformationRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:Update_Billing_InformationRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Issue_New_Pin">
+      <soap:operation soapAction="http://tempuri.org/Issue_New_Pin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Issue_New_PinRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:Issue_New_PinRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Issue_New_Pin_Redeem">
+      <soap:operation soapAction="http://tempuri.org/Issue_New_Pin_Redeem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Issue_New_Pin_RedeemRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:Issue_New_Pin_RedeemRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Recharge_Pin">
+      <soap:operation soapAction="http://tempuri.org/Recharge_Pin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Recharge_PinRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:Recharge_PinRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Recharge_Pin_Redeem">
+      <soap:operation soapAction="http://tempuri.org/Recharge_Pin_Redeem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Recharge_Pin_RedeemRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:Recharge_Pin_RedeemRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Recharge_Pin_FreeTrial">
+      <soap:operation soapAction="http://tempuri.org/Recharge_Pin_FreeTrial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Recharge_Pin_FreeTrialRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:Recharge_Pin_FreeTrialRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Does_FreeTrial_Exist">
+      <soap:operation soapAction="http://tempuri.org/Does_FreeTrial_Exist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Does_FreeTrial_ExistRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:Does_FreeTrial_ExistRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Does_DeviceID_Exist">
+      <soap:operation soapAction="http://tempuri.org/Does_DeviceID_Exist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Does_DeviceID_ExistRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:Does_DeviceID_ExistRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Does_DeviceID_FreeTrial_Exist1">
+      <soap:operation soapAction="http://tempuri.org/Does_DeviceID_FreeTrial_Exist1" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Does_DeviceID_FreeTrial_Exist1Raza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:Does_DeviceID_FreeTrial_Exist1Raza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Reward_Points">
+      <soap:operation soapAction="http://tempuri.org/Get_Reward_Points" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Get_Reward_PointsRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:Get_Reward_PointsRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Ani_Numbers">
+      <soap:operation soapAction="http://tempuri.org/Get_Ani_Numbers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Get_Ani_NumbersRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:Get_Ani_NumbersRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Quickeys_Numbers">
+      <soap:operation soapAction="http://tempuri.org/Get_Quickeys_Numbers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Get_Quickeys_NumbersRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:Get_Quickeys_NumbersRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Recharge_Amount_List">
+      <soap:operation soapAction="http://tempuri.org/Get_Recharge_Amount_List" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Get_Recharge_Amount_ListRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:Get_Recharge_Amount_ListRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Pin_Balance">
+      <soap:operation soapAction="http://tempuri.org/Get_Pin_Balance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Get_Pin_BalanceRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:Get_Pin_BalanceRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Order_History">
+      <soap:operation soapAction="http://tempuri.org/Get_Order_History" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Get_Order_HistoryRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:Get_Order_HistoryRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Access_Number">
+      <soap:operation soapAction="http://tempuri.org/Get_Access_Number" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Get_Access_NumberRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:Get_Access_NumberRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Access_Number_By_State">
+      <soap:operation soapAction="http://tempuri.org/Get_Access_Number_By_State" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Get_Access_Number_By_StateRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:Get_Access_Number_By_StateRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Search_Access_Number">
+      <soap:operation soapAction="http://tempuri.org/Search_Access_Number" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Search_Access_NumberRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:Search_Access_NumberRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Country_List">
+      <soap:operation soapAction="http://tempuri.org/Get_Country_List" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Get_Country_ListRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:Get_Country_ListRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_State_List">
+      <soap:operation soapAction="http://tempuri.org/Get_State_List" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Get_State_ListRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:Get_State_ListRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Rates_By_Country">
+      <soap:operation soapAction="http://tempuri.org/Get_Rates_By_Country" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Get_Rates_By_CountryRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:Get_Rates_By_CountryRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Call_History">
+      <soap:operation soapAction="http://tempuri.org/Get_Call_History" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Get_Call_HistoryRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:Get_Call_HistoryRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PinLess_SetUp">
+      <soap:operation soapAction="http://tempuri.org/PinLess_SetUp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:PinLess_SetUpRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:PinLess_SetUpRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete_PinLess_SetUp">
+      <soap:operation soapAction="http://tempuri.org/Delete_PinLess_SetUp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Delete_PinLess_SetUpRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:Delete_PinLess_SetUpRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Quickeys_SetUp">
+      <soap:operation soapAction="http://tempuri.org/Quickeys_SetUp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Quickeys_SetUpRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:Quickeys_SetUpRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete_Quickeys_SetUp">
+      <soap:operation soapAction="http://tempuri.org/Delete_Quickeys_SetUp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Delete_Quickeys_SetUpRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:Delete_Quickeys_SetUpRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Password">
+      <soap:operation soapAction="http://tempuri.org/Get_Password" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Get_PasswordRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:Get_PasswordRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Set_Destination_To_Make_Call">
+      <soap:operation soapAction="http://tempuri.org/Set_Destination_To_Make_Call" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Set_Destination_To_Make_CallRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:Set_Destination_To_Make_CallRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Make_A_Call">
+      <soap:operation soapAction="http://tempuri.org/Make_A_Call" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Make_A_CallRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:Make_A_CallRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Make_Call">
+      <soap:operation soapAction="http://tempuri.org/Make_Call" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Make_CallRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:Make_CallRaza_AuthHeader" part="Raza_AuthHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Mobile_Services">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Raza Communication Mobile Service</documentation>
+    <wsdl:port name="Mobile_ServicesSoap" binding="tns:Mobile_ServicesSoap">
+      <soap:address location="http://www.hotphonecard.com/razawebservices/mobile_services.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

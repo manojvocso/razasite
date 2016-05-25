@@ -1,0 +1,227 @@
+﻿@model MvcApplication1.Models.CallDetailsModel
+@{
+    ViewBag.Title = "CallDetailReport";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js" type="text/javascript"></script>
+
+
+<!--Body Container Start-->
+<div id="inner_body_container">
+    <div id="banner">
+        <img src="@Url.Content("~/images/calldetail_bannernew.jpg")" alt="" /></div>
+    <!-- End demo -->
+    <div id="auto-refill">
+        <div id="auto-refill-scroller">
+            <div class="top-bg">
+                <h1>
+                    Call Detail Report
+                </h1>
+            </div>
+            <div class="repeat-scroller-bg">
+                <div class="editprofile_b">
+                    <div id="edit-profile">
+                        <div class="date">
+                            <ul>
+                                <li>Date and Times listed corresponds to the instant when the call was completed.
+                                </li>
+                                <li>Sometimes if your making a call through a VOIP/Switch board phone the outgoing number might show as a different number in the call detail report. </li>
+                                <li>The call details would show the main office or company’s number instead of the Extension or secondary number.</li>
+                                <li>Times are based on Central Standard Time (CST)</li>
+                                <li>Amounts shown are based on US Dollars (USD)</li>
+                            </ul>
+                       
+                            <div class="clear">
+                            </div>
+                            <h4 align="center" class="repo_pin">
+                                <strong>Call Detail Report for PIN: @ViewBag.pinNumber</strong></h4>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="view-cdr">
+                                <tr>
+                                    <td>
+                                        <p>
+                                            <span>
+                                                <a  href="@Url.Action("CallDetailReportSearch", "Account", new { order_id = ViewBag.orderid, date = DateTime.Now })">@ViewBag.CurrentMonth
+                                                </a>| <a href="@Url.Action("CallDetailReportSearch", "Account", new { order_id = ViewBag.orderid, date = DateTime.Now.AddMonths(-1) })">@ViewBag.PastOneMonth</a>
+                                                | <a href="@Url.Action("CallDetailReportSearch", "Account", new { order_id = ViewBag.orderid, date = DateTime.Now.AddMonths(-2) })">@ViewBag.PastSecondMonth</a>
+                                            </span></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table width="100%" border="0" cellspacing="0" rules="all" id="dgCDR">
+                                            <tbody>
+                                                <tr align="middle" valign="center">
+                                                    <td height="30" align="center" bgcolor="#757575" class="col">
+                                                        Date
+                                                    </td>
+                                                    <td align="center" bgcolor="#757575" class="col">
+                                                        Source Number
+                                                    </td>
+                                                    <td align="center" bgcolor="#757575" class="col">
+                                                        Destination
+                                                    </td>
+                                                    <td align="center" bgcolor="#757575" class="col">
+                                                        Dest. City
+                                                    </td>
+                                                    <td align="center" bgcolor="#757575" class="col">
+                                                        Duration
+                                                    </td>
+                                                    <td align="center" bgcolor="#757575" class="col">
+                                                        Amount
+                                                    </td>
+                                                </tr>
+                                                
+                                                @{
+                                                    if (Model.AllCalls!=null && Model.AllCalls.Count > 0)
+                                                    {
+                                                        string i = "even";
+                                                        foreach (var eachcall in Model.AllCalls)
+                                                        {
+                                                            i = (i == "even") ? "odd" : "even";
+
+                                                            <tr align="middle" valign="center"  class="@i" >
+                                                                <td height="27">
+                                                                    <center>
+                                                                        @eachcall.CallDate
+                                                                    </center>
+                                                                </td>
+                                                                <td height="27" align="center">@eachcall.SourceNumber
+                                                                </td>
+                                                                <td height="27" align="center">@eachcall.DestinationNumber
+                                                                </td>
+                                                                <td height="27" align="center">@eachcall.DestinationCity
+                                                                </td>
+                                                                <td height="27" align="center">@eachcall.CallDuration
+                                                                </td>
+                                                                <td height="27" align="center">
+                                                                     @eachcall.CallAmount
+                                                                </td>
+                                                            </tr>
+                                                        }
+                                                    }else
+                                                    {
+                                                        <tr align="middle" valign="center">
+                                                            <td colspan="6" style="horiz-align: center">
+                                                                <h3 style="color:red">Sorry, No Usage Found For Specified Date Range !!!</h3>
+                                                            </td>
+                                                        </tr>
+                                                            
+                                                    }
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <br />
+                        </div>
+                          <style>
+                                .container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-panel .inner table tr td p {
+margin: 10px 0 0 0px!important;
+line-height: 20px;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 14px;
+}
+.fl {
+float: left!important;
+}
+.toronto {
+float: left;
+font-family: arial;
+font-size: 13px;
+font-weight: bold;
+margin: -1px 0 2px;
+color: #000;
+}
+.toronto_2 {
+margin: 10px 0px 0px 0px!important;
+font-size: 14px!important;
+}
+
+                            </style>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-bottom: 1px solid #efefef;
+                            border-top: 1px solid #efefef;">
+                            <tr>
+                                <td valign="top" style="border-right: 1px solid #efefef;">
+                                    <p>
+                                        <strong>Customer Service Phone Numbers's :</strong></p>
+                                  
+                                    <p>
+                                        <span class="us">
+                                            <img src="@Url.Content("~/images/us.png")" alt="" />
+                                            Toll-Free : 1-877.463.4233</span></p>
+                                    <p>
+                                        <span class="us">
+                                            <img src="@Url.Content("~/images/united-Kingdom_flat.png")" alt="" />
+                                            0808.234.7012</span></p>
+                                    <p>
+                                        <span class="us">
+                                            <img src="@Url.Content("~/images/canada-Flag.png")" alt="" />
+                                            1-800.550.3501</span></p>
+                                    <br />
+                                    <p style="color: #000;font-size: 14px;font-weight:bold;margin: -8px 0 10px 0;"><strong>Chicago: 1-773.792.8150</b></strong></p>
+                                    <span class="toronto toronto_2">Toronto: 416-746-9797</span>
+
+                                    <b style="font-size:14px;color: #000;font-family: Arial, Helvetica, sans-serif;
+
+margin: 0;
+padding: 9px 0 3px 0;
+font-weight: normal;
+margin-top: 31px;
+margin-left: -152px;"><strong>UK London: + 44  207-100-3090</strong></b>
+                                </td>
+                                <td valign="top" style="border-right: 1px solid #efefef; padding: 0 0px 0 20px">
+                                    <p>
+                                        <strong>Fax Numbers's : </strong>
+                                    </p>
+                                    <p>
+                                        <span class="us">
+                                            <img src="@Url.Content("~/images/us.png")" alt="" />
+                                            1-773-792-8291</span></p>
+                                    <p>
+                                        <span class="us">
+                                            <img src="@Url.Content("~/images/canada-Flag.png")" alt="" />
+                                            1- 416-746-5239</span></p>
+                                    <p>
+                                        <img src="@Url.Content("~/images/email.png")" alt="" />
+                                        <a class="tabs_more_tag" href="mailto:support@Raza.com">support@Raza.com</a><br />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="tabs_more_tag" href="mailto:sales@Raza.com">sales@Raza.com</a><br />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="tabs_more_tag" href="mailto:info@Raza.com">info@Raza.com</a></p>
+                                </td>
+                                <td valign="top" style="padding: 0 0px 0 20px">
+                                    <p>
+                                        <strong>Want to ask a question now.<br />
+                                            Chat with our Rep here</strong></p>
+                                    <p>
+                                        <a href="javascript: openwindow()">
+                                            <img src="@Url.Content("~/images/chat.jpg")" alt="" border="0px" /></a>
+                                    </p>
+                                    <script type="text/javascript">
+
+                              function openwindow() {
+
+                                  var url = "https://server.iad.liveperson.net/hc/69462672/?cmd=file&file=visitorWantsToChat&site=69462672&referrer=@Request.Url.ToString()";
+                                      
+                                  window.open(url,
+"mywindow", "location=1,status=1,scrollbars=1,width=400,height=400");
+
+                              }
+
+                                    </script>
+                                   
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-scroller-bg">
+            </div>
+        </div>
+    </div>
+    <!--Body Container End-->
+    <div class="spacer">
+    </div>
+    <div class="clear">
+    </div>
+</div>

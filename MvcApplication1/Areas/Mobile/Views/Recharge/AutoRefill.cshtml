@@ -1,0 +1,41 @@
+﻿@model MvcApplication1.Areas.Mobile.ViewModels.RechargeAutorefillSetupViewModel
+@{
+    ViewBag.Title = "AutoRefill";
+}
+
+<div class="container-fluid">
+    <div class="container">
+        <h1 class=" title_login">Recharge</h1>
+        @using (Html.BeginForm("AutoRefill", "Recharge", FormMethod.Post))
+        {
+            <div class="row">
+                <div class="col-xs-12">
+                    <h4>Enroll to Auto-refill and get 10% free mins everytime.</h4>
+                    <p>Raza's Auto refill is a service provided to our customers that allows us to automatically recharge your account, once your plan balance falls below $2.With Auto Refill, the advantage is you do not have to call us or go on the website to recharge your plan.</p>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12 form_mar">
+                        <div class="input-group">
+                            <span class="input-group-addon ">@Html.CurrencySign(Model.CurrencyCode)</span>
+                            @Html.DropDownListFor(a => a.AutoRefillAmout, new SelectList(Model.AutoRefillOptionsList), "Select Amount", new { @class = "form-control " })
+                        </div>
+                        @Html.ValidationMessageFor(a => a.AutoRefillAmout)
+                    </div>
+
+                    <div class="col-xs-12">
+                        <button type="submit" class="btn btn-primary btn-block form_mar btn_bgreen">Recharge </button>
+                    </div>
+                    <div class="col-xs-12">
+                        <a href="@Url.Action("ReviewOrder", "Cart", new { id = Html.EncodedParameterValue(Model.PlanPin) })" class="btn btn-primary btn-block form_mar btn_bgray">Skip</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}

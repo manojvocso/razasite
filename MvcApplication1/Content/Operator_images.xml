@@ -1,0 +1,428 @@
+﻿<?xml version="1.0" encoding="utf-8"?> 
+<OperatorImages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ListOfOperators> 
+
+  <Operator>
+  <countryid>1</countryid>
+  <operatorname>Airtel</operatorname>
+  <operatorimage>airtel.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>1</countryid>
+  <operatorname>Etisalat</operatorname>
+  <operatorimage>etisalat.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>1</countryid>
+  <operatorname>Telcel</operatorname>
+  <operatorimage>telcel_logo.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>1</countryid>
+  <operatorname>Tigo</operatorname>
+  <operatorimage>tigo_logo.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>1</countryid>
+  <operatorname>Vodafone</operatorname>
+  <operatorimage>vodafone_logo.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>1</countryid>
+  <operatorname>alltel</operatorname>
+  <operatorimage>alltel_logo.png</operatorimage>
+  </Operator>
+
+
+  <Operator>
+  <countryid>1</countryid>
+  <operatorname>bouygues</operatorname>
+  <operatorimage>bouygues_logo.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>1</countryid>
+  <operatorname>Digicel</operatorname>
+  <operatorimage>digicel.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>1</countryid>
+  <operatorname>Roshan</operatorname>
+  <operatorimage>xyz.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>7</countryid>
+  <operatorname>Lime</operatorname>
+  <operatorimage>lime.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>17</countryid>
+  <operatorname>VivaCell-MTS</operatorname>
+  <operatorimage>viva.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>27</countryid>
+  <operatorname>Banglalink</operatorname>
+  <operatorimage>banglalink.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>27</countryid>
+  <operatorname>Grameen</operatorname>
+  <operatorimage>grameen.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>27</countryid>
+  <operatorname>Robi</operatorname>
+  <operatorimage>robi.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>36</countryid>
+  <operatorname>Smart</operatorname>
+  <operatorimage>smart.png</operatorimage>
+  </Operator>
+
+
+  <Operator>
+  <countryid>36</countryid>
+  <operatorname>Telemedia</operatorname>
+  <operatorimage>xyz.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>40</countryid>
+  <operatorname>Entel</operatorname>
+  <operatorimage>entel.png</operatorimage>
+  </Operator>
+
+
+  <Operator>
+  <countryid>40</countryid>
+  <operatorname>Viva</operatorname>
+  <operatorimage>viva_logo.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>43</countryid>
+  <operatorname>Claro</operatorname>
+  <operatorimage>claro.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>43</countryid>
+  <operatorname>Nextel</operatorname>
+  <operatorimage>nextel.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>43</countryid>
+  <operatorname>OI</operatorname>
+  <operatorimage>oi.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>43</countryid>
+  <operatorname>TIM</operatorname>
+  <operatorimage>xyz.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>43</countryid>
+  <operatorname>Vivo</operatorname>
+  <operatorimage>vivo.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>54</countryid>
+  <operatorname>Econet</operatorname>
+  <operatorimage>econet.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>54</countryid>
+  <operatorname>UCOM</operatorname>
+  <operatorimage>ucom.png</operatorimage>
+  </Operator>
+
+
+  <Operator>
+  <countryid>55</countryid>
+  <operatorname>CamGSM</operatorname>
+  <operatorimage>camgsm.png</operatorimage>
+  </Operator>
+
+
+  <Operator>
+  <countryid>55</countryid>
+  <operatorname>Metfone</operatorname>
+  <operatorimage>metfone.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>55</countryid>
+  <operatorname>Mfone</operatorname>
+  <operatorimage>mfone.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>55</countryid>
+  <operatorname>qbCube</operatorname>
+  <operatorimage>qb.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>56</countryid>
+  <operatorname>MTN</operatorname>
+  <operatorimage>mtn.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>56</countryid>
+  <operatorname>Orange</operatorname>
+  <operatorimage>orange.png</operatorimage>
+  </Operator>
+
+
+
+  <Operator>
+  <countryid>63</countryid>
+  <operatorname>Movistar</operatorname>
+  <operatorimage>movistar.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>64</countryid>
+  <operatorname>China Mobile</operatorname>
+  <operatorimage>china.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>64</countryid>
+  <operatorname>China Telecom</operatorname>
+  <operatorimage>china-telecom.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>67</countryid>
+  <operatorname>Uff Movil</operatorname>
+  <operatorimage>uff_movil.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>72</countryid>
+  <operatorname>Kolbi</operatorname>
+  <operatorimage>kolbi.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>74</countryid>
+  <operatorname>CubaCel</operatorname>
+  <operatorimage>cubacel.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>84</countryid>
+  <operatorname>Tricom</operatorname>
+  <operatorimage>tricom.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>85</countryid>
+  <operatorname>Alegro</operatorname>
+  <operatorimage>alegro.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>122</countryid>
+  <operatorname>Cellcom</operatorname>
+  <operatorimage>cellcom.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>123</countryid>
+  <operatorname>Cellink</operatorname>
+  <operatorimage>cellink.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>123</countryid>
+  <operatorname>GT&amp;T</operatorname>
+  <operatorimage>global_telecom.png</operatorimage>
+  </Operator>
+
+
+  <Operator>
+  <countryid>124</countryid>
+  <operatorname>Voila</operatorname>
+  <operatorimage>xyz.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>130</countryid>
+  <operatorname>Aircel</operatorname>
+  <operatorimage>aircel.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>130</countryid>
+  <operatorname>BSNL</operatorname>
+  <operatorimage>bsnl.png</operatorimage>
+  </Operator>
+
+
+  <Operator>
+  <countryid>130</countryid>
+  <operatorname>Idea</operatorname>
+  <operatorimage>idea.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>130</countryid>
+  <operatorname>Loop Mobile</operatorname>
+  <operatorimage>loop-mobile.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>130</countryid>
+  <operatorname>MTS</operatorname>
+  <operatorimage>mts.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>130</countryid>
+  <operatorname>Reliance</operatorname>
+  <operatorimage>reliance.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>130</countryid>
+  <operatorname>Reliance CDMA</operatorname>
+  <operatorimage>reliance.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>130</countryid>
+  <operatorname>Tata Docomo</operatorname>
+  <operatorimage>tata_docomo.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>130</countryid>
+  <operatorname>Tata Indicom</operatorname>
+  <operatorimage>tata_indicom.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>130</countryid>
+  <operatorname>Uninor</operatorname>
+  <operatorimage>uninor.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>130</countryid>
+  <operatorname>Videocon</operatorname>
+  <operatorimage>videocon.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>166</countryid>
+  <operatorname>Axis</operatorname>
+  <operatorimage>axis.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>166</countryid>
+  <operatorname>Excelcomindo</operatorname>
+  <operatorimage>excelcomindo.png</operatorimage>
+  </Operator>
+
+
+  <Operator>
+  <countryid>166</countryid>
+  <operatorname>Three Telecom</operatorname>
+  <operatorimage>xyz.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>178</countryid>
+  <operatorname>Umniah</operatorname>
+  <operatorimage>umniah.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>179</countryid>
+  <operatorname>Activ</operatorname>
+  <operatorimage>active.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>179</countryid>
+  <operatorname>Beeline</operatorname>
+  <operatorimage>xyz.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>179</countryid>
+  <operatorname>Neo</operatorname>
+  <operatorimage>xyz.png</operatorimage>
+  </Operator>
+
+
+  <Operator>
+  <countryid>180</countryid>
+  <operatorname>Safaricom</operatorname>
+  <operatorimage>safaricom.png</operatorimage>
+  </Operator>
+
+
+  <Operator>
+  <countryid>180</countryid>
+  <operatorname>Yu</operatorname>
+  <operatorimage>xyz.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>191</countryid>
+  <operatorname>Lonestar Cell</operatorname>
+  <operatorimage>xyz.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>194</countryid>
+  <operatorname>Tele2</operatorname>
+  <operatorimage>tele.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>200</countryid>
+  <operatorname>Celcom</operatorname>
+  <operatorimage>celcom.png</operatorimage>
+  </Operator>
+
+
+  <Operator>
+  <countryid>200</countryid>
+  <operatorname>DiGi</operatorname>
+  <operatorimage>digi.png</operatorimage>
+  </Operator>
+
+  <Operator>
+  <countryid>200</countryid>
+  <operatorname>Maxis</operatorname>
+  <operatorimage>maxis.png</operatorimage>
+  </Operator>
+
+</ListOfOperators>
+</OperatorImages>
+

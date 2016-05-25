@@ -1,0 +1,133 @@
+﻿@model MvcApplication1.Areas.Mobile.ViewModels.CallForwardingViewModel
+@{
+    ViewBag.Title = "CallForwarding";
+    
+}
+
+@helper ForwardedNumberInfo(dynamic item)
+{
+    string infoclass = "info-" + item.DestNum;
+    <div class="modal fade @infoclass" role="dialog" aria-labelledby="gridSystemModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                @using (Html.BeginForm("DeleteCallForwardSetup", "Account", new { id = @Html.EncodedParameterValue(Model.PlanPin) }, FormMethod.Post))
+                {
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <h4 class="modal-title" id="gridSystemModalLabel">Details</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12 demo_bor ">
+                                    <div class="col-xs-6 col-sm-6 col-md-6">Name</div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6">@item.Name</div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 demo_bor ">
+                                    <div class="col-xs-6 col-sm-6 col-md-6">Activation Date</div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6">@item.ActiveDate</div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 demo_bor ">
+                                    <div class="col-xs-6 col-sm-6 col-md-6">Expiry Date</div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6">@item.ExpDate</div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12  ">
+                                    <div class="col-xs-6 col-sm-6 col-md-6">Status</div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6">@item.Status</div>
+                                </div>
+                                <input type="hidden" name="serialNumber" value="@item.Sno"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Delete</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+
+                    </div>
+                }
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+}
+
+
+<div class="container-fluid ">
+    <div class="container demo">
+        <h1 class=" title_login">Your Call Forwarding Setup</h1>
+        @if (!string.IsNullOrEmpty(Model.Message))
+        {
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="container">
+                        @Html.MessageBox(Model.Message, Model.MessageType)
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<div class="container-fluid plan_bg">
+    <div class="container demo">
+        <div class="row ">
+            <div class="col-xs-12 col-sm-12 col-md-12  para_pad">
+                <div class="col-xs-4 col-sm-5 col-md-5">
+                    <h1 class=" title_review text-center">Call forwarding Number</h1>
+                </div>
+                <div class="col-xs-5 col-sm-5 col-md-5">
+                    <h1 class=" title_review text-center">Destination Number</h1>
+                </div>
+                <div class="col-xs-2 col-sm-1 col-md-1">
+                    <h1 class=" title_review text-center">Details</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="container demo">
+        <div class="row">
+            <div class="col-xs-12 ">
+            </div>
+
+            @foreach (var item in Model.ExistingForwardedNumbers)
+            {
+                string infoclass = ".info-" + item.DestNum;
+                <div class="col-xs-12 profile para_pad">
+                    <div class="col-xs-4 col-sm-5 col-md-5">
+                        <p class="text-center">@Html.Encode(item.FollowMeNumber)</p>
+                    </div>
+                    <div class="col-xs-6 col-sm-5 col-md-5">
+                        <p class="text-center">@Html.Encode(item.DestNum)</p>
+                    </div>
+                    <div class="col-xs-1 col-sm-1 col-md-1">
+                        <a href="#" data-toggle="modal" data-target="@infoclass">
+                            <div class="info_iconm info_icon"></div>
+                        </a>
+                    </div>
+                    @ForwardedNumberInfo(item)
+                </div>
+                
+            }
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="@Url.Action("SetupCallForwarding", "Account", new { id = Html.EncodedParameterValue(Model.PlanPin) })" class="btn btn-primary btn-block form_mar btn_bgreen">Setup Call Forwarding</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,188 @@
+﻿@model MvcApplication1.Areas.Mobile.ViewModels.AddNewOnetouchViewModel
+@{
+    ViewBag.Title = "NewOnetouchSetup";
+}
+
+@using (@Html.BeginForm("AddNewOnetouch", "Account", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="container-fluid">
+        <div class="container">
+            <h1 class=" title_login">One Touch Setup</h1>
+            @if (!string.IsNullOrEmpty(Model.Message))
+            {
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="container">
+                            @Html.MessageBox(Model.Message, Model.MessageType)
+                        </div>
+                    </div>
+                </div>
+            }
+            <div class="row">
+                <div class="col-xs-2 col-xs-offset-4 col-sm-offset-5 ">
+                    <div class="one_step">
+                        <h4 class="step_title">Step 1</h4>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <h4 class="touch_title">"Calling From" Information</h4>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12 form_mar">
+                        @Html.DropDownListFor(a => a.CallingFromCountry, new SelectList(Model.CallingFromCountries, "Id", "Name"), "Select country", new { @class = "form-control " })
+                        @Html.ValidationMessageFor(a => a.CallingFromCountry)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12 form_mar">
+                        @Html.DropDownListFor(a => a.CallingFromState, new SelectList(Model.States, "Id", "Name"), "Select state", new { @class = "form-control " })
+                        @Html.ValidationMessageFor(a => a.CallingFromState)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12 form_mar">
+                        @Html.DropDownListFor(a => a.CallingFromAreaCode, new SelectList(Model.AreaCodes, "Code", "Code"), "Select area code", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(a => a.CallingFromAreaCode)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12 form_mar">
+                        @Html.DropDownListFor(a => a.CallingAvailableNumber, new SelectList(Model.AvailableNumbers, "Number", "Number"), "Select available number", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(a => a.CallingAvailableNumber)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+
+    <div class="container-fluid">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-xs-2 col-xs-offset-4 col-sm-offset-5 ">
+                    <div class="two_step">
+                        <h4 class="step_title">Step 2</h4>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <h4 class="touch_title">"Calling To" Information</h4>
+
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12 form_mar">
+                        @Html.DropDownListFor(a => a.CallingToCountryCode, new SelectList(Model.CallingToCountries, "Id", "Name"), "Select country", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(a => a.CallingToCountryCode)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-4 form_mar">
+                        <input type="text" class="form-control " value="@Model.CallingToCountryCode" id="displayCountryCode" placeholder="Country Code" readonly="readonly">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-8 form_mar">
+                        @Html.TextBoxFor(a => a.CallingToPhoneNumber, new { @class = "form-control data-numeric ", @placeholder = "Phone Number", type = "tel", maxlength = "10" })
+                        @Html.ValidationMessageFor(a => a.CallingToPhoneNumber)
+                        <h6>Enter with city code for landline</h6>
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <div class="col-xs-12 form_mar">
+                        @Html.TextBoxFor(a => a.RefrenceName, new { @class = "form-control ", @placeholder = "Reference Name", @maxlength = "15" })
+                        @Html.ValidationMessageFor(a => a.RefrenceName)
+                    </div>
+                </div>
+
+                <div class="col-xs-12">
+                    <button type="submit" class="btn btn-primary btn-block form_mar btn_bgreen">Add </button>
+                </div>
+                <div class="col-xs-12">
+                    <a href="@Url.Action("OnetouchSetup", "Account", new { id = Html.EncodedParameterValue(Model.PlanPin) })" class="btn btn-primary btn-block form_mar btn_bgray"><i class=" btn_prev fa fa-chevron-left"></i>Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        var pin = '@Html.EncodedParameterValue(Model.PlanPin)';
+
+
+        $("#CallingToCountryCode").change(function () {
+            $("#displayCountryCode").val(this.value);
+        });
+
+
+        var countryid;
+        var state;
+        var areaCode;
+
+        $("#CallingFromCountry").change(function () {
+            countryid = this.value;
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("GetStates", "Account")',
+                data: {
+                    countryId: countryid
+                },
+                success: function (res) {
+                    var html = '<option>Select state</option>';
+                    $.each(res, function () {
+                        var opt = '<option value="' + this.Id + '">' + this.Name + '</option>';
+                        html = html + opt;
+                    });
+                    $("#CallingFromState").html(html);
+                }
+            });
+        });
+
+        $("#CallingFromState").change(function () {
+            state = this.value;
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("GetOneTouchAreaCode", "Account")',
+                data: {
+                    state: state
+                },
+                success: function (res) {
+                    var html = '<option>Select area code</option>';
+                    $.each(res, function () {
+                        var opt = '<option value="' + this.Code + '">' + this.Code + '</option>';
+                        html = html + opt;
+                    });
+                    $("#CallingFromAreaCode").html(html);
+                }
+            });
+        });
+
+        $("#CallingFromAreaCode").change(function () {
+            areaCode = this.value;
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("GetAvailableNumbers", "Account")',
+                data: {
+                    id: pin,
+                    countryId: countryid,
+                    state: state,
+                    areaCode: areaCode
+                },
+                success: function (res) {
+                    var html = '<option>Select available number</option>';
+                    $.each(res, function () {
+                        var opt = '<option value="' + this.Number + '">' + this.Number + '</option>';
+                        html = html + opt;
+                    });
+                    $("#CallingAvailableNumber").html(html);
+                }
+            });
+        });
+
+
+    </script>
+
+}

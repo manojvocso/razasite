@@ -1,0 +1,650 @@
+﻿@model MvcApplication1.Models.GenericModel
+<!--<link rel="stylesheet" href="themes/base/jquery.ui.all.css">-->
+
+<link href="@Url.Content("~/css/stylesheet.css")" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+    $(function () {
+
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+
+        // Accordion
+
+
+        $("#accordion_feedback").accordion({ header: "h3" }, { autoHeight: false });
+
+    });
+
+</script>
+<script src="@Url.Content("~/Scripts/plan_tabbing.js")"></script>
+
+<!--<script type="text/javascript" src="js/utility.js"></script>-->
+
+<script src="@Url.Content("~/Scripts/jquery.nestedAccordion.js")"></script>
+<script src="@Url.Content("~/Scripts/popup_jquery.js")"></script>
+
+<script>
+    jQuery(function ($) {
+
+        $('a.panel').hover(function () {
+
+            var $target = $($(this).attr('id')),
+
+            $other = $target.siblings('.active'),
+
+            animIn = function () {
+
+                $target.addClass('active').show().css({
+
+                    left: +($target.width()) + 200
+
+                }).finish().animate({
+
+                    left: 0
+
+                }, 1000);
+
+            };
+
+            if (!$target.hasClass('active') && $other.length > 0) {
+
+                $other.each(function (index, self) {
+
+                    var $this = $(this);
+
+                    $this.removeClass('active').animate({
+
+                        left: +$this.width() + 200
+
+                    }, 1000, animIn);
+
+                });
+
+            } else if (!$target.hasClass('active')) {
+
+                animIn();
+
+            }
+
+        });
+
+        $(document).click(function (e) {
+
+            var $target = $(e.target), $active = $('div.panel.active');
+
+
+            if ($active.length && $target.closest('a.panel').length == 0 && $target.closest($active).length == 0) {
+
+                $active.removeClass('active').finish().animate({
+
+                    left: +$active.width() + 200
+
+                }, 1000);
+
+            }
+
+        })
+
+        $('#right').mouseleave(function () {
+
+
+            var $target = $($('a.panel').attr('id'));
+
+
+
+            if ($target.hasClass('active')) {
+
+
+
+                $target.removeClass('active').finish().animate({
+
+
+
+                    left: +$target.width() + 200
+
+
+
+                }, 1000);
+
+
+
+            }
+
+
+
+        });
+
+
+
+
+
+
+
+        $('.submit_login').click(function () {
+
+
+
+            //alert("akash akash ");
+
+
+
+            var $target = $($('a.panel').attr('id'));
+
+
+
+            if ($target.hasClass('active')) {
+
+
+
+                $target.removeClass('active').finish().animate({
+
+
+
+                    left: +$target.width() + 200
+
+
+
+                }, 1000);
+
+
+
+            }
+
+
+
+        });
+
+
+
+
+
+
+
+    });
+
+
+
+</script>
+
+<script>
+
+    $(function () {
+
+        $("#tabs_support").tabs().addClass("ui-tabs-vertical ui-helper-clearfix");
+
+        $("#tabs_support li").removeClass("ui-corner-top").addClass("ui-corner-left");
+
+    });
+
+</script>
+<script>
+
+    jQuery(function ($) {
+
+
+
+        $('input.panel').hover(function () {
+
+            var $target = $($(this).attr('id')),
+
+            $other = $target.siblings('.active'),
+
+            animIn = function () {
+
+                $target.addClass('active').show().css({
+
+                    left: +($target.width()) + 200
+
+                }).finish().animate({
+
+                    left: 0
+
+                }, 1000);
+
+            };
+
+
+
+            if (!$target.hasClass('active') && $other.length > 0) {
+
+                $other.each(function (index, self) {
+
+                    var $this = $(this);
+
+                    $this.removeClass('active').animate({
+
+                        left: +$this.width() + 200
+
+                    }, 1000, animIn);
+
+                });
+
+            } else if (!$target.hasClass('active')) {
+
+                animIn();
+
+            }
+
+        });
+
+
+
+        $(document).click(function (e) {
+
+            var $target = $(e.target), $active = $('div.panel.active');
+
+
+
+            if ($active.length && $target.closest('a.panel').length == 0 && $target.closest($active).length == 0) {
+
+                $active.removeClass('active').finish().animate({
+
+                    left: +$active.width() + 200
+
+                }, 1000);
+
+            }
+
+        })
+
+
+
+        $('#right').mouseleave(function () {
+
+            //alert("akash akash ");
+
+            var $target = $($('input.panel').attr('id'));
+
+            if ($target.hasClass('active')) {
+
+                $target.removeClass('active').finish().animate({
+
+                    left: +$target.width() + 200
+
+                }, 1000);
+
+            }
+
+        });
+
+
+
+        $('.submit_login').click(function () {
+
+            //alert("akash akash ");
+
+            var $target = $($('input.panel').attr('id'));
+
+            if ($target.hasClass('active')) {
+
+                $target.removeClass('active').finish().animate({
+
+                    left: +$target.width() + 200
+
+                }, 1000);
+
+            }
+
+        });
+
+
+
+    });
+
+</script>
+<script src="@Url.Content("~/Scripts/popup_jquery.js")"></script>
+
+<script src="@Url.Content("~/Scripts/global.js")"></script>
+<script src="@Url.Content("~/Scripts/magicSuggest-1.3.1.min.js")"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var jsonData = [];
+        var cities = '<a href=""><img src="images/af-icon.png" alt="">Afghanistan (+93)</a>,,<a href=""><img src="images/albania.png" alt="">Albania (+355)</a>,<a href=""><img src="images/algeria.png" alt="">Algeria (+213)</a>,<a href=""><img src="images/american_samoa.png" alt="">American Samoa(+684)</a>,<a href=""><img src="images/andorra.png" alt="">Andorra (+376)</a>,<a href=""><img src="images/angola.png" alt="">Angola (+244)</a>,<a href=""><img src="images/anguilla.png" alt="">Anguilla (+1264)</a>,<a href=""><img src="images/antarctica.png" alt="">Antarctica (+672)</a>,<a href=""><img src="images/antigua-barbuda.png" alt="">Antigua &amp; Barbuda(+1-268)</a>,<a href=""><img src="images/arab-league.png" alt="">Arab League</a>,<a href=""><img src="images/argentina.png" alt="">argentina (+54)</a>,<a href=""><img src="images/armenia.png" alt="">Armenia (+374)</a>,<a href=""><img src="images/aruba.png" alt="">Aruba (+297)</a>,<a href=""><img src="images/australia.png" alt="">Australia (+61)</a>,<a href=""><img src="images/austria.png" alt="">Austria (+43)</a>,<a href=""><img src="images/azerbaijan.png" alt="">Azerbaijan (+994)</a>,<a href=""><img src="images/bahamas.png" alt="">Bahamas (+1-242)</a>,<a href=""><img src="images/bahrain.png" alt="">Bahrain (+973)</a>,<a href=""><img src="images/bangladesh.png" alt="">Bangladesh (+880)</a>,<a href=""><img src="images/barbados.png" alt="">Barbados (+1-246)</a>,<a href=""><img src="images/belarus.png" alt="">Belarus (+375)</a>,<a href=""><img src="images/belgium.png" alt="">Belgium (+32)</a>,<a href=""><img src="images/belize.png" alt="">Belize (+501)</a>,<a href=""><img src="images/benin.png" alt="">Benin(+229)</a>,<a href=""><img src="images/bermuda.png" alt="">Bermuda (+1441)</a>,<a href=""><img src="images/bolivia.png" alt="">Bolivia (+591)</a>,<a href=""><img src="images/bosnia.png" alt="">Bosnia & Herzegovina.png (+387)</a>,<a href=""><img src="images/botswana.png" alt="">Botswana (+267)</a>,<a href=""><img src="images/brazil.png" alt="">Brazil (+55)</a>,<a href=""><img src="images/brunei.png" alt="">Brunei (+673)</a>,<a href=""><img src="images/bulgaria.png" alt="">Bulgaria (+359)</a>,<a href=""><img src="images/burkina-faso.png" alt="">Burkina Faso (+226)</a>,<a href=""><img src="images/burundi.png" alt="">Burundi (+257)</a>,<a href=""><img src="images/cambodja.png" alt="">Cambodja (+855)</a>,<a href=""><img src="images/cameroon.png" alt="">Cameroon (+237)</a>,<a href=""><img src="images/canada.png" alt="">Canada(+1)</a>,<a href=""><img src="images/cape-verde.png" alt="">Cape Verde(+238)</a>,<a href=""><img src="images/cayman-islands.png" alt="">Cayman Islands(+1-345)</a>,<a href=""><img src="images/central-african-republic.png" alt="">Central African Republic (+236)</a>,<a href=""><img src="images/chad.png" alt="">Chad (+235)</a>,<a href=""><img src="images/chile.png" alt="">Chile (+56)</a>,<a href=""><img src="images/china.png" alt="">China(+86)</a>,<a href=""><img src="images/colombia.png" alt="">Colombia(+57)</a>,<a href=""><img src="images/comoros.png" alt="">Comoros(+269)</a>,<a href=""><img src="images/congo-brazzaville.png" alt="">Congo Brazzaville(+242)</a>,<a href=""><img src="images/congo-kinshasa(zaire).png" alt="">Congo-Kinshasa(Zaire)(+237)</a>,<a href=""><img src="images/cook-islands.png" alt="">Cook Islands(+682)</a>,<a href=""><img src="images/costa-rica.png" alt="">Costa Rica(+237)</a>,<a href=""><img src="images/cote.png" alt="">Cote dIvoire</a>,<a href=""><img src="images/croatia.png" alt="">Croatia(+385)</a>,<a href=""><img src="images/cuba.png" alt="">Cuba (+53)</a>,<a href=""><img src="images/cyprus.png" alt="">Cyprus (+357)</a>, <a href=""><img src="images/czech-republic.png" alt="">Czech Republic (+420)</a>,<a href=""><img src="images/denmark.png" alt="">Denmark (+45)</a>,<a href=""><img src="images/djibouti.png" alt="">Djibouti (+253)</a>,<a href=""><img src="images/dominica.png" alt="">Dominica(+1-767)</a>,<a href=""><img src="images/dominican-republic.png" alt="">Dominican Republic (+809)</a>,<a href=""><img src="images/ecuador_new.png" alt="">Ecuador (+593)</a>,<a href=""><img src="images/egypt.png" alt="">Egypt (+20)</a>, <a href=""><img src="images/el-salvador.png" alt="">El Salvador(+503)</a>,<a href=""><img src="images/england.png" alt="">England (+44)</a>,<a href=""><img src="images/equatorial-guinea.png" alt="">Equatorial Guinea (+240)</a>,<a href=""><img src="images/eritrea.png" alt="">Eritrea (+291)</a>,<a href=""><img src="images/estonia.png" alt="">Estonia (+372)</a>,<a href=""><img src="images/ethiopia.png" alt="">Ethiopia (+251)</a>,<a href=""><img src="images/european-union.png" alt="">European Union</a>,<a href=""><img src="images/faroes.png" alt="">Faroes (+298)</a>,<a href=""><img src="images/fiji.png" alt="">Fiji (+679)</a>,<a href=""><img src="images/finland.png" alt="">Finland (+358)</a>,<a href=""><img src="images/france.png" alt="">France (+33)</a>,<a href=""><img src="images/gabon.png" alt="">Gabon (+241)</a>,<a href=""><img src="images/gambia.png" alt="">Gambia (+220)</a>,<a href=""><img src="images/georgia.png" alt="">Georgia (+995)</a>,<a href=""><img src="images/germany.png" alt="">Germany (+49)</a>,<a href=""><img src="images/ghana.png" alt="">Ghana(+233)</a>,<a href=""><img src="images/gibraltar.png" alt="">Gibraltar (+350)</a>,<a href=""><img src="images/greece.png" alt="">Greece (+30)</a>,<a href=""><img src="images/greenland.png" alt="">Greenland (+299)</a>,<a href=""><img src="images/grenada.png" alt="">Grenada(+1-473)</a>,<a href=""><img src="images/guadeloupe.png" alt="">Guadeloupe (+590)</a>,<a href=""><img src="images/guademala.png" alt="">Guademala (+502)</a>,<a href=""><img src="images/guam.png" alt="">Guam (+1-671)</a>,<a href=""><img src="images/guinea.png" alt="">Guinea (+224)</a>,<a href=""><img src="images/guinea-bissau.png" alt="">guinea-bissau (+245)</a>,<a href=""><img src="images/haiti.png" alt="">Haiti (+509)</a>,<a href=""><img src="images/honduras.png" alt="">Honduras (+504)</a>,<a href=""><img src="images/hong-kong.png" alt="">Hong Kong (+852)</a>,<a href=""><img src="images/hungary.png" alt="">Hungary (+36)</a>,<a href=""><img src="images/iceland.png" alt="">Iceland (+354)</a>,<a href=""><img src="images/india.png" alt="">India (+91)</a>,<a href=""><img src="images/indonesia.png" alt="">Indonesia (+62)</a>,<a href=""><img src="images/iran.png" alt="">Iran (+98)</a>,<a href=""><img src="images/iraq.png" alt="">Iraq (+964)</a>,<a href=""><img src="images/ireland.png" alt="">Ireland (+353)</a>,<a href=""><img src="images/isle-of-man.png" alt="">Isle of Man</a>,<a href=""><img src="images/israel.png" alt="">Israel (+972)</a>,<a href=""><img src="images/italy.png" alt="">Italy (+39)</a>,<a href=""><img src="images/jamaica.png" alt="">Jamaica (+1-876)</a>,<a href=""><img src="images/japan.png" alt="">Japan (+81)</a>,<a href=""><img src="images/jordan.png" alt="">Jordan (+962)</a>,<a href=""><img src="images/kazakhstan.png" alt="">Kazakhstan (+7)</a>,<a href=""><img src="images/kenya.png" alt="">Kenya (+254)</a>,<a href=""><img src="images/kiribati.png" alt="">Kiribati (+686)</a>,<a href=""><img src="images/kuwait.png" alt="">Kuwait (+965)</a>,<a href=""><img src="images/kyrgyzstan.png" alt="">Kyrgyzstan (+996)</a>,<a href=""><img src="images/laos.png" alt="">Laos (+856)</a>,<a href=""><img src="images/latvia.png" alt="">Latvia (+371)</a>,<a href=""><img src="images/lebanon.png" alt="">Lebanon (+961)</a>,<a href=""><img src="images/lesotho.png" alt="">Lesotho (+266)</a>,<a href=""><img src="images/liberia.png" alt="">Liberia (+231)</a>,<a href=""><img src="images/libya.png" alt="">Libya (+218)</a>,<a href=""><img src="images/liechtenstein.png" alt="">Liechtenstein (+423)</a>,<a href=""><img src="images/lithuania.png" alt="">Lithuania (+370)</a>,<a href=""><img src="images/luxembourg.png" alt="">Luxembourg (+352)</a>,<a href=""><img src="images/macao.png" alt="">Macao (+853)</a>,<a href=""><img src="images/macedonia.png" alt="">Macedonia (+389)</a>,<a href=""><img src="images/madagascar.png" alt="">Madagascar (+261)</a>,<a href=""><img src="images/malawi.png" alt="">Malawi (+265)</a>,<a href=""><img src="images/malaysia.png" alt="">Malaysia (+60)</a>,<a href=""><img src="images/maldives.png" alt="">Maldives(+960)</a>,<a href=""><img src="images/mali.png" alt="">Mali (+223)</a>,<a href=""><img src="images/malta.png" alt="">Malta (+356)</a>,<a href=""><img src="images/marshall-islands.png" alt="">Marshall Islands (+692)</a>,<a href=""><img src="images/martinique.png" alt="">Martinique (+596)</a>,<a href=""><img src="images/mauritania.png" alt="">Mauritania (+222)</a>,<a href=""><img src="images/mauritius.png" alt="">Mauritius (+230)</a>,<a href=""><img src="images/mexico.png" alt="">Mexico (+52)</a>,<a href=""><img src="images/micronesia.png" alt="">Micronesia (+691)</a>,<a href=""><img src="images/moldova.png" alt="">Moldova(+373)</a>,<a href=""><img src="images/monaco.png" alt="">Monaco (+377)</a>,<a href=""><img src="images/mongolia.png" alt="">Mongolia (+976)</a>,<a href=""><img src="images/montenegro.png" alt="">Montenegro (+382)</a>,<a href=""><img src="images/montserrat.png" alt="">Montserrat (+1-664)</a>,<a href=""><img src="images/morocco.png" alt="">Morocco (+212)</a>,<a href=""><img src="images/mozambique.png" alt="">Mozambique (+258)</a>,<a href=""><img src="images/myanmar.png" alt="">Myanmar(Burma) (+95)</a>,<a href=""><img src="images/namibia.png" alt="">Namibia (+264)</a>,<a href=""><img src="images/nauru.png" alt="">Nauru(+674)</a>,<a href=""><img src="images/nepal.png" alt="">Nepal (+977)</a>,<a href=""><img src="images/netherlands-antilles.png" alt="">Netherlands Antilles (+599)</a>,<a href=""><img src="images/netherlands.png" alt="">Netherlands (+31)</a>,<a href=""><img src="images/new-caledonia.png" alt="">New Caledonia (+687)</a>,<a href=""><img src="images/new-zealand.png" alt="">New Zealand (+64)</a>,<a href=""><img src="images/nicaragua.png" alt="">Nicaragua (+505)</a>,<a href=""><img src="images/niger.png" alt="">Niger (+227)</a>,<a href=""><img src="images/nigeria.png" alt="">nigeria (+234)</a>,<a href=""><img src="images/norway.png" alt="">norway (+47)</a>,<a href=""><img src="images/oman.png" alt="">Oman (+968)</a>,<a href=""><img src="images/pakistan.png" alt="">Pakistan (+92)</a>,<a href=""><img src="images/palau.png" alt="">Palau (+680)</a>,<a href=""><img src="images/panama.png" alt="">Panama (+507)</a>,<a href=""><img src="images/papua-new-guinea.png" alt="">papua-new-guinea (+961)</a>,<a href=""><img src="images/paraguay.png" alt="">Paraguay (+595)</a>,<a href=""><img src="images/peru.png" alt="">Peru (+51)</a>,<a href=""><img src="images/philippines.png" alt="">Philippines (+63)</a>,<a href=""><img src="images/portugal.png" alt="">Portugal (+351)</a>,<a href=""><img src="images/puerto-rico.png" alt="">Puerto Rico (+1-787)</a>,<a href=""><img src="images/qatar.png" alt="">Qatar (+974)</a>,<a href=""><img src="images/reunion.png" alt="">Reunion (+262)</a>,<a href=""><img src="images/romania.png" alt="">Romania (+40)</a>,<a href=""><img src="images/russian-federation.png" alt="">Russia (+7)</a>,<a href=""><img src="images/rwanda.png" alt="">Rwanda (+250)</a>,<a href=""><img src="images/saint-lucia.png" alt="">Saint Lucia (+1-758)</a>,<a href=""><img src="images/samoa.png" alt="">Samoa (+684)</a>,<a href=""><img src="images/san-marino.png" alt="">San Marino (+378)</a>,<a href=""><img src="images/sao-tome.png" alt="">Sao Tome &amp; Principe (+239)</a>,<a href=""><img src="images/saudi-arabia.png" alt="">Saudi Arabia (+966)</a>,<a href=""><img src="images/senegal.png" alt="">Senegal (+221)</a>,<a href=""><img src="images/serbia.png" alt="">serbia (+961)</a>,<a href=""><img src="images/seyshelles.png" alt="">Seyshelles (+248)</a>,<a href=""><img src="images/sierra-leone.png" alt="">Sierra Leone (+232)</a>,<a href=""><img src="images/singapore.png" alt="">Singapore (+65)</a>,<a href=""><img src="images/slovakia.png" alt="">Slovakia (+421)</a>,<a href=""><img src="images/slovenia.png" alt="">Slovenia (+386)</a>,<a href=""><img src="images/solomon-islands.png" alt="">Solomon Islands (+961)</a>,<a href=""><img src="images/somalia.png" alt="">Somalia (+252)</a>,<a href=""><img src="images/south-afriica.png" alt="">South Afriica (+27)</a>,<a href=""><img src="images/spain.png" alt="">Spain (+34)</a>,<a href=""><img src="images/sri-lanka.png" alt="">Sri Lanka (+94)</a>,<a href=""><img src="images/sudan.png" alt="">Sudan (+249)</a>,<a href=""><img src="images/suriname.png" alt="">Suriname (+597)</a>,<a href=""><img src="images/swaziland.png" alt="">Swaziland (+268)</a>,<a href=""><img src="images/sweden.png" alt="">Sweden (+46)</a>,<a href=""><img src="images/switzerland.png" alt="">Switzerland (+41)</a>,<a href=""><img src="images/syria.png" alt="">Syria (+963)</a>,<a href=""><img src="images/taiwan.png" alt="">Taiwan (+886)</a>,<a href=""><img src="images/tajikistan.png" alt="">Tajikistan (+992)</a>,<a href=""><img src="images/tanzania.png" alt="">Tanzania (+255)</a>,<a href=""><img src="images/thailand.png" alt="">Thailand (+66)</a>,<a href=""><img src="images/togo.png" alt="">Togo (+228)</a>,<a href=""><img src="images/tonga.png" alt="">Tonga (+676)</a>,<a href=""><img src="images/trinidad.png" alt="">Trinidad &amp; Tobago (+1-868)</a>,<a href=""><img src="images/tunisia.png" alt="">Tunisia (+216)</a>,<a href=""><img src="images/turkey.png" alt="">Turkey (+961)</a>,<a href=""><img src="images/turks_new.png" alt="">Turks and Caicos Islands (+1-649)</a>,<a href=""><img src="images/tuvalu.png" alt="">Tuvalu (+688)</a>,<a href=""><img src="images/uganda.png" alt="">Uganda (+256)</a>,<a href=""><img src="images/ukraine.png" alt="">Ukraine (+380)</a>,<a href=""><img src="images/united-arab-emirates.png" alt="">United Arab Emirates (+971)</a>,<a href=""><img src="images/uruguay.png" alt="">Uruguay (+598)</a>,<a href=""><img src="images/uzbekistan.png" alt="">Uzbekistan (+998)</a>,<a href=""><img src="images/vanutau.png" alt="">Vanutau (+678)</a>,<a href=""><img src="images/vatican.png" alt="">Vatican City (+39)</a>,<a href=""><img src="images/venezuela.png" alt="">Venezuela (+58)</a>,<a href=""><img src="images/viet-nam.png" alt="">Viet Nam (+84)</a>,<a href=""><img src="images/virgin-islands-british.png" alt="">Virgin Islands British (+1-284)</a>,<a href=""><img src="images/virgin-islands.png" alt="">Virgin Islands US (+1-340)</a>,<a href=""><img src="images/wales.png" alt="">Wales (+681)</a>,<a href=""><img src="images/yemen.png" alt="">Yemen (+967)</a>,<a href=""><img src="images/zambia.png" alt="">Zambia (+260)</a>,<a href=""><img src="images/zimbabwe.png" alt="">Zimbabwe (+263)</a>,'.split(',');
+        for (var i = 0; i < cities.length; i++) jsonData.push({ id: i, name: cities[i], status: i % 2 ? 'Already Visited' : 'Planned for visit', coolness: Math.floor(Math.random() * 10) + 1 });
+
+
+        var ms7 = $('#ms7, #ms8, #ms9').magicSuggest({
+            data: jsonData,
+            resultAsString: true,
+            maxSelection: 1,
+            maxSelectionRenderer: function () { }
+        });
+
+    });
+</script>
+
+<!-- <msdropdown> -->
+
+<script src="@Url.Content("~/Scripts/jquery.dd.min.js")"></script>
+<script>
+    $(document).ready(function () {
+        $("#countries, #countries_signup_popup, #countries_searchrates_footer, #countries_tryusfree_footer, #countries_plans").msDropdown();
+    })
+</script>
+<script src="@Url.Content("~/Scripts/ticker.js")"></script>
+<script type="text/javascript">
+
+    $(function () {
+
+        $("#webticker").webTicker();
+
+
+
+    });
+
+</script>
+<script type="text/javascript">
+    // for tabs
+    $(document).ready(function () {
+
+        $(".container_tabbing").css({ "visibility": "visible" });
+
+    });
+</script>
+<script type="text/javascript">
+    // for tabs
+    $(document).ready(function () {
+
+        $("#f_fixed").css({ "visibility": "visible" });
+
+    });
+</script>
+
+<!--Autocomplete Start-->
+<style>
+    .custom-combobox {
+        position: relative;
+        display: inline-block;
+    }
+
+    .custom-combobox-toggle {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin-left: -1px;
+        padding: 0;
+        /* support: IE7 */
+        *height: 1.7em;
+        *top: 0.1em;
+        width: 310px!important;
+    }
+
+    .custom-combobox-input {
+        margin: 0;
+        padding: 0.5em;
+        width: 310px!important;
+    }
+
+    #menu-nav ul ul a .custom-combobox .custom-combobox-toggle {
+    }
+
+    #combobox .custom-combobox-toggle .ui-button-icon-only .ui-icon {
+        right: 0!important;
+    }
+</style>
+<script>
+    (function ($) {
+        $.widget("custom.combobox", {
+            _create: function () {
+                this.wrapper = $("<span>")
+                  .addClass("custom-combobox")
+                  .insertAfter(this.element);
+
+                this.element.hide();
+                this._createAutocomplete();
+                this._createShowAllButton();
+            },
+
+            _createAutocomplete: function () {
+                var selected = this.element.children(":selected"),
+                  value = selected.val() ? selected.text() : "";
+
+                this.input = $("<input>")
+                  .appendTo(this.wrapper)
+                  .val(value)
+                  .attr("title", "")
+                  .addClass("custom-combobox-input ui-widget ui-widget-content ui-state-default ui-corner-left")
+                  .autocomplete({
+                      delay: 0,
+                      minLength: 0,
+                      source: $.proxy(this, "_source")
+                  })
+                  .tooltip({
+                      tooltipClass: "ui-state-highlight"
+                  });
+
+                this._on(this.input, {
+                    autocompleteselect: function (event, ui) {
+                        ui.item.option.selected = true;
+                        this._trigger("select", event, {
+                            item: ui.item.option
+                        });
+                    },
+
+                    autocompletechange: "_removeIfInvalid"
+                });
+            },
+
+            _createShowAllButton: function () {
+                var input = this.input,
+                  wasOpen = false;
+
+                $("<a>")
+                  .attr("tabIndex", -1)
+                  //.attr( "title", "Show All Items" )
+                  .tooltip()
+                  .appendTo(this.wrapper)
+                  .button({
+                      icons: {
+                          primary: "ui-icon-triangle-1-s"
+                      },
+                      text: false
+                  })
+                  .removeClass("ui-corner-all")
+                  .addClass("custom-combobox-toggle ui-corner-right")
+                  .mousedown(function () {
+                      wasOpen = input.autocomplete("widget").is(":visible");
+                  })
+                  .click(function () {
+                      input.focus();
+
+                      // Close if already visible
+                      if (wasOpen) {
+                          return;
+                      }
+
+                      // Pass empty string as value to search for, displaying all results
+                      input.autocomplete("search", "");
+                  });
+            },
+
+            _source: function (request, response) {
+                var matcher = new RegExp($.ui.autocomplete.escapeRegex(request.term), "i");
+                response(this.element.children("option").map(function () {
+                    var text = $(this).text();
+                    if (this.value && (!request.term || matcher.test(text)))
+                        return {
+                            label: text,
+                            value: text,
+                            option: this
+                        };
+                }));
+            },
+
+            _removeIfInvalid: function (event, ui) {
+
+                // Selected an item, nothing to do
+                if (ui.item) {
+                    return;
+                }
+
+                // Search for a match (case-insensitive)
+                var value = this.input.val(),
+                  valueLowerCase = value.toLowerCase(),
+                  valid = false;
+                this.element.children("option").each(function () {
+                    if ($(this).text().toLowerCase() === valueLowerCase) {
+                        this.selected = valid = true;
+                        return false;
+                    }
+                });
+
+                // Found a match, nothing to do
+                if (valid) {
+                    return;
+                }
+
+                // Remove invalid value
+                this.input
+                  .val("")
+                  .attr("title", value + " didn't match any item")
+                  .tooltip("open");
+                this.element.val("");
+                this._delay(function () {
+                    this.input.tooltip("close").attr("title", "");
+                }, 2500);
+                this.input.data("ui-autocomplete").term = "";
+            },
+
+            _destroy: function () {
+                this.wrapper.remove();
+                this.element.show();
+            }
+        });
+    })(jQuery);
+
+    $(function () {
+        $("#combobox").combobox();
+        $("#toggle").click(function () {
+            $("#combobox").toggle();
+        });
+    });
+</script>
+
+<!--end header-->
+
+<!--Body Container Start-->
+<div id="inner_body_container">
+    <div id="banner">
+        <img src="@Url.Content("~/images/browsersettings.png")" /></div>
+    <!-- End demo -->
+
+    <div class="content">
+        <h3>Enabling Cookies and JavaScript in Your Browser</h3>
+        <p class="content_para">To access GoWMU, your browser must support non-persistent cookies and JavaScript, and<br />
+            have Java enabled. Instructions for doing so are below.</p>
+
+        <ul class="browers">
+            <li><a href="#1">Chrome (Windows)</a></li>
+            <li><a href="#2">Firefox (Windows)</a></li>
+            <li><a href="#3">Internet Explorer (Windows)</a></li>
+            <li><a href="#4">Chrome (Macintosh)</a></li>
+            <li><a href="#5">Firefox (Macintosh)</a></li>
+            <li><a href="#6">Safari (Macintosh)</a></li>
+        </ul>
+
+        <div class="clear"></div>
+
+        <div class="chrome" id="1">
+            <span>Chrome</span>
+            <ul>
+                <li>Click the <strong>Customize and control Google Chrome</strong> icon (three horizontal bars in the upper right corner).</li>
+                <li>Select <strong>Settings.</strong></li>
+                <li>Click <strong>Show advanced settings...</strong> at the bottom.</li>
+                <li>Under <strong>Privacy</strong>, click the <strong>Content Settings</strong> button.</li>
+                <li>Cookies: check <strong>Allow local data to be set.</strong></li>
+                <li>Javascript: check <strong>Allow all sites to run JavaScript.</strong></li>
+            </ul>
+
+        </div>
+
+
+        <div class="chrome" id="2">
+            <span>Firefox</span>
+            <ul>
+                <li>Click the Firefox menu in the left hand corner of the window.</li>
+                <li>Select <strong>Options.</strong></li>
+                <li>Click <strong>Content.</strong></li>
+                <li>Check the <strong>Enable JavaScript</strong> box.</li>
+                <li>Click <strong>Privacy.</strong></li>
+                <li>Under the <strong>History</strong> heading, set <strong>Firefox will</strong> to <strong>Remember History.</strong></li>
+                <li>Click <strong>OK.</strong></li>
+            </ul>
+        </div>
+
+        <div class="chrome" id="3">
+            <span>Internet Explorer</span>
+            <ul>
+                <li>From the <strong>Tools</strong> menu, select <strong>Internet Options.</strong> (In IE9 and up, the Tools menu is a gear icon)</li>
+                <li>To enable session cookies, click the <strong>Privacy</strong> tab.</li>
+                <li>Locate the <strong>Settings</strong> slider and change the privacy settings to <strong>Medium</strong>. If you have an older version of IE, locate and click the checkbox next to <strong>Always allow session cookies.</strong></li>
+                <li>To enable JavaScript, click the <strong>Security</strong> tab.</li>
+                <li>Under <strong>Select a zone to view,</strong> click <strong>Internet.</strong></li>
+                <li>Locate the <strong>Custom</strong> area of the <strong>Security</strong> tab, and click the <strong>Custom Level</strong> button.</li>
+                <li>From the <strong>Security Settings</strong> dialog box that opens, scroll through the options until you see <strong>Scripting.</strong></li>
+                <li>Check the radio buttons next to <strong>Enable Active Scripting</strong> and <strong>Scripting of Java applets.</strong></li>
+                <li>Click <strong>OK </strong>to accept scripting and cookie handling changes and close the <strong>Security Settings</strong> window.</li>
+                <li>From the <strong>Internet Options</strong> dialog box, click <strong>Apply</strong> to effect settings, and then <strong>OK</strong> to close the box.</li>
+            </ul>
+        </div>
+
+
+        <div class="chrome" id="4">
+            <span>Chrome (Macintosh)</span>
+            <ul>
+                <li>Click the <strong>Customize and control Google Chrome</strong> icon (three horizontal bars in the upper right corner).</li>
+                <li>Select <strong>Settings</strong>.</li>
+                <li>Click <strong>Show advanced settings...</strong> at the bottom.</li>
+                <li>Under Privacy, click the Content Settings button.</li>
+                <li>Under <strong>Select a zone to view,</strong> click <strong>Internet.</strong></li>
+                <li>Locate the <strong>Custom</strong> area of the <strong>Security</strong> tab, and click the <strong>Custom Level</strong> button.</li>
+                <li>From the <strong>Security Settings</strong> dialog box that opens, scroll through the options until you see <strong>Scripting.</strong></li>
+                <li>Check the radio buttons next to <strong>Enable Active Scripting</strong> and <strong>Scripting of Java applets.</strong></li>
+                <li>Click <strong>OK </strong>to accept scripting and cookie handling changes and close the <strong>Security Settings</strong> window.</li>
+                <li>From the <strong>Internet Options</strong> dialog box, click <strong>Apply</strong> to effect settings, and then <strong>OK</strong> to close the box.</li>
+            </ul>
+        </div>
+
+        <div class="chrome" id="5">
+            <span>Firefox (Macintosh)</span>
+            <ul>
+                <li>Click the <strong>Tools</strong> menu.</li>
+                <li>Select <strong>Options</strong>.</li>
+                <li>Click <strong>Content</strong>.</li>
+                <li>Check the <strong>Enable JavaScript</strong> box.</li>
+                <li>Click <strong>Privacy</strong>.</li>
+                <li>Under the <strong>History</strong> heading, set <strong>Firefox will</strong> to <strong>Remember History</strong>.</li>
+                <li>Click <strong>OK</strong>.</li>
+            </ul>
+        </div>
+
+
+        <div class="chrome" id="6">
+            <span>Safari (Macintosh)</span>
+            <ul>
+                <li>Click <strong>Safari</strong> in the menu bar and choose <strong>Preferences</strong>.</li>
+                <li>From the <strong>Preferences</strong> dialog box that opens, select the <strong>Security</strong> option.</li>
+                <li>Under <strong>Web Content</strong>, check the <strong>Enable JavaScript</strong> box.</li>
+                <li>Select the <strong>Privacy</strong> option.</li>
+                <li>Make sure <strong>Block Cookies</strong> is <strong>not</strong> set to <strong>Always</strong>.</li>
+            </ul>
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+
+    <div class="spacer"></div>
+    <div class="clear"></div>
+</div>
+
+<!--footer start-->

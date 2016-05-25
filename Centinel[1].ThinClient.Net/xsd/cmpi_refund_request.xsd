@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xsd:include schemaLocation="http://localhost:8080/schema/Centinel/1_7/txn_common.xsd"/>
+	<xsd:annotation>
+		<xsd:documentation><![CDATA[Refund specified amount to consumer. The refund request must reference a transaction already processed by the system.
+		<br/><br/>
+		 Applies to the following transaction types:
+        <ul>
+        <li><b>PayPal</b> - Refund a PayPal payment.</li>
+        <li><b>PayPal PreApproved Payments</b> - Refund a PayPal PreApproved payment.</li>
+	<li><b>PayPal Express Checkout</b> - Refund a captured PayPal Express Checkout payment.</li>
+	<li><b>PayPal Direct Payments</b> - Refund a captured PayPal Direct payment.</li>
+	<li><b>SECURE-eBill</b> - Refund a SECURE-eBill payment.</li>
+        </ul>
+		<br/><br/>
+		<b>PayPal support multiple refunds against the same transaction.</b>
+		<br/><br/>
+		<b>SECURE-eBill support multiple refunds against the same transaction.</b>
+		]]>
+    </xsd:documentation>
+	</xsd:annotation>
+	<xsd:element name="CardinalMPI">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="MsgType">
+					<xsd:annotation>
+						<xsd:documentation>"cmpi_refund"</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="cmpi_refund"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="Version" type="applicationVersion"/>
+				<xsd:element name="ProcessorId" type="processorId"/>
+				<xsd:element name="MerchantId" type="merchantId"/>
+				<xsd:element name="TransactionPwd" type="merchantTxnPwd"/>
+				<xsd:element name="TransactionType" type="transactionType"/>
+				<xsd:element name="TransactionId" type="txnId"/>
+				<xsd:element name="RefundType" type="refundType"/>
+				<xsd:element name="Amount" type="amount" minOccurs="0"/>
+				<xsd:element name="CurrencyCode" type="isoCurrencyNumber" minOccurs="0"/>
+				<xsd:element name="Description" type="refundDescription" minOccurs="0"/>
+			</xsd:all>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

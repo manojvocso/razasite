@@ -1,0 +1,11 @@
+.radio_redeem{float:left;margin:7px 10px !important}
+.redeem_para{margin:4px 0 0 3px !important;float:left}
+.redeem_strong{margin:6px 0 0 10px !important;float:left}
+.redeem_select{width:200px;padding:5px}
+.redeem_btn_new{background:url(../images/redeem_btn_new.png) no-repeat left top !important;width:75px !important;height:18px;float:left;margin:0 0 0 89px}
+.redeem_btn_new:hover{background:url(../images/redeem_btn_new.png) no-repeat left bottom !important}
+.redeem_grey{width:71px;height:18px;float:left;margin:0 0 0 83px;background:url(../images/redeem_grey.png) no-repeat left top}
+.redeem_grey:hover{background:url(../images/redeem_grey.png) no-repeat left bottom}
+.order_his_new_mar{margin:-14px 0 0 16px !important}
+.tooltip_redeem{margin:0 0 0 87px}
+.setup-detail-btn{background:url(../images/setup_redeem.png) no-repeat left top;width:105px;height:33px;float:right;margin:-29px 72px 0 0}

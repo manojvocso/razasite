@@ -1,0 +1,105 @@
+﻿
+  <div id="Webaffiliatesbind">
+
+        <script src="@Url.Content("~/Scripts/webaffilates.js")"></script>   
+      
+            
+	<div class="spacer_20"></div>
+           <div class="expandable" id="errorValidation1">
+                  <div id="close-val2" class="close-confirm">
+                        </div>    
+			 <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  
+              <tr>
+                <td width="14"><img src="@Url.Content("~/images/expand_top_left.png")" width="14" height="13" /></td>
+                <td style="background:url(/images/expand_drop_top.png) repeat-x left 2px;"></td>
+                <td width="14"><img src="@Url.Content("~/images/expand_top_right.png")" width="14" height="13" /></td>
+              </tr>
+              <tr>
+                <td style="background:url(/images/expand_drop_left.png) repeat-y 0px top;"></td>
+                <td style="background:#fff;"><div class="expandable_mid">
+                             <img src="@Url.Content("~/images/error_sign.png")" style="float:left;margin-top:15px;margin-left:30px;" />  <div id="validation-msgs" style="margin-left:150px;color:red" class="validation-error-msg">
+			
+                         <ul data-bind="foreach: validationmessage">
+                        <strong>
+                            <li data-bind="text: $data"></li>
+                        </strong>
+                    </ul>
+                  </div>
+                
+                    
+                  </div></td>
+                <td style="background:url(/images/expand_drop_right.png) repeat-y 0px top;"></td>
+              </tr>
+              <tr>
+                <td width="14" style="padding:0px!important;"><img src="@Url.Content("~/images/expand_bot_left.png")" width="14" height="13" /></td>
+                <td style="background:url(/images/expand_drop_bottom.png) repeat-x left 0px;" width="100%" ></td>
+                <td width="14" style="padding:0px!important;"><img src="@Url.Content("~/images/expand_bot_right.png")" width="14" height="13" /></td>
+              </tr>
+            </table>
+
+			  </div>
+        <div class="loader">
+        </div>
+                      <div id="backgroundPopup1">
+                </div>
+                      <div class="pos-rel">
+                        <h3 class="ratail_head_special">Reasons to have us on your website!</h3>
+						
+						<!--<p class="retail_agent_pare"><strong>Raza.com </strong>agent program  will allow you to offer your clients the full suite of our products<br />
+						 while earning some of the most generous commissions in the industry.</p>-->
+                        <div class="retail_global">
+                          <ul style="width:auto;">
+                            <li>Raza Affiliate Program gives you the opportunity to earn commissions every time a visitor on your Web site signs up for Raza subscription after clicking through an affiliate link on your Web site.</li>
+                            <li>Simply post a Raza link on your Web site.</li>
+                            <li>We handle the customer service - all you do is place links on your site and make money.</li>
+                            <li>Highest Commissions in the industry.</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="spacer"></div> 
+					    <div class="spacer"></div> 
+					  <div class="clear"></div>
+                      <div class="sprator"></div>
+                     
+                      <div class="left-panel min-w-line">
+                        <h3 class="retail_howit">How it Works?</h3>
+                        <div class="clear"></div>
+                        <ul class="retail_how_list">
+                          <li>When you register for our program (it's free!), you'll get your own unique affiliate link that you can use to promote Raza Communications.</li>
+						  <li>when someone that you referred buys from us, you'll automatically get credited with the commission!</li>
+						  <li>With most other affiliate programs, your customer has to buy within 30 days for you to receive a commission on a purchase, but with Raza, if buys from us anytime within the next 6 months!, our affiliate program tracks this and gives you credit for the sale.</li>
+						  <li>A great way to bring in real income every month.</li>
+                         
+                        </ul>
+                      </div>
+                      <div class="right-panel"> 
+                        <h3 class="retail_howit_1">Sign up</h3>
+                        <form class="retail-form">
+                          <input  type="text" placeholder="First Name" data-bind="value:FirstName" />
+                          <input  type="text" placeholder="Last Name" data-bind="value:LastName"  />
+                          <input  type="text" placeholder="Phone Number" data-bind="value:PhoneNumber"  onkeypress="return numberOnly();" maxlength ="10" />
+                          <input  type="text" placeholder="Email" data-bind="value:Email"  />
+						  <a style="cursor:Pointer" class="apply_button" id="Webaffiliates-signup" ></a>
+                           <strong data-bind="text:Status" style="font-size: 1.2em;color:red;float:left; margin-left:115px; margin-top:25px; text-align:center; width:663px;"></strong>
+                        </form>
+                      </div>
+      
+                      <div class="spacer"></div>
+                      <div class="sprator"></div>
+                      <div class="clear"></div>
+                    @*  <div class="width_percent"> 
+                           @if(User.Identity.IsAuthenticated)
+                                                  {
+                               <a href="@Url.Action("Myaccount", "Account")" class="features_bottom_link">New Raza Agent Customer Signup? </a>
+                           }
+                          @if(!User.Identity.IsAuthenticated)
+                                                  {
+                               <a href="@Url.Action("Logon", "Account")" class="features_bottom_link">New Raza Agent Customer Signup? </a>
+                           }
+                          &nbsp;&nbsp;&nbsp;&nbsp; <a href="@Url.Action("MyAccount", "Account")" class="features_bottom_link">Existing Raza Agent Customer?</a> </div>
+                  
+				    *@
+				
+				
+      </div>

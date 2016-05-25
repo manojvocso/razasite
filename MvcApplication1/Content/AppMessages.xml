@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<messages>
+  <message>
+    <shortmessage>cc_block</shortmessage>
+    <displaymessage>Your Credit card has been blocked.</displaymessage>
+  </message>
+  <message>
+    <shortmessage>customer_block</shortmessage>
+    <displaymessage>the customer is blocked.</displaymessage>
+  </message>
+</messages>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xsd:include schemaLocation="http://localhost:8080/schema/Centinel/1_7/txn_common.xsd"/>
+	<xsd:annotation>
+		<xsd:documentation>This message is used to request the status of the Bill Me Later payment referenced by the NotificationId value. Centinel will notify the Merchant by Posting a request to the Notification Location configured within the Merchant's Centinel account. The request includes the NotificationId value for use on the cmpi_bml_status message.</xsd:documentation>
+	</xsd:annotation>
+	<xsd:element name="CardinalMPI">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="MsgType">
+					<xsd:annotation>
+						<xsd:documentation>cmpi_bml_status</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="cmpi_bml_status"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="Version" type="applicationVersion"/>
+				<xsd:element name="ProcessorId" type="processorId"/>
+				<xsd:element name="MerchantId" type="merchantId"/>
+				<xsd:element name="TransactionPwd" type="merchantTxnPwd"/>
+				<xsd:element name="NotificationId" type="notificationId"/>
+			</xsd:all>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

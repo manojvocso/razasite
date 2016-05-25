@@ -1,0 +1,290 @@
+﻿ 
+ <div id="newtabs-3" class="newtab-section" style="display:none;">
+	  
+	  
+                   <ul id="retail_fill">
+        <li><a href="#newtabs-under-9"><b class="arrow_first"></b>Overview </a></li>
+        <li><a href="#newtabs-under-10"><b class="arrow_second"></b>How it Works  </a></li>
+        <li><a href="#newtabs-under-11"><b class="arrow_third"></b>FAQ</a></li>
+        <li><a href="#newtabs-under-12"><b class="arrow_four"></b>Apply </a></li>
+
+
+      </ul>
+           <script src="@Url.Content("~/Scripts/Retailagent.js")"></script>
+          <div id="bind-agent">
+               <div class="expandable" id="errorValidation">
+                  <div id="close-val1" class="close-confirm">
+                        </div>    
+			 <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  
+              <tr>
+                <td width="14"><img src="@Url.Content("~/images/expand_top_left.png")" width="14" height="13" /></td>
+                <td style="background:url(/images/expand_drop_top.png) repeat-x left 2px;"></td>
+                <td width="14"><img src="@Url.Content("~/images/expand_top_right.png")" width="14" height="13" /></td>
+              </tr>
+              <tr>
+                <td style="background:url(/images/expand_drop_left.png) repeat-y 0px top;"></td>
+                <td style="background:#fff;"><div class="expandable_mid">
+                             <img src="@Url.Content("~/images/error_sign.png")" style="float:left;margin-top:15px;margin-left:30px;" />  <div id="validation-msgs" style="margin-left:150px;color:red" class="validation-error-msg">
+			
+                         <ul data-bind="foreach: validationmessages">
+                        <strong>
+                            <li data-bind="text: $data"></li>
+                        </strong>
+                    </ul>
+                  </div>
+                
+                    
+                  </div></td>
+                <td style="background:url(/images/expand_drop_right.png) repeat-y 0px top;"></td>
+              </tr>
+              <tr>
+                <td width="14" style="padding:0px!important;"><img src="@Url.Content("~/images/expand_bot_left.png")" width="14" height="13" /></td>
+                <td style="background:url(/images/expand_drop_bottom.png) repeat-x left 0px;" width="100%" ></td>
+                <td width="14" style="padding:0px!important;"><img src="@Url.Content("~/images/expand_bot_right.png")" width="14" height="13" /></td>
+              </tr>
+            </table>
+
+			  </div>
+        <div class="loader">
+        </div>
+                      <div id="backgroundPopup">
+                </div>
+	   <div id="newtabs-under-9" class="retail_fill-under">
+                
+				    
+				
+                      <div class="pos-rel">
+                          <h3 class="ratail_head_special"> Reasons why you should Sell Raza products!</h3>
+						
+						<!--<p class="retail_agent_pare"><strong>Raza.com </strong>agent program  will allow you to offer your clients the full suite of our products<br />
+						 while earning some of the most generous commissions in the industry.</p>-->
+                        <div class="retail_global">
+                          <ul style="width:auto;">
+                            <li>Aggressive commission structure and generous spiffs.</li>
+                            <li>Advantage with our exciting time to time promotions.</li>
+                            <li>Wide range of products and services designed for distinct customer needs.</li>
+                            <li>Simplified billing platform and customized reporting capabilities.</li>
+							<li>Outstanding live support for customers and dealers.</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="spacer"></div> 
+					    <div class="spacer"></div> 
+					  <div class="clear"></div>
+                      <div class="sprator"></div>
+                     
+                      <div class="left-panel min-w-line left_46">
+
+                        <h3 class="retail_howit">How it Works?</h3>
+                        <div class="clear"></div>
+                        <ul class="retail_how_list">
+                          <li>Earn up to 15% in comissions when you sell a Raza product.</li>
+						  <li>Receive Technical support and online help in setting up your account</li>
+						  <li>Major Account Team to offer additional support for larger customers</li>
+						  <li>Access to online customer and commission management tools</li>
+                         
+                        </ul>
+                      </div>
+                      <div class="right-panel right_margin50"> 
+                        <h3 class="retail_howit_1">Sign up</h3>
+                        <form class="retail-form">
+                          <input type="text" placeholder="First Name" data-bind="value:firstName">
+                          <input type="text" placeholder="Last Name" data-bind="value:lastName">
+                          <input type="text" placeholder="Phone Number" data-bind="value:phoneNumber" onkeypress="return numberOnly();" maxlength ="10">
+                          <input type="text" placeholder="Email" data-bind="value:email">
+						  <a class="apply_button" id="newagentsignup"></a>
+                            <strong data-bind="text:Messagestatus" style="font-size: 1.2em;color:red;float:right"></strong>
+                        </form>
+                      </div>
+                      <div class="spacer"></div>
+                      <div class="sprator"></div>
+                      <div class="clear"></div>
+                  @*    <div class="width_percent"> @if(User.Identity.IsAuthenticated)
+                                                  {
+                                                      <a class="features_bottom_link" href="@Url.Action("MyAccount","Account")">New Raza Agent Customer Signup? </a>
+                      }
+                          @if(!User.Identity.IsAuthenticated)
+                                                  {
+                          <a class="features_bottom_link" href="@Url.Action("logon","Account")">New Raza Agent Customer Signup? </a>
+                          }
+                              &nbsp;&nbsp;&nbsp;&nbsp; <a class="features_bottom_link" href="@Url.Action("MyAccount","Account")">Existing Raza Agent Customer?</a> </div>*@
+                    
+                 
+				
+				
+      </div>
+	  
+	  <div id="newtabs-under-10" class="retail_fill-under">
+	  <div class="clear"></div>
+                      <div class="pos-rel">
+					<div class="retail_second">
+					 <ul>
+                          <li>Earn up to 15% in comissions when you sell a Raza product.</li>
+						  <li>Receive Technical support and online help in setting up your account</li>
+						  <li>Major Account Team to offer additional support for larger customers</li>
+						  <li>Access to online customer and commission management tools</li>
+                         
+                        </ul>
+						</div>
+ 			
+                  </div>
+      </div>
+	  
+	  <div id="newtabs-under-11" class="retail_fill-under">
+                      <div class="pos-rel">
+					<ul id="acc1" class="accordion toggle1">
+                      <li class="shown" onclick="getIDofAccLi(16)">
+                        <h6 class="h trigger" id="hid_1_16">How easy is it to sell Raza product?</h6>
+                        <div class="outer" id="1_16" style="display: none; ">
+						<div class="accordion_pare">
+						<p>With our Most Competitive and discounted rates it is very easy to convince a customer to buy our product.</p>	
+						</div>
+					   </div>
+                      </li>
+					  
+                      <li class="shown" onclick="getIDofAccLi(17)">
+                        <h4 class="h trigger" id="hid_1_17">Do I have to use a modem, device or system to sell this product?</h4>
+                        <div class="outer"  id="1_17" style="display: none; ">
+                        <div class="accordion_pare">
+						<p>Our system Works with internet on your regular store computer</p>	
+						</div>
+                        </div>
+                      </li>
+					  
+                      <li class="shown" onclick="getIDofAccLi(18)">
+                        <h4 class="h trigger" id="hid_1_18">How do I promote the product?</h4>
+                        <div class="outer"  id="1_18" style="display: none; ">
+                        <div class="accordion_pare">
+						<p>There is no need to promote our product; we will provide you with the customized and generic sales material (POP) at all times.</p>	
+						</div>
+                        </div>
+                      </li>
+					  
+                      <li class="shown" onclick="getIDofAccLi(19)">
+                        <h4 class="h trigger" id="hid_1_19">Do I have to go through training in order to know the system?</h4>
+                        <div class="outer"  id="1_19" style="display: none; ">
+                        <div class="accordion_pare">
+						<p>Yes, you will receive a 30 minute training that covers all the major points like how to Activate, recharge, refund, sales of the day and mainly commission for that day. </p>	
+						</div>
+                        </div>
+
+
+                      </li>
+					  
+                      <li class="shown" onclick="getIDofAccLi(20)">
+                        <h4 class="h trigger" id="hid_1_20">Do I get enough support in case of any question or query about a customer or client?</h4>
+                        <div class="outer"  id="1_20" style="display: none; ">
+                           <div class="accordion_pare">
+						<p>Our 24/7 Live help and customer support is available to help you with any of your questions.</p>	
+						</div>
+                        </div>
+                      </li>
+					  
+					
+                      
+                      
+                      
+                      
+                    </ul>
+					 
+ 			
+                  </div>
+      </div>
+      
+	  <div id="newtabs-under-12" class="retail_fill-under">
+
+      <div id="RetailAgentProgram">
+
+             
+     
+                      <div class="pos-rel">
+					<div class="retail_apply">
+					<fieldset class="retail_fieldset">
+					<b class="fl red">*</b>
+					<input name="" type="text" class="retail_input_1" placeholder="First Name" data-bind="value:FirstName" />
+					
+					<b class="fl red">*</b>
+					<input name="" type="text" class="retail_input_2" placeholder="Last Name" data-bind="value:LastName" />
+					
+					
+					<b class="fl red">*</b>
+					<input name="" type="text" class="retail_input_3" placeholder="Phone Number" data-bind="value:PhoneNumber" onkeypress="return  numberOnly();" maxlength ="10" />
+					</fieldset>
+					
+					<fieldset class="retail_fieldset retail_fieldset_top">
+					<b class="fl red">*</b>
+					<input name="" type="text" class="retail_input_1" placeholder="E-mail" data-bind="value:Email" />
+					
+					<b class="fl red">*</b>
+					<input name="" type="text" class="retail_input_2" placeholder="Address" data-bind="value:Address" />
+					
+					
+					<b class="fl red">*</b>
+					<input name="" type="text" class="retail_input_3" placeholder="City"  data-bind="value:City"/>					
+					</fieldset>
+					
+					<fieldset class="retail_fieldset retail_fieldset_top">
+					<b class="fl red">*</b>
+					<input name="" type="text" class="retail_input_1" placeholder="Zip/Postal Code" data-bind="value:ZipCode" />
+					
+					<b class="fl red">*</b>
+					<!--<input name="" type="text" class="retail_input_2" placeholder="State/Provience" />-->
+					
+					     <select id="callingToId" class="retail_input_2" style="width:268px"  data-bind="options: CountryListTo, optionsText: 'Name', optionsValue: 'Id', optionsCaption: 'Country..', value: BillingcountryId">
+                                                </select>
+					<b class="fl red">*</b>
+                    <select id="billing-country"  class="retail_input_4"  data-bind="options: StateList, optionsText: 'Name', optionsValue: 'Id', optionsCaption: 'State..', value: State ">
+                                                </select>
+				
+					  				
+					</fieldset>
+					
+					<fieldset class="retail_fieldset retail_fieldset_top">
+					<b class="fl red">*</b>
+					<textarea name="" cols="" rows="" class="retail_textarea retail_mar_right" data-bind="value:Message"></textarea>
+					
+					
+					<div class="expandableapply" id="errorexpandable">
+			  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="14"><img src="@Url.Content("~/images/expand_top_left.png")" width="16" height="13" /></td>
+                <td style="background:url(/images/expand_drop_top.png) repeat-x left 2px;"></td>
+                <td width="14"><img src="@Url.Content("~/images/expand_top_right.png")" width="14" height="13" /></td>
+              </tr>
+              <tr>
+                <td style="background:url(/images/expand_drop_left.png) repeat-y 0px top;"></td>
+                <td style="background:#fff;"><div class="expandable_mid1">
+
+			 <img src="@Url.Content("~/images/error_sign.png")" style="float:left;margin-top:4px;margin-left:13px;" /> 
+                    <div id="errordiv" style="margin-left:97px;">
+                         <ul data-bind="foreach:validationmessages">
+                            <li data-bind="text: $data"></li>
+
+                         </ul>
+                    </div>
+                  </div></td>
+                <td style="background:url(/images/expand_drop_right.png) repeat-y 0px top;"></td>
+              </tr>
+              <tr>
+                <td width="14" style="padding:0px!important;"><img src="@Url.Content("~/images/expand_bot_left.png")" width="16" height="13" /></td>
+                <td style="background:url(/images/expand_drop_bottom.png) repeat-x left 0px;" width="100%"></td>
+                <td width="14" style="padding:0px!important;"><img src="@Url.Content("~/images/expand_bot_right.png")" width="14" height="13" /></td>
+              </tr>
+            </table>
+			  </div>
+					<a  class="retail_apply_btn" id="Retailagentbtn" style="cursor:pointer" ></a>
+					
+					</fieldset>
+					  	<strong data-bind="text: Status" style="font-size: 1.2em;color:red;padding-top:22px;margin-top:45px;float:left;margin-left:-193px; width:663px; text-align:center"></strong> 
+					</div>
+                        
+                          </div>					 
+ 			
+      </div>
+      </div>
+	  
+	  
+	  </div>
+	  
+	  </div>

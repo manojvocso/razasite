@@ -1,0 +1,234 @@
+﻿@model MvcApplication1.Models.GenericModel
+@{
+    ViewBag.Title = "SaveBigEveryDayExistCustomer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/magicSuggest-1.3.1.min.js")" type="text/javascript"></script>   
+
+<link href="@Url.Content("~/css/style-raza-offerchoosing.css")" rel="stylesheet" />
+<link href="@Url.Content("~/css/magicsuggest1-1.3.1.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Scripts/Get_UpTo_Promo.js")" type="text/javascript"></script>  
+<style>
+    a.tooltip {outline:none; color:#000; text-decoration:none; position:relative; } 
+a.tooltip strong {line-height:30px;} 
+a.tooltip:hover {text-decoration:none;} 
+a.tooltip span {z-index: 10;display: none!important;padding: 14px 20px!important;margin-top: -30px!important;margin-left: 28px!important;width: 700px;line-height: 16px;}
+a.tooltip:hover span{ display:inline; position:absolute; color:#fff; background:#5b5b5b; top:103px; left:148px;} 
+.callout {z-index:20;position:absolute;top:-6px;border:0;left:20px;} /*CSS3 extras*/ 
+a.tooltip span { border-radius:4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; -moz-box-shadow: 5px 5px 8px #333; -webkit-box-shadow: 5px 5px 8px #333; box-shadow: 5px 5px 8px #333; }
+a.tooltip span ol {list-style-type:none; padding-bottom:0px; padding-left:0px; margin:0px; padding:0px;}
+a.tooltip span ol li {list-style-type:none; padding-bottom:0px; padding-left:0px; margin:0px; padding:0px;}
+    .customer-price-top-section-column a {
+        line-height: 26px ! important;
+
+    }
+    .ms-ctn input {
+        width: 30px !important;
+    }
+    .customer-price-top-section-column, .customer-price-top-section-column {
+        margin-top: 9px ! important;
+    }
+    .bgactive-existing {
+width: 157px!important;
+
+right: 118px !important;
+
+}
+    .bgactivefaq-existing {
+        margin-right: 9px;
+    }
+        .ms-res-item a {
+width: auto!important;
+line-height: 23px!important;
+margin: 10px 0px 0px 0px;
+}
+</style>
+<script>
+    $(document).ready(function (e) {
+        $('.sam').click(function () {
+            var id = $(this).attr('id');
+
+            $('.sam').removeClass('activetab');
+            $(this).addClass('activetab');
+
+            $('.custom').hide();
+            $('#' + id + "-1").show();
+        });
+    });
+</script>
+
+<div class="customer-banner">
+    <ul>
+    <li><img src="@Url.Content("~/images/Promotion_image/savebigeveryday/pakistan500_01.jpg")" alt="" /></li>
+        <li><img src="@Url.Content("~/images/Promotion_image/savebigeveryday/pakistan500_02.jpg")" alt="" /></li>
+        <li><img src="@Url.Content("~/images/Promotion_image/savebigeveryday/pakistan500_03.jpg")" alt="" /></li>
+        <li><img src="@Url.Content("~/images/Promotion_image/savebigeveryday/pakistan500_04.jpg")" alt="" /></li>
+
+    </ul>
+</div>
+<input type="hidden" value="@ViewBag.OrderId" id="premium-orderid"/>
+<input type="hidden" value="@ViewBag.BalncAmount" id="Balnc-amount"/>
+<input type="hidden" value="@ViewBag.CurrencyCode" id="Curr-code"/>
+<input type="hidden" value="One Touch Dial" id="hid-planname"/>
+<input type="hidden" value="old" id="hid-usertype" />
+<input type="hidden" value="BIG2014" id="hid-couponcode" />
+
+<div class="customer-price-table" id="promotion-plan-bind">
+    <input type="hidden" value="@ViewBag.CountryFromPromotion" id="fromPromotion" />
+    <input type="hidden" value="@ViewBag.CountryToPromotion" id="toPromotion" />
+    <div class="customer-price-table-top">
+        <img src="@Url.Content("~/images/Promotion_image/diwali2014/customer-price-table-top-bg.png")" alt="" />
+    </div>
+    <div class="customer-price-table-content">
+        <div class="customer-price-top-section">
+            <div class="customer-price-top-section-column customer-price-top-section-column-left">
+                <select name="countryfrom" id="countries_searchrates_existCustomer" style="width: 110px; height: 25px; margin-top: 12px; margin-left: 10px;">
+                    <option value='1' data-image="images/blank.gif" data-imagecss="flag us" data-title="U.S.A">U.S.A</option>
+                    <option value='2' data-image="images/blank.gif" data-imagecss="flag ca" data-title="Canada">Canada</option>
+                </select>
+
+                 <script>
+                     var countryid = $("#fromPromotion").val();
+                     var ctx = $("#toPromotion").val();
+                     function setSelectedIndex(s, valsearch) {
+                         // Loop through all the items in drop down list
+                         for (var i = 0; i < s.options.length; i++) {
+                             if (s.options[i].value == valsearch) {
+                                 // Item is found. Set its property and exit
+                                 s.options[i].selected = true;
+                                 break;
+                             }
+                         }
+                         return;
+                     }
+                     setSelectedIndex(document.getElementById("countries_searchrates_existCustomer"), countryid);
+
+
+
+                              	</script>
+  
+            </div>
+            <div class="customer-price-top-section-column">
+                <!-- country to  -->
+                
+                    <div class="ms-helper "  ></div>
+                    <div id="ms-new-pr" class="ms-sel-ctn" style="width: 220px; float: left; height: 34px; margin-top: 10px; margin-left: 10px;">
+                        <input id="ms-new-pr-0" type="text" class="" value="Enter the country you wish to call" style="width: 170px;" />
+                        <input type="hidden" value="[]" />
+                    </div>
+                </div>
+                <input type="hidden" id="hidden-countryto" />
+            <div class="customer-price-top-section-column"><a id="newcustomers" class="sam activetab existing-customer-tab" style="margin-left: 61px; font-size:15px;margin-top: 15px; cursor: pointer">Existing Customers</a></div>
+            <div class="customer-price-top-section-column"><a style="cursor: Pointer; margin-top: 10px; margin-left: 1px;" id="faqs" class="sam existing-customer-faq-tab">FAQs</a></div>
+        </div>
+        <div class="clear-fix"></div>
+        <div class="customer-price-table-dv new-customer-price-table-dv existing-customer custom" id="newcustomers-1">
+          <ul class="column-1">
+                <li>DENOMINATION</li>
+                <!--ko foreach: PromotionPlans -->
+                <li><span data-bind="text: CurrencySign"></span><span data-bind="text: Denomination"></span ></li>
+                <!-- /ko -->
+            </ul>
+            <ul class="column-3">
+                <li>EXTRA Mins.</li>
+                 <!--ko foreach: PromotionPlans -->
+                <li data-bind="text: ExtraMin"></li>
+                <!-- /ko -->
+                <li class="brdnone"></li>
+            </ul>
+
+
+            <ul class="column-6" id="uitems">
+                <div class="bgactive-existing"></div>
+                <li>&nbsp;</li>
+                <!--ko foreach: PromotionPlans -->
+                <li><a style="cursor: pointer" class="close" data-bind="click: $root.BuyPromotion">RECHARGE</a></li>
+                <!-- /ko -->
+                <li class="brdnone"></li>
+            </ul>
+            <div class="clear-fix"></div>
+        </div>
+
+        <!-- FAQs -->
+        <div class="customer-price-table-faq-dv custom" id="faqs-1">
+            <ul>
+            <div class="bgactivefaq-existing"></div>
+            	<li>
+                <a href="#" class="tooltip">What is the coupon code for the Save Big EveryDay Offer?
+                	 <span> <img class="callout" src="@Url.Content("~/images/Promotion_image/diwali2014/tooltip-arrow.png")" />BIG2014(Caps). Please make sure to use the coupon code in order to qualify for the Extra minutes. </span>
+                 </a>
+                </li>
+                <li class="alternaterow">
+                <a href="#" class="tooltip">What is the time period for the Save Big EveryDay Offer?
+                	<span> <img class="callout" src="@Url.Content("~/images/Promotion_image/diwali2014/tooltip-arrow.png")" />This promotional offer will last till Oct 26th 2014.</span> </a>
+                </li>
+                <li> <a href="#" class="tooltip">Once I buy the Save Big EveryDay Offer, will the minutes expire
+                	<span> <img class="callout" src="@Url.Content("~/images/Promotion_image/diwali2014/tooltip-arrow.png")" />No the actual minutes will not expire. Once you have purchased the offer, those minutes are yours to keep. Please note: The promotional minutes will expire after 60 days from the purchase date and if you cancel the plan then the free bonus minutes will not count towards your refund balance. </span> </a>
+                </li>
+                <li class="alternaterow"> <a href="#" class="tooltip">Who is eligible for the Save Big EveryDay Offer?
+                	<span> <img class="callout" src="@Url.Content("~/images/Promotion_image/diwali2014/tooltip-arrow.png")" />Both our existing and new members are eligible for the Save Big EveryDay Offer. </span> </a>
+                </li>
+                <li> <a href="#" class="tooltip">Which Countries are eligible for Save Big EveryDay Offer?
+                	<span> <img class="callout" src="@Url.Content("~/images/Promotion_image/diwali2014/tooltip-arrow.png")" />Get up to 2500 minutes free Offer is valid for India, Bangladesh, Nepal and Sri Lanka only.</span> </a>
+                </li>
+                <li class="alternaterow"> <a href="#" class="tooltip">Is the Save Big EveryDay Offer good from USA and Canada?
+                	<span> <img class="callout" src="@Url.Content("~/images/Promotion_image/diwali2014/tooltip-arrow.png")" />The Save Big EveryDay Offer is good from USA and CANADA. </span> </a>
+                </li>
+                <li> <a href="#" class="tooltip">How many times can I recharge/purchase the Save Big EveryDay Offer?
+                	<span> <img class="callout" src="@Url.Content("~/images/Promotion_image/diwali2014/tooltip-arrow.png")" />You can recharge or purchase your plan as many times as you want during the promotional period. </span> </a>
+                </li>
+                <li class="alternaterow"> <a href="#" class="tooltip">Will I be able to purchase this plan by calling the customer service?
+                	<span> <img class="callout" src="@Url.Content("~/images/Promotion_image/diwali2014/tooltip-arrow.png")" />Yes.</span> </a>
+                </li>
+                <li> <a href="#" class="tooltip">If I get the Save Big EveryDay Offer can I make calls to other countries besides the countries mentioned above?
+                	<span> <img class="callout" src="@Url.Content("~/images/Promotion_image/diwali2014/tooltip-arrow.png")" />Yes! You will be able to make calls to anywhere in the world. The rate to call countries will differ, based on the countries you are calling. </span> </a>
+                </li>
+                <li class="alternaterow"> <a href="#" class="tooltip">Are there any hidden charges on this product?
+                	<span> <img class="callout" src="@Url.Content("~/images/Promotion_image/diwali2014/tooltip-arrow.png")" />NO, there are absolutely no hidden charges on the Save Big EveryDay Offer. </span> </a>
+                </li>
+                <li> <a href="#" class="tooltip">Will the extra minutes reflect immediately after the recharge or purchase?
+                	<span> <img class="callout" src="@Url.Content("~/images/Promotion_image/navratri2014/tooltip-arrow.png")" />Yes! Extra minutes will be added immediately after recharging or purchasing a plan.</span> </a>
+                </li>
+                <li class="alternaterow"> <a href="#" class="tooltip">Is the landline and cell phone rate same for the Save Big EveryDay Offer?
+                	<span> <img class="callout" src="@Url.Content("~/images/Promotion_image/diwali2014/tooltip-arrow.png")" />The rates for calling landlines and cell phones may be different for these countries. </span> </a>
+                </li>
+                <li> <a href="#" class="tooltip">Once I have purchased the plan how do I make calls to India and other countries?
+                	<span style="top:-118px;  -moz-box-shadow: -5px -5px 8px #333; -webkit-box-shadow: -5px -5px 8px #333; box-shadow: -5px -5px 8px #333;"> <img class="callout" src="@Url.Content("~/images/Promotion_image/diwali2014/tooltip-down-arrow.png")" style="top:184px;" />
+                    <strong>Dialing Instructions:</strong>
+                    <ol>
+                        <li>Dial the Raza Access number.</li>
+                        <li> For International Calls: Dial 011 + Country Code +	City Code + Number followed by # sign.</li>
+                        <li> To call within USA, Canada or Caribean : Dial 1 + Area Code + Number followed by # sign.</li>
+                        *(Once you have dialed the destination number, please do not press send key.)
+                    </ol>
+
+                    </span> </a>
+                </li>
+                <li class="brdnone alternaterow" style="text-align:center;">Raza.com reserves the rights to withdraw or alter Save Big EveryDay Offer at any time without prior notice.</li>
+            </ul>
+            
+
+            <div class="clear-fix"></div>
+        </div>
+
+    </div>
+    <div>
+        <img src="@Url.Content("~/images/Promotion_image/diwali2014/customer-price-table-bottom-bg.png")" alt="" />
+    </div>
+</div>
+
+
+<script type='text/javascript'>
+    function navigatepromotion(target) {
+
+        var countryfrom = $('#countries_searchrates_existCustomer').val();
+        var selected = $(".close").attr('id');
+        var countryto = $('#hidden-countryto').val();
+
+        var url = "/Cart/PromotionalPlans?countryfrom=" + countryfrom + "&&countryto=" + countryto + "&&amount=" + selected + "&&currencycode=USD";
+        window.location.href = url;
+    }
+</script>

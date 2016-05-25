@@ -1,0 +1,281 @@
+﻿@model MvcApplication1.Models.RegPhoneModel
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/Reg-phone.js")" type="text/javascript"></script>
+
+<!--Body Container Start-->
+<div id="inner_body_container">
+    <div id="banner">
+        <img src="@Url.Content("~/images/purchasing1_latest_banner.jpg")" /></div>
+    <!-- End demo -->
+
+    @*<form action="@Url.Action("Regphone", "Recharge")" method="post" id="exist-num">*@
+    
+        <div id="auto-refill">
+            <div id="auto-refill-scroller">
+                <div class="top-bg">
+                    <h1>Assign your Phone Numbers </h1>
+                </div>
+                @*  <div id="toPopup">
+            <div class="close">
+            </div>
+            <div class="validation-popup-header">
+                <h2 id="popup-head">
+                    Register Phone Number
+                </h2>
+                <div id="close-val" class="close-confirm">
+                </div>
+                <fieldset>
+                    @*<p align="center"><strong>If you want to continue the please insert valid card information</strong></p>
+                    <div id="validation-msgs" style="color: red; float: left;">
+                      <strong>You can register maximum five numbers only.</strong>
+                    </div>
+                </fieldset>
+            </div>
+        </div>*@
+                <div class="expandable" id="errorValidation">
+                    <div id="close-val" class="close-confirm">
+                    </div>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+                        <tr>
+                            <td width="14">
+                                <img src="@Url.Content("~/images/expand_top_left.png")" width="14" height="13" /></td>
+                            <td style="background: url(/images/expand_drop_top.png) repeat-x left 2px;"></td>
+                            <td width="14">
+                                <img src="@Url.Content("~/images/expand_top_right.png")" width="14" height="13" /></td>
+                        </tr>
+                        <tr>
+                            <td style="background: url(/images/expand_drop_left.png) repeat-y 0px top;"></td>
+                            <td style="background: #fff;">
+                                <div class="expandable_mid">
+                                    <img src="@Url.Content("~/images/error_sign.png")" style="float:left;margin-top:15px;margin-left:30px;" />
+                                    <div id="validation-message" style="margin-left: 110px; color: #960000" class="validation-error-msg">
+                                        <!-- ko foreach: validationmessages -->
+                                        <p><strong data-bind="text: $data"></strong></p>
+                                        <!--/ko-->
+
+                                    </div>
+                                </div>
+                            </td>
+                            <td style="background: url(/images/expand_drop_right.png) repeat-y 0px top;"></td>
+                        </tr>
+                        <tr>
+                            <td width="14" style="padding: 0px!important;">
+                                <img src="@Url.Content("~/images/expand_bot_left.png")" width="14" height="13" /></td>
+                            <td style="background: url(/images/expand_drop_bottom.png) repeat-x left 0px;" width="100%"></td>
+                            <td width="14" style="padding: 0px!important;">
+                                <img src="@Url.Content("~/images/expand_bot_right.png")" width="14" height="13" /></td>
+                        </tr>
+                    </table>
+
+                </div>
+
+                <div class="loader">
+                </div>
+                <div id="backgroundPopup">
+                </div>
+                <div id="toPopupforward" style="min-height: 100px">
+                    <div class="close">
+                    </div>
+                    <div class="contact-detail-new1">
+                        <h2>Delete Confirmation
+                        </h2>
+                        <div id="close-val2" class="close-confirm1">
+                        </div>
+                        <p style="margin-left: 30px; color: red; font-size: 14px;">Are you sure you want to delete?</p>
+                        <div style="width: 220px;">
+                            <div id="YesDelete" class="Deleteconf"></div>
+
+                            <div id="NoDelete" class="Deletecancl"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="loader">
+                </div>
+                <div id="backgroundValidation">
+                </div>
+
+                <div class="repeat-scroller-bg">
+                    <div class="editprofile_b">
+                        <div id="edit-profile">
+                            <table width="100%" cellpadding="0" cellspacing="0" class="view-cdr-pins">
+                                <tr align="middle" bgcolor="757575">
+                                    <td height="30" class="col">Plan Type</td>
+                                    <td class="col">Price</td>
+                                    <td class="col">Calling From</td>
+                                    <td class="col">Calling To</td>
+                                    <td class="col">Quantity</td>
+                                </tr>
+                                <tr>
+                                    <td height="30" align="center">@Model.PlanName</td>
+                                    <td align="center">@Model.CurrencyCode @Model.Price</td>
+                                    <td align="center">@Model.CallingFrom</td>
+                                    <td align="center">@Model.CallingTo</td>
+                                    <td align="center">@Model.Quantity</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-scroller-bg"></div>
+            </div>
+        </div>
+        <div class="import_notice">
+            <p class="font_17"><strong style="margin-left: 7px;">IMPORTANT: There should be a phone number registered under your new plan to make it pin-less. </strong></p>
+            <br />
+            <p><strong style="margin-left: 7px;">OPTION 1</strong> Check the box against the numbers you wish to transfer to the new plan.</p>
+            <p><strong style="margin-left: 7px;">OPTION 2</strong> Add new numbers (A Maximum  of 5 numbers can be registered)</p>
+            <p><strong style="margin-left: 7px;">Note:</strong> Once your phone number is transferred to the new plan the pin-less setup will be removed under the old plan.</p>
+
+        </div>
+        <div id="auto-refill">
+            <div class="left-pan">
+                <div class="top-part">
+                    <img src="@Url.Content("~/images/option_1_bg.png")" alt="" class="option_bg"/>
+                </div>
+
+                <div class="mid-part">
+                    <div class="gray-bg">
+                        <!--<p><strong>ASSIGN EXISTING NUMBER TO ABOVE PLAN:</strong> (OPTIONAL) Select one of the numbers listed below to assign those numbers to new plan. </p>
+              <p>(*If you assign existing number to ABOVE plan, your exising pinless setup for old plan will terminate).</p>-->
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="opt_table opt_table-new">
+                            <tr>
+                                <th width="60%" height="40px" style="text-align: center" align="center" height="25" class="border_right">Your Existing Registered Number(s):</th>
+                                <th width="20%" height="40px" style="text-align: center" class="border_right">Select </th>
+                                <th width="20%" height="40px" style="text-align: center">Remove </th>
+                            </tr>
+
+                            <tbody data-bind="foreach: PinlessNumberList">
+                                <tr id="">
+                                    <input type="hidden" data-bind="value: CountryCode" />
+                                    <td height="35" width="60%" align="center" class="border-top border_right" bgcolor="#fafafa" data-bind="text: PinlessNumber"></td>
+                                    <td width="20%" align="center" bgcolor="#fafafa" class="border-top border_right">
+                                        <input type="checkbox" name="num[]" onclick="return Dat(this);" data-bind="    checkedInArray: { array: $parent.SelectedNumbersList, value: $data }" />
+                                    </td>
+                                    <td width="20%" align="center" bgcolor="#fafafa" class="border-top"><a style="cursor: pointer" data-bind="click: $root.Delete">
+                                        <img src="@Url.Content("~/images/remove-btn.jpg")" alt="" /></a></td>
+                                </tr>
+                            </tbody>
+
+                            @*<tr>
+                  <td height="35" align="center" class="border-top border_right" width="60%">2183418059</td>
+                  <td  width="20%" align="center" class="border-top border_right"><input type="checkbox" /></td>
+				  <td  width="20%" align="center" bgcolor="#fafafa" class="border-top "><a href=""><img src="@Url.Content("~/images/remove-btn.jpg")" alt="" /></a></td>
+                </tr>
+               
+                <tr>
+                  <td height="25" align="center" class="border-top border_right" width="60%" bgcolor="#fafafa">2187243281</td>
+                  <td  width="20%" align="center" bgcolor="#fafafa" class="border-top border_right"><input type="checkbox" /></td>
+				  <td  width="20%" align="center" bgcolor="#fafafa" class="border-top"><a href=""><img src="@Url.Content("~/images/remove-btn.jpg")" alt="" /></a></td>
+                </tr>*@
+                        </table>
+
+                    </div>
+                    <div class="gray-bot-bg"></div>
+
+                </div>
+                <div class="bot-part"></div>
+            </div>
+            <div class="left-pan right-pan">
+                <div class="top-part">
+                    <img src="@Url.Content("~/images/option_2_bg.png")" alt="" class="option_bg" />
+                </div>
+
+                <div class="mid-part">
+                    <div class="gray-bg">
+
+                        <h3>Add New Numbers</h3>
+
+                        <div class="opt_div"><strong>Phone # 1:</strong></div>
+                        <div class="opt_div_right">
+                            <input type="text" class="opt_small_input" maxlength="3" data-bind="value: PinlessNumber1_1" onkeypress="return numberOnly();" />
+                            <input type="text" class="opt_small_input" maxlength="3" data-bind="value: PinlessNumber1_2" onkeypress="return numberOnly();" />
+                            <input type="text" class="opt_input" maxlength="4" data-bind="value: PinlessNumber1_3" onkeypress="return numberOnly();" />
+                        </div>
+
+
+                        <div class="opt_div"><strong>Phone # 2:</strong></div>
+                        <div class="opt_div_right">
+                            <input type="text" class="opt_small_input" maxlength="3" data-bind="value: PinlessNumber2_1" onkeypress="return numberOnly();" />
+                            <input type="text" class="opt_small_input" maxlength="3" data-bind="value: PinlessNumber2_2" onkeypress="return numberOnly();" />
+                            <input type="text" class="opt_input" maxlength="4" data-bind="value: PinlessNumber2_3" onkeypress="return numberOnly();" />
+                        </div>
+
+
+                        <div class="opt_div"><strong>Phone # 3:</strong></div>
+                        <div class="opt_div_right">
+                            <input type="text" class="opt_small_input" maxlength="3" data-bind="value: PinlessNumber3_1" onkeypress="return numberOnly();" />
+                            <input type="text" class="opt_small_input" maxlength="3" data-bind="value: PinlessNumber3_2" onkeypress="return numberOnly();" />
+                            <input type="text" class="opt_input" maxlength="4" data-bind="value: PinlessNumber3_3" onkeypress="return numberOnly();" />
+                        </div>
+
+
+                        <div class="opt_div"><strong>Phone # 4:</strong></div>
+                        <div class="opt_div_right">
+                            <input type="text" class="opt_small_input" maxlength="3" data-bind="value: PinlessNumber4_1" onkeypress="return numberOnly();" />
+                            <input type="text" class="opt_small_input" maxlength="3" data-bind="value: PinlessNumber4_2" onkeypress="return numberOnly();" />
+                            <input type="text" class="opt_input" maxlength="4" data-bind="value: PinlessNumber4_3" onkeypress="return numberOnly();" />
+                        </div>
+
+                        <div class="opt_div"><strong>Phone # 5:</strong></div>
+                        <div class="opt_div_right">
+                            <input type="text" class="opt_small_input" maxlength="3" data-bind="value: PinlessNumber5_1"  onkeypress="return numberOnly();" />
+                            <input type="text" class="opt_small_input" maxlength="3" data-bind="value: PinlessNumber5_2"  onkeypress="return numberOnly();" />
+                            <input type="text" class="opt_input" maxlength="4" data-bind="value: PinlessNumber5_3"  onkeypress="return numberOnly();" />
+                        </div>
+
+
+
+                        <input type="hidden" name="PinlessNumberOne" data-bind="value: PinlessNumberOne" />
+                        <input type="hidden" name="CountryCodeOne" data-bind="value: CountryCode1" />
+
+                        <input type="hidden" name="PinlessNumberTwo" data-bind="value: PinlessNumberTwo" />
+                        <input type="hidden" name="CountryCodeTwo" data-bind="value: CountryCode2" />
+
+                        <input type="hidden" name="PinlessNumberThree" data-bind="value: PinlessNumberThree" />
+                        <input type="hidden" name="CountryCodeThree" data-bind="value: CountryCode3" />
+
+                        <input type="hidden" name="PinlessNumberFour" data-bind="value: PinlessNumberFour" />
+                        <input type="hidden" name="CountryCodeFour" data-bind="value: CountryCode4" />
+
+                        <input type="hidden" name="PinlessNumberFive" data-bind="value: PinlessNumberFive" />
+                        <input type="hidden" name="CountryCodeFive" data-bind="value: CountryCode5" />
+
+                    </div>
+                    <div class="gray-bot-bg"></div>
+
+                </div>
+                <div class="bot-part"></div>
+            </div>
+        </div>
+
+        <div id="auto-refill" style="display: none" class="showdiv">
+            <div id="auto-refill-scroller">
+                <div class="top-bg">
+                    <h1>OPTION 2</h1>
+                </div>
+                <div class="repeat-scroller-bg">
+                    <div class="editprofile_b">
+                        <div id="edit-profile">
+                            <p><strong>ASSIGN NEW NUMBER TO ABOVE PLAN: Enter the phone number that you will be using the plan from.</strong> This will initiate your PINless Dial so that you will not need to enter the PIN from this number. </p>
+                            <p>If you have additional Phone Numbers other than listed above, Enter Area Code + Telephone Number(s) you will be calling from</p>
+                            <div class="opt_div"><strong>Phone # 1:</strong></div>
+                            <div class="opt_div_right">
+                                <input type="text" class="opt_small_input" />
+                                <input type="text" class="opt_small_input" />
+                                <input type="text" class="opt_input" />
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-scroller-bg"></div>
+            </div>
+        </div>
+        @*<input type="submit" class="submit1 padd_left" id="submit-regnumbers" onclick="return PostRegphone();" value="">*@
+        <input type="submit" class="submit1 padd_left" id="submit-regnumbers"  value="">
+        <div class="spacer"></div>
+    @*</form>*@
+</div>
+<!--Body Container End-->

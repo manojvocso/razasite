@@ -1,0 +1,76 @@
+﻿<!-- Over Navbar Left -->
+
+
+
+
+<nav id="menu">
+    <ul>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <li><a href="@Url.Action("LogOff", "Account")"><i class="menu_icon  fa fa-sign-out"></i><b>Sign out</b> </a></li>
+        }
+        <li class="selected"><a href="@Url.Action("Index", "Account")"><i class=" menu_icon fa fa-home"></i>Home</a> </li>
+        <li><span><i class=" menu_icon fa fa-user"></i>About Us/Why Raza? </span>
+            <ul>
+                <li><a href="@Url.Action("AboutUs", "WhyRaza")"><i class=" menu_icon fa fa-user"></i>About Us </a></li>
+                <li><a href="@Url.Action("Index", "WhyRaza")"><i class=" menu_icon fa fa-book"></i>Why Raza? </a></li>
+                <li><a href="@Url.Action("HowItWorks", "WhyRaza")"><i class=" menu_icon fa fa-cog"></i>How It Works </a></li>
+            </ul>
+        </li>
+        <li><a href="@Url.Action("Index", "Rate")"><i class=" menu_icon fa fa-search"></i>Search Rates </a></li>
+        <li><span><i class="menu_icon fa fa-file-text-o"></i>My Account/Recharge</span>
+            <ul>
+                <li><a href="@Url.Action("MyAccount", "Account")"><i class="menu_icon fa fa-file-text-o"></i>My Account</a></li>
+                <li><a href="@Url.Action("MyAccount", "Account")"><i class="menu_icon fa fa-flash"></i>Recharge</a></li>
+            </ul>
+        </li>
+        <li><span><i class="menu_icon fa fa-book"></i>Features</span>
+            <ul>
+                <li><a href="@Url.Action("Index", "Features")#onetouch"><i class="menu_icon fa fa-mobile"></i>One Touch Dialing</a></li>
+                <li><a href="@Url.Action("Index", "Features")#pinless"><i class="menu_icon fa fa-chain"></i>Pin less setup</a></li>
+                <li><a href="@Url.Action("Index", "Features")#autorefill"><i class="menu_icon fa fa-flash"></i>Auto-refill</a> </li>
+                <li><a href="@Url.Action("Index", "Features")#calldetails"><i class="menu_icon fa fa-book"></i>Call Details</a></li>
+                <li><a href="@Url.Action("Index", "Features")#callforwarding"><i class="menu_icon fa  fa-phone"></i>Call Forwarding</a> </li>
+                <li><a href="@Url.Action("Index", "Features")#razareward"><i class="menu_icon fa fa-trophy"></i>Raza Rewards</a></li>
+                <li><a href="@Url.Action("Index", "Features")#refer"><i class="menu_icon fa fa-users"></i>Refer a Friend</a> </li>
+                <li><a href="@Url.Action("Index", "Features")#quickeys"><i class="menu_icon fa fa-refresh"></i>Quickeys</a></li>
+            </ul>
+        </li>
+        <li><span><i class=" menu_icon fa fa-phone"></i>Support</span>
+            <ul>
+                <li><a href="@Url.Action("ContactUs", "Support")"><i class="menu_icon fa fa-phone"></i>Contact Us</a></li>
+                <li><a href="@Url.Action("LocalAccessNumber", "Support")"><i class="menu_icon fa fa-file-text-o"></i>Local Access Numbers</a></li>
+                <li><a href="@Url.Action("Faq", "Support")"><i class="menu_icon fa fa-exclamation-circle "></i>FAQ’S</a> </li>
+                <li><a href="@Url.Action("TermsAndCondition", "Support")"><i class="menu_icon fa fa-lock"></i>Terms and Conditions</a> </li>
+                <li><a href="@Url.Action("MobileTopTermsAndConditions", "Support")"><i class="menu_icon fa fa-cog"></i>Mobile Topup Terms and Conditions</a> </li>
+                <li><a href="@Url.Action("Security", "Support")"><i class="menu_icon fa fa-briefcase"></i>Security</a> </li>
+                <li><a href="@Url.Action("BillingAndPayment", "Support")"><i class="menu_icon fa fa-money"></i>Billing and Payment</a> </li>
+                <li><a href="@Url.Action("Feedback", "Support")"><i class="menu_icon fa fa-envelope-o"></i>Feedback</a> </li>
+                <li><a href="@Url.Action("OpenComplaint", "Support")"><i class="menu_icon fa fa-file-pdf-o"></i>Open a complaint</a> </li>
+
+            </ul>
+        </li>
+        <li> <a href="@Url.Action("AgentSignUp", "Account")"> <i class="menu_icon  fa fa-building"> </i> Become an agent </a> </li>
+
+    </ul>
+</nav>
+
+@if (User.Identity.IsAuthenticated)
+{
+    if (!string.IsNullOrWhiteSpace((User as MvcApplication1.Models.RazaPrincipal).FullName))
+    {
+    
+    <input type="hidden" id="hid-User-Name" value="@(((MvcApplication1.Models.RazaPrincipal)User).FullName)"/>
+    }
+}
+
+@using (Html.BeginForm("ChangeHeaderCountry", "Account", FormMethod.Post, new { @id = "changeHeaderCountryForm" }))
+{
+    <input type="hidden" name="countryByIp" id="countryByIp" value="@Session["CountrybyIp"]"/>
+    <input type="hidden" id="countryByIpSubmitUrl" value="@Url.Action("ChangeHeaderCountry", "Account")"/>
+}
+
+@*<form action="@Url.Action("ChangeHeaderCountry", "Account")" novalidate="novalidate" method="POST" id="changeHeaderCountryForm">
+    
+</form>*@
+<!-- /.onl-nav -->

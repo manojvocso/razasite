@@ -1,0 +1,48 @@
+﻿@model MvcApplication1.Areas.Mobile.ViewModels.PromotionRateViewModel
+@{
+    ViewBag.Title = "Happy Mother's Day: Get Up To 2500 Free Minutes to Call India, Pakistan, Bangladesh, Nepal and Sri Lanka";
+}
+
+<img class="img-responsive" src="@Url.Content("~/Content/MobileTheme/images/promotions/mothersday2016.jpg")">
+
+<div class="container-fluid">
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(a => a.CustomerType)
+        @Html.HiddenFor(a=>a.CouponCode)
+        <div class="container demo country_mar">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                    @Html.DropDownListFor(a => a.CountryFrom, new SelectList(Model.FromCountryList, "Id", "Name"), new { @class = "form-control " })
+                    @Html.ValidationMessageFor(a => a.CountryFrom)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 form_mar">
+                    @Html.DropDownListFor(a => a.CountryTo, new SelectList(Model.ToCountryList, "Id", "Name"), new { @class = "form-control " })
+                    @Html.ValidationMessageFor(a => a.CountryTo)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+
+                    <button type="submit" id="new_cust" class="btn btn-primary btn-block form_mar btn_bgreen">New Customer</button>
+                    <button type="submit" id="exist_cust" class="btn btn-primary btn-block form_mar btn_bgreen">Existing Customer</button>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+@section scripts{
+    <script>
+        $("#new_cust").click(function () {
+            $("#CustomerType").val("new");
+        });
+        $("#exist_cust").click(function () {
+            $("#CustomerType").val("old");
+        });
+    </script>
+}
+
+

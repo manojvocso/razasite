@@ -1,0 +1,76 @@
+﻿@model MvcApplication1.Areas.Mobile.ViewModels.RazaRewardsViewModel
+@{
+    ViewBag.Title = "RazaReward";
+}
+
+<div class="plan_tbg  header_mar">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-8 col-sm-8">
+                    <h1 class=" title_review">Reward Overviews</h1>
+                </div>
+                <div class="col-xs-4 col-sm-4">
+                    <h1 class=" title_review">points</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="container">
+        <div class="row profile">
+            <div class="col-xs-8 col-sm-8">
+                <h3 class="order_titile">Points earned by Recharge</h3>
+            </div>
+            <div class="col-xs-4 col-sm-4">
+                <h3 class=" order_titile">@Html.Encode(Model.TotalEarnedPointsByRecharge)</h3>
+            </div>
+        </div>
+        <div class="row profile">
+            <div class="col-xs-8 col-sm-8">
+                <h3 class="order_titile">Refer-A-Friend</h3>
+            </div>
+            <div class="col-xs-4 col-sm-4">
+                <h3 class=" order_titile">@Html.Encode(Model.ReferAFriend)</h3>
+            </div>
+        </div>
+        <div class="row profile">
+            <div class="col-xs-8 col-sm-8">
+                <h3 class="order_titile">Points Redeemed</h3>
+            </div>
+            <div class="col-xs-4 col-sm-4">
+                <h3 class=" order_titile">@Html.Encode(Model.PointsRedeemed)</h3>
+            </div>
+        </div>
+        <div class="row profile">
+            <div class="col-xs-8 col-sm-8">
+                <h3 class="order_titile"><b>Total Available Points</b>
+                </h3>
+            </div>
+            <div class="col-xs-4 col-sm-4">
+                <h3 class=" order_titile"><b>@Html.Encode(Model.TotalAvailablePoints)</b>
+                </h3>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="container">
+        @*<div class="row">
+            <div class="col-xs-12">
+                <button type="button" class="btn btn-primary btn-block form_mar btn_bgreen">Redeem Now </button>
+            </div>
+        </div>*@
+
+        <div class="row">
+            <div class="col-xs-12">
+                <h5 class="register_content">USA customers should have a total of 1000 points and Canadian customers should have 1100 points to redeem for $10 free minutes.</h5>
+                <h5 class="register_content">Points cannot be converted into cash</h5>
+                <h5 class="register_content">Refer a Friend points applies to your account on a valid activation ( purchase) of your referral.</h5>
+
+            </div>
+        </div>
+    </div>
+</div>
+

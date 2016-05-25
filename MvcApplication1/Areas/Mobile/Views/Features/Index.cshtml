@@ -1,0 +1,202 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="container-fluid profile">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="dropdown">
+                    <a href="#" id="dLabel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="features_icon fa fa-plus"></i>Features
+   <!-- <span class="caret"></span>-->
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dLabel">
+                        <li><a role="menuitem" tabindex="-1" href="#onetouch">One Touch Dial</a></li>
+                        <li><a role="menuitem" tabindex="-1" href="#pinless">Pin less setup</a></li>
+                        <li><a role="menuitem" tabindex="-1" href="#autorefill">Auto-refill</a></li>
+                        <li><a role="menuitem" tabindex="-1" href="#calldetails">Call Details</a></li>
+                        <li><a role="menuitem" tabindex="-1" href="#callforwarding">Call Forwarding</a></li>
+                        <li><a role="menuitem" tabindex="-1" href="#razareward">Raza Rewards</a></li>
+                        <li><a role="menuitem" tabindex="-1" href="#refer">Refer a Friend</a></li>
+                        <li><a role="menuitem" tabindex="-1" href="#quickeys">Quickeys</a></li>
+                    </ul>
+                </div>
+
+                <!--<div class="dropdown">
+        <a id="menu1" data-toggle="dropdown" ><i class="features_icon fa fa-plus"></i>Features</a>
+       <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+      <li><a role="menuitem" tabindex="-1" href="#onetouch">One Touch Dial</a></li>
+      <li><a role="menuitem" tabindex="-1" href="#pinless">Pin less setup</a></li>
+      <li><a role="menuitem" tabindex="-1" href="#autorefill">Auto-refill</a></li>
+      <li><a role="menuitem" tabindex="-1" href="#calldetails">Call Details</a></li>
+        <li><a role="menuitem" tabindex="-1" href="#callforwarding">Call Forwarding</a></li>
+          <li><a role="menuitem" tabindex="-1" href="#razareward">Raza Rewards</a></li>
+            <li><a role="menuitem" tabindex="-1" href="#refer">Refer a Friend</a></li>
+              <li><a role="menuitem" tabindex="-1" href="#quickeys">Quickeys</a></li>
+    </ul>
+  </div>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6" id="onetouch">
+                <div id="hexagon"><span class=" feature_icon flaticon-smartphone55"></span></div>
+                <div class="feature_bor">
+                    <h2 class="sub_login text-center">One Touch Dialing</h2>
+                    <p class="text-center features_pad">
+                        Dial any International number with the 
+                                    <b>touch of a button.</b>
+                    </p>
+                    <div class="collapse features_pad" id="oneTouch">
+                        <ul class="plan_detail">
+                            <h5>How it works?</h5>
+                            <li>Works just like making a Local call.</li>
+                            <li>Pick a Raza access number and assign it to a specific destination number.</li>
+                            <li>The access number picked will be your One Touch Dial number every time you call.</li>
+                            <li>Name your One Touch Dial number and save it to your contacts.</li>
+                            <li>Just dial the One Touch dial number and connect to the destination directly.</li>
+                            <li>Register up to 10 One Touch dial numbers.</li>
+                            <h5><a href="@Url.Action("MyAccount", "Account")">Setup Now</a></h5>
+                        </ul>
+
+                    </div>
+                    <div class="text-center feature_btn"><a data-toggle="collapse" href="#oneTouch" aria-expanded="false" aria-controls="oneTouch">More</a></div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6" id="pinless">
+                <div id="hexagon"><span class="  feature_icon flaticon-link23"></span></div>
+                <div class="feature_bor">
+                    <h2 class="sub_login text-center">Pin less setup</h2>
+                    <p class="text-center features_pad">No Pin numbers to dial, register up to 5 calling from numbers.</p>
+                    <div class="collapse features_pad" id="pinLess">
+                        <ul class="plan_detail">
+                            <h5>How it works?</h5>
+                            <li>Dial a Raza access number. (Make sure the access number is local and free of charge)</li>
+                            <li>Dial 011+ Country Code + destination number followed by # key to get connected.</li>
+                            <li>No need to dial any pin numbers.</li>
+                            <li>To call within USA, Canada or Caribbean: Dial 1 + Area Code + Number followed by # key.</li>
+                            <li>Register up to 5 calling from numbers</li>
+                            <h5><a href="@Url.Action("MyAccount", "Account")">Setup Now</a></h5>
+                        </ul>
+                    </div>
+                    <div class="text-center feature_btn"><a data-toggle="collapse" href="#pinLess" aria-expanded="false" aria-controls="pinLess">More</a></div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6" id="autorefill">
+                <div id="hexagon"><span class="  feature_icon flaticon-recharge"></span></div>
+                <div class="feature_bor">
+                    <h2 class="sub_login text-center">Auto-refill</h2>
+                    <p class="text-center features_pad">Never get disconnected due to insufficient balance. We automatically recharge your plan on low balance.</p>
+                    <div class="collapse features_pad" id="autoRefill">
+                        <ul class="plan_detail">
+                            <h5>How it works?</h5>
+                            <li>Auto-refill is an excellent feature to save time and money.</li>
+                            <li>Your plan recharges automatically when the balance reaches below $2</li>
+                            <li>Get additional 10% extra minutes on every auto-recharge for qualified plans.</li>
+                            <li>Cancel it anytime online or by calling our 24/7 customer service without any cancellation fee.</li>
+                            <h5><a href="@Url.Action("MyAccount", "Account")">Enroll Now</a></h5>
+                        </ul>
+                    </div>
+                    <div class="text-center feature_btn"><a data-toggle="collapse" href="#autoRefill" aria-expanded="false" aria-controls="autoRefill">More</a></div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6" id="calldetails">
+                <div id="hexagon"><span class=" feature_icon flaticon-user84"></span></div>
+                <div class="feature_bor">
+                    <h2 class="sub_login text-center">Call Details</h2>
+                    <p class="text-center features_pad">We give total transparency of your call details,view or print 24/7 up to 60 days online.</p>
+                    <div class="collapse features_pad" id="callDetails">
+                        <ul class="plan_detail">
+                            <li>Total Transparency</li>
+                            <li>Get a detailed breakdown of your calling history</li>
+                            <li>View/Print your call details history for the past 60 days.</li>
+                            <li>Manage your account 24/7, 365 days.</li>
+                            <h5><a href="@Url.Action("MyAccount", "Account")">View Call Details</a></h5>
+                        </ul>
+                    </div>
+                    <div class="text-center feature_btn">
+                        <a data-toggle="collapse" href="#callDetails" aria-expanded="false" aria-controls="callDetails">More</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6" id="callforwarding">
+                <div id="hexagon"><span class=" feature_icon flaticon-telephonecall2"></span></div>
+                <div class="feature_bor">
+                    <h2 class="sub_login text-center">Call Forwarding</h2>
+                    <p class="text-center features_pad">Forward your local calls and receive them anywhere in the world.</p>
+                    <div class="collapse features_pad" id="callForwarding">
+                        <ul class="plan_detail">
+                            <li>Never miss a call when you are away from your home or business</li>
+                            <li>Forward calls to your Cell, Home, office or hotel numbers.</li>
+                            <li>Avoid roaming charges from your primary service provider.</li>
+                            <li>Get your personal 1-800 number.</li>
+                            <h5><a href="@Url.Action("MyAccount", "Account")">Setup Now</a></h5>
+                        </ul>
+                    </div>
+                    <div class="text-center feature_btn"><a data-toggle="collapse" href="#callForwarding" aria-expanded="false" aria-controls="callForwarding">More</a></div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6" id="razareward">
+                <div id="hexagon"><span class=" feature_icon flaticon-trophy99"></span></div>
+                <div class="feature_bor">
+                    <h2 class="sub_login text-center">Raza Rewards</h2>
+                    <p class="text-center features_pad">Sign up for Rewards and get 200 bonus points.Earn 4 points on every dollar spent.</p>
+                    <div class="collapse features_pad" id="razaReward">
+                        <ul class="plan_detail">
+                            <li>Get free 200 bonus points upon signup.</li>
+                            <li>Earn 4 Points for every dollar spent to recharge.</li>
+                            <li>Combine with Refer – A – Friend program.</li>
+                            <li>Redeem points for free minutes.</li>
+                            <h5><a href="@Url.Action("MyAccount", "Account")">View Points</a></h5>
+                        </ul>
+                    </div>
+                    <div class="text-center feature_btn"><a data-toggle="collapse" href="#razaReward" aria-expanded="false" aria-controls="razaReward">More</a></div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6" id="refer">
+                <div id="hexagon"><span class=" feature_icon flaticon-multiple25"></span></div>
+                <div class="feature_bor">
+                    <h2 class="sub_login text-center">Refer a Friend</h2>
+                    <p class="text-center features_pad">Refer 4 friends and get $10 free minutes.</p>
+                    <div class="collapse features_pad" id="referFriend">
+                        <ul class="plan_detail">
+                            <li>Get 4 referrals and earn 1000 points</li>
+                            <li>The new account holder referred by you should just enter your e-mail under referrer’s field when signing up.</li>
+                            <li>Referral points will be automatically added to your account within 24 hours of signup.</li>
+                            <li>Points will only be added when your referrer makes at least 1 valid purchase.</li>
+                        </ul>
+                    </div>
+                    <div class="text-center feature_btn"><a data-toggle="collapse" href="#referFriend" aria-expanded="false" aria-controls="referFriend">More</a></div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6" id="quickeys">
+                <div id="hexagon"><span class=" feature_icon flaticon-refresh57"></span></div>
+                <div class="feature_bor">
+                    <h2 class="sub_login text-center">Quickeys</h2>
+                    <p class="text-center features_pad">Setup a Shortcut key and connect Quickly.</p>
+                    <div class="features_pad collapse" id="quickey" aria-expanded="true">
+                        <ul class="plan_detail">
+                            <li>Pre-program frequently dialed destination numbers into keypad shortcuts.</li>
+                            <li>Assign a 1- 3 digit code on your telephone touch pad</li>
+                            <h5>Just remember the quickey™ you have assigned to each destination number. ( E.g. Mom- #1, Dad-#2, Friend-#3 etc)</h5>
+                            <h5><a href="@Url.Action("MyAccount", "Account")">Setup Now</a></h5>
+                        </ul>
+                    </div>
+                    <div class="text-center feature_btn"><a data-toggle="collapse" href="#quickey" aria-expanded="true" aria-controls="quickey" class="">More</a></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+

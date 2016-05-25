@@ -1,0 +1,85 @@
+﻿@model MvcApplication1.Areas.Mobile.ViewModels.MobileTopupViewModel
+@{
+    ViewBag.Title = "International Top-Up";
+}
+
+<div class="container-fluid">
+    <div class="container demo">
+        <h1 class=" title_login">International Top-Up</h1>
+        @if (!string.IsNullOrEmpty(Model.Message))
+        {
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="container">
+                        @Html.MessageBox(Model.Message, Model.MessageType)
+                    </div>
+                </div>
+            </div>
+        }
+
+        @using (Html.BeginForm())
+        {
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-xs-12 form_mar">
+                        <label>Topup "From" Country</label>
+                        @Html.DropDownListFor(a => a.RateFromCountry, new SelectList(Model.RatesFromCountryList, "Id", "Name"), new {@class = "form-control "})
+                        @Html.ValidationMessageFor(a => a.RateFromCountry)
+                    </div>
+                    <div class="col-xs-12 form_mar">
+                        <label>Topup "To" Country </label>
+                        @Html.DropDownListFor(a => a.MobileCountryId, new SelectList(Model.MobileNumberCountryList, "Id", "Name"), new {@class = "form-control "})
+
+                        @Html.HiddenFor(a => a.CountryCode)
+                        @Html.ValidationMessageFor(a => a.MobileCountryId)
+                    </div>
+                    <div class="col-xs-12 form_mar">
+                        <div class="input-group">
+                            <span id="lbl_CoutryCode" class="input-group-addon "></span>
+                            @Html.TextBoxFor(a => a.MobileNumber, new { @class = "form-control data-numeric  ", @placeholder = "Enter Phone Number", @type = "tel", maxlength = "10" })
+                        </div>
+                        @Html.ValidationMessageFor(a => a.MobileNumber)
+
+                        <p class="input_msg">
+                            Enter the phone number <b>without</b> country code
+                        </p>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <button type="submit" class="btn btn-primary btn-block form_mar btn_bgreen">Top-Up Now <span class=" btn_next fa fa-chevron-right"></span></button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).ready(function () {
+            var cval = $("#CountryCode").val();
+            $("#lbl_CoutryCode").text("+" + cval);
+        });
+
+        $("#MobileCountryId").change(function () {
+            if (this.value == undefined || this.value == "")
+                return;
+
+                $.ajax({
+                    type: "GET",
+                    url: '@Url.Action("GetCountryCodeofCountry", "TopUpMobile")',
+                data: {
+                    countryId: this.value
+                },
+                success: function (res) {
+                    if (res == undefined)
+                        return;
+
+                    $("#lbl_CoutryCode").text("+" + res.CountCode);
+                    $("#CountryCode").val(res.CountCode);
+                }
+            });
+        });
+    </script>
+}

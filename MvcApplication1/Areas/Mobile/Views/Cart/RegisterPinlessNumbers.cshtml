@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "RegisterPinlessNumbers";
+}
+
+
+<div class="container-fluid">
+    <div class="container">
+        <h1 class=" title_login">Add New Pinless Number(s)</h1>
+        <h5 class="text-center">Enter your 10 digit new "calling form" number.</h5>
+
+        @using (Html.BeginForm())
+        {
+            <div class="row">
+                <div id="number-box-container">
+                    <div class="form-group ">
+                        <div class="col-xs-12">
+                            <input type="tel" class="form-control form_mar data-numeric" name="pinlessNumber" maxlength="10" id="" placeholder="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12">
+                    <h5><a href="Javascript:void(0);" id="add-New-Number">Add more</a></h5>
+                </div>
+                @if (!(bool) ViewBag.IsTextDisable)
+                {
+                    <div class="col-xs-12">
+                        <p>
+                            <strong>Note:</strong> Same “calling from” number cannot be registered in multiple plans or Accounts, your pinless setup will be automatically terminated under the old plan once you register in this new plan.
+                        </p>
+                    </div>
+                }
+                <div class="col-xs-12">
+                    <button type="submit" id="submit_form" class="btn btn-primary btn-block form_mar btn_bgreen">Submit </button>
+                    <a href="@Url.Action("PaymentInfo", "Cart")" class="btn btn-primary btn-block form_mar btn_bgray ">Skip</a>
+                </div>
+
+            </div>
+        }
+    </div>
+</div>
+@section scripts
+{
+    <script>
+        var input_count = 1;
+        $("#add-New-Number").click(function () {
+            var boxContainer = $("#number-box-container");
+
+            if (input_count < 5) {
+                var newdiv = '<div class="form-group ">' +
+                    '<div class="col-xs-12">' +
+                    '<input type="tel" class="form-control form_mar data-numeric" maxlength="10" name="pinlessNumber" id="" placeholder="">' +
+                    '</div>' +
+                    '</div>';
+                boxContainer.append(newdiv);
+                input_count = input_count + 1;
+            }
+
+        });
+
+        $("#submit_form").click(function () {
+            var status = true;
+            $("#number-box-container").find($("input[name='pinlessNumber']")).each(function () {
+
+                if ($(this).val().length < 10 && $(this).val().length > 0) {
+                    $(this).addClass('input-validation-error');
+                    status = false;
+                }
+            });
+            return status;
+        });
+
+
+    </script>
+}

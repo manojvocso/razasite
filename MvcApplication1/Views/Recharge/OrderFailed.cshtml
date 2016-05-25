@@ -1,0 +1,32 @@
+﻿
+@model MvcApplication1.Models.CartAuthenticateModel
+@{
+    ViewBag.Title = "OrderFailed";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js" type="text/javascript"></script>  
+<div id="banner" style="margin-left:9px;">
+        <img src="@Url.Content("~/images/oops-banner1.jpg")" /></div>
+<div class="form_field" style="margin-left:9px;">
+<!-- Confirmation Step4 -->
+<div class="form_field">
+    <h2 class="title_black"></h2>
+    <div id="auto-refill">
+        <div id="auto-refill-scroller">
+            <div class="top-bg">
+                <h1>Order Failed</h1>
+            </div>
+            <div class="repeat-scroller-bg">
+                <h3 class="thank-text" id="thanx-msg">@Model.FinalResponseMessage</h3>
+
+                <div class="editprofile_b">
+                   
+                </div>
+            </div>
+            <div class="bottom-scroller-bg">
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
