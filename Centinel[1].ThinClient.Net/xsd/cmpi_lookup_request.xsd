@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xsd:include schemaLocation="http://localhost:8080/schema/Centinel/1_7/txn_common.xsd"/>
+	<xsd:annotation>
+		<xsd:documentation><![CDATA[First transaction of the Lookup/Authenticate pair that is used to process multiple types of transactions supported by Centinel. The TransactionType value represented on the transaction request will dictate how the transaction will be processed. <br/><br/>
+        Transaction Types:
+        <ul>
+        <li><b>Authentication</b> - Perform Verified by Visa, MasterCard SecureCode, JCB J/Secure payer authentication transaction processing.</li>
+        <li><b>PayPal</b> - Perform standard PayPal Payment transactions.</li>
+        <li><b>PayPal PreApproved Payments</b> - Perform PayPal PreApproved payments, establish and process recurring using a PayPal account.</li>
+	<li><b>PayPal Express Checkout</b> - Perform PayPal Express Checkout transactions using a traditional authorization/capture transaction model.</li>
+	<li><b>SECURE-eBill</b> - Perform SECURE-eBill Payment transactions.</li>
+	<li><b>Bill Me Later</b> - Perform authentication transaction processing.</li>
+        </ul>
+	<br/><br/>
+	<b>Authentication</b>
+	<br/>
+	The CardNumber value dictates the program that will be used in processing the transaction. Currently Verified by Visa, MasterCard SecureCode and JCB J/Secure are supported by Centinel.
+	<br/><br/>
+	<b>PayPal</b>
+	<br/>
+	PayPal activity may result in a pending transaction status. If this occurs, at some point in the future the transaction status
+	will be updated, and the merchant will be notified thru the Centinel Notification Post. This post notifies the merchant of the
+	event and triggers the merchant process the cmpi_paypal_status request to retrieve the updated transaction details. This
+	notification approach is used for pending transactions that clear as well as charge back notification and agreement status changes.
+	<br/><br/>
+	<b>SECURE-eBill</b>
+	<br/>
+	SECURE-eBill activity will always result in a pending transaction status. At some point in the future the transaction status
+	will be updated, and the merchant will be notified thru the Centinel Notification Post. This post notifies the merchant of the
+	event and triggers the merchant process the cmpi_seb_status request to retrieve the updated transaction details. This
+	notification approach is used for pending transactions that clear once the Merchant has received the funds.
+	<br/><br/>
+	<b>Bill Me Later</b>
+	<br/>
+	BML payments, offered thru I4 Commerce, allow consumer the ability to make payments using their BML Accounts. These accounts can be generated Real-Time using the Lookup-Authenticate-Authorize transaction sequence. During the processing of the Authorize message, a Credit Check will be performed against the consumer details and determine the credit line that will be extended to the consumer by I4 Commerce. Once established, the consumer can fund their purchase using this credit.
+	<br/><br/>
+	I4 Commerce may also offer its product to merchants supporting Private Label card schemes and if FNMS has a merchant requesting 
+	those services, the authorization message must contain additional fields.  A different account number prefix is assigned for 
+	private label activities. The BML private label program does issue a plastic card to the consumer; therefore, the transaction can be captured via a magnetic stripe or key-entered at the terminal.
+	<br/><br/>
+	]]>
+    </xsd:documentation>
+	</xsd:annotation>
+	<xsd:element name="CardinalMPI">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="MsgType">
+					<xsd:annotation>
+						<xsd:documentation>"cmpi_lookup"</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="cmpi_lookup"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="Version" type="applicationVersion"/>
+				<xsd:element name="ProcessorId" type="processorId"/>
+				<xsd:element name="MerchantId" type="merchantId"/>
+				<xsd:element name="TransactionPwd" type="merchantTxnPwd"/>
+				<xsd:element name="TransactionType" type="transactionType"/>
+				<xsd:element name="Amount" type="amount"/>
+				<xsd:element name="ShippingAmount" type="shippingAmount" minOccurs="0"/>
+				<xsd:element name="TaxAmount" type="taxAmount" minOccurs="0"/>
+				<xsd:element name="CurrencyCode" type="isoCurrencyNumber"/>
+				<xsd:element name="OrderNumber" type="orderNumber"/>
+				<xsd:element name="OrderDescription" type="orderDesc" minOccurs="0"/>
+				<xsd:element name="CardNumber" type="cardNumber" minOccurs="0"/>
+				<xsd:element name="CardExpMonth" type="cardExpMonth" minOccurs="0"/>
+				<xsd:element name="CardExpYear" type="cardExpYear" minOccurs="0"/>
+				<xsd:element name="PromoCode" type="promoCode" minOccurs="0"/>
+				<xsd:element name="EMail" type="email" minOccurs="0"/>
+				<xsd:element name="AltEMail" type="altEmail" minOccurs="0"/>
+				<xsd:element name="IPAddress" type="ipAddress" minOccurs="0"/>
+				<xsd:element name="UserAgent" type="userAgent" minOccurs="0"/>
+				<xsd:element name="BrowserHeader" type="browserHeader" minOccurs="0"/>
+				<xsd:element name="Recurring" type="recurring" minOccurs="0"/>
+				<xsd:element name="RecurringFrequency" type="recurringFrequency" minOccurs="0"/>
+				<xsd:element name="RecurringEnd" type="recurringEnd" minOccurs="0"/>
+				<xsd:element name="Installment" type="installment" minOccurs="0"/>
+				<xsd:element name="BillingFirstName" type="personFirstNameBilling" minOccurs="0"/>
+				<xsd:element name="BillingMiddleName" type="personMiddleNameBilling" minOccurs="0"/>
+				<xsd:element name="BillingLastName" type="personLastNameBilling" minOccurs="0"/>
+				<xsd:element name="BillingAddress1" type="addressBilling" minOccurs="0"/>
+				<xsd:element name="BillingAddress2" type="addressBilling" minOccurs="0"/>
+				<xsd:element name="BillingCity" type="cityBilling" minOccurs="0"/>
+				<xsd:element name="BillingState" type="stateProvinceBilling" minOccurs="0"/>
+				<xsd:element name="BillingPostalCode" type="postalCodeBilling" minOccurs="0"/>
+				<xsd:element name="BillingCountryCode" type="countryCodeBilling" minOccurs="0"/>
+				<xsd:element name="BillingPhone" type="phoneBilling" minOccurs="0"/>
+				<xsd:element name="BillingAltPhone" type="phoneAltBilling" minOccurs="0"/>
+                                <xsd:element name="ShippingFirstName" type="personFirstNameShipping" minOccurs="0"/>
+                                <xsd:element name="ShippingMiddleName" type="personMiddleNameShipping" minOccurs="0"/>
+				<xsd:element name="ShippingLastName" type="personLastNameShipping" minOccurs="0"/>
+				<xsd:element name="ShippingAddress1" type="addressShipping" minOccurs="0"/>
+				<xsd:element name="ShippingAddress2" type="addressShipping" minOccurs="0"/>
+				<xsd:element name="ShippingCity" type="cityShipping" minOccurs="0"/>
+				<xsd:element name="ShippingState" type="stateProvinceShipping" minOccurs="0"/>
+				<xsd:element name="ShippingPostalCode" type="postalCodeShipping" minOccurs="0"/>
+				<xsd:element name="ShippingCountryCode" type="countryCodeShipping" minOccurs="0"/>
+				<xsd:element name="ShippingPhone" type="phoneShipping" minOccurs="0"/>
+				<xsd:element name="ShippingAltPhone" type="phoneAltShipping" minOccurs="0"/>
+				<xsd:element name="AcquirerPassword" type="password" minOccurs="0"/>
+				<xsd:element name="TransactionAction" type="transactionAction" minOccurs="0"/>
+				<xsd:element name="NoShipping" type="noShipping" minOccurs="0"/>
+				<xsd:element name="OverrideAddress" type="overrideAddress" minOccurs="0"/>
+				<xsd:element name="ForceAddress" type="forceAddress" minOccurs="0"/>
+			</xsd:all>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

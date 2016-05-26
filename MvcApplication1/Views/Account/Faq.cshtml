@@ -1,0 +1,1038 @@
+﻿@model MvcApplication1.Models.Faq
+
+@{
+    ViewBag.Title = "Faq";
+}
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<!--[if lte IE 6]>
+
+<style type='text/css'>
+
+  * html #main, * html #container, #side a, a.trigger, .accordion .inner {height:1%}
+
+  #lenta{height:52px}
+
+</style>
+
+<script type="text/javascript">
+
+   try { document.execCommand( "BackgroundImageCache", false, true); } catch(e) {};
+
+</script>
+
+
+
+
+
+
+
+<![endif]-->
+<!--[if lte IE 7]>
+
+
+
+
+
+
+
+<style type="text/css">
+
+
+
+
+
+
+
+  .accordion .inner {position:static; overflow:visible}
+
+
+
+
+
+
+
+</style>
+
+
+
+
+
+
+
+<![endif]-->
+<!--[if !lt IE 6]><!-->
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.nestedAccordion.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/plan_tabbing.js")"></script>
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Scripts/css/skin.css")">
+<script type="text/javascript">
+
+
+
+    function getIDofAccLi(id) {
+
+
+        if ($("#hid_1_" + id).hasClass("open")) {
+
+            $("#hid_1_" + id).removeClass("open");
+        }
+        else {
+            $("#hid_1_" + id).addClass("open");
+        }
+
+        if ($("#hid_2_" + id).hasClass("open")) {
+
+            $("#hid_2_" + id).removeClass("open");
+        }
+        else {
+            $("#hid_2_" + id).addClass("open");
+        }
+
+        if ($("#hid_4_" + id).hasClass("open")) {
+
+            $("#hid_4_" + id).removeClass("open");
+        }
+        else {
+            $("#hid_4_" + id).addClass("open");
+        }
+
+        if ($("#hid_6_" + id).hasClass("open")) {
+
+            $("#hid_6_" + id).removeClass("open");
+        }
+        else {
+            $("#hid_6_" + id).addClass("open");
+        }
+
+        if ($("#hid_7_" + id).hasClass("open")) {
+
+            $("#hid_7_" + id).removeClass("open");
+        }
+        else {
+            $("#hid_7_" + id).addClass("open");
+        }
+
+        if ($("#hid_8_" + id).hasClass("open")) {
+
+            $("#hid_8_" + id).removeClass("open");
+        }
+        else {
+            $("#hid_8_" + id).addClass("open");
+        }
+
+        if ($("#hid_9_" + id).hasClass("open")) {
+
+            $("#hid_9_" + id).removeClass("open");
+        }
+        else {
+            $("#hid_9_" + id).addClass("open");
+        }
+
+        if ($("#hid_10_" + id).hasClass("open")) {
+
+            $("#hid_10_" + id).removeClass("open");
+        }
+        else {
+            $("#hid_10_" + id).addClass("open");
+        }
+
+        if ($("#hid_5_" + id).hasClass("open")) {
+
+            $("#hid_5_" + id).removeClass("open");
+        }
+        else {
+            $("#hid_5_" + id).addClass("open");
+        }
+
+
+
+
+        var numitems1 = $("ul.toggle1 li.shown").length;
+
+
+
+        for (i = 1; i <= numitems1; i++) {
+
+
+
+            if (i == id) {
+
+
+
+                $('ul.toggle1 #1_' + i).slideToggle(300);
+
+
+
+            }
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+        var numitems2 = $("ul.toggle2 li.shown").length;
+
+
+
+        for (i = 1; i <= numitems2; i++) {
+
+
+
+            if (i == id) {
+
+
+
+                $('ul.toggle2 #2_' + i).slideToggle(300);
+
+
+
+            }
+
+
+
+        }
+
+
+
+        var numitems3 = $("ul.toggle3 li.shown").length;
+
+
+
+        for (i = 1; i <= numitems3; i++) {
+
+
+
+            if (i == id) {
+
+
+
+                $('ul.toggle3 #3_' + i).slideToggle(300);
+
+
+
+            }
+
+
+
+        }
+
+
+
+        var numitems4 = $("ul.toggle4 li.shown").length;
+
+
+
+        for (i = 1; i <= numitems4; i++) {
+
+
+
+            if (i == id) {
+
+
+
+                $('ul.toggle4 #4_' + i).slideToggle(300);
+
+
+
+            }
+
+
+
+        }
+
+
+
+
+
+
+
+        var numitems5 = $("ul.toggle5 li.shown").length;
+
+
+
+        for (i = 1; i <= numitems5; i++) {
+
+
+
+            if (i == id) {
+
+
+
+                $('ul.toggle5 #5_' + i).slideToggle(300);
+
+
+
+            }
+
+
+
+        }
+
+
+
+
+
+
+
+        var numitems6 = $("ul.toggle6 li.shown").length;
+
+
+
+        for (i = 1; i <= numitems6; i++) {
+
+
+
+            if (i == id) {
+
+
+
+                $('ul.toggle6 #6_' + i).slideToggle(300);
+
+
+
+            }
+
+
+
+        }
+
+
+
+
+
+
+
+        var numitems7 = $("ul.toggle7 li.shown").length;
+
+
+
+        for (i = 1; i <= numitems7; i++) {
+
+
+
+            if (i == id) {
+
+
+
+                $('ul.toggle7 #7_' + i).slideToggle(300);
+
+
+
+            }
+
+
+
+        }
+
+
+
+
+
+
+
+        var numitems8 = $("ul.toggle8 li.shown").length;
+
+
+
+        for (i = 1; i <= numitems8; i++) {
+
+
+
+            if (i == id) {
+
+
+
+                $('ul.toggle8 #8_' + i).slideToggle(300);
+
+
+
+            }
+
+
+
+        }
+
+
+
+
+
+
+
+        var numitems9 = $("ul.toggle9 li.shown").length;
+
+
+
+        for (i = 1; i <= numitems9; i++) {
+
+
+
+            if (i == id) {
+
+
+
+                $('ul.toggle9 #9_' + i).slideToggle(300);
+
+
+
+            }
+
+
+
+        }
+
+
+
+        var numitems10 = $("ul.toggle10 li.shown").length;
+
+
+
+        for (i = 1; i <= numitems10; i++) {
+
+
+
+            if (i == id) {
+
+
+
+                $('ul.toggle10 #10_' + i).slideToggle(300);
+
+
+
+            }
+
+
+
+        }
+
+
+
+
+
+
+
+    }
+
+
+
+</script>
+<script>
+
+
+
+    $(function () {
+
+
+
+        $("#tabs_support").tabs().addClass("ui-tabs-vertical ui-helper-clearfix");
+
+
+
+        $("#tabs_support li").removeClass("ui-corner-top").addClass("ui-corner-left");
+
+
+
+    });
+
+
+    function faq() {
+        $("#ovr_id").removeClass("active");
+        $("#tab15").removeClass("active");
+        $("#tab15").addClass("hide");
+
+        $("#faq_id").addClass("active");
+        $("#tab17").removeClass("hide");
+        $("#tab17").addClass("active");
+
+    }
+
+
+
+    function setup() {
+        $("#ovr_id").removeClass("active");
+        $("#tab15").removeClass("active");
+        $("#tab15").addClass("hide");
+
+        $("#setup_id").addClass("active");
+        $("#tab18").removeClass("hide");
+        $("#tab18").addClass("active");
+
+    }
+    function faqn() {
+        $("#over_id").removeClass("active");
+        $("#tab19").removeClass("active");
+        $("#tab19").addClass("hide");
+
+        $("#faq1_id").addClass("active");
+        $("#tab21").removeClass("hide");
+        $("#tab21").addClass("active");
+
+    }
+    function setup1() {
+        $("#over_id").removeClass("active");
+        $("#tab19").removeClass("active");
+        $("#tab19").addClass("hide");
+
+        $("#setup1_id").addClass("active");
+        $("#tab22").removeClass("hide");
+        $("#tab22").addClass("active");
+
+    }
+
+  </script>
+<script>
+
+
+
+    jQuery(function ($) {
+
+        $('input.panel').hover(function () {
+
+
+
+            var $target = $($(this).attr('id')),
+
+
+
+            $other = $target.siblings('.active'),
+
+
+
+            animIn = function () {
+
+
+
+                $target.addClass('active').show().css({
+
+
+
+                    left: +($target.width()) + 200
+
+
+
+                }).finish().animate({
+
+
+
+                    left: 0
+
+
+
+                }, 1000);
+
+
+
+            };
+
+
+            if (!$target.hasClass('active') && $other.length > 0) {
+
+
+
+                $other.each(function (index, self) {
+
+
+
+                    var $this = $(this);
+
+
+
+                    $this.removeClass('active').animate({
+
+
+
+                        left: +$this.width() + 200
+
+
+
+                    }, 1000, animIn);
+
+
+
+                });
+
+
+
+            } else if (!$target.hasClass('active')) {
+
+
+
+                animIn();
+
+
+
+            }
+
+
+
+        });
+
+
+
+
+
+
+
+        $(document).click(function (e) {
+
+
+
+            var $target = $(e.target), $active = $('div.panel.active');
+
+
+
+
+
+
+
+            if ($active.length && $target.closest('a.panel').length == 0 && $target.closest($active).length == 0) {
+
+
+
+                $active.removeClass('active').finish().animate({
+
+
+
+                    left: +$active.width() + 200
+
+
+
+                }, 1000);
+
+
+
+            }
+
+
+
+        })
+
+
+
+
+
+
+
+        $('#right').mouseleave(function () {
+
+
+
+            //alert("akash akash ");
+
+
+
+            var $target = $($('input.panel').attr('id'));
+
+
+
+            if ($target.hasClass('active')) {
+
+
+
+                $target.removeClass('active').finish().animate({
+
+
+
+                    left: +$target.width() + 200
+
+
+
+                }, 1000);
+
+
+
+            }
+
+
+
+        });
+
+
+
+        $('.submit_login').click(function () {
+
+
+
+            //alert("akash akash ");
+
+
+
+            var $target = $($('input.panel').attr('id'));
+
+
+
+            if ($target.hasClass('active')) {
+
+
+
+                $target.removeClass('active').finish().animate({
+
+
+
+                    left: +$target.width() + 200
+
+
+
+                }, 1000);
+
+
+
+            }
+
+
+
+        });
+
+
+
+
+
+
+
+    });
+
+
+
+</script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/popup_jquery.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/global.js")"></script>
+<script>
+    $(document).ready(function () {
+        $('.nav-tabs > li > a').click(function (event) {
+            event.preventDefault();//stop browser to take action for clicked anchor
+
+            //get displaying tab content jQuery selector
+            var active_tab_selector = $('.nav-tabs > li.active > a').attr('href');
+
+            var active_class = $(active_tab_selector).attr('class');
+            var class_list = active_class.split(" ");
+            $("." + class_list[0]).removeClass('active');
+            $("." + class_list[0]).addClass('hide');
+
+            //find actived navigation and remove 'active' css
+            var actived_nav = $('.nav-tabs > li.active');
+            actived_nav.removeClass('active');
+            //add 'active' css into clicked navigation
+            $(this).parents('li').addClass('active');
+            //hide displaying tab content
+            $(active_tab_selector).removeClass('active');
+            $(active_tab_selector).addClass('hide');
+            //show target tab content
+            var target_tab_selector = $(this).attr('href');
+            $(target_tab_selector).removeClass('hide');
+
+            $(target_tab_selector).addClass('active');
+        });
+
+        /**************************/
+        $('.ui-tabs-nav > li > a').click(function () {
+            var div_li = $(this).attr('href');
+            var active_div = $(div_li + "> div.inner>div>ul>li:first>a").attr('href');
+            $(active_div).addClass('active');
+            $(active_div).removeClass('hide');
+            $(div_li + "> div.inner>div>ul>li:first").addClass('active');
+
+        })
+
+
+    });
+
+
+
+	</script>
+<script >
+
+    function openwindow() {
+
+        window.open("https://server.iad.liveperson.net/hc/69462672/?cmd=file&file=visitorWantsToChat&site=69462672&referrer=http://www.raza.com",
+
+        "mywindow", "location=1,status=1,scrollbars=1,width=400,height=400");
+
+    }
+
+</script>
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/css/flags.css")" />
+<!-- <msdropdown> -->
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/css/dd_flags.css")" />
+
+<script src="@Url.Content("~/Scripts/ticker.js")"></script>
+<script type="text/javascript">
+
+    $(function () {
+
+        $("#webticker").webTicker();
+
+
+
+    });
+
+</script>
+<script type="text/javascript">
+    // for tabs
+    $(document).ready(function () {
+
+        $(".container_tabbing").css({ "visibility": "visible" });
+
+    });
+	</script>
+
+
+<div id="main_container">
+<div id="wrapper" style="margin-left:-10px;">
+   <!--header start -->
+
+  <!--end header-->
+  
+  
+  <!--Body Container Start-->
+  <div id="inner_body_container">
+    
+    <div id="banner"><img src="@Url.Content("~/images/tryusfree_best.jpg")" /></div>
+    <!-- End demo -->
+    <div id="feedback_panel">
+      <div id="feedback-scroller">
+        <div class="top-bg">
+          <h1><strong>FAQ's</strong> - Free Trial Offer </h1>
+        </div>
+			
+			 <div class="repeat-scroller-bg">
+          <!--according start-->
+          <div class="container_tabbing container_tabbing-new">
+                <div class="spacer"></div>
+				<div class="clear"></div>
+                
+				  <div class="retail_width1">
+                    <ul id="acc1" class="accordion toggle1">
+            <li class="shown ui-corner-left" onclick="getIDofAccLi(1)">
+              <h6 class="h trigger" id="hid_1_1">What is a free Trial Offer?</h6>
+              <div class="outer" id="1_1" style="display: none; ">
+                <div class="inner">
+                  <div class="inner_faq">
+                    <p class="trial_margin">Get up to 100 Minutes to over 25 different countries! New customers can Sign-up today to experience quality long-distance service that only Raza.com can offer. There are no restrictions, taxes or hidden fees. Call any body, anywhere, any time.</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="shown ui-corner-left" onclick="getIDofAccLi(2)">
+              <h6 class="h trigger" id="hid_1_2">How many FREE minutes will I get to the country I am calling?</h6>
+              <div class="outer" id="1_2" style="display: none; ">
+                <div class="inner">
+                  <table width="99%" border="0" cellspacing="0" rules="all" id="dgCDR" class="trial_table_margin border_3">
+                    <tbody>
+                      <tr align="middle" valign="center">
+                        <td style="color:#fff; font-size:14px; font-weight:bold;" height="30" align="center" bgcolor="#757575"  class="col">COUNTRY</td>
+                        <td style="color:#fff; font-size:14px; font-weight:bold;" align="center" bgcolor="#757575" class="col">MIN.</td>
+                        <td style="color:#fff; font-size:14px; font-weight:bold;" align="center" bgcolor="#757575" class="col">COUNTRY</td>
+                        <td style="color:#fff; font-size:14px; font-weight:bold;" align="center" bgcolor="#757575" class="col">MIN.</td>
+                        <td style="color:#fff; font-size:14px; font-weight:bold;" align="center" bgcolor="#757575" class="col">COUNTRY</td>
+                        <td style="color:#fff; font-size:14px; font-weight:bold;" align="center" bgcolor="#757575" class="col">MIN.</td>
+                      </tr>
+                      <tr align="middle" valign="center" bgcolor="#dcdcdc">
+                        <td height="27"><center>
+                            Afghanistan
+                          </center></td>
+                        <td height="27" align="center">10 </td>
+                        <td height="27" align="center">Japan </td>
+                        <td height="27" align="center">82</td>
+                        <td height="27" align="center">Poland</td>
+                        <td height="27" align="center">113</td>
+                      </tr>
+                      <tr align="middle" valign="center" bgcolor="#ffffff">
+                        <td height="27"><center>
+                            Bangladesh
+                          </center></td>
+                        <td height="27" align="center">100 </td>
+                        <td height="27" align="center">Jordan </td>
+                        <td height="27" align="center">60 </td>
+                        <td height="27" align="center">Qatar</td>
+                        <td height="27" align="center">10</td>
+                      </tr>
+                      <tr align="middle" valign="center" bgcolor="#dcdcdc">
+                        <td height="27"><center>
+                            Bulgaria
+                          </center></td>
+                        <td height="27" align="center">60 </td>
+                        <td height="27" align="center">Lithuania </td>
+                        <td height="27" align="center">45 </td>
+                        <td height="27" align="center">Saudi Arabia</td>
+                        <td height="27" align="center">20</td>
+                      </tr>
+                      <tr align="middle" valign="center" bgcolor="#ffffff">
+                        <td height="27"><center>
+                            Canada
+                          </center></td>
+                        <td height="27" align="center">104 </td>
+                        <td height="27" align="center">Mexico</td>
+                        <td height="27" align="center">25 </td>
+                        <td height="27" align="center">South Korea</td>
+                        <td height="27" align="center">70</td>
+                      </tr>
+                      <tr align="middle" valign="center" bgcolor="#dcdcdc">
+                        <td height="27"><center>
+                            China
+                          </center></td>
+                        <td height="27" align="center">103</td>
+                        <td height="27" align="center">Nepal </td>
+                        <td height="27" align="center">30 </td>
+                        <td height="27" align="center">Sri Lanka</td>
+                        <td height="27" align="center">30</td>
+                      </tr>
+                      <tr align="middle" valign="center" bgcolor="#ffffff">
+                        <td height="27"><center>
+                            Egypt
+                          </center></td>
+                        <td height="27" align="center">13</td>
+                        <td height="27" align="center">Nigeria</td>
+                        <td height="27" align="center">20</td>
+                        <td height="27" align="center">Ukraine</td>
+                        <td height="27" align="center">20</td>
+                      </tr>
+                      <tr align="middle" valign="center" bgcolor="#dcdcdc">
+                        <td height="27"><center>
+                            Ghana
+                          </center></td>
+                        <td height="27" align="center">15</td>
+                        <td height="27" align="center">Oman</td>
+                        <td height="27" align="center">12</td>
+                        <td height="27" align="center">United Arab Emirates</td>
+                        <td height="27" align="center">15</td>
+                      </tr>
+                      <tr align="middle" valign="center" bgcolor="#ffffff">
+                        <td height="27"><center>
+                            India
+                          </center></td>
+                        <td height="27" align="center">100 </td>
+                        <td height="27" align="center">Pakistan</td>
+                        <td height="27" align="center">30 </td>
+                        <td height="27" align="center">United Kingdom</td>
+                        <td height="27" align="center">104</td>
+                      </tr>
+                      <tr align="middle" valign="center" bgcolor="#dcdcdc">
+                        <td height="27"><center>
+                            Indonesia
+                          </center></td>
+                        <td height="27" align="center">24 </td>
+                        <td height="27" align="center">Philippines </td>
+                        <td height="27" align="center">20 </td>
+                        <td height="27" align="center">United States</td>
+                        <td height="27" align="center">103</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </li>
+            <li class="shown ui-corner-left" onclick="getIDofAccLi(3)">
+              <h6 class="h trigger" id="hid_1_3">Do I have to make any purchase in order to get this free trial offer?</h6>
+              <div class="outer" id="1_3" style="display: none; ">
+                <div class="inner">
+                  <p class="trial_margin"><strong>No!</strong> purchase is necessary to get the free trial offer. </p>
+                </div>
+              </div>
+            </li>
+            <li class="shown ui-corner-left" onclick="getIDofAccLi(4)">
+              <h6 class="h trigger" id="hid_1_4">After I have used Free Trial offer, will I be able to recharge the same plan/account?</h6>
+              <div class="outer" id="1_4" style="display: none; ">
+                <div class="inner">
+                  <p class="trial_margin"><strong>Yes!</strong> You will be able to recharge the free trial offer online or by calling our <strong>24/7 customer service.</strong></p>
+                </div>
+              </div>
+            </li>
+            <li class="shown ui-corner-left" onclick="getIDofAccLi(5)">
+              <h6 class="h trigger" id="hid_1_5">What will be per minute rate after the Free trial offer?</h6>
+              <div class="outer" id="1_5" style="display: none; ">
+                <div class="inner">
+                  <p class="trial_margin">Visit our home page at <strong>www.raza.com</strong> and select the calling from and calling to countries for our regular rates.</p>
+                </div>
+              </div>
+            </li>
+            <li class="shown ui-corner-left" onclick="getIDofAccLi(6)">
+              <h6 class="h trigger" id="hid_1_6">Is this Free trial offer for New customers only?</h6>
+              <div class="outer" id="1_6" style="display: none; ">
+                <div class="inner">
+                  <p class="trial_margin"><strong>Yes!</strong> This offer is for New customers only. </p>
+                </div>
+              </div>
+            </li>
+            <li class="shown ui-corner-left" onclick="getIDofAccLi(7)">
+              <h6 class="h trigger" id="hid_1_7">Is this Free trial offer available ONLINE only?</h6>
+              <div class="outer" id="1_7" style="display: none; ">
+                <div class="inner">
+                  <p class="trial_margin"><strong>Yes!</strong> This offer is valid only ONLINE.</p>
+                </div>
+              </div>
+            </li>
+            <li class="shown ui-corner-left" onclick="getIDofAccLi(8)">
+              <h6 class="h trigger" id="hid_1_8">Is there any coupon code for the offer?</h6>
+              <div class="outer" id="1_8" style="display: none; ">
+                <div class="inner">
+                  <p class="trial_margin"><strong>No!</strong> There is no coupon code required for this offer.</p>
+                </div>
+              </div>
+            </li>
+            <li class="shown ui-corner-left" onclick="getIDofAccLi(9)">
+              <h6 class="h trigger" id="hid_1_9">Can we view our call details?</h6>
+              <div class="outer" id="1_9" style="display: none; ">
+                <div class="inner">
+                  <p class="trial_margin"><strong>Yes!</strong> You can view call details online.</p>
+                </div>
+              </div>
+            </li>
+            <li class="shown ui-corner-left" onclick="getIDofAccLi(10)">
+              <h6 class="h trigger" id="hid_1_10">Is the Free trial offer for USA, Canada and UK customers?</h6>
+              <div class="outer" id="1_10" style="display: none; ">
+                <div class="inner">
+                  <p class="trial_margin"><strong>YES!</strong> The trial offer is available for new customers in the <strong>U.S., Canada and the U.K</strong>.</p>
+                </div>
+              </div>
+            </li>
+            <li class="shown ui-corner-left" onclick="getIDofAccLi(11)">
+              <h6 class="h trigger" id="hid_1_12">When are free minutes effective?</h6>
+              <div class="outer" id="1_11" style="display: none; ">
+                <div class="inner">
+                  <p class="trial_margin">As soon as you sign-up, you account will be activated, and you can enjoy Free Trial offer.</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+                 
+
+                </div>
+       
+	
+                        
+				
+              
+            </div>
+			
+            <!--According End-->
+			</div>
+			<div class="bottom-scroller-bg"></div>
+			
+          </div>
+         
+      </div>
+      <!--Body Container End-->
+      
+      
+    </div>
+    <!--Body Container End-->
+	
+	<div class="spacer"></div>
+      <div class="clear"></div>
+	  
+	 

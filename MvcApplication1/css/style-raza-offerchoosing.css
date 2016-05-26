@@ -1,0 +1,108 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+* {margin:0; padding:0}
+img {border:0px;}
+ul {list-style-type:none;}
+.clear-fix {clear:both;}
+.offerchoosing {width:982px; height:180px; padding:12px 0 0 15px; background:url(../images/bg-offerchoosing.jpg) no-repeat; font-family:Arial, Helvetica, sans-serif;}
+.offerchoosing-offerdiv {float:left; width:173px; margin-right:18px; text-align:center}
+.offerchoosing-offerdiv span {display:block; margin-bottom:5px;}
+.offerchoosing-offerdiv h2 {font-size:12px; color:#1a67ed; padding-bottom:5px;}
+.offerchoosing-offerdiv p {font-size:12px; color:#000;}
+.offerchoosing-close {float:left; width:98%; height:20px;}
+.offerchoosing-close a {float:right; padding-right:2px;}
+
+.main-customer-div  { float:left; width:990px; }
+
+.customer-banner {float:left; width:990px; height:414px;margin-left: 9px;}
+.customer-banner ul {list-style-type:none;}
+.customer-banner li {float:left; width:495px; height:207px;}
+
+.customer-price-table {width:874px; float:left; margin-left:50px; margin-top:-40px;}
+.customer-price-table-top {height:21px;}
+.customer-price-table-content {width:824px; float:left; background:url(../images/customer-price-table-center-bg.png) repeat-y; padding:5px 25px 0 25px; }
+.customer-price-top-section {float:left;}
+.customer-price-top-section-column {float:left; margin-right:20px;}
+.customer-price-top-section-column a {font-family:Tahoma, Geneva, sans-serif; font-size:15px; color:#000; font-weight:bold; text-decoration:none;
+line-height:30px; display:block; border:1px solid #fff; border-radius:5px; -webkit-border-radius:5px; -moz-border-radius:5px; }
+.customer-price-top-section-column a:hover, .customer-price-top-section-column a.activetab {background:#f3f3f3; border:1px solid #d9d9d8;}
+.customer-price-top-section-column-left {margin-left:90px;}
+
+.customer-price-table-dv {background:#f3f3f3; border:1px solid #d9d9d8; border-radius:5px; -webkit-border-radius:5px; -moz-border-radius:5px;
+font-family:Tahoma, Geneva, sans-serif; font-size:14px; color:#000; font-weight:bold; position:relative; margin-top:10px;}
+.customer-price-table-dv a {text-decoration:none; font-size:15px; color:#fff; background:#5b5b5b; width:78px; line-height:32px; 
+text-align:center; padding:5px 15px; text-transform:uppercase;  border-radius:5px; -webkit-border-radius:5px; -moz-border-radius:5px;}
+.customer-price-table-dv a:hover {background:#cc1515;}
+.new-customer-price-table-dv ul.column-1 {float:left; width:146px;}
+.new-customer-price-table-dv ul.column-2 {float:left; width:140px;}
+.new-customer-price-table-dv ul.column-3 { position:absolute; z-index:0; top:-10px; left:286px; width:136px; background:#d3d3d3; padding:10px 0; border-radius:5px; -webkit-border-radius:5px; -moz-border-radius:5px;}
+.new-customer-price-table-dv ul.column-3 li {border-bottom:0px !important;}
+.new-customer-price-table-dv ul.column-4 {float:left; width:134px; margin-left:136px;}
+.new-customer-price-table-dv ul.column-5 {float:left; width:134px; position:relative;}
+.new-customer-price-table-dv ul.column-6 {float:left; width:132px;}
+.new-customer-price-table-dv ul li {line-height:50px; border-bottom:1px solid #a4a4a4; text-align:center;}
+.brdnone {border-bottom:0px !important;}
+
+.bgactive {width:143px; background:#f2f2f2; height:22px; position:absolute; z-index:10; top:-22px; left:-13px; border-left:1px solid #d9d9d8;
+ border-right:1px solid #d9d9d8;}
+.bgactivefaq  {width:65px; background:#f2f2f2; height:22px; position:absolute; z-index:10; top:-22px; right:47px; border-left:1px solid #d9d9d8;
+ border-right:1px solid #d9d9d8;}
+.bgactive-existing {width:169px; background:#f2f2f2; height:22px; position:absolute; z-index:10; top:-22px; right:108px; border-left:1px solid #d9d9d8;
+ border-right:1px solid #d9d9d8;}
+.bgactivefaq-existing  {width:65px; background:#f2f2f2; height:22px; position:absolute; z-index:10; top:-22px; right:21px; border-left:1px solid #d9d9d8;
+ border-right:1px solid #d9d9d8;}
+ 
+.customer-price-table-faq-dv {background:#f3f3f3; border:1px solid #d9d9d8; border-radius:5px; -webkit-border-radius:5px; -moz-border-radius:5px;
+font-family:Tahoma, Geneva, sans-serif; font-size:13px; color:#000; position:relative; margin-top:10px; display:none;}
+.customer-price-table-faq-dv li {line-height:34px; padding-left:10px;}
+.customer-price-table-faq-dv li.alternaterow {background:#fff;}
+
+
+
+.existing-customer  ul.column-1 { width:290px; }
+.existing-customer  ul.column-3 { width:236px; }
+.existing-customer  ul.column-6 {width:300px; margin-left:232px; position:relative;} 
+
+.new-customers-tab {width:143px; text-align:center;}
+.new-customers-faq-tab {width:65px; text-align:center;}
+.existing-customer-tab {width:158px; text-align:center;}
+.existing-customer-faq-tab {width:65px; text-align:center;}
+
+
+/*style form One center plan*/
+
+
+@charset "utf-8";
+/* CSS Document */
+
+* {margin:0; padding:0}
+img {border:0px;}
+ul {list-style-type:none;}
+.clear-fix {clear:both;}
+
+.countrylist { width:958px; font-family: Arial; margin-left:15px; }
+
+.countrylist fieldset { border: 1px solid #ccc; position:relative; }
+.countrylist legend { font-size:13px; font-weight:bold; padding:0px 4px 0 15px; }
+.countrylist_line { position: absolute; z-index:10; top:-4px; left:0px; }
+
+.countrylist_dv  { padding: 20px 12px 10px; }
+.countrylist_column_1 , .countrylist_column_2, .countrylist_column_3, .countrylist_column_4 { float:left; width: 212px; border-right: 1px dotted #ccc; min-height: 370px; }
+.countrylist_column_2, .countrylist_column_3, .countrylist_column_4 { padding-left: 30px; }
+.countrylist_column_4 { width:180px; border-right: 0px;}
+.countrylist_dv  li  { float:left; width:100%; padding-bottom:10px; }
+.countrylist_dv  li i { float:left; width:24px; display:block; padding-bottom:3px;  }
+.countrylist_dv  li i img { padding-bottom:3px;  }
+.countrylist_dv  li p { float:left; width:126px; font-size:13px; }
+.countrylist_dv  li p a{ color:#000; text-decoration:none; }
+.countrylist_dv  li p a:hover { text-decoration:underline; }
+.countrylist_dv  li p strong { font-size:10px; font-weight:normal !important; }
+.countrylist_dv  li b { float:left; width:14px; display:block;  }
+.countrylist_dv  li span { float:left; width:14px; display:block; }
+
+.countrylist_condtion { padding: 10px 0 30px 0; font-size:11px; }
+
+.search_rates { height:46px; background:#000; width: 990px; }
+.search_rates_area {  margin:0 auto; width: 460px; }
+

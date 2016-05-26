@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xsd:include schemaLocation="http://localhost:8080/schema/Centinel/1_7/txn_common.xsd"/>
+	<xsd:annotation>
+		<xsd:documentation>This message is generated in response to the cmpi_authenticate request message.</xsd:documentation>
+	</xsd:annotation>
+	<xsd:element name="CardinalMPI">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element ref="ErrorDesc"/>
+				<xsd:element ref="ErrorNo"/>
+				<xsd:element name="PAResStatus" type="txnPAResStatus"/>
+				<xsd:element name="SignatureVerification" type="txnSignatureStatus"/>
+				<xsd:element name="Cavv" type="txnCavv" minOccurs="0"/>
+				<xsd:element name="EciFlag" type="txnECI" minOccurs="0"/>
+				<xsd:element name="Xid" type="txnXid" minOccurs="0"/>
+				<xsd:element name="ConsumerStatus" type="consumerStatus" minOccurs="0"/>
+				<xsd:element name="ConsumerName" type="personFullName" minOccurs="0"/>
+				<xsd:element name="AddressStatus" type="addressStatus" minOccurs="0"/>
+				<xsd:element name="EMail" type="email" minOccurs="0"/>
+				<xsd:element name="ShippingAddress1" type="addressShipping" minOccurs="0"/>
+				<xsd:element name="ShippingAddress2" type="addressShipping" minOccurs="0"/>
+				<xsd:element name="ShippingCity" type="cityShipping" minOccurs="0"/>
+				<xsd:element name="ShippingState" type="stateProvinceShipping" minOccurs="0"/>
+				<xsd:element name="ShippingPostalCode" type="postalCodeShipping" minOccurs="0"/>
+				<xsd:element name="ShippingCountryCode" type="countryCodeShipping" minOccurs="0"/>
+				<xsd:element name="AccountNumber" type="txnSEBAccountNumber" minOccurs="0"/>
+				<xsd:element name="ReferenceId" type="txnSEBReferenceId" minOccurs="0"/>
+			</xsd:all>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

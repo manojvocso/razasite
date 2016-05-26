@@ -1,0 +1,61 @@
+﻿@model MvcApplication1.Models.GenericModel
+@{
+    ViewBag.Title = "MothersdayPromotion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="@Url.Content("~/css/style-raza-offerchoosing.css")" rel="stylesheet" />
+<div class="main-customer-div">
+    <div class="customer-banner">
+        <ul>
+            <li>
+                <img src="@Url.Content("~/images/Promotion_image/mothersday2014_01.jpg")" alt=""></li>
+            <li>
+                <img src="@Url.Content("~/images/Promotion_image/mothersday2014_02.jpg")" alt=""></li>
+            <li>
+                <img src="@Url.Content("~/images/Promotion_image/mothersday2014_03.jpg")" alt=""></li>
+            <li>
+                <img src="@Url.Content("~/images/Promotion_image/mothersday2014_04.jpg")" alt=""></li>
+        </ul>
+    </div>
+
+    <div class="customer-price-table">
+        <div class="customer-price-table-top">
+            <img src="@Url.Content("~/images/customer-price-table-top-bg.png")" alt=""></div>
+        <div class="customer-price-table-content">
+            <div class="customer-price-top-section">
+                <div class="customer-price-top-section-column">
+                    <select name="trialcountryfrom" id="countryfrom-promotion" style="width: 142px; height: 28px; margin-left: 10px; margin-bottom: 5px;">
+                        <option value='1' data-image="images/blank.gif" data-imagecss="big_1" data-title="U.S.A">U.S.A</option>
+                        <option value='2' data-image="images/blank.gif" data-imagecss="big_2" data-title="Canada">Canada</option>
+                        @*<option value='3' data-image="images/blank.gif" data-imagecss="big_3" data-title="United Kingdom">U.K</option>*@
+                    </select>
+                    <script>
+                        var countryid = $("#country-byip").val();
+
+                        function setSelectedIndex(s, valsearch) {
+                            // Loop through all the items in drop down list
+                            for (var i = 0; i < s.options.length; i++) {
+                                if (s.options[i].value == valsearch) {
+                                    // Item is found. Set its property and exit
+                                    s.options[i].selected = true;
+                                    break;
+                                }
+                            }
+                            return;
+                        }
+                        setSelectedIndex(document.getElementById("countryfrom-promotion"), countryid);
+
+
+                    </script>
+
+                </div>
+                <div class="customer-price-top-section-column">
+                    <img src="@Url.Content("~/images/img-selectcountry.jpg")" alt=""></div>
+                <div class="customer-price-top-section-column"><a href="@Url.Action("MothersdayNewCustomer", "Promotion")" class="new-customers-tab">New Customers</a></div>
+                <div class="customer-price-top-section-column"><a href="@Url.Action("MothersdayExistCustomer", "Promotion")" class="existing-customer-tab">Existing Customers</a></div>
+            </div>
+        </div>
+        <div>
+            <img src="@Url.Content("~/images/customer-price-table-bottom-bg.png")" alt=""></div>
+    </div>
+</div>

@@ -1,0 +1,65 @@
+﻿@model MvcApplication1.Areas.Mobile.ViewModels.AgentSignupViewModel
+@{
+    ViewBag.Title = "AgentSignUp";
+}
+
+<div class="container-fluid">
+    <div class="container demo">
+        <h1 class=" title_login">Become An Agent</h1>
+        @if (!string.IsNullOrEmpty(Model.Message))
+            {
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="container">
+                            @Html.MessageBox(Model.Message, Model.MessageType)
+                        </div>
+                    </div>
+                </div>
+            }
+        <div class="row">
+            @using (Html.BeginForm("AgentSignUp", "Account", FormMethod.Post))
+            {
+                <div class="col-xs-12 form_mar">
+                    @Html.TextBoxFor(a => a.FirstName, new { @class = "form-control  ", placeholder = "First Name" })
+                    @Html.ValidationMessageFor(a => a.FirstName)
+                </div>
+                <div class="col-xs-12 form_mar">
+                    @Html.TextBoxFor(a => a.LastName, new { @class = "form-control  ", placeholder = "Last Name" })
+                    @Html.ValidationMessageFor(a => a.LastName)
+                </div>
+                <div class="col-xs-12 form_mar">
+                    @Html.TextBoxFor(a => a.PhoneNumber, new { @class = "form-control  ", placeholder = "Phone Number", type = "tel" })
+                    @Html.ValidationMessageFor(a => a.PhoneNumber)
+                </div>
+                <div class="col-xs-12 form_mar">
+                    @Html.TextBoxFor(a => a.Email, new { @class = "form-control  ", placeholder = "Email Address" })
+                    @Html.ValidationMessageFor(a => a.Email)
+                </div>
+                <div class="col-xs-12 form_mar">
+                    @Html.TextAreaFor(a => a.AgentMessage, new { @class = "form-control", rows = "3", placeholder = "Message" })
+                    @Html.ValidationMessageFor(a => a.AgentMessage)
+                </div>
+                <div class="col-xs-12 ">
+                    <button type="submit" class="btn btn-primary btn-block form_mar btn_bgreen">Apply</button>
+                    <a href="@Url.Action("Index","Account")" class="btn btn-primary btn-block form_mar btn_bgray ">Cancel</a>
+                </div>
+            }
+
+            <div class="col-xs-12">
+                <h4>How it Works?</h4>
+                <ul class="plan_detail">
+                    <li>Earn up to 15% in comissions when you sell a Raza product.</li>
+                    <li>Receive Technical support and online help in setting up your account</li>
+                    <li>Major Account Team to offer additional support for larger customers</li>
+                    <li>Access to online customer and commission management tools</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+
+}

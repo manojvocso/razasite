@@ -1,0 +1,81 @@
+﻿ <script src="@Url.Content("~/Scripts/webaffilatesApply.js")"></script>  
+<div id="Websignup-apply">
+    
+<div class="pos-rel">
+      
+					<div class="retail_apply">
+					<fieldset class="retail_fieldset">
+					<b class="fl red">*</b>
+					<input name="" type="text" class="retail_input_1" placeholder="First Name" data-bind="value:FirstName" />
+					
+					<b class="fl red">*</b>
+					<input name="" type="text" class="retail_input_2" placeholder="Last Name" data-bind="value:LastName" />
+					
+					
+					<b class="fl red">*</b>
+					<input name="" type="text" class="retail_input_3" placeholder="Phone Number" data-bind="value:PhoneNumber" />
+					</fieldset>
+					
+					<fieldset class="retail_fieldset retail_fieldset_top">
+					<b class="fl red">*</b>
+					<input name="" type="text" class="retail_input_1" placeholder="E-mail" data-bind="value:Email"/>
+					
+					<b class="fl red">*</b>
+					<input name="" type="text" class="retail_input_2" placeholder="Address" data-bind="value:Address" />
+					
+										
+					<b class="fl red">*</b>
+					 <select id="callingToId" class="retail_input_4" style="width:268px"  data-bind="options: CountryListTo, optionsText: 'Name', optionsValue: 'Id', optionsCaption: 'Country..', value: Country">
+                                                </select>				
+					</fieldset>
+					
+					<fieldset class="retail_fieldset retail_fieldset_top">
+					<b class="fl red">*</b>
+					<textarea name="" cols="" rows="" class="retail_textarea_1 retail_mar_right" data-bind="value:Message"></textarea>
+					<div class="webexpandableapply" id="errorexpandable">
+			  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="14"><img src="@Url.Content("~/images/expand_top_left.png")" width="16" height="13" /></td>
+                <td style="background:url(/images/expand_drop_top.png) repeat-x left 2px;"></td>
+                <td width="14"><img src="@Url.Content("~/images/expand_top_right.png")" width="14" height="13" /></td>
+              </tr>
+              <tr>
+                <td style="background:url(/images/expand_drop_left.png) repeat-y 0px top;"></td>
+                <td style="background:#fff;"><div class="expandable_mid1">
+
+			 <img src="@Url.Content("~/images/error_sign.png")" style="float:left;margin-top:4px;margin-left:13px;" /> 
+                    <div id="errordiv" style="margin-left:97px;">
+                         <ul data-bind="foreach:validationIssue">
+                            <li data-bind="text: $data"></li>
+
+                         </ul>
+                    </div>
+                  </div></td>
+                <td style="background:url(/images/expand_drop_right.png) repeat-y 0px top;"></td>
+              </tr>
+              <tr>
+                <td width="14" style="padding:0px!important;"><img src="@Url.Content("~/images/expand_bot_left.png")" width="16" height="13" /></td>
+                <td style="background:url(/images/expand_drop_bottom.png) repeat-x left 0px;" width="100%"></td>
+                <td width="14" style="padding:0px!important;"><img src="@Url.Content("~/images/expand_bot_right.png")" width="14" height="13" /></td>
+              </tr>
+            </table>
+			  </div>
+					<a  class="retail_apply_btn" id="Webaffliates-apply" style="cursor:Pointer"></a>
+                       
+                        <strong data-bind="text:StatusMessage" style="font-size: 1.2em;color:red;margin-top:25px;margin-right:65px;float:left;margin-left:119px;width:663px;"></strong>  
+           
+                </div>
+                        <!--<ul data-bind="foreach : validationIssue">
+                            <li data-bind ="text: $data"></li>
+                        </ul>
+					<strong data-bind="text: StatusMessage" style="font-size: 1.2em;color:red;padding-top:22px;margin-top:38px;float:left;margin-left:-193px;"></strong>-->
+					</fieldset>
+
+
+					
+				
+					
+					</div>
+					 
+ 			
+      </div>

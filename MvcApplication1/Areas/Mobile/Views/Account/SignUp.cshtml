@@ -1,0 +1,80 @@
+﻿@model MvcApplication1.Areas.Mobile.ViewModels.SignUpViewModel
+@{
+    ViewBag.Title = "SignUp";
+}
+
+<div class="container-fluid">
+    <div class="container">
+        <h1 class=" title_login">New Account Signup</h1>
+        @*<h4 class="sub_login">Personal Information</h4>*@
+
+        <div class="row">
+            @using (Html.BeginForm("SignUp", "Account", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+
+                @Html.HiddenFor(a => a.ReturnUrl)
+                if (!string.IsNullOrEmpty(Model.Message))
+                {
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="container">
+                            @Html.MessageBox(Model.Message, Model.MessageType)
+                        </div>
+                    </div>
+                </div>
+                }
+                <div class="form-group">
+                    <div class="col-xs-12 form_mar">
+                        @Html.DropDownListFor(a => a.CountryFrom, new SelectList(@Model.FromCountryList, "Id", "Name"), "Calling From", new { @class = "form-control " })
+                        @Html.ValidationMessageFor(a => a.CountryFrom)
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <div class="col-xs-12 form_mar">
+                        @Html.DropDownListFor(a => a.CountryTo, new SelectList(@Model.ToCountryList, "Id", "Name"), "Calling To", new { @class = "form-control search_drop  search" })
+                        @Html.ValidationMessageFor(a => a.CountryTo)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12 form_mar">
+                        @Html.TextBoxFor(a => a.PhoneNumber, new { @class = "form-control data-numeric ", @placeholder = "Phone Number", type = "tel", maxlength = "10" })
+                        @Html.ValidationMessageFor(a => a.PhoneNumber)
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <div class="col-xs-12 form_mar">
+                        @Html.TextBoxFor(a => a.Email, new { @class = "form-control ", @placeholder = "Email" })
+                        @Html.ValidationMessageFor(a => a.Email)
+                    </div>
+                </div>
+           
+                <div class="form-group ">
+                    <div class="col-xs-12 form_mar">
+                        @Html.PasswordFor(a => a.Password, new { @class = "form-control ", @placeholder = "Password" })
+                        @Html.ValidationMessageFor(a => a.Password)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12 form_mar">
+                        @Html.PasswordFor(a => a.ConfirmPassword, new { @class = "form-control ", @placeholder = "Confirm Password" })
+                        @Html.ValidationMessageFor(a => a.ConfirmPassword)
+                    </div>
+                </div>
+
+                <div class="col-xs-12">
+                    <button type="submit" class="btn btn-primary btn-block form_mar btn_bgreen">Continue <span class=" btn_next fa fa-chevron-right"></span></button>
+                </div>
+                <div class="col-xs-12">
+                    <a href="@Url.Action("LogOn", "Account")" class="btn btn-primary btn-block form_mar btn_bgray"><span class=" btn_prev fa fa-chevron-left"></span>Back</a>
+                </div>
+                
+            }
+        </div>
+
+    </div>
+</div>
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,101 @@
+﻿@model MvcApplication1.Models.GenericModel
+
+<style>
+    .dd .ddTitle .ddTitleText {
+padding: 10px 20px 3px 5px !important;
+
+}
+       .dd .ddTitle {
+        font-weight: bold !important;
+color: black !important;
+    }
+    #countries_searchrates_existCustomer_msdd {
+        height:34px!important;
+    }
+
+    #ms-input {
+       width: 277px !important;
+        margin-top:0px!important;
+    }
+    #ms-input-1 {
+        width: 41px!important;
+    }
+    .customer-price-top-section-column a {
+        line-height:22px!important;
+    }
+        .customer-price-top-section-column a {
+        font-size:12px !important;
+    }
+    .ms-sel-ctn {
+        height: 33px !Important;
+    }
+      .ms-sel-item img {
+        margin-right: 20px!Important;
+    }
+</style>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/magicsuggest-1.3.1.js")"></script>
+<script>
+    $(document).ready(function () {
+
+        var jsonData = [];
+        var cities = '<a><img src="/images/pakistan.png" alt="">Pakistan (+92)</a>'.split(',');
+        for (var i = 0; i < cities.length; i++) jsonData.push({ id: i, name: cities[i], status: i % 2 ? 'Already Visited' : 'Planned for visit', coolness: Math.floor(Math.random() * 10) + 1 });
+
+
+        var ms7 = $('#ms-input').magicSuggest({
+            data: jsonData,
+            resultAsString: true,
+            maxSelection: 1,
+            value: [0],
+            maxSelectionRenderer: function () { }
+        });
+
+    });
+
+</script>
+
+<link href="@Url.Content("~/css/magicsuggest-1.3.1.css")" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="@Url.Content("~/css/style-raza-offerchoosing.css")" />
+<div class="main-customer-div">
+<div class="customer-banner">
+	<ul>
+    	<li><img src="@Url.Content("~/images/pakistan49_01.jpg")" alt="" /></li>
+        <li><img src="@Url.Content("~/images/pakistan49_02.jpg")" alt="" /></li>
+        <li><img src="@Url.Content("~/images/pakistan49_03.jpg")" alt="" /></li>
+        <li><img src="@Url.Content("~/images/pakistan49_04.jpg")" alt="" /></li>
+    </ul>
+</div>
+
+<div class="customer-price-table">
+	<div class="customer-price-table-top"><img src="@Url.Content("~/images/customer-price-table-top-bg.png")" alt="" /></div>
+    <div class="customer-price-table-content">
+    	<div class="customer-price-top-section">
+        	<div class="customer-price-top-section-column customer-price-top-section-column-left">
+                <select name="countryfrom" id="countries_searchrates_existCustomer" style="width: 110px; height: 30px; margin-top: 0px; margin-left: 10px;">
+                    <option value='1' data-image="images/blank.gif" data-imagecss="flag us" data-title="U.S.A">U.S.A</option>
+                    <option value='2' data-image="images/blank.gif" data-imagecss="flag ca" data-title="Canada">Canada</option>
+                    <option value='3' data-image="images/blank.gif" data-imagecss="flag england" data-title="United Kingdom">U.K</option>
+                </select></div>
+            <div class="customer-price-top-section-column">
+                
+                    <div class="ms-helper "  ></div>
+                    <div id="ms-input" class="ms-sel-ctn" style="width: 220px; float: left; height: 34px; margin-top: 10px; margin-left: 10px;">
+                        <input id="ms-input-0" type="text" class="" value="Enter the country you wish to call" style="width: 170px;" />
+                        <input type="hidden" value="[]" />
+                    </div>
+
+            </div>
+            <div class="customer-price-top-section-column"><a href="
+                @Url.Action("Pakistan49NewCustomer","Promotion")" style="line-height: 33px !important;" class="new-customers-tab">New Customers</a></div>
+            
+        </div>
+    </div>
+    <div><img src="@Url.Content("~/images/customer-price-table-bottom-bg.png")" alt="" /></div>
+</div>
+</div>
+

@@ -1,0 +1,296 @@
+﻿@{
+    ViewBag.Title = "IndiaUnlimited";
+}
+
+
+<div class="container-fluid indiaun_bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-xs-12">
+                <h1 class="user-title text-center">India Unlimited Plans</h1>
+                <h3 class="text-center">Choose from three incredible plans </h3>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="container tab_container">
+        <div class="row">
+            <div role="tabpanel">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class=""><a href="#home" aria-controls="home" role="tab" data-toggle="tab" aria-expanded="false">
+                        <h3 class="text-center">$9.99</h3>
+                        <p class="text-center">Per month</p>
+                        <h5 class="text-center">Mobile Unlimited</h5>
+                    </a></li>
+                    <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" aria-expanded="true">
+                        <h3 class="text-center">$14.99</h3>
+                        <p class="text-center">Per month</p>
+                        <h5 class="text-center">India Unlimited</h5>
+                    </a></li>
+                    <li role="presentation" class=""><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab" aria-expanded="false">
+                        <h3 class="text-center">$19.99</h3>
+                        <p class="text-center">Per month</p>
+                        <h5 class="text-center">India Unlimited+</h5>
+                    </a></li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane" id="home">
+                        <div class=" container-fluid">
+                            <div class="row">
+                                <div class="col-xs-10 col-sm-11 col-md-11 profile para_pad">
+                                    <div class="call_icon pull-left"></div>
+                                    <p class="indicon_pad">Call Any</p>
+                                </div>
+                                <div class="col-xs-2 col-sm-1 col-md-1 profile para_pad india_pad">
+                                    <div class="mobile_icon"></div>
+                                </div>
+
+                                <div class="col-xs-9 col-sm-10 col-md-10 profile para_pad">
+                                    <div class="crystal_icon pull-left"></div>
+                                    <p class="indicon_pad">Crystal Clear Connections </p>
+                                </div>
+                                <div class="col-xs-3 col-sm-2 col-md-2 profile para_pad india_pad">
+                                    <h4 class="sub_titile indtotal_pad "><i class="fa fa-check"></i></h4>
+                                </div>
+
+                                <div class="col-xs-9 col-sm-10 col-md-10 profile para_pad">
+                                    <div class=" onetouch_icon pull-left"></div>
+                                    <p class="indicon_pad">One Touch Dial</p>
+                                </div>
+                                <div class="col-xs-3 col-sm-2 col-md-2 profile para_pad india_pad">
+                                    <h4 class="sub_titile indtotal_pad "><i class="fa fa-check"></i></h4>
+                                </div>
+
+                                <div class="col-xs-9 col-sm-10 col-md-10 profile para_pad">
+                                    <div class="service_icon pull-left"></div>
+                                    <p class="indicon_pad">Service Fees </p>
+                                </div>
+                                <div class="col-xs-3 col-sm-2 col-md-2 profile para_pad india_pad">
+                                    <h4 class="indtotal_pad text-center">$3.99</h4>
+                                </div>
+
+                                <div class="col-xs-9 col-sm-10 col-md-10 profile para_pad">
+                                    <div class="daily_icon pull-left"></div>
+                                    <p class="indicon_pad">No Daily Limit</p>
+                                </div>
+                                <div class="col-xs-3 col-sm-2 col-md-2 profile para_pad india_pad">
+                                    <h4 class="sub_titile indtotal_pad "><i class="fa fa-check"></i></h4>
+                                </div>
+
+                                <div class="col-xs-9 col-sm-10 col-md-10 profile para_pad">
+                                    <div class=" nocontact_icon pull-left"></div>
+                                    <p class="indicon_pad">No Contract</p>
+                                </div>
+                                <div class="col-xs-3 col-sm-2 col-md-2 profile para_pad india_pad">
+                                    <h4 class="sub_titile indtotal_pad "><i class="fa fa-check"></i></h4>
+                                </div>
+
+                                <div class="col-xs-9 col-sm-10 col-md-10 profile para_pad">
+                                    <div class=" nointernet_icon pull-left"></div>
+                                    <p class="indicon_pad">No Internet </p>
+                                </div>
+                                <div class="col-xs-3 col-sm-2 col-md-2 profile para_pad india_pad">
+                                    <h4 class="sub_titile indtotal_pad "><i class="fa fa-check"></i></h4>
+                                </div>
+
+                                <div class="col-xs-7 col-sm-10 col-md-10 profile para_pad india_pad">
+                                    <div class="total_icon pull-left"></div>
+                                    <h4 class="indtotalo_pad indicon_pad">Total Minutes</h4>
+                                </div>
+                                <div class="col-xs-5 col-sm-2 col-md-2 profile para_pad india_pad ">
+                                    <h4 class="sub_titile indtotal_pad ">1300 Min</h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                @using (Html.BeginForm("IndiaUnlimited", "Rate", FormMethod.Post))
+                                {
+                                    @Html.Hidden("PlanType", "IU9.99")
+                                    <div class="col-sm-12 col-xs-12 form_mar">
+                                        <button type="submit" class="btn btn-primary btn-block form_mar btn_bgreen">Buy</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane active" id="profile">
+                        <div class=" container-fluid">
+                            <div class="row">
+                                <div class="col-xs-9 col-sm-10 col-md-10 profile para_pad">
+                                    <div class="call_icon pull-left"></div>
+                                    <p class="indicon_pad">Call Any</p>
+                                </div>
+                                <div class="col-xs-3 col-sm-2 col-md-2 profile para_pad india_pad">
+                                    <div class="phone_icon pull-left"></div>
+                                    <div class="mobile_icon pull-right"></div>
+                                </div>
+
+                                <div class="col-xs-9 col-sm-10 col-md-10 profile para_pad">
+                                    <div class="crystal_icon pull-left"></div>
+                                    <p class="indicon_pad">Crystal Clear Connections </p>
+                                </div>
+                                <div class="col-xs-3 col-sm-2 col-md-2 profile para_pad india_pad">
+                                    <h4 class="sub_titile indtotal_pad "><i class="fa fa-check"></i></h4>
+                                </div>
+
+                                <div class="col-xs-9 col-sm-10 col-md-10 profile para_pad">
+                                    <div class=" onetouch_icon pull-left"></div>
+                                    <p class="indicon_pad">One Touch Dial</p>
+                                </div>
+                                <div class="col-xs-3 col-sm-2 col-md-2 profile para_pad india_pad">
+                                    <h4 class="sub_titile indtotal_pad "><i class="fa fa-check"></i></h4>
+                                </div>
+
+                                <div class="col-xs-9 col-sm-10 col-md-10 profile para_pad">
+                                    <div class="service_icon pull-left"></div>
+                                    <p class="indicon_pad">Service Fees </p>
+                                </div>
+                                <div class="col-xs-3 col-sm-2 col-md-2 profile para_pad india_pad">
+                                    <h4 class="indtotal_pad text-center">$7.99</h4>
+                                </div>
+
+                                <div class="col-xs-9 col-sm-10 col-md-10 profile para_pad">
+                                    <div class="daily_icon pull-left"></div>
+                                    <p class="indicon_pad">No Daily Limit</p>
+                                </div>
+                                <div class="col-xs-3 col-sm-2 col-md-2 profile para_pad india_pad">
+                                    <h4 class="sub_titile indtotal_pad "><i class="fa fa-check"></i></h4>
+                                </div>
+
+                                <div class="col-xs-9 col-sm-10 col-md-10 profile para_pad">
+                                    <div class=" nocontact_icon pull-left"></div>
+                                    <p class="indicon_pad">No Contract</p>
+                                </div>
+                                <div class="col-xs-3 col-sm-2 col-md-2 profile para_pad india_pad">
+                                    <h4 class="sub_titile indtotal_pad "><i class="fa fa-check"></i></h4>
+                                </div>
+
+                                <div class="col-xs-9 col-sm-10 col-md-10 profile para_pad">
+                                    <div class=" nointernet_icon pull-left"></div>
+                                    <p class="indicon_pad">No Internet </p>
+                                </div>
+                                <div class="col-xs-3 col-sm-2 col-md-2 profile para_pad india_pad">
+                                    <h4 class="sub_titile indtotal_pad "><i class="fa fa-check"></i></h4>
+                                </div>
+
+                                <div class="col-xs-7 col-sm-10 col-md-10 profile para_pad india_pad">
+                                    <div class="total_icon pull-left"></div>
+                                    <h4 class="indtotalo_pad indicon_pad">Total Minutes</h4>
+                                </div>
+                                <div class="col-xs-5 col-sm-2 col-md-2 profile para_pad india_pad ">
+                                    <h4 class="sub_titile indtotal_pad ">2000 Min</h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                @using (Html.BeginForm("IndiaUnlimited", "Rate", FormMethod.Post))
+                                {
+                                    @Html.Hidden("PlanType", "IU14.99")
+                                    <div class="col-sm-12 col-xs-12 form_mar">
+                                        <button type="submit" class="btn btn-primary btn-block form_mar btn_bgreen">Buy</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="messages">
+                        <div class=" container-fluid">
+                            <div class="row">
+                                <div class="col-xs-9 col-sm-10 col-md-10 profile para_pad">
+                                    <div class="call_icon pull-left"></div>
+                                    <p class="indicon_pad">Call Any</p>
+                                </div>
+                                <div class="col-xs-3 col-sm-2 col-md-2 profile para_pad india_pad">
+                                    <div class="phone_icon pull-left"></div>
+                                    <div class="mobile_icon pull-right"></div>
+                                </div>
+
+                                <div class="col-xs-9 col-sm-10 col-md-10 profile para_pad">
+                                    <div class="crystal_icon pull-left"></div>
+                                    <p class="indicon_pad">Crystal Clear Connections </p>
+                                </div>
+                                <div class="col-xs-3 col-sm-2 col-md-2 profile para_pad india_pad">
+                                    <h4 class="sub_titile indtotal_pad "><i class="fa fa-check"></i></h4>
+                                </div>
+
+                                <div class="col-xs-9 col-sm-10 col-md-10 profile para_pad">
+                                    <div class=" onetouch_icon pull-left"></div>
+                                    <p class="indicon_pad">One Touch Dial</p>
+                                </div>
+                                <div class="col-xs-3 col-sm-2 col-md-2 profile para_pad india_pad">
+                                    <h4 class="sub_titile indtotal_pad "><i class="fa fa-check"></i></h4>
+                                </div>
+
+                                <div class="col-xs-9 col-sm-10 col-md-10 profile para_pad">
+                                    <div class="service_icon pull-left"></div>
+                                    <p class="indicon_pad">Service Fees </p>
+                                </div>
+                                <div class="col-xs-3 col-sm-2 col-md-2 profile para_pad india_pad">
+                                    <h4 class="indtotal_pad text-center">$7.99</h4>
+                                </div>
+
+                                <div class="col-xs-9 col-sm-10 col-md-10 profile para_pad">
+                                    <div class="daily_icon pull-left"></div>
+                                    <p class="indicon_pad">No Daily Limit</p>
+                                </div>
+                                <div class="col-xs-3 col-sm-2 col-md-2 profile para_pad india_pad">
+                                    <h4 class="sub_titile indtotal_pad "><i class="fa fa-check"></i></h4>
+                                </div>
+
+                                <div class="col-xs-9 col-sm-10 col-md-10 profile para_pad">
+                                    <div class=" nocontact_icon pull-left"></div>
+                                    <p class="indicon_pad">No Contract</p>
+                                </div>
+                                <div class="col-xs-3 col-sm-2 col-md-2 profile para_pad india_pad">
+                                    <h4 class="sub_titile indtotal_pad "><i class="fa fa-check"></i></h4>
+                                </div>
+
+                                <div class="col-xs-9 col-sm-10 col-md-10 profile para_pad">
+                                    <div class=" nointernet_icon pull-left"></div>
+                                    <p class="indicon_pad">No Internet </p>
+                                </div>
+                                <div class="col-xs-3 col-sm-2 col-md-2 profile para_pad india_pad">
+                                    <h4 class="sub_titile indtotal_pad "><i class="fa fa-check"></i></h4>
+                                </div>
+
+                                <div class="col-xs-7 col-sm-10 col-md-10 profile para_pad india_pad">
+                                    <div class="total_icon pull-left"></div>
+                                    <h4 class="indtotalo_pad indicon_pad">Total Minutes</h4>
+                                </div>
+                                <div class="col-xs-5 col-sm-2 col-md-2 profile para_pad india_pad ">
+                                    <h4 class="sub_titile indtotal_pad ">2800 Min</h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                @using (Html.BeginForm("IndiaUnlimited", "Rate", FormMethod.Post))
+                                {
+                                    @Html.Hidden("PlanType", "IU19.99")
+                                    <div class="col-sm-12 col-xs-12 form_mar">
+                                        <button type="submit" class="btn btn-primary btn-block form_mar btn_bgreen">Buy</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-xs-12 form_mar">
+                <h3>Plan Details </h3>
+                <p>This monthly plan will be automatically recharged once in 30 days as per your billing cycle, no roll over minutes to next month. Calls can be made to other countries besides India however the rates will vary. The plan does not qualify for the features like Auto-Refill bonus or Reward points. Only one phone number can be registered in the pin-less setup and it can be switched once in 6 months. Toll free number users will be charged 2 c/min additional. </p>
+                <p>
+                    Raza.com reserves the rights to withdraw or alter <span class="text-uppercase">MOBILE UNLIMITED $9.99 / UNLIMITED $14.99 / UNLIMITED $19.99 PLAN </span>at any time without prior notice
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

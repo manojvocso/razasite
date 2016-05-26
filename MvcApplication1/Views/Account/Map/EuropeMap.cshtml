@@ -1,0 +1,428 @@
+﻿@*<script src="@Url.Content("~/Scripts/jquery-1.9.1.min.js")"></script>
+<script src="@Url.Content("~/Scripts/jquery-ui.js")"></script>
+
+<script src="@Url.Content("~/Scripts/magicSuggest-1.3.1.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/MapPage.js")" type="text/javascript"></script>*@
+			<div id="europe" class="tab-section" style="margin:0 auto; width:1002px; position:relative;">
+       <div class="left-map"> <img src="@Url.Content("~/images/europe_pop_img.png")" alt="" style="width:642px;" /> </div>
+	   <div class="right-map">
+	   <div class="right-panel" style="margin:0 0 0 19px">
+	        <div class="stump_bg1" style="margin-left:-45px"> 
+	
+	
+	<div class="drop-bg" style="margin:0px 0px 0px -21px;">
+	           <form action="#" method="post" accept-charset="utf-8" class="example_form">
+	               <select name="countries" id="from-Europe" style="width:54px; float:left; margin:0px 7px 0px 0px;" >
+	                @*   <option value='1' data-image="images/blank.gif" data-imagecss="usa_big" data-title="U.S.A"></option>
+	                   <option value='2' data-image="images/blank.gif" data-imagecss="canada_big" data-title="Canada"></option>
+	                   <option value='3' data-image="images/blank.gif" data-imagecss="uk_big" data-title="United Kingdom"></option>*@
+	                   @* <option value='nz' data-image="images/blank.gif" data-imagecss="nz_big" data-title="New Zealand"></option>
+          <option value='au' data-image="images/blank.gif" data-imagecss="aus_big" data-title="Australia"></option>*@
+	               @foreach(var item in Model.ListOfFromCountries)
+          {
+           <option value='@item.Id' data-image="images/blank.gif" data-imagecss="@item.ImageClass" data-title="@item.Name"></option>
+          }
+                       
+                       
+                         </select>
+                   
+                    <script>
+                        var countryid = $("#country-byip").val();
+                        function setSelectedIndex(s, valsearch) {
+                            // Loop through all the items in drop down list
+                            for (var i = 0; i < s.options.length; i++) {
+                                if (s.options[i].value == valsearch) {
+                                    // Item is found. Set its property and exit
+                                    s.options[i].selected = true;
+                                    break;
+                                }
+                            }
+                            return;
+                        }
+                        setSelectedIndex(document.getElementById("from-Europe"), countryid);
+
+            </script>                                                                                                                                  
+	           </form>
+					    
+ 
+ 			<div id="ms-Europe" class="ms-ctn  ms-ctn-bootstrap-focus" style="width:220px; float: left; height: 34px; margin-bottom:15px; margin-top:-2px;">
+			<div id="ms-trigger" class="ms-trigger"><div class="ms-trigger-ico"></div></div><div class="ms-helper " style="display: none;"></div><div id="ms-sel-ctn-3" class="ms-sel-ctn">
+			
+                <input id="ms-input" type="text" class="" value="Enter the country you wish to call" style="width: 170px;"><input type="hidden" value="[]"></div></div>
+	</div>
+	<ul class="bottom-div-1">
+	<li><span>Excellent</span></li>
+	<li><span>East to Use</span></li>
+	<li><span>Secure</span></li>
+	<li style="margin-top: 3px;
+line-height: 18px;
+width: 143px;
+}"><span>100% Quality Guarantee</span></li>
+	</ul>
+	<div></div>
+	</div>  
+					    
+ 
+ 			
+	   </div>
+	   
+	   <div class="clear"></div>
+	   
+	   </div>
+          
+     @foreach (var res in Model.MapRateList)
+     {
+
+         if (res.CountrytoId == 2)
+          {
+              <span class="albaia_flag">
+                  <a href="@Url.Action("SearchRate","Rate" ,  new {countryfrom=Model.MapCountry,countryto=res.CountrytoId})" class="tooltip_map">
+                      <b></b>
+                      <span><img class="callout_map" src="@Url.Content("~/images/callout_images_new.png")" alt="Tooltip callout">
+            
+                          <h3>Albania</h3>           <label><img src="@Url.Content("~/images/landline.jpg")" alt="" /> @res.LandLineRate</label>
+                          <label><img src="@Url.Content("~/images/mobile.jpg")" alt="" /> @res.MobileRate</label>
+                      </span>            </a>            </span>
+          }
+
+         if (res.CountrytoId == 113)
+          {
+              <span class="greece_flag">
+                  <a href="@Url.Action("SearchRate","Rate" ,  new {countryfrom=Model.MapCountry,countryto=res.CountrytoId})" class="tooltip_map">
+                      <b></b>
+                      <span><img class="callout_map" src="@Url.Content("~/images/callout_images_new.png")" alt="Tooltip callout">
+            
+                          <h3>Greece</h3>
+                          <label><img src="@Url.Content("~/images/landline.jpg")" alt="" /> @res.LandLineRate</label>
+                          <label><img src="@Url.Content("~/images/mobile.jpg")" alt="" /> @res.MobileRate</label>
+                      </span>            </a>            </span>
+          }
+
+         if (res.CountrytoId == 49)
+          {
+              <span class="bulgaria_flag">
+                  <a href="@Url.Action("SearchRate","Rate" ,  new {countryfrom=Model.MapCountry,countryto=res.CountrytoId})" class="tooltip_map">
+                      <b></b>
+                      <span><img class="callout_map" src="@Url.Content("~/images/callout_images_new.png")" alt="Tooltip callout">
+            
+                          <h3>Bulgaria</h3>
+                          <label><img src="@Url.Content("~/images/landline.jpg")" alt="" /> @res.LandLineRate</label>
+                          <label><img src="@Url.Content("~/images/mobile.jpg")" alt="" /> @res.MobileRate</label>
+                      </span>            </a>            </span>
+
+          }
+
+         if (res.CountrytoId == 667)
+          {
+              <span class="montenegro_flag">
+                  <a href="@Url.Action("SearchRate","Rate" ,  new {countryfrom=Model.MapCountry,countryto=res.CountrytoId})" class="tooltip_map">
+                      <b></b>
+                      <span><img class="callout_map" src="@Url.Content("~/images/callout_images_new.png")" alt="Tooltip callout">
+                          <h3>Montenegro</h3>
+                          <label><img src="@Url.Content("~/images/landline.jpg")" alt="" /> @res.LandLineRate</label>
+                          <label><img src="@Url.Content("~/images/mobile.jpg")" alt="" /> @res.MobileRate</label>
+                      </span>            </a>            </span>
+
+          }
+         if (res.CountrytoId == 267)
+          {
+              <span class="serbia_flag">
+                  <a href="@Url.Action("SearchRate","Rate" ,  new {countryfrom=Model.MapCountry,countryto=res.CountrytoId})" class="tooltip_map">
+                      <b></b>
+                      <span><img class="callout_map" src="@Url.Content("~/images/callout_images_new.png")" alt="Tooltip callout">
+                          <h3>Serbia</h3>
+                          <label><img src="@Url.Content("~/images/landline.jpg")" alt="" /> @res.LandLineRate</label>
+                          <label><img src="@Url.Content("~/images/mobile.jpg")" alt="" /> @res.MobileRate</label>
+                      </span>            </a>            </span>
+
+          }
+         if (res.CountrytoId == 172)
+          {
+              <span class="italy_flag">
+                  <a href="@Url.Action("SearchRate","Rate" ,  new {countryfrom=Model.MapCountry,countryto=res.CountrytoId})" class="tooltip_map">
+                      <b></b>
+                      <span><img class="callout_map" src="@Url.Content("~/images/callout_images_new.png")" alt="Tooltip callout">
+                          <h3>Italy</h3>
+                          <label><img src="@Url.Content("~/images/landline.jpg")" alt="" /> @res.LandLineRate</label>
+                          <label><img src="@Url.Content("~/images/mobile.jpg")" alt="" /> @res.MobileRate</label>
+                      </span>            </a>            </span>
+
+          }
+
+         if (res.CountrytoId == 216)
+          {
+              <span class="monaco_flag">
+                  <a href="@Url.Action("SearchRate","Rate" ,  new {countryfrom=Model.MapCountry,countryto=res.CountrytoId})" class="tooltip_map">
+                      <b></b>
+                      <span><img class="callout_map" src="@Url.Content("~/images/callout_images_new.png")" alt="Tooltip callout">
+                          <h3>Monaco</h3>
+                          <label><img src="@Url.Content("~/images/landline.jpg")" alt="" /> @res.LandLineRate</label>
+                          <label><img src="@Url.Content("~/images/mobile.jpg")" alt="" /> @res.MobileRate</label>
+                      </span>            </a>            </span>
+
+          }
+         if (res.CountrytoId == 278)
+          {
+
+              <span class="spain_flag">
+                  <a href="@Url.Action("SearchRate","Rate" ,  new {countryfrom=Model.MapCountry,countryto=res.CountrytoId})" class="tooltip_map">
+                      <b></b>
+                      <span><img class="callout_map" src="@Url.Content("~/images/callout_images_new.png")" alt="Tooltip callout">
+                          <h3>Spain</h3>
+                          <label><img src="@Url.Content("~/images/landline.jpg")" alt="" /> @res.LandLineRate</label>
+                          <label><img src="@Url.Content("~/images/mobile.jpg")" alt="" /> @res.MobileRate</label>
+                      </span>            </a>            </span>
+
+          }
+         if (res.CountrytoId == 251)
+          {
+              <span class="portugal_flag">
+                  <a href="@Url.Action("SearchRate","Rate" ,  new {countryfrom=Model.MapCountry,countryto=res.CountrytoId})" class="tooltip_map">
+                      <b></b>
+                      <span><img class="callout_map" src="@Url.Content("~/images/callout_images_new.png")" alt="Tooltip callout">
+                          <h3>Portugal</h3>
+                          <label><img src="@Url.Content("~/images/landline.jpg")" alt="" /> @res.LandLineRate</label>
+                          <label><img src="@Url.Content("~/images/mobile.jpg")" alt="" /> @res.MobileRate</label>
+                      </span>            </a>            </span>
+
+          }
+         if (res.CountrytoId == 96)
+          {
+              <span class="france_flag">
+                  <a href="@Url.Action("SearchRate","Rate" ,  new {countryfrom=Model.MapCountry,countryto=res.CountrytoId})" class="tooltip_map">
+                      <b></b>
+                      <span><img class="callout_map" src="@Url.Content("~/images/callout_images_new.png")" alt="Tooltip callout">
+                          <h3>France</h3>
+                          <label><img src="@Url.Content("~/images/landline.jpg")" alt="" /> @res.LandLineRate</label>
+                          <label><img src="@Url.Content("~/images/mobile.jpg")" alt="" /> @res.MobileRate</label>
+                      </span>            </a>            </span>
+
+          }
+if (res.CountrytoId == 294)
+ {
+     <span class="switzerland_flag">
+         <a href="@Url.Action("SearchRate","Rate" ,  new {countryfrom=Model.MapCountry,countryto=res.CountrytoId})" class="tooltip_map">
+             <b></b>
+             <span><img class="callout_map" src="@Url.Content("~/images/callout_images_new.png")" alt="Tooltip callout">
+                 <h3>Switzerland</h3>
+                 <label><img src="@Url.Content("~/images/landline.jpg")" alt="" /> @res.LandLineRate</label>
+                 <label><img src="@Url.Content("~/images/mobile.jpg")" alt="" /> @res.MobileRate</label>
+             </span>            </a>            </span>
+ }
+if (res.CountrytoId == 22)
+ {
+     <span class="austria_flag">
+         <a href="@Url.Action("SearchRate","Rate" ,  new {countryfrom=Model.MapCountry,countryto=res.CountrytoId})" class="tooltip_map">
+             <b></b>
+             <span><img class="callout_map" src="@Url.Content("~/images/callout_images_new.png")" alt="Tooltip callout">
+                 <h3>Austria</h3>
+                 <label><img src="@Url.Content("~/images/landline.jpg")" alt="" /> @res.LandLineRate</label>
+                 <label><img src="@Url.Content("~/images/mobile.jpg")" alt="" /> @res.MobileRate</label>
+             </span>            </a>            </span>
+
+ }
+if (res.CountrytoId == 272)
+ {
+     <span class="slovenia_flag">
+         <a href="@Url.Action("SearchRate","Rate" ,  new {countryfrom=Model.MapCountry,countryto=res.CountrytoId})" class="tooltip_map">
+             <b></b>
+             <span><img class="callout_map" src="@Url.Content("~/images/callout_images_new.png")" alt="Tooltip callout">
+                 <h3>Slovenia</h3>
+                 <label><img src="@Url.Content("~/images/landline.jpg")" alt="" /> @res.LandLineRate</label>
+                 <label><img src="@Url.Content("~/images/mobile.jpg")" alt="" /> @res.MobileRate</label>
+             </span>            </a>            </span>
+ }
+
+if (res.CountrytoId == 128)
+ {
+     <span class="hungary_flag">
+         <a href="@Url.Action("SearchRate","Rate" ,  new {countryfrom=Model.MapCountry,countryto=res.CountrytoId})" class="tooltip_map">
+             <b></b>
+             <span><img class="callout_map" src="@Url.Content("~/images/callout_images_new.png")" alt="Tooltip callout">
+                 <h3>Hungary</h3>
+                 <label><img src="@Url.Content("~/images/landline.jpg")" alt="" /> @res.LandLineRate</label>
+                 <label><img src="@Url.Content("~/images/mobile.jpg")" alt="" /> @res.MobileRate</label>
+             </span>            </a>            </span>
+ }
+if (res.CountrytoId == 256)
+ {
+
+     <span class="romania_flag">
+         <a href="@Url.Action("SearchRate","Rate" ,  new {countryfrom=Model.MapCountry,countryto=res.CountrytoId})" class="tooltip_map">
+             <b></b>
+             <span><img class="callout_map" src="@Url.Content("~/images/callout_images_new.png")" alt="Tooltip callout">
+                 <h3>Romania</h3>
+                 <label><img src="@Url.Content("~/images/landline.jpg")" alt="" /> @res.LandLineRate</label>
+                 <label><img src="@Url.Content("~/images/mobile.jpg")" alt="" /> @res.MobileRate</label>
+             </span>            </a>            </span>
+
+ }
+if (res.CountrytoId == 316)
+ {
+     <span class="ukraine_flag">
+         <a href="@Url.Action("SearchRate","Rate" ,  new {countryfrom=Model.MapCountry,countryto=res.CountrytoId})" class="tooltip_map">
+             <b></b>
+             <span><img class="callout_map" src="@Url.Content("~/images/callout_images_new.png")" alt="Tooltip callout">
+                 <h3>Ukraine</h3>
+                 <label><img src="@Url.Content("~/images/landline.jpg")" alt="" /> @res.LandLineRate</label>
+                 <label><img src="@Url.Content("~/images/mobile.jpg")" alt="" /> @res.MobileRate</label>
+             </span>            </a>            </span>
+ }
+
+if (res.CountrytoId == 381)
+ {
+     <span class="czech_republic_flag">
+         <a href="@Url.Action("SearchRate","Rate" ,  new {countryfrom=Model.MapCountry,countryto=res.CountrytoId})" class="tooltip_map">
+             <b></b>
+             <span><img class="callout_map" src="@Url.Content("~/images/callout_images_new.png")" alt="Tooltip callout">
+                 <h3>Czech Republic</h3>
+                 <label><img src="@Url.Content("~/images/landline.jpg")" alt="" /> @res.LandLineRate</label>
+                 <label><img src="@Url.Content("~/images/mobile.jpg")" alt="" /> @res.MobileRate</label>
+             </span>            </a>            </span>
+ }
+         if (res.CountrytoId == 249)
+          {
+              <span class="poland_flag">
+                  <a href="@Url.Action("SearchRate","Rate" ,  new {countryfrom=Model.MapCountry,countryto=res.CountrytoId})" class="tooltip_map">
+                      <b></b>
+                      <span><img class="callout_map" src="@Url.Content("~/images/callout_images_new.png")" alt="Tooltip callout">
+                          <h3>Poland</h3>
+                          <label><img src="@Url.Content("~/images/landline.jpg")" alt="" /> @res.LandLineRate</label>
+                          <label><img src="@Url.Content("~/images/mobile.jpg")" alt="" /> @res.MobileRate</label>
+                      </span>            </a>            </span>
+
+          }
+if (res.CountrytoId == 105)
+ {
+     <span class="germany_flag">
+         <a href="@Url.Action("SearchRate","Rate" ,  new {countryfrom=Model.MapCountry,countryto=res.CountrytoId})" class="tooltip_map">
+             <b></b>
+             <span><img class="callout_map" src="@Url.Content("~/images/callout_images_new.png")" alt="Tooltip callout">
+                 <h3>Germany</h3>
+                 <label><img src="@Url.Content("~/images/landline.jpg")" alt="" /> @res.LandLineRate</label>
+                 <label><img src="@Url.Content("~/images/mobile.jpg")" alt="" /> @res.MobileRate</label>
+             </span>            </a>            </span>
+ }
+if (res.CountrytoId == 195)
+ {
+     <span class="luxembourg_flag">
+         <a href="@Url.Action("SearchRate","Rate" ,  new {countryfrom=Model.MapCountry,countryto=res.CountrytoId})" class="tooltip_map">
+             <b></b>
+             <span><img class="callout_map" src="@Url.Content("~/images/callout_images_new.png")" alt="Tooltip callout">
+                 <h3>Luxembourg</h3>
+                 <label><img src="@Url.Content("~/images/landline.jpg")" alt="" /> @res.LandLineRate</label>
+                 <label><img src="@Url.Content("~/images/mobile.jpg")" alt="" /> @res.MobileRate</label>
+             </span>            </a>            </span>
+
+ }
+         if (res.CountrytoId == 35)
+          {
+              <span class="belgium_flag">
+                  <a href="@Url.Action("SearchRate","Rate" ,  new {countryfrom=Model.MapCountry,countryto=res.CountrytoId})" class="tooltip_map">
+                      <b></b>
+                      <span><img class="callout_map" src="@Url.Content("~/images/callout_images_new.png")" alt="Tooltip callout">
+                          <h3>Belgium</h3>
+                          <label><img src="@Url.Content("~/images/landline.jpg")" alt="" /> @res.LandLineRate</label>
+                          <label><img src="@Url.Content("~/images/mobile.jpg")" alt="" /> @res.MobileRate</label>
+                      </span>            </a>            </span>
+          }
+
+         if (res.CountrytoId == 195)
+          {
+              <span class="united_kingdom_flag">
+                  <a href="@Url.Action("SearchRate","Rate" ,  new {countryfrom=Model.MapCountry,countryto=res.CountrytoId})" class="tooltip_map">
+                      <b></b>
+                      <span><img class="callout_map" src="@Url.Content("~/images/callout_images_new.png")" alt="Tooltip callout">
+                          <h3>United Kingdom</h3>
+                          <label><img src="@Url.Content("~/images/landline.jpg")" alt="" /> @res.LandLineRate</label>
+                          <label><img src="@Url.Content("~/images/mobile.jpg")" alt="" /> @res.MobileRate</label>
+                      </span>            </a>            </span>
+
+          }
+if (res.CountrytoId == 170)
+ {
+     <span class="ireland_flag">
+         <a href="@Url.Action("SearchRate","Rate" ,  new {countryfrom=Model.MapCountry,countryto=res.CountrytoId})" class="tooltip_map">
+             <b></b>
+             <span><img class="callout_map" src="@Url.Content("~/images/callout_images_new.png")" alt="Tooltip callout">
+                 <h3>Ireland</h3>
+                 <label><img src="@Url.Content("~/images/landline.jpg")" alt="" /> @res.LandLineRate</label>
+                 <label><img src="@Url.Content("~/images/mobile.jpg")" alt="" /> @res.MobileRate</label>
+             </span>            </a>            </span>
+ }
+
+if (res.CountrytoId == 227)
+ {
+
+     <span class="netherlands_flag">
+         <a href="@Url.Action("SearchRate","Rate" ,  new {countryfrom=Model.MapCountry,countryto=res.CountrytoId})" class="tooltip_map">
+             <b></b>
+             <span><img class="callout_map" src="@Url.Content("~/images/callout_images_new.png")" alt="Tooltip callout">
+                 <h3>The Netherlands</h3>
+                 <label><img src="@Url.Content("~/images/landline.jpg")" alt="" /> @res.LandLineRate</label>
+                 <label><img src="@Url.Content("~/images/mobile.jpg")" alt="" /> @res.MobileRate</label>
+             </span>            </a>            </span>
+
+ }
+if (res.CountrytoId == 80)
+ {
+     <span class="denmark_flag">
+         <a href="@Url.Action("SearchRate","Rate" ,  new {countryfrom=Model.MapCountry,countryto=res.CountrytoId})" class="tooltip_map">
+             <b></b>
+             <span><img class="callout_map" src="@Url.Content("~/images/callout_images_new.png")" alt="Tooltip callout">
+                 <h3>Denmark</h3>
+                 <label><img src="@Url.Content("~/images/landline.jpg")" alt="" /> @res.LandLineRate</label>
+                 <label><img src="@Url.Content("~/images/mobile.jpg")" alt="" /> @res.MobileRate</label>
+             </span>            </a>            </span>
+
+ }
+if (res.CountrytoId == 194)
+ {
+     <span class="lithuania_flag">
+         <a href="@Url.Action("SearchRate","Rate" ,  new {countryfrom=Model.MapCountry,countryto=res.CountrytoId})" class="tooltip_map">
+             <b></b>
+             <span><img class="callout_map" src="@Url.Content("~/images/callout_images_new.png")" alt="Tooltip callout">
+                 <h3>Lithuania</h3>
+                 <label><img src="@Url.Content("~/images/landline.jpg")" alt="" /> @res.LandLineRate</label>
+                 <label><img src="@Url.Content("~/images/mobile.jpg")" alt="" /> @res.MobileRate</label>
+             </span>            </a>            </span>
+ }
+         if (res.CountrytoId == 95)
+          {
+              <span class="finland_flag">
+                  <a href="@Url.Action("SearchRate","Rate" ,  new {countryfrom=Model.MapCountry,countryto=res.CountrytoId})" class="tooltip_map">
+                      <b></b>
+                      <span><img class="callout_map" src="@Url.Content("~/images/callout_images_new.png")" alt="Tooltip callout">
+                          <h3>Finland</h3>
+                          <label><img src="@Url.Content("~/images/landline.jpg")" alt="" /> @res.LandLineRate</label>
+                          <label><img src="@Url.Content("~/images/mobile.jpg")" alt="" /> @res.MobileRate</label>
+                      </span>            </a>            </span>
+
+          }
+if (res.CountrytoId == 292)
+ {
+     <span class="sweden_flag">
+         <a href="@Url.Action("SearchRate","Rate" ,  new {countryfrom=Model.MapCountry,countryto=res.CountrytoId})" class="tooltip_map">
+             <b></b>
+             <span><img class="callout_map" src="@Url.Content("~/images/callout_images_new.png")" alt="Tooltip callout">
+                 <h3>Sweden</h3>
+                 <label><img src="@Url.Content("~/images/landline.jpg")" alt="" /> @res.LandLineRate</label>
+                 <label><img src="@Url.Content("~/images/mobile.jpg")" alt="" /> @res.MobileRate</label>
+             </span>            </a>            </span>
+
+ }
+         if (res.CountrytoId == 236)
+          {
+              <span class="norway_flag">
+                  <a href="@Url.Action("SearchRate","Rate" ,  new {countryfrom=Model.MapCountry,countryto=res.CountrytoId})" class="tooltip_map">
+                      <b></b>
+                      <span><img class="callout_map" src="@Url.Content("~/images/callout_images_new.png")" alt="Tooltip callout">
+                          <h3>Norway</h3>
+                          <label><img src="@Url.Content("~/images/landline.jpg")" alt="" /> @res.LandLineRate</label>
+                          <label><img src="@Url.Content("~/images/mobile.jpg")" alt="" /> @res.MobileRate</label>
+                      </span>            </a>            </span>
+          }
+
+     }         
+			</div>
+			

@@ -1,0 +1,245 @@
+﻿@model MvcApplication1.Models.OrderHistoryModel
+@{
+    ViewBag.Title = "OrderHistory";
+}
+<style>
+    a.tooltip:hover span{
+        margin-top: -33px !important;
+        margin-left: 16px !important;
+    }
+    </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js" type="text/javascript"></script>
+<link href="@Url.Content("~/css/raza_custom.css")" rel="stylesheet" type="text/css" />
+<!--Top Header End-->
+<!--Body Container Start-->
+<div id="inner_body_container">
+    <div id="banner">
+        <img src="@Url.Content("~/images/my-accoun_order_banner_new.jpg")" alt=""/>
+    </div>
+    <!-- End demo -->
+    <div id="feedback_panel">
+        <div id="feedback-scroller">
+            <div class="top-bg">
+                <h1>Order History</h1>
+            </div>
+            <div class="repeat-scroller-bg">
+                <div id="accordion_feedback">
+                    <div>
+                        <div class="graybod">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                @*   <tr>
+                    <td colspan="9"><h2 class="order_newhead">Other Great India Phone Cards</h2></td>
+                  </tr>*@
+                                <tr class="plan-rate">
+                                    <td height="40" class="dataheading1">My Plan
+                                    </td>
+                                    <td class="dataheading2">
+                                        <a href="#" class="fr i-icon tooltip" title="info">
+                                            <img src="@Url.Content("~/images/ie-icon.png")" alt=""/>
+                                            <span>
+                                                <img class="callout" src="@Url.Content("~/images/callout_images_new.png")" alt="CSS Tooltip callout" />
+                                                The pin number is entered if you wish to make calls from other than your registered
+                                                numbers. For your security the pin numbers are not displayed online. Please call
+                                                our 24/7 customer service team for assistance. Note: Few plans may not be eligible
+                                                for a pin number to be issued. </span></a>Pin #
+                                    </td>
+                                    <td class="dataheading2">Last Tr.Date
+                                    </td>
+                                    <td class="dataheading2">Amount
+                                    </td>
+                                    <td class="dataheading2">Recharge
+                                    </td>
+                                    <td class="dataheading2">Call Details
+                                    </td>
+                                    <td class="dataheading2">PinLess SetUp
+                                    </td>
+                                    <td class="dataheading2">Quickeys Setup
+                                    </td>
+                                    <td width="10%" class="dataheading">Auto Refill Setup
+                                    </td>
+                                </tr>
+                                <div id="contact-ie">
+                                    <div class="contact-detail-ie">
+                                        <h2>What is Coupon Code?</h2>
+                                        <div id="close-ie">
+                                        </div>
+                                        <fieldset class="ie_border">
+                                            <p class="ie_text ie_pro">
+                                            </p>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div id="mask-ie">
+                                </div>
+
+                                @{
+                                    string i = "even";
+                                    foreach (var eachorder in Model.Orders)
+                                    {
+                                        i = (i == "even") ? "odd" : "even";
+                                    <tr class="@i">
+                                        <td width="14%" height="40" class="data11">@eachorder.PlanName
+                                        </td>
+                                        <td width="11%" align="center" class="gray1">@MvcApplication1.Helpers.MaskAccountNumber(@eachorder.AccountNumber, "X")
+                                        </td>
+                                        <td width="10%" align="center" class="gray1">@eachorder.TransactionDate
+                                        </td>
+                                        <td width="11%" align="center" class="gray1">
+                                            @eachorder.CurrencyCode @eachorder.TransactionAmount
+                                        </td>
+                                        <td width="12%" align="center" class="gray1">
+                                            @if (eachorder.AllowRecharge && eachorder.IsActivePlan)
+                                            {
+                                                <a href='@Url.Action("Index", "Recharge", new { orderid = eachorder.OrderId })' class="acc-recharge" >
+                                                    <strong>Bal @eachorder.MyAccountBal</strong> </a>
+                                            }
+                                            else
+                                            {
+                                                <strong><a class="margin-top_ie_top tooltip-account ">
+                                                    <img class="internal" src="@Url.Content("~/images/ie-icon.png")" style="margin-left:40px;" alt=""/>
+                                                    <span>
+                                                        <img class="callout_1_cc to-image" src="@Url.Content("~/images/callout_right.png")" alt="CSS Tooltip callout" />
+                                                        @if (eachorder.ShowBalance)
+                                                        {
+                                                            <div>
+                                                                Your current balance is: <strong>@eachorder.CurrencyCode @eachorder.MyAccountBal</strong>
+                                                            </div>
+                                                        }
+                                                        The plan you are trying to recharge is already enrolled to auto-refill. The recharge
+                                                        will take place when your balance goes down below $2.Please Call us at U.S.A 1-877-463-4233
+                                                        ,CANADA 1-800-550-3501, U.K 0808-234-7012 to process your auto-refill. </span>
+                                                </a></strong>
+                                                
+                                            }
+                                        </td>
+                                        <td width="10%" align="center" class="gray1">
+                                            @if (eachorder.AllowCallDetails && eachorder.IsActivePlan)
+                                            {
+                                                <a href='@Url.Action("CallDetailReport", new { order_id = eachorder.OrderId, date = Convert.ToString(DateTime.Now) })' title="View" class="view_account" ></a>
+                                            }
+                                            else
+                                            {
+                                                <a title="info">
+                                                    <img src="@Url.Content("~/images/ie-icon.png")" alt="info" /></a>
+                                            }
+                                        </td>
+                                        <td width="10%" align="center" class="gray1">
+                                            @if (eachorder.AllowPinlessSetup && eachorder.IsActivePlan)
+                                            {
+                                                <a href='@Url.Action("PinLessSetupEdit", new { order_id = eachorder.OrderId })' title="Edit" class="acc-edit-btn_pinless"></a>
+                                            }
+                                            else
+                                            {
+                                                <a title="info">
+                                                    <img src="@Url.Content("~/images/ie-icon.png")" alt="info" /></a>
+                                            }
+                                        </td>
+                                        <td width="12%" align="center" class="gray1">
+                                            @*  @if (@eachorder.AllowQuickkeySetup == true)
+                                            {
+                                                <a href='@Url.Action("QuickkeysSetupEdit", new { order_id = eachorder.OrderId })' title="Edit"  class="acc-edit-btn_quickeys" style="margin-left: 27px;">
+                                                </a>
+                                            }
+                                            else
+                                            {
+                                                <a title="info">
+                                                    <img src="@Url.Content("~/images/ie-icon.png")" alt="info" /></a>
+
+                                            }*@
+                                            @if (eachorder.AllowQuickkeySetup && eachorder.IsActivePlan)
+                                            {
+                                                <a href='@Url.Action("QuickKeysSetupEdit", new { order_id = eachorder.OrderId })' title="Edit" style="margin-left:25px;"  class="acc-edit-btn_quickeys"></a>
+
+                                            }
+                                            else
+                                            {
+                                                <strong><a class="margin-top_ie_top tooltip-account  ">
+                                                    <img class="internal" src="@Url.Content("~/images/ie-icon.png")" style="margin-left:40px" alt=""/>
+                                                    <span>
+                                                        <img class="callout_1_cc to-image" src="@Url.Content("~/images/callout_right.png")"   alt="CSS Tooltip callout" />
+                                                        Your plan does not come with Quickey feature. Please Call us at U.S.A 1-877-463-4233
+                                                        , CANADA 1-800-550-3501, U.K 0808-234-7012 to purchase a plan that has QuickeyTM
+                                                        feature.</span></a></strong>
+                                            }
+                                        </td>
+                                        <td align="center" class="buy1">
+                                            @*  @if (@eachorder.AllowAutoRefill == true)
+                                            {
+                                                <a href='@Url.Action("AutoRefill", new { order_id = eachorder.OrderId })' title="Activate" class="account_editing">
+                                                </a>
+                                            }
+                                            else
+                                            {
+                                                <a href='@Url.Action("AutoRefill", new { order_id = eachorder.OrderId })' title="Activate" class="account_activate"></a>
+
+                                            }*@
+                                            @if (eachorder.AllowAutoRefill == "A" && eachorder.AllowRecharge && eachorder.IsActivePlan)
+                                            {
+                                                <a href='@Url.Action("AutoRefill", new { order_id = eachorder.OrderId })' title="Edit" class="account_editing"></a>
+                                            }
+                                            else if (eachorder.AllowAutoRefill == "U" && eachorder.AllowRecharge && eachorder.IsActivePlan)
+                                            {
+                                                <a href='@Url.Action("AutoRefill", new { order_id = eachorder.OrderId })' title="Edit" class="account_editing"></a>
+                                            }
+                                            else if (eachorder.AllowAutoRefill == "N" && eachorder.AllowRecharge && eachorder.IsActivePlan)
+                                            {
+                                                <a href='@Url.Action("AutoRefill", new { order_id = eachorder.OrderId })' title="Activate" class="account_activate"></a>
+                                            }
+                                            else if (!eachorder.AllowRecharge && eachorder.IsActivePlan)
+                                            {
+                                                <strong><a class="margin-top_ie_top tooltip-account ">
+                                                    <img class="internal" src="@Url.Content("~/images/ie-icon.png")" alt=""/>
+                                                    <span>
+                                                        <img class="callout_1_cc to-image" src="@Url.Content("~/images/callout_right.png")" alt="CSS Tooltip callout" />
+                                                        <div>
+                                                            This plan is already enrolled to auto-refill and it will recharge when your balance
+                                                            falls below $2. Please contact us at Chicago 1-773.792.8150 USA : 1-877.463.4233
+                                                            UK :808.234.7012 CANADA: 1-800.550.3501 to process or edit your auto-refill option.
+                                                        </div>
+                                                    </span></a></strong>
+
+                                            }
+                                            else
+                                            {
+                                                <strong><a class="margin-top_ie_top tooltip-account ">
+                                                    <img class="internal" src="@Url.Content("~/images/ie-icon.png")" alt=""/>
+                                                    <span>
+                                                        <img class="callout_1_cc to-image" src="@Url.Content("~/images/callout_right.png")" alt="CSS Tooltip callout" />
+                                                        <div>
+                                                            This plan is already enrolled to auto-refill and it will recharge when your balance
+                                                            falls below $2. Please contact us at Chicago 1-773.792.8150 USA : 1-877.463.4233
+                                                            UK :808.234.7012 CANADA: 1-800.550.3501 to process or edit your auto-refill option.
+                                                        </div>
+                                                    </span></a></strong>
+                                            }
+                                        </td>
+                                    </tr>
+                                    }
+                                }
+                                <script type="text/javascript">
+
+                                    function openwindow() {
+
+                                        window.open("https://server.iad.liveperson.net/hc/69462672/?cmd=file&file=visitorWantsToChat&site=69462672&referrer=http://www.Raza.com",
+
+"mywindow", "location=1,status=1,scrollbars=1,width=400,height=400");
+
+                                    }
+
+                                </script>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-scroller-bg">
+            </div>
+        </div>
+    </div>
+</div>
+<!--Body Container End-->
+<div class="spacer">
+</div>
+<div class="clear">
+</div>

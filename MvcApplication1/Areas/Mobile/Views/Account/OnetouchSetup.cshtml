@@ -1,0 +1,122 @@
+﻿@model MvcApplication1.Areas.Mobile.ViewModels.OneTouchSetupViewModel
+@{
+    ViewBag.Title = "OnetouchSetup";
+    var encPlanId = Html.EncodedParameterValue(Model.PlanPin);
+}
+
+
+@helper OneTouchNumberInfo(dynamic item, string guid, string encPlanId)
+{
+    <div class="modal fade @guid" role="dialog" aria-labelledby="gridSystemModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                @using (Html.BeginForm("DeleteOneTouchSetup", "Account", new { id = encPlanId }, FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="OnetouchNumber" value="@item.OneTouch_Number"/>
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <h4 class="modal-title" id="gridSystemModalLabel">Details</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12 demo_bor ">
+                                    <div class="col-xs-6 col-sm-6 col-md-6">Name</div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6">@item.OneTouch_Name</div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 demo_bor ">
+                                    <div class="col-xs-6 col-sm-6 col-md-6">One Touch#</div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6 ref_name">@item.OneTouch_Number</div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12  ">
+                                    <div class="col-xs-6 col-sm-6 col-md-6">Destination Number</div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6 ref_name">@item.Destination</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Delete</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+
+                    </div>
+                }
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+}
+
+
+
+
+<div class="container-fluid">
+    <div class="container">
+        <h1 class=" title_login">Your Existing One Touch Details</h1>
+    </div>
+</div>
+@if (!string.IsNullOrEmpty(Model.Message))
+{
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="container">
+                @Html.MessageBox(Model.Message, Model.MessageType)
+            </div>
+        </div>
+    </div>
+}
+<div class="plan_tbg">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-5 col-sm-5">
+                    <h1 class=" title_review">One Touch#</h1>
+                </div>
+                <div class="col-xs-5 col-sm-5">
+                    <h1 class=" title_review">Ref.Names</h1>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@foreach (var item in Model.RegisteredOnetouchs)
+{
+    var guid = Guid.NewGuid().ToString();
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row profile">
+                <div class="col-xs-5 col-sm-5">
+                    <h3 class="order_titile ref_name">@item.OneTouch_Number</h3>
+                </div>
+                <div class="col-xs-5 col-sm-5">
+                    <h3 class="ref_name order_titile">@item.OneTouch_Name</h3>
+                </div>
+                <div class="col-xs-1 col-sm-1 col-md-2">
+                    <a href="#" data-toggle="modal" data-target=".@guid">
+                        <div class="info_iconm info_icon"></div>
+                    </a>
+                </div>
+                @OneTouchNumberInfo(item, guid, encPlanId)
+            </div>
+        </div>
+    </div>
+}
+
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="@Url.Action("AddNewOnetouch", "Account", new { id = encPlanId })" class="btn btn-primary btn-block form_mar btn_bgreen">Add New </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="@Url.Action("Plan", "Account", new { id = encPlanId })" class="btn btn-primary btn-block form_mar btn_bgray"><i class=" btn_prev fa fa-chevron-left"></i>Back</a>
+            </div>
+        </div>
+    </div>
+</div>

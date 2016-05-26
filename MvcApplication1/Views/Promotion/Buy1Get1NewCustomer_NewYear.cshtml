@@ -1,0 +1,803 @@
+﻿@model MvcApplication1.Models.PromotionPlanModel
+@{
+    ViewBag.Title = "Raza.Com New Customer Special: Buy 1 Get 1 Free to Call India and Bangladesh";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js" type="text/javascript"></script>
+
+<link href="@Url.Content("~/css/style-raza-offerchoosing.css")" rel="stylesheet" />
+<script src="@Url.Content("~/Scripts/magicSuggest-1.3.1.min.js")"></script>
+<script>
+    $(document).ready(function () {
+
+        var ctx = $("#toPromotion").val();
+        $("#hidden-countryto").val(ctx);
+
+        if (ctx == 10) {
+            ctx = 0;
+            //Argentina
+            $("#regularmin").text("390");
+            $("#extramin").text("390");
+            $("#totalmin").text("780");
+            $("#ratepermin").text("1.3 ¢");
+        }
+        else if (ctx == 19) {
+            ctx = 1;
+            //Australia
+            $("#regularmin").text("600");
+            $("#extramin").text("600");
+            $("#totalmin").text("1200");
+            $("#ratepermin").text("0.8 ¢");
+        }
+        else if (ctx == 22) {
+            ctx = 2;
+            //Austria
+            $("#regularmin").text("412");
+            $("#extramin").text("412");
+            $("#totalmin").text("824");
+            $("#ratepermin").text("1.2 ¢");
+        }
+        else if (ctx == 27) {
+            ctx = 3;
+            //Bangladesh
+            $("#regularmin").text("475");
+            $("#extramin").text("475");
+            $("#totalmin").text("950");
+            $("#ratepermin").text("1.1 ¢");
+        }
+        else if (ctx == 43) {
+            ctx = 4;
+            //Brazil
+            $("#regularmin").text("337");
+            $("#extramin").text("337");
+            $("#totalmin").text("674");
+            $("#ratepermin").text("1.5 ¢");
+        }
+        else if (ctx == 57) {
+            ctx = 5;
+            //Canada
+            $("#regularmin").text("1125");
+            $("#extramin").text("1125");
+            $("#totalmin").text("2250");
+            $("#ratepermin").text("0.4 ¢");
+        }
+        else if (ctx == 64) {
+            ctx = 6;
+            //China
+            $("#regularmin").text("1125");
+            $("#extramin").text("1125");
+            $("#totalmin").text("2250");
+            $("#ratepermin").text("0.4 ¢");
+        }
+        else if (ctx == 80) {
+            ctx = 7;
+            //Denmark
+            $("#regularmin").text("562");
+            $("#extramin").text("562");
+            $("#totalmin").text("1124");
+            $("#ratepermin").text("0.9 ¢");
+        }
+        else if (ctx == 96) {
+            ctx = 8;
+            //France
+            $("#regularmin").text("1050");
+            $("#extramin").text("1050");
+            $("#totalmin").text("2100");
+            $("#ratepermin").text("0.5 ¢");
+        }
+        else if (ctx == 105) {
+            ctx = 9;
+            //Germany
+            $("#regularmin").text("1125");
+            $("#extramin").text("1125");
+            $("#totalmin").text("2250");
+            $("#ratepermin").text("0.4 ¢");
+        }
+        else if (ctx == 113) {
+            ctx = 10;
+            //Greece
+            $("#regularmin").text("450");
+            $("#extramin").text("450");
+            $("#totalmin").text("900");
+            $("#ratepermin").text("1.1 ¢");
+        }
+        else if (ctx == 130) {
+            ctx = 11;
+            //India
+            $("#regularmin").text("800");
+            $("#extramin").text("800");
+            $("#totalmin").text("1600");
+            $("#ratepermin").text("0.6 ¢");
+        }
+        else if (ctx == 170) {
+            ctx = 12;
+            //Ireland
+            $("#regularmin").text("825");
+            $("#extramin").text("825");
+            $("#totalmin").text("1650");
+            $("#ratepermin").text("0.6 ¢");
+        }
+        else if (ctx == 172) {
+            ctx = 13;
+            //Italy
+            $("#regularmin").text("825");
+            $("#extramin").text("825");
+            $("#totalmin").text("1650");
+            $("#ratepermin").text("0.6 ¢");
+        }
+        else if (ctx == 236) {
+            ctx = 14;
+            //Norway
+            $("#regularmin").text("750");
+            $("#extramin").text("750");
+            $("#totalmin").text("1500");
+            $("#ratepermin").text("0.7 ¢");
+        }
+        else if (ctx == 238) {
+            ctx = 15;
+            //Pakistan
+            $("#regularmin").text("500");
+            $("#extramin").text("500");
+            $("#totalmin").text("1000");
+            $("#ratepermin").text("1 ¢");
+        }
+        else if (ctx == 249) {
+            ctx = 16;
+            //Poland
+            $("#regularmin").text("750");
+            $("#extramin").text("750");
+            $("#totalmin").text("1500");
+            $("#ratepermin").text("0.7 ¢");
+        }
+        else if (ctx == 312) {
+            ctx = 17;
+            //United Kingdom
+            $("#regularmin").text("1500");
+            $("#extramin").text("1500");
+            $("#totalmin").text("3000");
+            $("#ratepermin").text("0.3 ¢");
+        }
+        else if (ctx == 314) {
+            ctx = 18;
+            //USA
+            $("#regularmin").text("750");
+            $("#extramin").text("750");
+            $("#totalmin").text("1500");
+            $("#ratepermin").text("0.7 ¢");
+        }
+
+
+
+
+        var jsonData = [];
+        //var cities = '<a><img src="/images/pakistan.png" alt="">Pakistan</a>'.split(',');
+        //var countries = '<a><img src="/images/india.png" alt="">India (+91)</a>,<a><img src="/images/pakistan.png" alt="">Pakistan (+92)</a>,<a><img src="/images/bangladesh.png" alt="">Bangladesh (+880)</a>,'.split(',');
+        var countries = '<a><img src="/images/Argentina.png" alt="">Argentina (+54)</a>,<a><img src="/images/Australia.png" alt="">Australia (+61)</a>,<a><img src="/images/Austria.png" alt="">Austria (+43)</a>,<a><img src="/images/bangladesh.png" alt="">Bangladesh (+880)</a>,<a><img src="/images/Brazil.png" alt="">Brazil (+55)</a>,<a><img src="/images/Canada.png" alt="">Canada (except Yukon and N.W.T.) (+1)</a>,<a><img src="/images/China.png" alt="">China (+86)</a>,<a><img src="/images/Denmark.png" alt="">Denmark (+45)</a>,<a><img src="/images/France.png" alt="">France (+33)</a>,<a><img src="/images/Germany.png" alt="">Germany (+49)</a>,<a><img src="/images/Greece.png" alt="">Greece (+30)</a>,<a><img src="/images/India.png" alt="">India (+91)</a>,<a><img src="/images/Ireland.png" alt="">Ireland (+353)</a>,<a><img src="/images/Italy.png" alt="">Italy (+39)</a>,<a><img src="/images/Norway.png" alt="">Norway (+47)</a>,<a><img src="/images/Pakistan.png" alt="">Pakistan (+92)</a>,<a><img src="/images/Poland.png" alt="">Poland (+48)</a>,<a><img src="/images/uk-flag.png" alt="">United Kingdom (+44)</a>,<a><img src="/images/US.png" alt="">USA (+1)</a>,'.split(',');
+        //var countries = '<a><img src="/images/india.png" alt="">India (+91)</a>,<a><img src="/images/bangladesh.png" alt="">Bangladesh (+880)</a>,'.split(',');
+        for (var i = 0; i < countries.length; i++) jsonData.push({ id: i, name: countries[i], status: i % 2 ? 'Already Visited' : 'Planned for visit', coolness: Math.floor(Math.random() * 10) + 1 });
+
+
+        var ms7 = $('#ms-input').magicSuggest({
+            data: jsonData,
+            resultAsString: true,
+            maxSelection: 1,
+            value: [ctx],
+            maxSelectionRenderer: function () { }
+        });
+
+
+        $(ms7).on('selectionchange', function (event, selection) {
+            var selected = ms7.getSelectedItems();
+            var countryto = selected[0].id;
+
+            //if (countryto == 0) {
+            //    id = 130;
+            //    $("#regularmin").text("500");
+            //    $("#extramin").text("500");
+            //    $("#totalmin").text("1000");
+            //    $("#ratepermin").text("1.0 ¢");
+
+            //    $("#hidden-countryto").val(id);
+            //}
+            //else if (countryto == 1) {
+            //    id = 238;
+            //    $("#hidden-countryto").val(id);
+            //    $("#regularmin").text("300");
+            //    $("#extramin").text("300");
+            //    $("#totalmin").text("600");
+            //    $("#ratepermin").text("1.7 ¢");
+            //}
+            //else if (countryto == 2) {
+            //    id = 27;
+            //    $("#hidden-countryto").val(id);
+
+            //    $("#regularmin").text("350");
+            //    $("#extramin").text("350");
+            //    $("#totalmin").text("700");
+            //    $("#ratepermin").text("1.4 ¢");
+            //}
+
+
+            if (countryto == 0) {
+                id = 10;
+                //Argentina
+                $("#hidden-countryto").val(id);
+                $("#regularmin").text("390");
+                $("#extramin").text("390");
+                $("#totalmin").text("780");
+                $("#ratepermin").text("1.3 ¢");
+            }
+            else if (countryto == 1) {
+                id = 19;
+                //Australia
+                $("#hidden-countryto").val(id);
+                $("#regularmin").text("600");
+                $("#extramin").text("600");
+                $("#totalmin").text("1200");
+                $("#ratepermin").text("0.8 ¢");
+            }
+            else if (countryto == 2) {
+                id = 22;
+                //Austria
+                $("#hidden-countryto").val(id);
+                $("#regularmin").text("412");
+                $("#extramin").text("412");
+                $("#totalmin").text("824");
+                $("#ratepermin").text("1.2 ¢");
+            }
+            else if (countryto == 3) {
+                id = 27;
+                //Bangladesh
+                $("#hidden-countryto").val(id);
+                $("#regularmin").text("475");
+                $("#extramin").text("475");
+                $("#totalmin").text("950");
+                $("#ratepermin").text("1.1 ¢");
+            }
+            else if (countryto == 4) {
+                id = 43;
+                //Brazil
+                $("#hidden-countryto").val(id);
+                $("#regularmin").text("337");
+                $("#extramin").text("337");
+                $("#totalmin").text("674");
+                $("#ratepermin").text("1.5 ¢");
+            }
+            else if (countryto == 5) {
+                id = 57;
+                //Canada
+                $("#hidden-countryto").val(id);
+                $("#regularmin").text("1125");
+                $("#extramin").text("1125");
+                $("#totalmin").text("2250");
+                $("#ratepermin").text("0.4 ¢");
+            }
+            else if (countryto == 6) {
+                id = 64;
+                //China
+                $("#hidden-countryto").val(id);
+                $("#regularmin").text("1125");
+                $("#extramin").text("1125");
+                $("#totalmin").text("2250");
+                $("#ratepermin").text("0.4 ¢");
+            }
+            else if (countryto == 7) {
+                id = 80;
+                //Denmark
+                $("#hidden-countryto").val(id);
+                $("#regularmin").text("562");
+                $("#extramin").text("562");
+                $("#totalmin").text("1124");
+                $("#ratepermin").text("0.9 ¢");
+            }
+            else if (countryto == 8) {
+                id = 96;
+                //France
+                $("#hidden-countryto").val(id);
+                $("#regularmin").text("1050");
+                $("#extramin").text("1050");
+                $("#totalmin").text("2100");
+                $("#ratepermin").text("0.5 ¢");
+            }
+            else if (countryto == 9) {
+                id = 105;
+                //Germany
+                $("#hidden-countryto").val(id);
+                $("#regularmin").text("1125");
+                $("#extramin").text("1125");
+                $("#totalmin").text("2250");
+                $("#ratepermin").text("0.4 ¢");
+            }
+            else if (countryto == 10) {
+                id = 113;
+                //Greece
+                $("#hidden-countryto").val(id);
+                $("#regularmin").text("450");
+                $("#extramin").text("450");
+                $("#totalmin").text("900");
+                $("#ratepermin").text("1.1 ¢");
+            }
+            else if (countryto == 11) {
+                id = 130;
+                //India
+                $("#hidden-countryto").val(id);
+                $("#regularmin").text("800");
+                $("#extramin").text("800");
+                $("#totalmin").text("1600");
+                $("#ratepermin").text("0.6 ¢");
+            }
+            else if (countryto == 12) {
+                id = 170;
+                //Ireland
+                $("#hidden-countryto").val(id);
+                $("#regularmin").text("825");
+                $("#extramin").text("825");
+                $("#totalmin").text("1650");
+                $("#ratepermin").text("0.6 ¢");
+            }
+            else if (countryto == 13) {
+                id = 172;
+                //Italy
+                $("#hidden-countryto").val(id);
+                $("#regularmin").text("825");
+                $("#extramin").text("825");
+                $("#totalmin").text("1650");
+                $("#ratepermin").text("0.6 ¢");
+            }
+            else if (countryto == 14) {
+                id = 236;
+                //Norway
+                $("#hidden-countryto").val(id);
+                $("#regularmin").text("750");
+                $("#extramin").text("750");
+                $("#totalmin").text("1500");
+                $("#ratepermin").text("0.7 ¢");
+            }
+            else if (countryto == 15) {
+                id = 238;
+                //Pakistan
+                $("#hidden-countryto").val(id);
+                $("#regularmin").text("500");
+                $("#extramin").text("500");
+                $("#totalmin").text("1000");
+                $("#ratepermin").text("1 ¢");
+            }
+            else if (countryto == 16) {
+                id = 249;
+                //Poland
+                $("#hidden-countryto").val(id);
+                $("#regularmin").text("750");
+                $("#extramin").text("750");
+                $("#totalmin").text("1500");
+                $("#ratepermin").text("0.7 ¢");
+            }
+            else if (countryto == 17) {
+                id = 312;
+                //United Kingdom
+                $("#hidden-countryto").val(id);
+                $("#regularmin").text("1500");
+                $("#extramin").text("1500");
+                $("#totalmin").text("3000");
+                $("#ratepermin").text("0.3 ¢");
+            }
+            else if (countryto == 18) {
+                id = 314;
+                //USA
+                $("#hidden-countryto").val(id);
+                $("#regularmin").text("750");
+                $("#extramin").text("750");
+                $("#totalmin").text("1500");
+                $("#ratepermin").text("0.7 ¢");
+            }
+
+        });
+
+
+    });
+
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function (e) {
+        $('.sam').click(function () {
+            var id = $(this).attr('id');
+
+            $('.sam').removeClass('activetab');
+            $(this).addClass('activetab');
+
+            $('.custom').hide();
+            $('#' + id + "-1").show();
+        });
+    });
+</script>
+
+<style>
+    .dd .ddTitle .ddTitleText {
+padding: 7px 20px 3px 5px !important;
+
+}
+    .dd .ddTitle {
+        font-weight: bold !important;
+color: black !important;
+    }
+    .ms-sel-item img {
+        margin-right: 20px!Important;
+    }
+    #countries_searchrates_existCustomer_msdd {
+        height:34px!important;
+    }
+
+    #ms-input {
+       width: 260px !important;
+        margin-top:-2px!important;
+    }
+    #ms-input-1 {
+        width: 10px!important;
+    }
+    .customer-price-top-section-column a {
+        font-size:12px !important;
+    }
+    .ms-sel-ctn {
+        height: 33px !Important;
+    }
+</style>
+<style>
+    a.tooltip {
+        outline: none;
+        color: #000;
+        text-decoration: none;
+        position: relative;
+    }
+
+        a.tooltip strong {
+            line-height: 30px;
+        }
+
+        a.tooltip:hover {
+            text-decoration: none;
+        }
+
+        a.tooltip span {
+            z-index: 10;
+            display: none!important;
+            padding: 14px 20px!important;
+            margin-top: -30px!important;
+            margin-left: 28px!important;
+            width: 700px;
+            line-height: 16px;
+        }
+
+        a.tooltip:hover span {
+            display: inline;
+            position: absolute;
+            color: #fff;
+            background: #5b5b5b;
+            top: 103px;
+            left: 148px;
+        }
+
+    .callout {
+        z-index: 20;
+        position: absolute;
+        top: -6px;
+        border: 0;
+        left: 20px;
+    }
+    /*CSS3 extras*/
+    a.tooltip span {
+        border-radius: 4px;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -moz-box-shadow: 5px 5px 8px #333;
+        -webkit-box-shadow: 5px 5px 8px #333;
+        box-shadow: 5px 5px 8px #333;
+        font-size: 13px !important;
+    }
+
+        a.tooltip span ol {
+            list-style-type: none;
+            padding-bottom: 0px;
+            padding-left: 0px;
+            margin: 0px;
+            padding: 0px;
+        }
+
+            a.tooltip span ol li {
+                list-style-type: none;
+                padding-bottom: 0px;
+                padding-left: 0px;
+                margin: 0px;
+                padding: 0px;
+            }
+</style>
+<script>
+    $(document).ready(function (e) {
+        $('.sam').click(function () {
+            var id = $(this).attr('id');
+
+            $('.sam').removeClass('activetab');
+            $(this).addClass('activetab');
+
+            $('.custom').hide();
+            $('#' + id + "-1").show();
+        });
+    });
+</script>
+
+<link href="@Url.Content("~/css/magicsuggest1-1.3.1.css")" rel="stylesheet" type="text/css" />
+<div class="main-customer-div">
+    <div class="customer-banner">
+        <ul>
+            <li>
+                <img src="@Url.Content("~/images/Promotion_image/buy1get1_newyear2016/buy1get1-2015_01.jpg")" alt="" /></li>
+            <li>
+                <img src="@Url.Content("~/images/Promotion_image/buy1get1_newyear2016/buy1get1-2015_02.jpg")" alt="" /></li>
+            <li>
+                <img src="@Url.Content("~/images/Promotion_image/buy1get1_newyear2016/buy1get1-2015_03.jpg")" alt="" /></li>
+            <li>
+                <img src="@Url.Content("~/images/Promotion_image/buy1get1_newyear2016/buy1get1-2015_04.jpg")" alt="" /></li>
+        </ul>
+    </div>
+      <div class="expandable" id="errorValidation">
+        <input type="hidden" value="@ViewBag.Countryfrom" id="fromPromotion" />
+        <input type="hidden" value="@ViewBag.Countryto" id="toPromotion" />
+        <div id="close-val" class="close-confirm" onclick="disablePopup()">
+        </div>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+            <tr>
+                <td width="14">
+                    <img src="@Url.Content("~/images/expand_top_left.png")" width="14" height="13" /></td>
+                <td style="background: url(/images/expand_drop_top.png) repeat-x left 2px;"></td>
+                <td width="14">
+                    <img src="@Url.Content("~/images/expand_top_right.png")" width="14" height="13" /></td>
+            </tr>
+            <tr>
+                <td style="background: url(/images/expand_drop_left.png) repeat-y 0px top;"></td>
+                <td style="background: #fff;">
+                    <div class="expandable_mid">
+                        <img src="@Url.Content("~/images/error_sign.png")" style="float:left;margin-top:15px;margin-left:30px;" />
+                        <div id="validation-msgs" style="margin-left: 114px; color: red" class="validation-error-msg">
+
+                            <div id="paypal-hidmsg" >
+                                <p>
+                                   This is a onetime offer,strictly for new customers only. If you are an existing customer please look for existing customer promotions under deals.
+                                </p>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </td>
+                <td style="background: url(/images/expand_drop_right.png) repeat-y 0px top;"></td>
+            </tr>
+            <tr>
+                <td width="14" style="padding: 0px!important;">
+                    <img src="@Url.Content("~/images/expand_bot_left.png")" width="14" height="13" /></td>
+                <td style="background: url(/images/expand_drop_bottom.png) repeat-x left 0px;" width="100%"></td>
+                <td width="14" style="padding: 0px!important;">
+                    <img src="@Url.Content("~/images/expand_bot_right.png")" width="14" height="13" /></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div id="backgroundPopup" onclick="disablePopup()">
+    </div>
+    <input type="hidden" value="@ViewBag.UserType" id="hid-usetype"/>
+    <div class="customer-price-table">
+        <div class="customer-price-table-top">
+            <img src="@Url.Content("~/images/Promotion_image/customer-price-table-top-bg.png")" alt="" /></div>
+        <div class="customer-price-table-content">
+            <div class="customer-price-top-section">
+                <div class="customer-price-top-section-column customer-price-top-section-column-left">
+                    <select name="trialcountryfrom" id="countryfrom-promotion" style="width: 142px; height: 28px; margin-left: 10px; margin-bottom: 5px;">
+                        <option value='1' data-image="@Url.Content("~/images/blank.gif")" data-imagecss="big_1" data-title="U.S.A">U.S.A</option>
+                        <option value='2' data-image="@Url.Content("~/images/blank.gif")" data-imagecss="big_2" data-title="Canada">Canada</option>
+                   
+                    </select>
+                    <input type="hidden" value="@Model.CountryFrom" id="search-countryfrom"/>
+                    <script>
+                        var countryid = $("#search-countryfrom").val();
+
+                        function setSelectedIndex(s, valsearch) {
+                            // Loop through all the items in drop down list
+                            for (var i = 0; i < s.options.length; i++) {
+                                if (s.options[i].value == valsearch) {
+                                    // Item is found. Set its property and exit
+                                    s.options[i].selected = true;
+                                    break;
+                                }
+                            }
+                            return;
+                        }
+                        setSelectedIndex(document.getElementById("countryfrom-promotion"), countryid);
+
+
+                    </script>
+
+                </div>
+                <div class="customer-price-top-section-column">
+                     <div class="ms-helper "  ></div>
+                    <div id="ms-input" class="ms-sel-ctn" style="width: 220px; float: left; height: 34px; margin-top: 10px; margin-left: 10px;">
+                        <input id="ms-input-0" type="text" class="" value="Enter the country you wish to call" style="width: 170px;" />
+                        <input type="hidden" value="[]" />
+                    </div>
+                </div>
+                <input type="hidden" id="hidden-countryto" />
+                <div class="customer-price-top-section-column"><a href="#" id="newcustomers" class="sam activetab new-customers-tab">New Customers</a></div>
+                <div class="customer-price-top-section-column"><a href="#" id="faqs" class="sam new-customers-faq-tab">FAQs</a></div>
+            </div>
+            <div class="clear-fix"></div>
+            <div class="customer-price-table-dv new-customer-price-table-dv custom" id="newcustomers-1">
+                <ul class="column-1">
+                    <li>DENOMINATION</li>
+                    <li class="brdnone">$10</li>
+                </ul>
+
+                <ul class="column-2">
+                    <li>REGULAR Mins.</li>
+                    <li class="brdnone" id="regularmin">102</li>
+                </ul>
+
+                <ul class="column-3">
+                    <li>EXTRA Mins.</li>
+                    <li class="brdnone" id="extramin">103</li>
+                </ul>
+
+                <ul class="column-4">
+                    <li>TOTAL Mins.</li>
+                    <li class="brdnone" id="totalmin">205</li>
+                </ul>
+
+                <ul class="column-5">
+                    <div class="bgactive" style="margin-left:12px;"></div>
+                    <li>RATE/MIN</li>
+                    <li class="brdnone" id="ratepermin">4.9&cent;</li>
+                </ul>
+                <ul class="column-6">
+                    <li>&nbsp;</li>
+                    <li class="brdnone"><a onclick="return CheckforPromotion(this);" style="cursor:Pointer">Buy</a></li>
+                </ul>
+                <div class="clear-fix"></div>
+            </div>
+
+            <!-- FAQs -->
+            <div class="customer-price-table-faq-dv custom" id="faqs-1">
+                <ul>
+                    <div class="bgactivefaq" style="margin-right:-12px;"></div>
+                    <li>
+                        <a href="#" class="tooltip">What is the coupon code for Buy 1 Get 1 Offer?
+                	 <span>
+                         <img class="callout" src="@Url.Content("~/images/Promotion_image/tooltip-arrow.png")" />BUY1GET1(Caps). Please make sure to use the coupon code in order to qualify for the Extra minutes. </span>
+                        </a>
+                    </li>
+                    <li class="alternaterow">
+                        <a href="#" class="tooltip">What is the time period for Buy 1 Get 1 Offer?
+                	<span>
+                        <img class="callout" src="@Url.Content("~/images/Promotion_image/tooltip-arrow.png")" />This promotional offer will last till Dec 31st.</span> </a>
+                    </li>
+                    <li><a href="#" class="tooltip">Once I buy Buy 1 Get 1 Offer, will the minutes expire
+                	<span>
+                        <img class="callout" src="@Url.Content("~/images/Promotion_image/tooltip-arrow.png")" />No the actual minutes will not expire. Once you have purchased the offer, those minutes are yours to keep. Please note: The promotional minutes will expire after 60 days from the purchase date and if you cancel the plan then the free bonus minutes will not count towards your refund balance. </span></a>
+                    </li>
+                    <li class="alternaterow"><a href="#" class="tooltip">Who is eligible for Buy 1 Get 1 Offer?
+                	<span>
+                        <img class="callout" src="@Url.Content("~/images/Promotion_image/tooltip-arrow.png")" />This is a New Customer Sign up Special !</span></a>
+                    </li>
+                    <li><a href="#" class="tooltip">Which Countries are eligible for Buy 1 Get 1 Offer?
+                	<span>
+                        <img class="callout" src="@Url.Content("~/images/Promotion_image/tooltip-arrow.png")" />This Buy 1 Get 1 free Offer is valid for India, Bangladesh.</span> </a>
+                    </li>
+                    <li class="alternaterow"><a href="#" class="tooltip">Is Buy 1 Get 1 Offer good from USA and Canada?
+                	<span>
+                        <img class="callout" src="@Url.Content("~/images/Promotion_image/tooltip-arrow.png")" />Buy 1 Get 1 Offer is good from USA and CANADA. </span></a>
+                    </li>
+                    <li><a href="#" class="tooltip">How many times can I purchase Buy 1 Get 1 Offer?
+                	<span>
+                        <img class="callout" src="@Url.Content("~/images/Promotion_image/tooltip-arrow.png")" />This is a one time promotional offer, applicable only on the first purchase of $10.</span></a>
+                    </li>
+                    <li class="alternaterow"><a href="#" class="tooltip">Will I be able to purchase this plan by calling the customer service?
+                	<span>
+                        <img class="callout" src="@Url.Content("~/images/Promotion_image/tooltip-arrow.png")" />No. This is an online promotion only.</span></a>
+                    </li>
+                    <li><a href="#" class="tooltip">If I get Buy 1 Get 1 Offer can I make calls to other countries besides the countries mentioned above?
+                	<span>
+                        <img class="callout" src="@Url.Content("~/images/Promotion_image/tooltip-arrow.png")" />Yes! You will be able to make calls to anywhere in the world. The rate to call countries will differ, based on the countries you are calling. </span></a>
+                    </li>
+                    <li class="alternaterow"><a href="#" class="tooltip">Are there any hidden charges on this product?
+                	<span>
+                        <img class="callout" src="@Url.Content("~/images/Promotion_image/tooltip-arrow.png")" />NO, there are absolutely no hidden charges on Buy 1 Get 1 Offer. </span></a>
+                    </li>
+                    <li><a href="#" class="tooltip">Will the extra minutes reflect immediately after the recharge or purchase?
+                	<span>
+                        <img class="callout" src="@Url.Content("~/images/Promotion_image/tooltip-arrow.png")" />Yes! Extra minutes will be added immediately after recharging or purchasing a plan.</span> </a>
+                    </li>
+                    <li class="alternaterow"><a href="#" class="tooltip">Is the landline and cell phone rate same for Buy 1 Get 1 Offer?
+                	<span>
+                        <img class="callout" src="@Url.Content("~/images/Promotion_image/tooltip-arrow.png")" />The rates to land lines and cell phones may be different for these countries. Calling India Landline or cell phone gives 500+500=1000 Mins, Bangladesh Landline or cell phone gives 350+350=700 Mins.</span></a>
+                    </li>
+                    <li><a href="#" class="tooltip">Once I have purchased the plan how do I make calls to India and other countries?
+                        <span style="top: -150px; -moz-box-shadow: -5px -5px 8px #333; -webkit-box-shadow: -5px -5px 8px #333; box-shadow: -5px -5px 8px #333;">
+                            <img class="callout" src="@Url.Content("~/images/Promotion_image/tooltip-down-arrow.png")" style="top:176px;">
+                            <img class="callout" src="@Url.Content("~/images/Promotion_image/tooltip-down-arrow.png")" style="top:184px;">
+                            <strong>Dialing Instructions:</strong>
+                            <ol>
+                                <li>Dial the Raza Access number.</li>
+                                <li>For International Calls: Dial 011 + Country Code +	City Code + Number followed by # sign.</li>
+                                <li>To call within USA, Canada or Caribean : Dial 1 + Area Code + Number followed by # sign.</li>
+                                *(Once you have dialed the destination number, please do not press send key.)
+                            </ol>
+
+                        </span></a>
+                    </li>
+                    <li class="brdnone alternaterow" style="text-align: center;">Raza.com reserves the rights to withdraw or alter New Year Offer at any time without prior notice.</li>
+                </ul>
+
+
+                <div class="clear-fix"></div>
+            </div>
+
+        </div>
+        <div>
+            <img src="@Url.Content("~/images/Promotion_image/customer-price-table-bottom-bg.png")" alt="" /></div>
+    </div>
+</div>
+<script>
+
+    function loading() {
+        $("div.loader").show();
+    }
+    function loadPopup() {
+        if (popupStatus == 0) { // if value is 0, show popup
+
+            $("#errorValidation").fadeIn(0500); // fadein popup div
+            $("#backgroundPopup").css("opacity", "0.7"); // css opacity, supports IE7, IE8
+            $("#backgroundPopup").fadeIn(0001);
+            popupStatus = 1; // and set value to 1
+        }
+    }
+
+    $(this).keyup(function (event) {
+        if (event.which == 27) { // 27 is 'Ecs' in the keyboard
+            disablePopup(); // function close pop up
+        }
+    });
+
+    function closeloading() {
+        $("div.loader").fadeOut('normal');
+    }
+
+    var popupStatus = 0; // set value
+
+    function disablePopup() {
+        if (popupStatus == 1) { // if value is 1, close popup
+            $("#errorValidation").fadeOut("normal");
+            $("#backgroundPopup").fadeOut("normal");
+            popupStatus = 0; // and set value to 0
+        }
+    }
+
+
+    function CheckforPromotion() {
+        var usertype = $("#hid-usetype").val();
+
+        if (usertype == "True") {
+
+            loadPopup();
+           // var e = $("#hid-usetype").val("false");
+            return false;
+        }
+        var countryfrom = $('#countryfrom-promotion').val();
+
+        // var selected = $(".close").attr('id');
+        //var countryto = 238;
+        var countryto = $("#hidden-countryto").val();
+        var denomination = 10;
+        var coupon = "BUY1GET1";
+        var servicefee = 0;
+        var url = "/Promotion/BuyPromotionPlan?countryfrom=" + countryfrom + "&countryto="
+            + countryto + "&denomination=" + denomination + "&couponcode=" + coupon + "&servicefee=" + servicefee;
+        window.location.href = url;
+        return true;
+    }
+</script>

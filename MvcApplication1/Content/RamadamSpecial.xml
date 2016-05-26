@@ -1,0 +1,493 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<NewCustomerPromotionPlan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <NewCustomerPlans>
+
+<NewCustPromotionplanmodel>
+  <CountryFrom>1</CountryFrom>
+  <CountryTo>130</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>161</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>100</Denomination>
+  <RegularMin>7000</RegularMin>
+  <ExtraMin>1000</ExtraMin>
+  <RateperMIn>1.25</RateperMIn>
+</NewCustPromotionplanmodel>
+
+<NewCustPromotionplanmodel>
+  <CountryFrom>1</CountryFrom>
+  <CountryTo>130</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>161</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>50</Denomination>
+  <RegularMin>3500</RegularMin>
+  <ExtraMin>350</ExtraMin>
+  <RateperMIn>1.30</RateperMIn>
+</NewCustPromotionplanmodel>
+
+<NewCustPromotionplanmodel>
+  <CountryFrom>1</CountryFrom>
+  <CountryTo>130</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>161</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>20</Denomination>
+  <RegularMin>1400</RegularMin>
+  <ExtraMin>100</ExtraMin>
+  <RateperMIn>1.33</RateperMIn>
+</NewCustPromotionplanmodel>
+
+<NewCustPromotionplanmodel>
+  <CountryFrom>1</CountryFrom>
+  <CountryTo>130</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <PlanId>161</PlanId>
+  <Denomination>10</Denomination>
+  <RegularMin>700</RegularMin>
+  <ExtraMin>0</ExtraMin>
+  <RateperMIn>1.43</RateperMIn>
+</NewCustPromotionplanmodel>
+
+<NewCustPromotionplanmodel>
+  <CountryFrom>1</CountryFrom>
+  <CountryTo>238</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>161</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>200</Denomination>
+  <RegularMin>2040</RegularMin>
+  <ExtraMin>500</ExtraMin>
+  <RateperMIn>7.9</RateperMIn>
+</NewCustPromotionplanmodel>
+
+<NewCustPromotionplanmodel>
+  <CountryFrom>1</CountryFrom>
+  <CountryTo>238</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>161</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>100</Denomination>
+  <RegularMin>1020</RegularMin>
+  <ExtraMin>150</ExtraMin>
+  <RateperMIn>8.5</RateperMIn>
+</NewCustPromotionplanmodel>
+
+<NewCustPromotionplanmodel>
+  <CountryFrom>1</CountryFrom>
+  <CountryTo>238</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>161</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>50</Denomination>
+  <RegularMin>510</RegularMin>
+  <ExtraMin>60</ExtraMin>
+  <RateperMIn>8.8</RateperMIn>
+</NewCustPromotionplanmodel>
+
+<NewCustPromotionplanmodel>
+  <CountryFrom>1</CountryFrom>
+  <CountryTo>238</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>161</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>20</Denomination>
+  <RegularMin>204</RegularMin>
+  <ExtraMin>20</ExtraMin>
+  <RateperMIn>8.9</RateperMIn>
+</NewCustPromotionplanmodel>
+
+<NewCustPromotionplanmodel>
+  <CountryFrom>1</CountryFrom>
+  <CountryTo>224</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>161</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>100</Denomination>
+  <RegularMin>1080</RegularMin>
+  <ExtraMin>200</ExtraMin>
+  <RateperMIn>7.8</RateperMIn>
+</NewCustPromotionplanmodel>
+
+<NewCustPromotionplanmodel>
+  <CountryFrom>1</CountryFrom>
+  <CountryTo>224</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>161</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>50</Denomination>
+  <RegularMin>540</RegularMin>
+  <ExtraMin>75</ExtraMin>
+  <RateperMIn>8.1</RateperMIn>
+</NewCustPromotionplanmodel>
+
+<NewCustPromotionplanmodel>
+  <CountryFrom>1</CountryFrom>
+  <CountryTo>224</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>161</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>20</Denomination>
+  <RegularMin>216</RegularMin>
+  <ExtraMin>25</ExtraMin>
+  <RateperMIn>8.3</RateperMIn>
+</NewCustPromotionplanmodel>
+
+<NewCustPromotionplanmodel>
+  <CountryFrom>1</CountryFrom>
+  <CountryTo>224</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>161</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>10</Denomination>
+  <RegularMin>108</RegularMin>
+  <ExtraMin>0</ExtraMin>
+  <RateperMIn>9.3</RateperMIn>
+</NewCustPromotionplanmodel>
+
+
+
+<NewCustPromotionplanmodel>
+  <CountryFrom>1</CountryFrom>
+  <CountryTo>27</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>161</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>100</Denomination>
+  <RegularMin>3000</RegularMin>
+  <ExtraMin>500</ExtraMin>
+  <RateperMIn>2.9</RateperMIn>
+</NewCustPromotionplanmodel>
+
+<NewCustPromotionplanmodel>
+  <CountryFrom>1</CountryFrom>
+  <CountryTo>27</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>161</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>50</Denomination>
+  <RegularMin>1500</RegularMin>
+  <ExtraMin>150</ExtraMin>
+  <RateperMIn>3.0</RateperMIn>
+</NewCustPromotionplanmodel>
+
+<NewCustPromotionplanmodel>
+  <CountryFrom>1</CountryFrom>
+  <CountryTo>27</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>161</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>20</Denomination>
+  <RegularMin>600</RegularMin>
+  <ExtraMin>20</ExtraMin>
+  <RateperMIn>3.2</RateperMIn>
+</NewCustPromotionplanmodel>
+
+    
+      <NewCustPromotionplanmodel>
+  <CountryFrom>1</CountryFrom>
+  <CountryTo>27</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>161</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>10</Denomination>
+  <RegularMin>300</RegularMin>
+  <ExtraMin>0</ExtraMin>
+  <RateperMIn>3.3</RateperMIn>
+</NewCustPromotionplanmodel>
+<NewCustPromotionplanmodel>
+  <CountryFrom>1</CountryFrom>
+  <CountryTo>281</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>161</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>100</Denomination>
+  <RegularMin>880</RegularMin>
+  <ExtraMin>400</ExtraMin>
+  <RateperMIn>7.8</RateperMIn>
+</NewCustPromotionplanmodel>
+
+<NewCustPromotionplanmodel>
+  <CountryFrom>1</CountryFrom>
+  <CountryTo>281</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>161</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>50</Denomination>
+  <RegularMin>440</RegularMin>
+  <ExtraMin>150</ExtraMin>
+  <RateperMIn>8.5</RateperMIn>
+</NewCustPromotionplanmodel>
+
+<NewCustPromotionplanmodel>
+  <CountryFrom>1</CountryFrom>
+  <CountryTo>281</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>161</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>20</Denomination>
+  <RegularMin>176</RegularMin>
+  <ExtraMin>30</ExtraMin>
+  <RateperMIn>9.7</RateperMIn>
+</NewCustPromotionplanmodel>
+
+<NewCustPromotionplanmodel>
+  <CountryFrom>1</CountryFrom>
+  <CountryTo>281</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>161</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>10</Denomination>
+  <RegularMin>88</RegularMin>
+  <ExtraMin>0</ExtraMin>
+  <RateperMIn>11.4</RateperMIn>
+</NewCustPromotionplanmodel>
+
+<!--start for countryfrom 2(Canada)-->
+<NewCustPromotionplanmodel>
+  <CountryFrom>2</CountryFrom>
+  <CountryTo>130</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>162</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>100</Denomination>
+  <RegularMin>7000</RegularMin>
+  <ExtraMin>1000</ExtraMin>
+  <RateperMIn>1.25</RateperMIn>
+</NewCustPromotionplanmodel>
+
+<NewCustPromotionplanmodel>
+  <CountryFrom>2</CountryFrom>
+  <CountryTo>130</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>162</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>50</Denomination>
+  <RegularMin>3500</RegularMin>
+  <ExtraMin>350</ExtraMin>
+  <RateperMIn>1.30</RateperMIn>
+</NewCustPromotionplanmodel>
+
+<NewCustPromotionplanmodel>
+  <CountryFrom>2</CountryFrom>
+  <CountryTo>130</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>162</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>20</Denomination>
+  <RegularMin>1400</RegularMin>
+  <ExtraMin>100</ExtraMin>
+  <RateperMIn>1.33</RateperMIn>
+</NewCustPromotionplanmodel>
+
+<NewCustPromotionplanmodel>
+  <CountryFrom>2</CountryFrom>
+  <CountryTo>130</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>162</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>10</Denomination>
+  <RegularMin>700</RegularMin>
+  <ExtraMin>0</ExtraMin>
+  <RateperMIn>1.43</RateperMIn>
+</NewCustPromotionplanmodel>
+
+
+
+<NewCustPromotionplanmodel>
+  <CountryFrom>2</CountryFrom>
+  <CountryTo>238</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>162</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>200</Denomination>
+  <RegularMin>2040</RegularMin>
+  <ExtraMin>500</ExtraMin>
+  <RateperMIn>7.9</RateperMIn>
+</NewCustPromotionplanmodel>
+
+<NewCustPromotionplanmodel>
+  <CountryFrom>2</CountryFrom>
+  <CountryTo>238</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>162</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>100</Denomination>
+  <RegularMin>1020</RegularMin>
+  <ExtraMin>150</ExtraMin>
+  <RateperMIn>7.9</RateperMIn>
+</NewCustPromotionplanmodel>
+
+<NewCustPromotionplanmodel>
+  <CountryFrom>2</CountryFrom>
+  <CountryTo>238</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>162</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>50</Denomination>
+  <RegularMin>510</RegularMin>
+  <ExtraMin>60</ExtraMin>
+  <RateperMIn>8.8</RateperMIn>
+</NewCustPromotionplanmodel>
+
+    <NewCustPromotionplanmodel>
+  <CountryFrom>2</CountryFrom>
+  <CountryTo>238</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>162</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>20</Denomination>
+  <RegularMin>510</RegularMin>
+  <ExtraMin>60</ExtraMin>
+  <RateperMIn>8.8</RateperMIn>
+</NewCustPromotionplanmodel>
+    
+      
+<NewCustPromotionplanmodel>
+  <CountryFrom>2</CountryFrom>
+  <CountryTo>224</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>162</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>100</Denomination>
+  <RegularMin>1080</RegularMin>
+  <ExtraMin>200</ExtraMin>
+  <RateperMIn>7.8</RateperMIn>
+</NewCustPromotionplanmodel>
+
+<NewCustPromotionplanmodel>
+  <CountryFrom>2</CountryFrom>
+  <CountryTo>224</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>162</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>50</Denomination>
+  <RegularMin>540</RegularMin>
+  <ExtraMin>75</ExtraMin>
+  <RateperMIn>8.3</RateperMIn>
+</NewCustPromotionplanmodel>
+
+<NewCustPromotionplanmodel>
+  <CountryFrom>2</CountryFrom>
+  <CountryTo>224</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>162</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>20</Denomination>
+  <RegularMin>216</RegularMin>
+  <ExtraMin>25</ExtraMin>
+  <RateperMIn>8.3</RateperMIn>
+</NewCustPromotionplanmodel>
+
+<NewCustPromotionplanmodel>
+  <CountryFrom>2</CountryFrom>
+  <CountryTo>224</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>162</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>10</Denomination>
+  <RegularMin>108</RegularMin>
+  <ExtraMin>0</ExtraMin>
+  <RateperMIn>9.3</RateperMIn>
+</NewCustPromotionplanmodel>
+
+<NewCustPromotionplanmodel>
+  <CountryFrom>2</CountryFrom>
+  <CountryTo>27</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>162</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>100</Denomination>
+  <RegularMin>3000</RegularMin>
+  <ExtraMin>500</ExtraMin>
+  <RateperMIn>2.9</RateperMIn>
+</NewCustPromotionplanmodel>
+
+<NewCustPromotionplanmodel>
+  <CountryFrom>2</CountryFrom>
+  <CountryTo>27</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>162</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>50</Denomination>
+  <RegularMin>1500</RegularMin>
+  <ExtraMin>150</ExtraMin>
+  <RateperMIn>3.0</RateperMIn>
+</NewCustPromotionplanmodel>
+
+<NewCustPromotionplanmodel>
+  <CountryFrom>2</CountryFrom>
+  <CountryTo>27</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>162</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>20</Denomination>
+  <RegularMin>600</RegularMin>
+  <ExtraMin>20</ExtraMin>
+  <RateperMIn>3.2</RateperMIn>
+</NewCustPromotionplanmodel>
+
+<NewCustPromotionplanmodel>
+  <CountryFrom>2</CountryFrom>
+  <CountryTo>27</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>162</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>10</Denomination>
+  <RegularMin>300</RegularMin>
+  <ExtraMin>0</ExtraMin>
+  <RateperMIn>3.3</RateperMIn>
+</NewCustPromotionplanmodel>
+
+<NewCustPromotionplanmodel>
+  <CountryFrom>2</CountryFrom>
+  <CountryTo>281</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>162</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>100</Denomination>
+  <RegularMin>880</RegularMin>
+  <ExtraMin>400</ExtraMin>
+  <RateperMIn>7.8</RateperMIn>
+</NewCustPromotionplanmodel>
+
+<NewCustPromotionplanmodel>
+  <CountryFrom>2</CountryFrom>
+  <CountryTo>281</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>162</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>50</Denomination>
+  <RegularMin>440</RegularMin>
+  <ExtraMin>150</ExtraMin>
+  <RateperMIn>8.5</RateperMIn>
+</NewCustPromotionplanmodel>
+
+<NewCustPromotionplanmodel>
+  <CountryFrom>2</CountryFrom>
+  <CountryTo>281</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>162</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>20</Denomination>
+  <RegularMin>176</RegularMin>
+  <ExtraMin>30</ExtraMin>
+  <RateperMIn>9.7</RateperMIn>
+</NewCustPromotionplanmodel>
+
+<NewCustPromotionplanmodel>
+  <CountryFrom>2</CountryFrom>
+  <CountryTo>281</CountryTo>
+  <PlanName>One Touch Dial</PlanName>
+  <PlanId>162</PlanId>
+  <CouponCode>RAMADAN2014</CouponCode>
+  <Denomination>10</Denomination>
+  <RegularMin>88</RegularMin>
+  <ExtraMin>0</ExtraMin>
+  <RateperMIn>11.4</RateperMIn>
+</NewCustPromotionplanmodel>
+  </NewCustomerPlans>
+</NewCustomerPromotionPlan>

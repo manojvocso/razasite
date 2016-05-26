@@ -1,0 +1,46 @@
+
+@font-face {
+    font-family: 'HelveticaNeueLTComUltLt';
+    src: url('fonts/HelveticaNeueLTComUltLt.html');
+    src: url('fonts/HelveticaNeueLTComUltLt.html') format('embedded-opentype'),
+         url('fonts/HelveticaNeueLTComUltLt-2.html') format('woff2'),
+         url('fonts/HelveticaNeueLTComUltLt-3.html') format('woff'),
+         url('fonts/HelveticaNeueLTComUltLt-4.html') format('truetype'),
+         url('fonts/HelveticaNeueLTComUltLt-5.html#HelveticaNeueLTComUltLt') format('svg');
+}
+@font-face {
+    font-family: 'HelveticaNeueLTComTh';
+    src: url('fonts/HelveticaNeueLTComTh.html');
+    src: url('fonts/HelveticaNeueLTComTh.html') format('embedded-opentype'),
+         url('fonts/HelveticaNeueLTComTh-2.html') format('woff2'),
+         url('fonts/HelveticaNeueLTComTh-3.html') format('woff'),
+         url('fonts/HelveticaNeueLTComTh-4.html') format('truetype'),
+         url('fonts/HelveticaNeueLTComTh-5.html#HelveticaNeueLTComTh') format('svg');
+}
+
+
+@font-face {
+    font-family: 'HelveticaNeueLTComTh';
+    src: url('fonts/HelveticaNeueLTComTh.html');
+    src: url('fonts/HelveticaNeueLTComTh.html') format('embedded-opentype'),
+         url('fonts/HelveticaNeueLTComTh-2.html') format('woff2'),
+         url('fonts/HelveticaNeueLTComTh-3.html') format('woff'),
+         url('fonts/HelveticaNeueLTComTh-4.html') format('truetype'),
+         url('fonts/HelveticaNeueLTComTh-5.html#HelveticaNeueLTComTh') format('svg');
+}
+
+
+@font-face {
+  font-family: 'HelveticaNeueLTStd-Th';
+  src: url('fonts/HelveticaNeueLTStd-Th.html') format('embedded-opentype');
+  
+    src: url('fonts/HelveticaNeueLTStd-Th.html') format('embedded-opentype'),
+         url('fonts/HelveticaNeueLTStd-Th-2.html') format('woff2'),
+         url('fonts/HelveticaNeueLTStd-Th-3.html') format('woff'),
+         url('fonts/HelveticaNeueLTStd-Th-4.html') format('truetype'),
+         url('fonts/HelveticaNeueLTStd-Th-5.html#HelveticaNeueLTStd-Th') format('svg');
+		 
+		 
+  font-weight: normal;
+  font-style: normal;
+}

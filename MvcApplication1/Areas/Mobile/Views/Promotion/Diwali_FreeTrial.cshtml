@@ -1,0 +1,49 @@
+﻿@model MvcApplication1.Areas.Mobile.ViewModels.TryUsFreeViewModel
+@{
+    ViewBag.Title = "Diwali Free Trial, No Purchase Necessary: Get Up To 200 Free Minutes to call India and Nepal.";
+}
+
+<img class="img-responsive" src="@Url.Content("~/Content/MobileTheme/images/promotions/diwali_freetrial.jpg")"><div class="container-fluid">
+    <div class="container demo country_mar">
+        @if (!string.IsNullOrEmpty(Model.Message))
+        {
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="container">
+                        @Html.MessageBox(Model.Message, Model.MessageType)
+                    </div>
+                </div>
+            </div>
+        }
+        @using (Html.BeginForm("BuyTryUsFree", "Promotion", FormMethod.Post))
+        {
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                    @Html.DropDownListFor(a => a.TrialCountryFrom, new SelectList(Model.CountryFromList, "Id", "Name"), new { @class = "form-control form_mar" })
+                    @Html.ValidationMessageFor(a => a.TrialCountryFrom)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 form_mar">
+                    @Html.DropDownListFor(a => a.TrialCountryTo, new SelectList(Model.CountryToForFreeTrialList, "Id", "Desc"), "Select Destination", new { @class = "form-control " })
+                    @Html.ValidationMessageFor(a => a.TrialCountryTo)
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <button type="submit" class="btn btn-primary btn-block form_mar btn_bgreen">Submit</button>
+                    <a href="@Url.Action("Faq", "Rate")" class="btn btn-primary btn-block form_mar btn_bgray ">FAQ</a>
+                </div>
+            </div>
+        }
+    </div>
+
+
+</div>
+
+
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,17 @@
+﻿@model MvcApplication1.Models.ReadLogFileModel
+@{
+    ViewBag.Title = "ReadLogFile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ReadLogFile</h2>
+
+
+<div style="width:100%; height:600px;">
+    <form method="post" action="@Url.Action("ReadLogFile","Account")">
+    <p style="text-align:center"><span>File Name:</span><input name="FileDate" type="text" /><input type="submit"  /> </p>
+
+    <p style="text-align:center"> <textarea name="loggeddata" style="width:950px; height:570px;">@Model.LogData</textarea> </p>
+        
+        </form>
+</div>

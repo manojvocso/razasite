@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xsd:include schemaLocation="http://localhost:8080/schema/Centinel/1_7/txn_common.xsd"/>
+	<xsd:annotation>
+		<xsd:documentation><![CDATA[Authorize an order that can be fulfilled at a later time.
+		<br/><br/>
+		<b>PayPal Express Checkout</b>
+		<br/>
+		The Authorization request to authorize a customer order that can be fulfilled within 29 days. The transaction expects the TransactionId value to corespond to the Express Checkout Lookup/Authenticate message pair. Use the cmpi_capture transaction when you are ready to ship goods to your customer.
+		<br/><br/>
+		The Authorization request transaction can also be used in the event that the Express Checkout Order needs to be established for future authorization and capture processing. If the Lookup transaction coresponding to this authorization transaction is identified with a TransactionAction=Order then this authorization request will complete the Express Checkout Order request. The Express Checkout Order is eligible to be Authorized and Captured in the future.
+		<br/><br/>
+		The Authorization amount can be up to 115 percent of the originally amount specified on the Lookup transaction (not to exceed an increase of 75.00 USD).
+		<br/><br/>
+		<b>PayPal Direct Payments</b>
+		<br/>
+		The transaction performs an Authorization request directly against the consumer credit / debit card. These transactions require the CardNumer, CardExpMonth, CardExpYear to be passed on the request message. This transaction also returns the result of checking the postal address and credit card number (as submitted on the request) against the U.S. banking industry standard Address Verification System (AVS) and Credit Card Verification (CVV2) system.
+		<br/><br/>
+		<b>Bill Me Later Payments</b>
+		<br/>
+		The transaction performs an Authorization request directly against the consumer BML account.
+		<br/>
+		]]>
+    </xsd:documentation>
+	</xsd:annotation>
+	<xsd:element name="CardinalMPI">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="MsgType">
+					<xsd:annotation>
+						<xsd:documentation>"cmpi_authorize"</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="cmpi_authorize"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="Version" type="applicationVersion"/>
+				<xsd:element name="ProcessorId" type="processorId"/>
+				<xsd:element name="MerchantId" type="merchantId"/>
+				<xsd:element name="TransactionPwd" type="merchantTxnPwd"/>
+				<xsd:element name="TransactionType" type="transactionType"/>
+				<xsd:element name="TransactionId" type="txnId" minOccurs="0"/>
+				<xsd:element name="Amount" type="amount"/>
+				<xsd:element name="ShippingAmount" type="shippingAmount" minOccurs="0"/>
+				<xsd:element name="TaxAmount" type="taxAmount" minOccurs="0"/>
+				<xsd:element name="CurrencyCode" type="isoCurrencyNumber"/>
+				<xsd:element name="OrderNumber" type="orderNumber"/>
+				<xsd:element name="OrderDescription" type="orderDesc" minOccurs="0"/>
+				<xsd:element name="CardNumber" type="cardNumber" minOccurs="0"/>
+				<xsd:element name="CardExpMonth" type="cardExpMonth" minOccurs="0"/>
+				<xsd:element name="CardExpYear" type="cardExpYear" minOccurs="0"/>
+				<xsd:element name="CardCode" type="cardCode" minOccurs="0"/>
+				<xsd:element name="EMail" type="email"/>
+				<xsd:element name="AltEMail" type="altEmail" minOccurs="0"/>
+				<xsd:element name="IPAddress" type="ipAddress"/>
+				<xsd:element name="BillingFirstName" type="personFirstNameBilling" minOccurs="0"/>
+				<xsd:element name="BillingMiddleName" type="personMiddleNameBilling" minOccurs="0"/>
+				<xsd:element name="BillingLastName" type="personLastNameBilling" minOccurs="0"/>
+				<xsd:element name="BillingAddress1" type="addressBilling" minOccurs="0"/>
+				<xsd:element name="BillingAddress2" type="addressBilling" minOccurs="0"/>
+				<xsd:element name="BillingCity" type="cityBilling" minOccurs="0"/>
+				<xsd:element name="BillingState" type="stateProvinceBilling" minOccurs="0"/>
+				<xsd:element name="BillingPostalCode" type="postalCodeBilling" minOccurs="0"/>
+				<xsd:element name="BillingCountryCode" type="countryCodeBilling" minOccurs="0"/>
+				<xsd:element name="BillingPhone" type="phoneBilling" minOccurs="0"/>
+				<xsd:element name="BillingAltPhone" type="phoneAltBilling" minOccurs="0"/>
+				<xsd:element name="ShippingFirstName" type="personFirstNameShipping" minOccurs="0"/>
+				<xsd:element name="ShippingMiddleName" type="personMiddleNameShipping" minOccurs="0"/>
+				<xsd:element name="ShippingLastName" type="personLastNameShipping" minOccurs="0"/>
+				<xsd:element name="ShippingAddress1" type="addressShipping" minOccurs="0"/>
+				<xsd:element name="ShippingAddress2" type="addressShipping" minOccurs="0"/>
+				<xsd:element name="ShippingCity" type="cityShipping" minOccurs="0"/>
+				<xsd:element name="ShippingState" type="stateProvinceShipping" minOccurs="0"/>
+				<xsd:element name="ShippingPostalCode" type="postalCodeShipping" minOccurs="0"/>
+				<xsd:element name="ShippingCountryCode" type="countryCodeShipping" minOccurs="0"/>
+				<xsd:element name="ShippingPhone" type="phoneShipping" minOccurs="0"/>
+				<xsd:element name="ShippingAltPhone" type="phoneAltShipping" minOccurs="0"/>
+				<xsd:element name="AcquirerPassword" type="password" minOccurs="0"/>
+				<xsd:element name="TransactionAction" type="transactionAction" minOccurs="0"/>
+				<xsd:element name="NoShipping" type="noShipping" minOccurs="0"/>
+				<xsd:element name="OverrideAddress" type="overrideAddress" minOccurs="0"/>
+				<xsd:element name="ForceAddress" type="forceAddress" minOccurs="0"/>
+				<xsd:element name="CustomerRegistrationDate" type="customerRegistrationDate" minOccurs="0"/>
+				<xsd:element name="CustomerFlag" type="customerFlag" minOccurs="0"/>
+				<xsd:element name="CategoryCode" type="itemCategoryCode" minOccurs="0"/>
+				<xsd:element name="TransactionMode" type="transactionMode" minOccurs="0"/>
+				<xsd:element name="ProductCode" type="productCode" minOccurs="0"/>
+				<xsd:element name="PromoCode" type="promoCode" minOccurs="0"/>
+				<xsd:element name="TermsAndConditions" type="termsAndConditions" minOccurs="0"/>
+				<xsd:element name="HasCheckingAccount" type="hasCheckingAccount" minOccurs="0"/>
+				<xsd:element name="HasSavingsAccount" type="hasSavingsAccount" minOccurs="0"/>
+				<xsd:element name="ResidenceStatus" type="residenceStatus" minOccurs="0"/>
+				<xsd:element name="DateOfBirth" type="dateOfBirth" minOccurs="0"/>
+				<xsd:element name="SSN" type="ssn" minOccurs="0"/>
+				<xsd:element name="HouseholdIncome" type="householdIncome" minOccurs="0"/>
+				<xsd:element name="HouseholdIncomeCurrencyCode" type="householdIncomeCurrencyCode" minOccurs="0"/>
+				<xsd:element name="YearsAtEmployer" type="yearsAtEmployer" minOccurs="0"/>
+				<xsd:element name="YearsAtResidence" type="yearsAtResidence" minOccurs="0"/>
+			</xsd:all>
+		</xsd:complexType> 
+	</xsd:element>
+</xsd:schema>

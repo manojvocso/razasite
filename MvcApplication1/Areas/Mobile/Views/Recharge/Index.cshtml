@@ -1,0 +1,96 @@
+﻿@model MvcApplication1.Areas.Mobile.ViewModels.RechargeViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="ajaxContainerDiv">
+    <div class="container-fluid">
+        <div class="container">
+            <h1 class=" title_login">Recharge</h1>
+            <div class="row">
+                @using (Html.BeginForm("Index", "Recharge", FormMethod.Post, new { novalidate = "novalidate" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        <div class="col-xs-12 form_mar">
+                            <div class="input-group">
+                                <span class="input-group-addon ">@Html.CurrencySign(Model.CurrencyCode)</span>
+                                @Html.HiddenFor(a => a.CurrencyCode)
+                                @Html.DropDownListFor(a => a.RechargeAmount, new SelectList(Model.RechargeAmounts, "RechAmount", "RechAmount"), "Select Recharge Amount", new { @class = "form-control" })
+                            </div>
+                            @Html.ValidationMessageFor(a => a.RechargeAmount)
+                        </div>
+
+                        <div class="card_show">
+                            <div class="col-xs-12 col-sm-7">
+                                @Html.DropDownListFor(a => a.CreditCardId, new SelectList(Model.UserCreditCards, "Value", "Text"), "Select Card", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(a => a.CreditCardId)
+                            </div>
+                            <div class="col-xs-12 col-sm-5 ">
+                                <h5><a href="@Url.Action("UpdateCard", "Payment", new { returnUrl = Request.RawUrl })" id="linkUpdateNewCard">Update New Card</a></h5>
+                            </div>
+
+                            <div class="col-xs-10 col-sm-7 mar_top">
+
+                                @Html.PasswordFor(a => a.Cvv, new { @class = "form-control cc-cvc ", @placeholder = "Card Verification Value" })
+                                @Html.ValidationMessageFor(a => a.Cvv)
+
+                            </div>
+                            <div class="col-xs-2 col-sm-5">
+                                <h5><a href="#" data-toggle="modal" data-target="#cvv_no">
+                                    <div class="info_icon"></div>
+                                </a></h5>
+                            </div>
+
+                            <div class="col-xs-10 col-sm-7 mar_top">
+
+                                @Html.TextBoxFor(a => a.CouponCode, new { @class = "form-control ", @placeholder = "Coupon Code" })
+                                @Html.ValidationMessageFor(a => a.CouponCode)
+                            </div>
+                            <div class="col-xs-2 col-sm-5 ">
+                                <h5><a href="#" data-toggle="modal" data-target="#coupon_code">
+                                    <div class="info_icon"></div>
+                                </a></h5>
+                            </div>
+                        </div>
+
+                        @Html.HiddenFor(a => a.PaymentType)
+
+                        <div class="col-xs-12 ">
+                            <button type="submit" id="btnccPay" class="btn btn-primary btn-block form_mar btn_bgreen">Continue <span class=" btn_next fa fa-chevron-right"></span></button>
+                        </div>
+                        <div class="col-xs-12">
+                            <button type="submit" id="btnPaybyPayPal" class="btn btn-primary btn-block form_mar btn_bgblue">Pay by Paypal</button>
+                        </div>
+
+                    </div>
+                }
+            </div>
+        </div>
+        @RenderPage("~/Areas/Mobile/Views/UiControls/WhatIsCvv.cshtml")
+        @RenderPage("~/Areas/Mobile/Views/UiControls/WhatisCouponCode.cshtml")
+    </div>
+</div>
+
+@section scripts{
+
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(function () {
+            var paypalPaymentType = '@PaymentSettings.PaymentType.PayPal.ToString()';
+            var ccPaymentType = '@PaymentSettings.PaymentType.CreditCard.ToString()';
+            $("#btnPaybyPayPal").click(function () {
+                $("#PaymentType").val(paypalPaymentType);
+            });
+
+            $("#btnccPay").click(function () {
+                $("#PaymentType").val(ccPaymentType);
+            });
+
+        });
+
+
+    </script>
+
+
+}

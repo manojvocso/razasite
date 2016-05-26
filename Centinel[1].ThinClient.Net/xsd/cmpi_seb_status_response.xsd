@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xsd:include schemaLocation="http://localhost:8080/schema/Centinel/1_7/txn_common.xsd"/>
+	<xsd:annotation>
+		<xsd:documentation>This message is generated in response to the cmpi_seb_status message.</xsd:documentation>
+	</xsd:annotation>
+	<xsd:element name="CardinalMPI">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element ref="ErrorDesc"/>
+				<xsd:element ref="ErrorNo"/>
+				<xsd:element name="TransactionId" type="txnId"/>
+				<xsd:element name="TransactionStatus" type="sebTxnStatus"/>
+				<xsd:element name="Amount" type="amount"/>
+				<xsd:element name="CurrencyCode" type="isoCurrencyNumber"/>
+				<xsd:element name="OrderNumber" type="orderNumber"/>
+				<xsd:element name="OrderDescription" type="orderDesc" minOccurs="0"/>
+				<xsd:element name="Email" type="email"/>
+				<xsd:element name="BillingFirstName" type="personFirstNameBilling" minOccurs="0"/>
+				<xsd:element name="BillingLastName" type="personLastNameBilling" minOccurs="0"/>
+				<xsd:element name="BillingAddress1" type="addressBilling" minOccurs="0"/>
+				<xsd:element name="BillingAddress2" type="addressBilling" minOccurs="0"/>
+				<xsd:element name="BillingCity" type="cityBilling" minOccurs="0"/>
+				<xsd:element name="BillingState" type="stateProvinceBilling" minOccurs="0"/>
+				<xsd:element name="BillingPostalCode" type="postalCodeBilling" minOccurs="0"/>
+				<xsd:element name="BillingCountryCode" type="countryCodeBilling" minOccurs="0"/>
+				<xsd:element name="ShippingFirstName" type="personFirstNameShipping" minOccurs="0"/>
+				<xsd:element name="ShippingLastName" type="personLastNameShipping" minOccurs="0"/>
+				<xsd:element name="ShippingAddress1" type="addressShipping" minOccurs="0"/>
+				<xsd:element name="ShippingAddress2" type="addressShipping" minOccurs="0"/>
+				<xsd:element name="ShippingCity" type="cityShipping" minOccurs="0"/>
+				<xsd:element name="ShippingState" type="stateProvinceShipping" minOccurs="0"/>
+				<xsd:element name="ShippingPostalCode" type="postalCodeShipping" minOccurs="0"/>
+				<xsd:element name="ShippingCountryCode" type="countryCodeShipping" minOccurs="0"/>
+				<xsd:element name="PaymentAmount" type="amount" minOccurs="0"/>
+				<xsd:element name="PaymentDate" type="generalDate" minOccurs="0"/>
+				<xsd:element name="AccountNumber" type="sebAccountNumber" minOccurs="0"/>
+				<xsd:element name="ReferenceId" type="txnSEBReferenceId" minOccurs="0"/>
+			</xsd:all>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

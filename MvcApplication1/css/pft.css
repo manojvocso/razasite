@@ -1,0 +1,372 @@
+/* Homepage and Default Styles */
+#planFinder { width:370px; height: 100px;}
+#planFinder #planFinderSelect {background-color:#FFFFFF; float: left; border: 1px solid #ddd; background:#f9f9f9; border-radius:4px; padding:6px;}
+#planFinder #planFinderSelect form {float:left;}
+#planFinder #planFinderSelect form input {border:0px; vertical-align: middle; width: 310px; font-weight: bold; font-size:12px; margin:3px 0px 0px 10px; color:#333333; font-size: 14px;color:#666666;}
+#planFinder #planFinderSelect form img {vertical-align: middle; float: right;}
+/* Features */
+#planFinder.features {background:url('/resources/vonage-us/images/plan-finder-form/plan_finder_features.png'); width:677px; height:170px;}
+#planFinder.features #planFinderSelect {margin:100px 0px 0px 130px;}
+#planFinder.features #planFinderSelect form input {width:370px;}
+#planFinder.features #dropdown_country {margin-left:130px !important;}
+/* How It Works */
+#planFinder.hiw {background:url('/resources/vonage-us/images/plan-finder-form/plan_finder_hiw.png'); height:170px; width:973px; margin: 0px 0px 20px 15px;}
+#planFinder.hiw #planFinderSelect {margin:70px 20px 0px 490px;}
+#planFinder.hiw #planFinderSelect form input {width:380px;}
+#planFinder.hiw #dropdown_country {margin-left: 490px !important;}
+#planFinder.hiw #dropdown_country #countries_container { width:420px !important;}
+#planFinder.hiw #dropdown_country #countries_container #countries {width:420px !important;}
+#planFinder.hiw #dropdown_country #countries_container #countries table {width:400px !important;}
+/* How It Works Widget */
+#planFinder.hiw-widget {background:url('/resources/vonage-us/images/plan-finder-form/plan_finder_hiw_widget.png'); width:258px; height:260px; margin-bottom: 20px;}
+#planFinder.hiw-widget #planFinderSelect {margin:180px 10px 0px 15px;}
+#planFinder.hiw-widget #planFinderSelect form input {font-family: Arial,Helvetica,sans-serif;width: 177px;}
+#planFinder.hiw-widget #dropdown_country {margin: 220px 0 0 -430px !important;}
+/* Plan Finder Page Dropdown */
+#planFinder.plan-finder {background:none; float: right; height: auto; width:auto;}
+#planFinder.plan-finder #planFinderSelect {margin:25px 25px 0px 0px; float: right;}
+#planFinder.plan-finder #dropdown_country {margin: 65px 0 0 0px !important; float: right;}
+/* Plan Finder Dropdown Button */
+#planFinderBtn {cursor: pointer;}
+
+/*Plan Finder Navigation*/
+/*#plan-finder-navigation #dropdown_country {margin-left: 273px !important; clear:left;}
+#navMain > ul > li .navSub.wide.plans {overflow: visible;} */
+
+/* Inherit from Vonage Mobile/DCC
+** some modification should be made    
+*/
+
+/*  Global Change
+*   may only be necessary for testing
+*/
+td {vertical-align: top;}
+
+#countries_container { z-index:100; left:7px; top:300px; margin:4px 0px;  height:437px; padding:3px 3px 6px 3px; font-size:11px; border:3px solid #D8D8D8;border-radius: 5px; -moz-border-radius: 5px;  }
+#alphabet {background-color:#F1F0EE;  padding:8px 4px 8px 4px; font-size:12px; margin-bottom:2px; font-weight:bold; width:25px; position:absolute; right:26px; }
+#alphabet span {margin:0 3px 0 ; cursor:pointer; color:#0081cb; line-height: 16px;}
+#countries_1 { height:435px; overflow:auto; width:450px;}
+/*#countries table {width:350px;}*/
+#countries table tr td {padding-left:8px; vertical-align:top;}
+
+.letter_header td {height:24px; background-color:#f1f0ee; color:#555554; font-size:16px; font-weight:bold; line-height:14px; padding-left:8px; vertical-align:middle !important;}
+#countries_container .country {width:100%; cursor:pointer; color:#8D8D8D; padding:3px 0; font-size:11px; line-height: 16px;}
+#countries_container .country img {float:left;vertical-align:sub;}
+#countries_container .country .country_name {float:left; margin-left:5px; width:162px;}
+#countries_container .country span {color:#0082c8; font-size:13px; font-weight:bold;}
+.highlight span {text-decoration:underline;}
+
+#currency_container {position:absolute; z-index:100; margin:0px; width:245px; border:3px solid #D8D8D8; border-radius:5px; -moz-border-radius: 5px; padding:1px; background-color:#ffffff;}
+.currency_detail {height:28px; line-height:28px; padding-left:15px; font-size:13px; font-weight:bold; color:#0081cb; background-color:#ffffff; cursor:pointer;}
+.alt_row {background-color:#edefef;}
+.mouseover {background-color:#0081c6; color:#ffffff;}
+
+.dropdown {width:251px; height:36px; padding-left:6px; background-color:#ffffff;  border:3px solid #d56f13; border-radius: 5px; -moz-border-radius: 5px; background-image:url("/resources/images/dcc/dropdown_arrow.png"); background-position:right; background-repeat:no-repeat; cursor:pointer;}
+.dropdown input {border:0px solid #000000; background-color:#ffffff; font-size:13px; width:211px; height:25px; position:absolute; margin:5px 0 0 0; z-index:10;}
+#country_dropdown_content {position:absolute; margin:5px 0 0 0px; color:#3C3C3C; z-index:11; width:204px; height:26px; overflow:hidden;}
+#currency_dropdown_content {position:absolute; margin:11px 0 0 0px; color:#3C3C3C; font-size:13px;}
+#country_dropdwon_content div {width:216px; height:26px; overflow:hidden;}
+
+.selected_country {font-size:14px; font-weight:bold; padding-top:2px;}
+.selected_country_code {color:#8D8D8D}
+
+#result_container {width:505px; height:55px; padding:10px; background-color:#ffffff; border:3px solid #d56f13; border-radius: 0 0px 5px 5px; -moz-border-radius: 0px 0px 5px 5px; margin-top:8px;}
+#result_flag {position:absolute; margin:0 0 0 0;}
+#result_country {position:absolute; margin:4px 0 0 70px; width:267px;}
+#result_country_name {font-size:18px; font-weight:bold; color:#000000;}
+#result_country_rate_line {font-size: 18px; color:#f68e1e;}
+#result_bullets {position:absolute; margin:0 0 0 248px;}
+#result_bullets ul {margin-top:5px; list-style:disc;}
+#result_bullets ul li {color:#f68e1e; font-size:14px;}
+#result_bullets ul li span {color:#444444;}
+
+#dropdown_country {float:left; position:relative; }
+#dropdown_currency {float:left; margin-left:5px;}
+
+#search_results_container {width:385px; position:absolute; margin-top:-11px; z-index:100;}
+#search_results_top {width:385px; height:11px; font-size:1px; background-image:url("/resources/vonage-us/images/dcc/search_results_top.png"); background-repeat:no-repeat;}
+#search_results_bottom {width:385px; height:3px; font-size:1px; background-image:url("/resources/vonage-us/images/dcc/search_results_bottom.png"); background-repeat:no-repeat;}
+#search_results {width:385px; padding:5px 0 5px 0px; background-image:url("/resources/vonage-us/images/dcc/search_results_mid.png"); background-repeat:repeat-y;}
+#search_results div {padding:5px 5px 5px 20px;}
+#search_results div.results {cursor:pointer; color:#0181ca; font-weight:bold;}
+.search_mouseover {background-image:url("/resources/vonage-us/images/dcc/search_results_mid_mouseover.png") !important; color:#ffffff !important;}
+.search_match {text-decoration:underline;}
+.search_not_found {color:#d40003; font-weight:bold;}
+
+.hidden_letter_header td {height:0px; font-size:1px; padding:0px; line-height:0px; color:#ffffff; background-color:#ffffff;}
+
+#tool .placeholder {color:#bcbcbc;}
+
+/* Flag Image Sprites */
+.sprites { background-image: url(../images/flags.png); background-color: transparent; background-repeat: no-repeat; }
+.sprites.afghanistan { width: 14px; height: 14px; background-position: -15px -120px; }
+.sprites.albania { width: 14px; height: 14px; background-position: -150px -180px; }
+.sprites.algeria { width: 14px; height: 14px; background-position: -165px -225px; }
+.sprites.americansamoa { width: 14px; height: 14px; background-position: -90px -135px; }
+.sprites.andorra { width: 14px; height: 14px; background-position: -135px -15px; }
+.sprites.angola { width: 14px; height: 14px; background-position: -135px -105px; }
+.sprites.anguilla { width: 14px; height: 14px; background-position: -75px -45px; }
+.sprites.antarctica { width: 14px; height: 14px; background-position: -15px -225px; }
+.sprites.antiguabarbuda { width: 14px; height: 14px; background-position: -105px -60px; }
+.sprites.argentina { width: 14px; height: 14px; background-position: 0 -60px; }
+.sprites.armenia { width: 14px; height: 14px; background-position: -75px -135px; }
+.sprites.aruba { width: 14px; height: 14px; background-position: -195px -180px; }
+.sprites.ascensionisland { width: 14px; height: 14px; background-position: -60px -45px; }
+.sprites.australia { width: 14px; height: 14px; background-position: -75px -75px; }
+.sprites.austria { width: 14px; height: 14px; background-position: -15px -255px; }
+.sprites.azerbaijan { width: 14px; height: 14px; background-position: -195px -150px; }
+.sprites.bahamas { width: 14px; height: 14px; background-position: -180px -90px; }
+.sprites.bahrain { width: 14px; height: 14px; background-position: -75px -225px; }
+.sprites.bangladesh { width: 14px; height: 14px; background-position: -90px 0; }
+.sprites.barbados { width: 14px; height: 14px; background-position: -75px -30px; }
+.sprites.belarus { width: 14px; height: 14px; background-position: -150px -105px; }
+.sprites.belgium { width: 14px; height: 14px; background-position: -105px -240px; }
+.sprites.belize { width: 14px; height: 14px; background-position: -60px -90px; }
+.sprites.benin { width: 14px; height: 14px; background-position: -180px -120px; }
+.sprites.bermuda { width: 14px; height: 14px; background-position: 0 -75px; }
+.sprites.bhutan { width: 14px; height: 14px; background-position: -150px -210px; }
+.sprites.bolivia { width: 14px; height: 14px; background-position: 0 -45px; }
+.sprites.bosniaherzegovina { width: 14px; height: 14px; background-position: -45px -195px; }
+.sprites.botswana { width: 14px; height: 14px; background-position: -105px -30px; }
+.sprites.brazil { width: 14px; height: 14px; background-position: -195px -165px; }
+.sprites.britishvirginislands { width: 14px; height: 14px; background-position: -120px -225px; }
+.sprites.brunei { width: 14px; height: 14px; background-position: -120px -75px; }
+.sprites.bulgaria { width: 14px; height: 14px; background-position: -60px -225px; }
+.sprites.burkinafaso { width: 14px; height: 14px; background-position: -195px 0; }
+.sprites.burundi { width: 14px; height: 14px; background-position: -180px -75px; }
+.sprites.cambodia { width: 14px; height: 14px; background-position: -105px -180px; }
+.sprites.cameroon { width: 14px; height: 14px; background-position: -195px -225px; }
+.sprites.canada { width: 14px; height: 14px; background-position: -135px -165px; }
+.sprites.capeverde { width: 14px; height: 14px; background-position: -150px -150px; }
+.sprites.capeverdeislands { width: 14px; height: 14px; background-position: -120px -90px; }
+.sprites.caymanislands { width: 14px; height: 14px; background-position: -90px -165px; }
+.sprites.centralafricanrepublic { width: 14px; height: 14px; background-position: -30px -120px; }
+.sprites.chad { width: 14px; height: 14px; background-position: -45px 0; }
+.sprites.chile { width: 14px; height: 14px; background-position: -135px -195px; }
+.sprites.china { width: 14px; height: 14px; background-position: -75px -120px; }
+.sprites.colombia { width: 14px; height: 14px; background-position: -15px -105px; }
+.sprites.comoros { width: 14px; height: 14px; background-position: -120px -15px; }
+.sprites.congo { width: 14px; height: 14px; background-position: -150px -240px; }
+.sprites.cookislands { width: 14px; height: 14px; background-position: -90px -75px; }
+.sprites.costarica { width: 14px; height: 14px; background-position: -30px -210px; }
+.sprites.croatia { width: 14px; height: 14px; background-position: -120px -150px; }
+.sprites.cuba { width: 14px; height: 14px; background-position: -60px -120px; }
+.sprites.cyprus { width: 14px; height: 14px; background-position: -135px -135px; }
+.sprites.czechrepublic { width: 14px; height: 14px; background-position: -30px -90px; }
+.sprites.democraticrepublicofthecongo { width: 14px; height: 14px; background-position: -75px -15px; }
+.sprites.democraticrepublicofthecongozaire { width: 14px; height: 14px; background-position: -45px -90px; }
+.sprites.denmark { width: 14px; height: 14px; background-position: -180px -240px; }
+.sprites.diegogarcia { width: 14px; height: 14px; background-position: -195px -30px; }
+.sprites.djibouti { width: 14px; height: 14px; background-position: -45px -45px; }
+.sprites.dominica { width: 14px; height: 14px; background-position: -120px -180px; }
+.sprites.dominicanrepublic { width: 14px; height: 14px; background-position: -180px -210px; }
+.sprites.easttimor { width: 14px; height: 14px; background-position: -135px -150px; }
+.sprites.ecuador { width: 14px; height: 14px; background-position: -180px -30px; }
+.sprites.egypt { width: 14px; height: 14px; background-position: -120px -30px; }
+.sprites.elsalvador { width: 14px; height: 14px; background-position: -165px -45px; }
+.sprites.equatorialguinea { width: 14px; height: 14px; background-position: 0 -210px; }
+.sprites.eritrea { width: 14px; height: 14px; background-position: -75px -255px; }
+.sprites.estonia { width: 14px; height: 14px; background-position: -165px -15px; }
+.sprites.ethiopia { width: 14px; height: 14px; background-position: -15px -150px; }
+.sprites.falklandislands { width: 14px; height: 14px; background-position: -30px -180px; }
+.sprites.faroeislands { width: 14px; height: 14px; background-position: -75px -90px; }
+.sprites.fiji { width: 14px; height: 14px; background-position: -60px -105px; }
+.sprites.fijiislands { width: 14px; height: 14px; background-position: -60px -75px; }
+.sprites.finland { width: 14px; height: 14px; background-position: -45px -15px; }
+.sprites.france { width: 14px; height: 14px; background-position: -135px -240px; }
+.sprites.frenchguiana { width: 14px; height: 14px; background-position: -90px -30px; }
+.sprites.frenchpolynesia { width: 14px; height: 14px; background-position: -135px -90px; }
+.sprites.gabon { width: 14px; height: 14px; background-position: -75px -195px; }
+.sprites.gambia { width: 14px; height: 14px; background-position: -105px -105px; }
+.sprites.georgia { width: 14px; height: 14px; background-position: -165px -135px; }
+.sprites.germany { width: 14px; height: 14px; background-position: -75px 0; }
+.sprites.ghana { width: 14px; height: 14px; background-position: -195px -120px; }
+.sprites.gibraltar { width: 14px; height: 14px; background-position: -30px -255px; }
+.sprites.greece { width: 14px; height: 14px; background-position: -195px -210px; }
+.sprites.greenland { width: 14px; height: 14px; background-position: -120px -120px; }
+.sprites.grenada { width: 14px; height: 14px; background-position: -120px -240px; }
+.sprites.grenana { width: 14px; height: 14px; background-position: -165px -90px; }
+.sprites.guadeloupe { width: 14px; height: 14px; background-position: -180px -135px; }
+.sprites.guam { width: 14px; height: 14px; background-position: -30px -60px; }
+.sprites.guatemala { width: 14px; height: 14px; background-position: -165px -165px; }
+.sprites.guinea { width: 14px; height: 14px; background-position: -150px -30px; }
+.sprites.guineabissau { width: 14px; height: 14px; background-position: -105px -150px; }
+.sprites.guyana { width: 14px; height: 14px; background-position: -195px -90px; }
+.sprites.haiti { width: 14px; height: 14px; background-position: -60px -210px; }
+.sprites.hondoras { width: 14px; height: 14px; background-position: -120px -195px; }
+.sprites.hongkong { width: 14px; height: 14px; background-position: -30px -150px; }
+.sprites.hungary { width: 14px; height: 14px; background-position: -45px -165px; }
+.sprites.iceland { width: 14px; height: 14px; background-position: -30px -30px; }
+.sprites.india { width: 14px; height: 14px; background-position: -180px -180px; }
+.sprites.indonesia { width: 14px; height: 14px; background-position: -105px -120px; }
+.sprites.iran { width: 14px; height: 14px; background-position: -150px -60px; }
+.sprites.iraq { width: 14px; height: 14px; background-position: -165px -105px; }
+.sprites.ireland { width: 14px; height: 14px; background-position: -105px -135px; }
+.sprites.israel { width: 14px; height: 14px; background-position: -30px -75px; }
+.sprites.italy { width: 14px; height: 14px; background-position: 0 -255px; }
+.sprites.ivorycoast { width: 14px; height: 14px; background-position: -105px -225px; }
+.sprites.jamaica { width: 14px; height: 14px; background-position: -75px -240px; }
+.sprites.japan { width: 14px; height: 14px; background-position: -105px -90px; }
+.sprites.jordan { width: 14px; height: 14px; background-position: 0 -150px; }
+.sprites.kazakhstan { width: 14px; height: 14px; background-position: -45px -120px; }
+.sprites.kenya { width: 14px; height: 14px; background-position: -90px -120px; }
+.sprites.kiribati { width: 14px; height: 14px; background-position: -165px -120px; }
+.sprites.kosovo { width: 14px; height: 14px; background-position: -150px -45px; }
+.sprites.kuwait { width: 14px; height: 14px; background-position: -120px -45px; }
+.sprites.kyrgyzstan { width: 14px; height: 14px; background-position: -120px 0; }
+.sprites.laos { width: 14px; height: 14px; background-position: -60px -240px; }
+.sprites.latvia { width: 14px; height: 14px; background-position: -180px 0; }
+.sprites.lebanon { width: 14px; height: 14px; background-position: -135px -60px; }
+.sprites.lesotho { width: 14px; height: 14px; background-position: -15px -240px; }
+.sprites.lesoto { width: 14px; height: 14px; background-position: -60px -30px; }
+.sprites.liberia { width: 14px; height: 14px; background-position: -180px -105px; }
+.sprites.libya { width: 14px; height: 14px; background-position: -45px -135px; }
+.sprites.liechtenstein { width: 14px; height: 14px; background-position: -15px -165px; }
+.sprites.lithuania { width: 14px; height: 14px; background-position: -150px -75px; }
+.sprites.luxembourg { width: 14px; height: 14px; background-position: -30px -15px; }
+.sprites.macao { width: 14px; height: 14px; background-position: -15px -45px; }
+.sprites.macau { width: 14px; height: 14px; background-position: -60px 0; }
+.sprites.macedonia { width: 14px; height: 14px; background-position: -150px -15px; }
+.sprites.madagascar { width: 14px; height: 14px; background-position: 0 -195px; }
+.sprites.malawi { width: 14px; height: 14px; background-position: 0 -90px; }
+.sprites.malaysia { width: 14px; height: 14px; background-position: -105px -210px; }
+.sprites.maldives { width: 14px; height: 14px; background-position: -120px -60px; }
+.sprites.mali { width: 14px; height: 14px; background-position: -75px -165px; }
+.sprites.malta { width: 14px; height: 14px; background-position: -135px 0; }
+.sprites.marshallislands { width: 14px; height: 14px; background-position: -135px -180px; }
+.sprites.martinique { width: 14px; height: 14px; background-position: -105px -165px; }
+.sprites.mauritania { width: 14px; height: 14px; background-position: -120px -135px; }
+.sprites.mauritius { width: 14px; height: 14px; background-position: -165px -210px; }
+.sprites.mayottereunionislands { width: 14px; height: 14px; background-position: -165px -30px; }
+.sprites.mexico { width: 14px; height: 14px; background-position: -120px -210px; }
+.sprites.micronesia { width: 14px; height: 14px; background-position: -150px 0; }
+.sprites.moldova { width: 14px; height: 14px; background-position: -60px -135px; }
+.sprites.monaco { width: 14px; height: 14px; background-position: -180px -225px; }
+.sprites.mongolia { width: 14px; height: 14px; background-position: -15px -30px; }
+.sprites.montenegro { width: 14px; height: 14px; background-position: -195px -15px; }
+.sprites.montserrat { width: 14px; height: 14px; background-position: -195px -240px; }
+.sprites.morocco { width: 14px; height: 14px; background-position: -165px -180px; }
+.sprites.mozambique { width: 14px; height: 14px; background-position: -165px -240px; }
+.sprites.myanmar { width: 14px; height: 14px; background-position: -105px -195px; }
+.sprites.myanmarburma { width: 14px; height: 14px; background-position: -90px -255px; }
+.sprites.namibia { width: 14px; height: 14px; background-position: -90px -60px; }
+.sprites.nauru { width: 14px; height: 14px; background-position: -75px -105px; }
+.sprites.nepal { width: 14px; height: 14px; background-position: -90px -210px; }
+.sprites.netherlands { width: 14px; height: 14px; background-position: -45px -240px; }
+.sprites.netherlandsantilles { width: 14px; height: 14px; background-position: -120px -105px; }
+.sprites.newcaledonia { width: 14px; height: 14px; background-position: -150px -225px; }
+.sprites.newzealand { width: 14px; height: 14px; background-position: 0 -240px; }
+.sprites.nicaragua { width: 14px; height: 14px; background-position: -150px -90px; }
+.sprites.niger { width: 14px; height: 14px; background-position: -75px -60px; }
+.sprites.nigeria { width: 14px; height: 14px; background-position: -30px -105px; }
+.sprites.niue { width: 14px; height: 14px; background-position: -120px -165px; }
+.sprites.noflag { width: 14px; height: 14px; background-position: -60px -15px; }
+.sprites.northkorea { width: 14px; height: 14px; background-position: -135px -225px; }
+.sprites.norway { width: 14px; height: 14px; background-position: -45px -75px; }
+.sprites.oman { width: 14px; height: 14px; background-position: -30px -240px; }
+.sprites.pakistan { width: 14px; height: 14px; background-position: -15px 0; }
+.sprites.palau { width: 14px; height: 14px; background-position: -15px -60px; }
+.sprites.palestinianterritory { width: 14px; height: 14px; background-position: 0 -15px; }
+.sprites.panama { width: 14px; height: 14px; background-position: -75px -180px; }
+.sprites.papuanewguinea { width: 14px; height: 14px; background-position: -135px -30px; }
+.sprites.paraguay { width: 14px; height: 14px; background-position: -45px -150px; }
+.sprites.peru { width: 14px; height: 14px; background-position: -45px -255px; }
+.sprites.philippines { width: 14px; height: 14px; background-position: -60px -180px; }
+.sprites.poland { width: 14px; height: 14px; background-position: -195px -75px; }
+.sprites.portugal { width: 14px; height: 14px; background-position: -60px -165px; }
+.sprites.principesaotome { width: 14px; height: 14px; background-position: -30px -225px; }
+.sprites.puertorico { width: 14px; height: 14px; background-position: -90px -105px; }
+.sprites.qatar { width: 14px; height: 14px; background-position: -15px -90px; }
+.sprites.reunionisland { width: 14px; height: 14px; background-position: -165px 0; }
+.sprites.romania { width: 14px; height: 14px; background-position: -105px 0; }
+.sprites.russia { width: 14px; height: 14px; background-position: -195px -45px; }
+.sprites.rwanda { width: 14px; height: 14px; background-position: -45px -210px; }
+.sprites.saintkittsandnevis { width: 14px; height: 14px; background-position: -195px -135px; }
+.sprites.saintlucia { width: 14px; height: 14px; background-position: -150px -165px; }
+.sprites.saintvincentandthegrenadines { width: 14px; height: 14px; background-position: -60px -60px; }
+.sprites.saipan { width: 14px; height: 14px; background-position: -75px -150px; }
+.sprites.saipannorthernmariana { width: 14px; height: 14px; background-position: -90px -180px; }
+.sprites.samoa { width: 14px; height: 14px; background-position: -150px -135px; }
+.sprites.sanmarino { width: 14px; height: 14px; background-position: -120px -255px; }
+.sprites.saotomeandprincipe { width: 14px; height: 14px; background-position: -165px -75px; }
+.sprites.saudiarabia { width: 14px; height: 14px; background-position: -15px -15px; }
+.sprites.senegal { width: 14px; height: 14px; background-position: -105px -75px; }
+.sprites.serbia { width: 14px; height: 14px; background-position: -45px -225px; }
+.sprites.seychelles { width: 14px; height: 14px; background-position: -15px -135px; }
+.sprites.sierraleone { width: 14px; height: 14px; background-position: -30px 0; }
+.sprites.singapore { width: 14px; height: 14px; background-position: -15px -210px; }
+.sprites.slovakia { width: 14px; height: 14px; background-position: -45px -60px; }
+.sprites.slovenia { width: 14px; height: 14px; background-position: -135px -210px; }
+.sprites.solomonislands { width: 14px; height: 14px; background-position: -90px -15px; }
+.sprites.somalia { width: 14px; height: 14px; background-position: -150px -120px; }
+.sprites.southafrica { width: 14px; height: 14px; background-position: -180px -45px; }
+.sprites.southkorea { width: 14px; height: 14px; background-position: -165px -60px; }
+.sprites.spain { width: 14px; height: 14px; background-position: -30px -135px; }
+.sprites.srilanka { width: 14px; height: 14px; background-position: -90px -150px; }
+.sprites.sthelena { width: 14px; height: 14px; background-position: 0 -180px; }
+.sprites.stkittsnevis { width: 14px; height: 14px; background-position: -195px -195px; }
+.sprites.stlucia { width: 14px; height: 14px; background-position: -105px -15px; }
+.sprites.stpierremiquelon { width: 14px; height: 14px; background-position: -60px -255px; }
+.sprites.stvincentgrenadines { width: 14px; height: 14px; background-position: 0 0; }
+.sprites.sudan { width: 14px; height: 14px; background-position: -90px -45px; }
+.sprites.suriname { width: 14px; height: 14px; background-position: -45px -30px; }
+.sprites.swaziland { width: 14px; height: 14px; background-position: 0 -120px; }
+.sprites.sweden { width: 14px; height: 14px; background-position: -180px -60px; }
+.sprites.switzerland { width: 14px; height: 14px; background-position: -195px -105px; }
+.sprites.syria { width: 14px; height: 14px; background-position: -105px -45px; }
+.sprites.taiwan { width: 14px; height: 14px; background-position: 0 -135px; }
+.sprites.tajikistan { width: 14px; height: 14px; background-position: -45px -180px; }
+.sprites.tanzania { width: 14px; height: 14px; background-position: -90px -240px; }
+.sprites.thailand { width: 14px; height: 14px; background-position: -90px -90px; }
+.sprites.togo { width: 14px; height: 14px; background-position: 0 -30px; }
+.sprites.tokelau { width: 14px; height: 14px; background-position: -165px -195px; }
+.sprites.tonga { width: 14px; height: 14px; background-position: -135px -120px; }
+.sprites.trinidadtobago { width: 14px; height: 14px; background-position: -180px -165px; }
+.sprites.tunisia { width: 14px; height: 14px; background-position: 0 -105px; }
+.sprites.turkey { width: 14px; height: 14px; background-position: -180px -150px; }
+.sprites.turkmenistan { width: 14px; height: 14px; background-position: -180px -15px; }
+.sprites.turkscaicosislands { width: 14px; height: 14px; background-position: -195px -60px; }
+.sprites.tuvalu { width: 14px; height: 14px; background-position: -180px -195px; }
+.sprites.uganda { width: 14px; height: 14px; background-position: -165px -150px; }
+.sprites.ukraine { width: 14px; height: 14px; background-position: -90px -225px; }
+.sprites.unitedarabemirates { width: 14px; height: 14px; background-position: -60px -150px; }
+.sprites.unitedkingdom { width: 14px; height: 14px; background-position: -15px -195px; }
+.sprites.unitedstates { width: 14px; height: 14px; background-position: -45px -105px; }
+.sprites.uruguay { width: 14px; height: 14px; background-position: -105px -255px; }
+.sprites.usvirginislands { width: 14px; height: 14px; background-position: -135px -75px; }
+.sprites.uzbekistan { width: 14px; height: 14px; background-position: -30px -195px; }
+.sprites.vanuatu { width: 14px; height: 14px; background-position: 0 -225px; }
+.sprites.vaticancity { width: 14px; height: 14px; background-position: -30px -45px; }
+.sprites.venezuela { width: 14px; height: 14px; background-position: -15px -180px; }
+.sprites.vietnam { width: 14px; height: 14px; background-position: -150px -195px; }
+.sprites.wakeisland { width: 14px; height: 14px; background-position: -60px -195px; }
+.sprites.wallisfutunaislands { width: 14px; height: 14px; background-position: -75px -210px; }
+.sprites.westernsamoa { width: 14px; height: 14px; background-position: 0 -165px; }
+.sprites.yemen { width: 14px; height: 14px; background-position: -90px -195px; }
+.sprites.zambia { width: 14px; height: 14px; background-position: -30px -165px; }
+.sprites.zanzibar { width: 14px; height: 14px; background-position: -135px -45px; }
+.sprites.zimbabwe { width: 14px; height: 14px; background-position: -15px -75px; }
+
+
+
+.hidden {position:absolute; left:10px}
+
+
+/*------18oct------------*/
+.input_new{
+	margin: -4px 0px 0px 0px!important;
+float: left;
+padding: 10px 10px!important;
+width:274px;
+}
+.button_space{
+	margin: -4px 0px 0px 5px;
+}
+#alphabet span{
+	float:left!important;
+	width:20px;
+	padding-left:5px;
+}
+#countries_1 td{
+	 padding: 6px 0 5px 10px!important;
+}

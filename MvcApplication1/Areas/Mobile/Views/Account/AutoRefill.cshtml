@@ -1,0 +1,123 @@
+﻿@model MvcApplication1.Areas.Mobile.ViewModels.AutoRefillViewModel
+@{
+    ViewBag.Title = "AutoRefill";
+    var encPlanPin = @Html.EncodedParameterValue(Model.PlanPin);
+}
+
+
+<div class="container-fluid">
+    <div class="container">
+        <h1 class=" title_login">Enroll to Auto Refill</h1>
+        <h2 class="sub_login">Enroll to Auto-refill and get 10% free mins everytime.</h2>
+        <p class="input_msg">(Offer plans exempted)</p>
+                        
+        <p>Raza's Auto refill is a service provided to our customers that allows us to automatically recharge your account, once your plan balance falls below $2.With Auto Refill, the advantage is you do not have to call us or go on the website to recharge your plan.</p>
+        @if (!string.IsNullOrEmpty(Model.Message))
+        {
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="container">
+                        @Html.MessageBox(Model.Message, Model.MessageType)
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="row">
+            <div class="form-group ">
+                @using (@Html.BeginForm("ActivateAutoRefill", "Account", new { id = encPlanPin }, FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-group ">
+                        <div class="col-xs-12">
+                            <div class="input-group form_mar">
+                                <span class="input-group-addon ">@Html.CurrencySign(Model.CurrencyCode)</span>
+                                @Html.DropDownListFor(a => a.AutoRefillAmount, new SelectList(Model.AutoRefillOptions), "Select amount", new { @class = "form-control" })
+                            </div>
+                            @Html.ValidationMessageFor(a => a.AutoRefillAmount)
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <div class="col-xs-6">
+                            @Html.DropDownListFor(a => a.CreditCardId, new SelectList(Model.UserExistingCards, "CreditCardId", "MaskCardNumber"), "Select card", new { @class = "form-control form_mar " })
+                            @Html.ValidationMessageFor(a => a.CreditCardId)
+                        </div>
+                        <div class="col-xs-6 form_inline">
+                            <h5><a href="@Url.Action("UpdateCard", "Payment", new { returnUrl = Url.Action("AutoRefill", "Account", new { id = encPlanPin }) })">Update New Card</a></h5>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            @Html.TextBoxFor(a => a.Cvv, new { @class = "form-control form_mar ", @placeholder = "Card Verification Value" })
+                            @Html.ValidationMessageFor(a => a.Cvv)
+                        </div>
+                        <div class="col-xs-6 form_inline">
+                            <h5><a href="#" data-toggle="modal" data-target="#cvv_no">
+                                <div class="info_icon"></div>
+                            </a></h5>
+                        </div>
+                    </div>
+                    if (Model.IsAutoRefillActivate)
+                    {
+                    <div class="col-xs-12">
+                        <button type="submit" class="btn btn-primary btn-block form_mar btn_bgreen">Update </button>
+                    </div>
+                    }
+                    else
+                    {
+                    <div class="col-xs-12">
+                        <button type="submit" class="btn btn-primary btn-block form_mar btn_bgreen">Enroll Now </button>
+                    </div>
+                    }
+                }
+                <div class="col-xs-12">
+                    <a href="@Url.Action("Plan", "Account", new { id = encPlanPin })" class="btn btn-primary btn-block form_mar btn_bgray">Cancel</a>
+                </div>
+                @if (Model.IsAutoRefillActivate && !Model.IsDisableAutorefillDeactivate)
+                {
+                    <div class="col-xs-12">
+                        <button type="button" data-toggle="modal" data-target=".deact-autorefill" class="btn btn-primary btn-block form_mar btn_bgray">Deactive Auto Refill</button>
+                    </div>
+
+                    //popup confirmation for deactivate autorefill......
+                    <div class="modal fade demo_dilogbox deact-autorefill" role="dialog" aria-labelledby="gridSystemModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    @using (Html.BeginForm("DeactivateAutoRefiil", "Account", new { id = encPlanPin }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-6">
+                                                    <h4>Are you sure?</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                                            <button type="submit" class="btn btn-primary">Yes</button>
+                                        </div>
+                                    }
+                                </div>
+                                <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                        </div>
+                        <!-- /.modal -->
+                    </div>                    
+                }
+
+
+
+
+
+
+            </div>
+        </div>
+        @RenderPage("~/Areas/Mobile/Views/UiControls/WhatIsCvv.cshtml")
+    </div>
+</div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}

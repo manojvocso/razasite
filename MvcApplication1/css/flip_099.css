@@ -1,0 +1,11 @@
+#flipbox{width:307px;height:44px;background-color:#ffffff;text-align:center;margin:2px 0 0 -16px;float:left;padding:26px 0 0 14px;border-radius:0 0 7px 7px}
+#flipPad{width:301px;float:left}
+#flipPad a{padding:8px 15px;font-weight:bold;float:right;margin-top:-49px;text-decoration:none;float:right;position:relative;margin-top:-47px;text-indent:-9999px;z-index:9999999;width:19px}
+#flipPad .revert{background-color:#ff9000;border:2px solid #ff9000;display:block}
+.downloadBtn{display:block;font-size:2em;margin:0 auto;padding:10px 25px;background:#1e90ff;color:#fff;text-align:center;text-decoration:none;font-family:'ChunkFive Regular',Tahoma,Helvetica;-moz-border-radius:7px;-webkit-border-radius:7px;-moz-box-shadow:1px 1px 2px #999;-webkit-box-shadow:1px 1px 2px #999;-webkit-transition-duration:1s}
+.downloadBtn:hover{background-color:#ff9000}
+.downloadGithub{display:block;text-align:right;margin:3px 3px 25px 0}
+.retweet{margin-top:30px}
+.tweetThis{position:fixed;bottom:0;right:5px;text-decoration:none}
+.tweetThis span{display:none;position:absolute;right:32px;bottom:32px;padding:5px;background:#fff;text-decoration:none;font-weight:bold;font-size:1.2em;border:2px solid #ff9000;white-space:no-wrap}
+.tweetThis:hover span{display:block}

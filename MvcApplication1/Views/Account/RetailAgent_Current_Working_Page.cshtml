@@ -1,0 +1,2097 @@
+﻿@model MvcApplication1.Models.Retail
+<!--<link rel="stylesheet" href="themes/base/jquery.ui.all.css">-->
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js" type="text/javascript"></script>
+<style>
+    #newtabs-1 h6, #newtabs-2 h6, #newtabs-3 h6, #newtabs-4 h6, #newtabs-5 h6, #newtabs-6 h6, #newtabs-7 h6 {
+        background: url(../images/add-white.png) no-repeat scroll 860px 12px #f3f3f3;
+        cursor: pointer;
+        font-size: 17px;
+        font-weight: bold;
+        margin: 65px 0 0 34px !important;
+        padding: 12px 10px;
+    }
+
+    #newtabs-1 h4, #newtabs-2 h4, #newtabs-3 h4, #newtabs-4 h4, #newtabs-5 h4, #newtabs-6 h4, #newtabs-7 h4 {
+        background: #f3f3f3 url(../images/add-white.png) no-repeat 860px 12px;
+        font-family: Arial,Helvetica,sans-serif;
+        cursor: pointer;
+        font-size: 17px;
+        font-weight: bold;
+        margin: 6px 0 0 34px !important;
+        padding: 12px 10px;
+    }
+</style>
+<!--[if lte IE 6]>
+
+<style type='text/css'>
+
+  * html #main, * html #container, #side a, a.trigger, .accordion .inner {height:1%}
+
+  #lenta{height:52px}
+
+</style>
+
+<script type="text/javascript">
+
+    try { document.execCommand( "BackgroundImageCache", false, true); } catch(e) {};
+
+</script>
+
+
+<![endif]-->
+<!--[if lte IE 7]>
+
+    
+
+
+
+
+
+<style type="text/css">
+
+
+
+
+
+
+
+  .accordion .inner {position:static; overflow:visible}
+
+
+
+
+
+
+
+</style>
+
+
+
+
+
+
+
+<![endif]-->
+<!--[if !lt IE 6]><!-->
+<script type="text/javascript" src="@Url.Content("~/Scripts/magicSuggest-1.3.1.min.js")"></script>
+
+<link href="@Url.Content("~/css/retail_agent.css")" rel="stylesheet" />
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.nestedAccordion.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/plan_tabbing.js")"></script>
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/css/skin.css")">
+<script type="text/javascript">
+
+
+
+    function getIDofAccLi(id) {
+
+        if ($("#hid_1_" + id).hasClass("open")) {
+
+            $("#hid_1_" + id).removeClass("open");
+        }
+        else {
+            $("#hid_1_" + id).addClass("open");
+        }
+
+
+        if ($("#hid_2_" + id).hasClass("open")) {
+
+            $("#hid_2_" + id).removeClass("open");
+        }
+        else {
+            $("#hid_2_" + id).addClass("open");
+        }
+
+        if ($("#hid_4_" + id).hasClass("open")) {
+
+            $("#hid_4_" + id).removeClass("open");
+        }
+        else {
+            $("#hid_4_" + id).addClass("open");
+        }
+
+        if ($("#hid_6_" + id).hasClass("open")) {
+
+            $("#hid_6_" + id).removeClass("open");
+        }
+        else {
+            $("#hid_6_" + id).addClass("open");
+        }
+
+        if ($("#hid_7_" + id).hasClass("open")) {
+
+            $("#hid_7_" + id).removeClass("open");
+        }
+        else {
+            $("#hid_7_" + id).addClass("open");
+        }
+
+        if ($("#hid_8_" + id).hasClass("open")) {
+
+            $("#hid_8_" + id).removeClass("open");
+        }
+        else {
+            $("#hid_8_" + id).addClass("open");
+        }
+
+
+
+        var numitems1 = $("ul.toggle1 li.shown").length;
+
+
+
+        for (i = 1; i <= numitems1; i++) {
+
+
+
+            if (i == id) {
+
+
+
+                $('ul.toggle1 #1_' + i).slideToggle(300);
+
+
+
+            }
+
+
+
+        }
+
+        var numitems2 = $("ul.toggle2 li.shown").length;
+
+
+
+        for (i = 1; i <= numitems2; i++) {
+
+
+
+            if (i == id) {
+
+
+
+                $('ul.toggle2 #2_' + i).slideToggle(300);
+
+
+
+            }
+
+        }
+
+        var numitems3 = $("ul.toggle3 li.shown").length;
+
+        for (i = 1; i <= numitems3; i++) {
+
+            if (i == id) {
+
+                $('ul.toggle3 #3_' + i).slideToggle(300);
+
+            }
+
+        }
+
+        var numitems4 = $("ul.toggle4 li.shown").length;
+        for (i = 1; i <= numitems4; i++) {
+            if (i == id) {
+
+                $('ul.toggle4 #4_' + i).slideToggle(300);
+
+
+
+            }
+        }
+
+        var numitems5 = $("ul.toggle5 li.shown").length;
+
+
+
+        for (i = 1; i <= numitems5; i++) {
+
+
+
+            if (i == id) {
+
+
+
+                $('ul.toggle5 #5_' + i).slideToggle(300);
+
+            }
+
+        }
+
+        var numitems6 = $("ul.toggle6 li.shown").length;
+
+
+
+        for (i = 1; i <= numitems6; i++) {
+
+
+
+            if (i == id) {
+
+
+
+                $('ul.toggle6 #6_' + i).slideToggle(300);
+
+            }
+
+        }
+
+        var numitems7 = $("ul.toggle7 li.shown").length;
+
+
+
+        for (i = 1; i <= numitems7; i++) {
+
+
+
+            if (i == id) {
+
+
+
+                $('ul.toggle7 #7_' + i).slideToggle(300);
+
+            }
+
+        }
+
+        var numitems8 = $("ul.toggle8 li.shown").length;
+
+
+
+        for (i = 1; i <= numitems8; i++) {
+
+
+
+            if (i == id) {
+
+
+
+                $('ul.toggle8 #8_' + i).slideToggle(300);
+
+
+            }
+
+        }
+
+        var numitems9 = $("ul.toggle9 li.shown").length;
+
+
+
+        for (i = 1; i <= numitems9; i++) {
+
+
+
+            if (i == id) {
+
+
+
+                $('ul.toggle9 #9_' + i).slideToggle(300);
+
+            }
+
+        }
+        var numitems10 = $("ul.toggle10 li.shown").length;
+
+
+
+        for (i = 1; i <= numitems10; i++) {
+
+
+
+            if (i == id) {
+
+
+
+                $('ul.toggle10 #10_' + i).slideToggle(300);
+
+
+
+            }
+
+        }
+
+    }
+
+</script>
+<script src="@Url.Content("~/Scripts/scripts.js")"></script>
+<script>
+    var userauthenticated = false;
+
+    @{
+        if (User.Identity.IsAuthenticated)
+        {
+            @Html.Raw("userauthenticated = true;");
+        }
+    }
+</script>
+<script>
+
+
+
+    $(function () {
+
+        $("#tabs_support").tabs().addClass("ui-tabs-vertical ui-helper-clearfix");
+
+        $("#tabs_support li").removeClass("ui-corner-top").addClass("ui-corner-left");
+
+    });
+
+    function faq() {
+        $("#ovr_id").removeClass("active");
+        $("#tab15").removeClass("active");
+        $("#tab15").addClass("hide");
+
+        $("#faq_id").addClass("active");
+        $("#tab17").removeClass("hide");
+        $("#tab17").addClass("active");
+
+    }
+
+    function setup() {
+        $("#ovr_id").removeClass("active");
+        $("#tab15").removeClass("active");
+        $("#tab15").addClass("hide");
+
+        $("#setup_id").addClass("active");
+        $("#tab18").removeClass("hide");
+        $("#tab18").addClass("active");
+
+    }
+    function faqn() {
+        $("#over_id").removeClass("active");
+        $("#tab19").removeClass("active");
+        $("#tab19").addClass("hide");
+
+        $("#faq1_id").addClass("active");
+        $("#tab21").removeClass("hide");
+        $("#tab21").addClass("active");
+
+    }
+    function setup1() {
+        $("#over_id").removeClass("active");
+        $("#tab19").removeClass("active");
+        $("#tab19").addClass("hide");
+
+        $("#setup1_id").addClass("active");
+        $("#tab22").removeClass("hide");
+        $("#tab22").addClass("active");
+
+    }
+
+</script>
+<script>
+
+
+
+    jQuery(function ($) {
+
+        $('input.panel').hover(function () {
+
+
+
+            var $target = $($(this).attr('id')),
+
+
+
+                $other = $target.siblings('.active'),
+
+
+
+                animIn = function () {
+
+
+
+                    $target.addClass('active').show().css({
+
+
+
+                        left: +($target.width()) + 200
+
+
+
+                    }).finish().animate({
+
+
+
+                        left: 0
+
+
+
+                    }, 1000);
+
+
+
+                };
+
+            if (!$target.hasClass('active') && $other.length > 0) {
+
+
+
+                $other.each(function (index, self) {
+
+
+
+                    var $this = $(this);
+
+
+
+                    $this.removeClass('active').animate({
+
+
+
+                        left: +$this.width() + 200
+
+
+
+                    }, 1000, animIn);
+
+
+
+                });
+
+
+
+            } else if (!$target.hasClass('active')) {
+
+
+
+                animIn();
+
+
+
+            }
+
+        });
+
+        $(document).click(function (e) {
+
+
+            var $target = $(e.target), $active = $('div.panel.active');
+
+
+            if ($active.length && $target.closest('a.panel').length == 0 && $target.closest($active).length == 0) {
+
+
+                $active.removeClass('active').finish().animate({
+                    left: +$active.width() + 200
+
+
+                }, 1000);
+
+
+            }
+
+
+        });
+
+        $('#right').mouseleave(function () {
+
+
+
+            //alert("akash akash ");
+
+            var $target = $($('input.panel').attr('id'));
+
+            if ($target.hasClass('active')) {
+
+                $target.removeClass('active').finish().animate({
+
+                    left: +$target.width() + 200
+
+                }, 1000);
+
+            }
+
+        });
+
+        $('.submit_login').click(function () {
+
+            //alert("akash akash ");
+
+            var $target = $($('input.panel').attr('id'));
+
+            if ($target.hasClass('active')) {
+
+                $target.removeClass('active').finish().animate({
+
+                    left: +$target.width() + 200
+
+                }, 1000);
+
+            }
+
+        });
+
+    });
+
+</script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/popup_jquery.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/global.js")"></script>
+<script>
+    $(document).ready(function () {
+        $('.nav-tabs > li > a').click(function (event) {
+            event.preventDefault();//stop browser to take action for clicked anchor
+
+            //get displaying tab content jQuery selector
+            var active_tab_selector = $('.nav-tabs > li.active > a').attr('href');
+
+            var active_class = $(active_tab_selector).attr('class');
+            var class_list = active_class.split(" ");
+            $("." + class_list[0]).removeClass('active');
+            $("." + class_list[0]).addClass('hide');
+
+            //find actived navigation and remove 'active' css
+            var actived_nav = $('.nav-tabs > li.active');
+            actived_nav.removeClass('active');
+            //add 'active' css into clicked navigation
+            $(this).parents('li').addClass('active');
+            //hide displaying tab content
+            $(active_tab_selector).removeClass('active');
+            $(active_tab_selector).addClass('hide');
+            //show target tab content
+            var target_tab_selector = $(this).attr('href');
+            $(target_tab_selector).removeClass('hide');
+
+            $(target_tab_selector).addClass('active');
+        });
+
+        /**************************/
+        $('.ui-tabs-nav > li > a').click(function () {
+            var div_li = $(this).attr('href');
+            var active_div = $(div_li + "> div.inner>div>ul>li:first>a").attr('href');
+            $(active_div).addClass('active');
+            $(active_div).removeClass('hide');
+            $(div_li + "> div.inner>div>ul>li:first").addClass('active');
+
+        })
+
+
+    });
+
+</script>
+<script>
+
+    function openwindow() {
+
+        window.open("https://server.iad.liveperson.net/hc/69462672/?cmd=file&file=visitorWantsToChat&site=69462672&referrer=http://www.raza.com",
+
+            "mywindow", "location=1,status=1,scrollbars=1,width=400,height=400");
+
+    }
+
+</script>
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/css/flags.css")" />
+<!-- <msdropdown> -->
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/css/dd_flags.css")" />
+<script src"@Url.Content("~/Scripts/jquery.dd.min.js")"></script>
+<script>
+    $(document).ready(function () {
+        $("#countries, #countries_signup_popup, #countries_searchrates_footer, #countries_tryusfree_footer, #countries_plans").msDropdown();
+    })
+</script>
+
+<script type="text/javascript">
+
+    $(function () {
+
+        var WhereToMove = jQuery("#image1").position().top;
+        jQuery("html,body").animate({ scrollTop: WhereToMove }, 1000);
+
+    });
+
+</script>
+
+<script type="text/javascript">
+    // for tabs
+    $(document).ready(function () {
+
+        $(".container_tabbing").css({ "visibility": "visible" });
+
+    });
+</script>
+
+<!--end header-->
+
+<!--start banner-->
+
+<!--end banner-->
+
+<!--start body container-->
+<div class="slder-bg">
+    <img src="" id="image1" width="991" height="315" />
+</div>
+<div class="body_container">
+
+    <div class="retails_class">
+
+        <ul id="retail-tabs">
+            <li><a href="#newtabs-1 "><span></span><b class="first-icon"></b>Call forwarding </a></li>
+            <li><a href="#newtabs-2"><span></span><b class="second-icon "></b>Global Calling  </a></li>
+            <li><a href="#newtabs-3"><span></span><b class="third-icon"></b>Agent program </a></li>
+            <li><a href="#newtabs-4"><span></span><b class="four-icon"></b>Web affiliate </a></li>
+            <li><a href="#newtabs-5"><span></span><b class="five-icon"></b>One Touch Dial </a></li>
+            <li><a href="#newtabs-6"><span></span><b class="six-icon"></b>Raza Rewards</a></li>
+            <li><a href="#newtabs-7"><span></span><b class="seven-icon"></b>Auto Refill</a></li>
+
+        </ul>
+
+        <div id="newtabs-1" class="newtab-section" style="display: none;">
+
+
+            <ul id="retail-tabs-under">
+                <li><a href="#newtabs-under-1 "><b class="arrow_first"></b>Overview </a></li>
+                <li><a href="#newtabs-under-2"><b class="arrow_second"></b>How it Works  </a></li>
+                <li><a href="#newtabs-under-3"><b class="arrow_third"></b>FAQ</a></li>
+                <li><a href="#newtabs-under-4"><b class="arrow_four"></b>Setup </a></li>
+
+
+            </ul>
+
+            <div id="newtabs-under-1" class="newtab-section-under">
+                <div class="pos-rel">
+
+                    <h3 class="ratail_head_special">Forward your local call and receive it anywhere in the world</h3>
+
+                    <!--<p class="retail_agent_pare"><strong>Raza.com </strong>agent program  will allow you to offer your clients the full suite of our products<br />
+						 while earning some of the most generous commissions in the industry.</p>-->
+                    <div class="retail_global">
+                        <ul style="width: auto;">
+                            <li>Never miss a call when you are away from your home or business.</li>
+                            <li>Forward calls to cell, home, office phones and hotel numbers.</li>
+                            <li>Avoid roaming charges from your primary service provider.</li>
+                            <li>Get your personal 1-800 number.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="clear"></div>
+                <div class="sprator"></div>
+
+
+
+
+
+                <div class="right-panel right-panel-new">
+                    <h3 class="search_heading"><span class="heading">Search Rates</span></h3>
+                    <div class="spacer"></div>
+                    <div class="clear"></div>
+
+                    <div class="retail_callforward">
+                        <script>
+                            var countryid = $("#country-byip").val();
+
+                            function setSelectedIndex(s, valsearch) {
+                                // Loop through all the items in drop down list
+                                for (var i = 0; i < s.options.length; i++) {
+                                    if (s.options[i].value == valsearch) {
+                                        // Item is found. Set its property and exit
+                                        s.options[i].selected = true;
+                                        break;
+                                    }
+                                }
+                                return;
+                            }
+                            setSelectedIndex(document.getElementById("countries"), countryid);
+
+
+                        </script>
+                        <form action="#" method="post" accept-charset="utf-8" class="example_form">
+                            <select name="countries" id="rate-countries" style="width: 54px; float: left; margin: 0px 8px 0px 0px;">
+                                @*       <option value='1' data-image="images/blank.gif" data-imagecss="usa_big" data-title="U.S.A"></option>
+          <option value='2' data-image="images/blank.gif" data-imagecss="canada_big" data-title="Canada"></option>
+          <option value='3' data-image="images/blank.gif" data-imagecss="uk_big" data-title="United Kingdom"></option>*@
+                                @foreach (var item in Model.ListOfFromCountries)
+                                {
+                                    <option value='@item.Id' data-image="images/blank.gif" data-imagecss="@item.ImageClass" data-title="@item.Name"></option>
+                                }
+                            </select>
+
+
+                        </form>
+                        <div id="ms-callforward" class="ms-ctn  ms-ctn-bootstrap-focus" style="width: 259px; float: left; height: 34px; margin-bottom: 15px;">
+                            <div id="ms-trigger-0" class="ms-trigger">
+                                <div class="ms-trigger-ico"></div>
+                            </div>
+                            <div class="ms-helper " style="display: none;"></div>
+                            <div id="ms-sel-ctn-0" class="ms-sel-ctn">
+                                <input id="ms-input-0" type="text" class="" value="Enter the country you wish to call" style="width: 190px;"><input type="hidden" value="[]">
+                            </div>
+                        </div>
+
+                        <script type="text/javascript" charset="utf-8">
+
+                            var jsonData6 = [];
+                            var predata6 = [];
+
+                            $.ajax({
+                                url: "/Account/GetCountryToListFlag/",
+                                type: 'GET',
+                                success: function (data) {
+                                    predata6 = data;
+
+                                    $.each(data, function () {
+                                        jsonData6.push({ id: this.Id, name: this.CountryFlag, Code: this.CountCode, dt: this.Name, status: 'Already visited' });
+                                    });
+
+                                    var mscallforward = $('#ms-callforward').magicSuggest({
+                                        data: jsonData6,
+                                        resultAsString: true,
+                                        maxSelection: 1,
+
+                                        maxSelectionRenderer: function () {
+                                        }
+                                    });
+
+
+                                    $(mscallforward).on('selectionchange', function (event, selection) {
+                                        var selected = mscallforward.getSelectedItems();
+                                        var countryto = selected[0].id;
+                                        var countryfrom = $("#rate-countries").val();
+
+                                        window.location.href = "/Rate/SearchRate?countryfrom=" + countryfrom + "&countryto=" + countryto + "";
+                                    });
+                                }
+                            });
+                        </script>
+                    </div>
+
+
+
+                    <div class="spacer"></div>
+                    <div class="sprator"></div>
+                    <div class="clear"></div>
+                    <div class="width_percent">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <a class="features_bottom_link" href="@Url.Action("MyAccount", "Account")">New Customer? Signup Now </a>
+                        }
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <a href="@Url.Action("LogOn", "Account")" class="features_bottom_link">New Customer? Signup Now </a>
+                        }
+                        &nbsp;&nbsp;&nbsp;&nbsp; <a href="@Url.Action("MyAccount", "Account")" class="features_bottom_link">Existing Customer?Add/edit call Forwarding</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="newtabs-under-2" class="newtab-section-under">
+                <div class="pos-rel">
+                    <div class="call_forward">
+                        <h3>Hear are some methods you can use to get your calls:</h3>
+                        <ul>
+                            <li>Enter your phone number, the destination phone number of where your will be at.</li>
+                            <li>The start date and end date of the time period you would like to receive call.</li>
+                            <li>Simply give out your 1-800 number to your family and friends.</li>
+                            <li>Set-up your cell/home/office phone to forward your calls to the 1-800 number itself.</li>
+                            <li>Now you will receive your calls to the destination number given.</li>
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div id="newtabs-under-3" class="newtab-section-under">
+                <div class="pos-rel">
+                    <ul id="acc1" class="accordion toggle1">
+                        <li class="shown" onclick="getIDofAccLi(1)">
+                            <h6 class="h trigger" id="hid_1_1">What is the Call Forwarding feature?</h6>
+                            <div class="outer" id="1_1" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>The Call Forwarding feature allows you to have your family, friends and co-workers reach you on any phone, anywhere in the world. Now you can travel anywhere in the world and not miss those important calls! </p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="shown" onclick="getIDofAccLi(2)">
+                            <h4 class="h trigger" id="hid_1_2">How does Call Forwarding work?</h4>
+                            <div class="outer" id="1_2" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>Let's say you're going overseas to India. Just let us know the hotel, mobile or relatives phone number in India you would like to be reached at. Then we will provide you with your own personal toll-free number that when dialed from USA or Canada it will automatically ring to your designated number in India. All you have to do is give out your personal toll-free number to your family, friends & co-workers. It's as simple as 123! And if you want to make sure you don't miss any calls, just forward your home, mobile and/or office phone to your personal toll-free number and all your calls will be directed to your designated number in India. It's as simple as 123.</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="shown" onclick="getIDofAccLi(3)">
+                            <h4 class="h trigger" id="hid_1_3">What is my personal toll-free number?</h4>
+                            <div class="outer" id="1_3" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>Your personal toll-free number is an 800/866/877 number specifically assigned to you. When this number is dialed from USA or Canada, it will ring to any number in the world you chose. </p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="shown" onclick="getIDofAccLi(4)">
+                            <h4 class="h trigger" id="hid_1_4">Can I change the number I want to be reached at?</h4>
+                            <div class="outer" id="1_4" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>The number where you would like to be reached can be changed anytime you chose. Just login to our website and just change the number you would like to be reached at.</p>
+                                </div>
+                            </div>
+
+
+                        </li>
+
+                        <li class="shown" onclick="getIDofAccLi(5)">
+                            <h4 class="h trigger" id="hid_1_5">When does the Call Forwarding feature become active?</h4>
+                            <div class="outer" id="1_5" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>The Call Forwarding feature is activated the second you purchase and setup the number you would like to be reached at.</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="shown" onclick="getIDofAccLi(6)">
+                            <h4 class="h trigger" id="hid_1_6">What is my custom itinerary?</h4>
+                            <div class="outer" id="1_6" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>If you will be traveling to many destinations and would like to have you Call Forwarding number ring to all your different destinations, just setup a custom itinerary. The custom itinerary allows you to have your destination number change based on your travel dates and the phone number you would like to be reached at. As an example, let's say you will be traveling to London from the 1st of the month till the 7th and from there you will be in India from the 8th till the 15th. You can setup your custom itinerary to have your calls ring to your number in London from the 1st till the 7th and then have you calls ring to you in India from the 8th till the 15th.</p>
+                                </div>
+                            </div>
+                        </li>
+
+
+                        <li class="shown" onclick="getIDofAccLi(7)">
+                            <h4 class="h trigger" id="hid_1_7">What if I don't know the number I want to be reached at?</h4>
+                            <div class="outer" id="1_7" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>No problem! When you arrive to your traveling destination and know what number you want to be reached at. Just login to our website and setup your number at that time. </p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="shown" onclick="getIDofAccLi(8)">
+                            <h4 class="h trigger" id="hid_1_8">Do my friends, family and co-workers get charged for calling me?</h4>
+                            <div class="outer" id="1_8" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>Absolutely not! Your family, friends and co-workers will not be charged for your Call Forwarding feature no matter where you travel in the world! Note: Not responsible for charges applied to calling party by their provider for dialing toll-free number. </p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="shown" onclick="getIDofAccLi(9)">
+                            <h4 class="h trigger" id="hid_1_9">What if I run out of balance while I am away?</h4>
+                            <div class="outer" id="1_9" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>You will never run out of your minutes if you enroll your plan to auto-refill however if you choose not to enroll then please visit our website to recharge or chat with us from any country to recharge your account.</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="shown" onclick="getIDofAccLi(10)">
+                            <h4 class="h trigger" id="hid_1_10">How do I forward my calls to my personal toll-free number?</h4>
+                            <div class="outer" id="1_10" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>Each mobile provider as well as home and office phone providers have their own way of forwarding calls. Please contact your phone providers to find out how you can forward your calls to the personal toll-free number that is provided to you when you purchase the Call Forwarding feature.</p>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+
+
+                </div>
+            </div>
+
+            <div id="newtabs-under-4" class="newtab-section-under">
+                <div class="pos-rel">
+                    <div class="call_forward_apply">
+                        <ul>
+                            <li><a href="#" class="features_all_link">Login</a> to your my account page. </li>
+                            <li><a href="#" class="features_all_link">Click</a> on the <a href="#" class="features_all_link">Edit button</a> under the Call forwarding option against your plan. </li>
+                            <li>Enter the destination phone number you wish to forward your calls to.</li>
+                            <li><strong>Option1.</strong> Forward your calls to the 1-800 number provided upon submit. </li>
+                            <li><strong>Option2.</strong> share the 1-800 number directly with your family and friends.</li>
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <div id="newtabs-2" class="newtab-section" style="display: none;">
+
+
+            <ul id="global_call">
+                <li><a href="#newtabs-under-5 "><span></span><b class="first-icon"></b>Overview </a></li>
+                <li><a href="#newtabs-under-6"><span></span><b class="second-icon "></b>How it Works  </a></li>
+                <li><a href="#newtabs-under-7"><span></span><b class="third-icon"></b>FAQ</a></li>
+                <li><a href="#newtabs-under-8"><span></span><b class="four-icon"></b>Setup </a></li>
+
+            </ul>
+
+            <div id="newtabs-under-5" class="global_call-under">
+                <div class="clear"></div>
+                <div class="pos-rel">
+
+                    <h3 class="pin_overview">Call from over 20 different countries!!</h3>
+
+                    <!--<p class="retail_agent_pare"><strong>Raza.com </strong>agent program  will allow you to offer your clients the full suite of our products<br />
+						 while earning some of the most generous commissions in the industry.</p>-->
+                    <div class="retail_global">
+                        <ul>
+                            <li>No need to look for International calling cards anymore.</li>
+                            <li>No internet access needed.</li>
+                            <li>Avoid huge bills from your phone service provider.</li>
+                            <li>Connect your family and friends while you are on vacation.</li>
+                            <li>Avoid huge bills from your phone service provider.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="spacer"></div>
+                <div class="spacer"></div>
+                <div class="clear"></div>
+                <div class="sprator"></div>
+
+                <div class="right-panel right-panel-new">
+                    <h3 class="search_heading"><span style="margin-top: 10px; margin-left: 160px; position: absolute">Search Rates</span></h3>
+                    <div class="spacer"></div>
+                    <div class="clear"></div>
+
+                    <div class="retail_globalcall">
+                        <form action="#" method="post" accept-charset="utf-8" class="example_form">
+                            <select name="countries" id="retail-global-countries" style="width: 54px; float: left; margin: 0px 8px 0px 0px;">
+                                @*  <option value='1' data-image="images/blank.gif" data-imagecss="usa_big" data-title="U.S.A"></option>
+          <option value='2' data-image="images/blank.gif" data-imagecss="canada_big" data-title="Canada"></option>
+          <option value='3' data-image="images/blank.gif" data-imagecss="uk_big" data-title="United Kingdom"></option>*@
+                                @foreach (var item in Model.ListOfFromCountries)
+                                {
+                                    <option value='@item.Id' data-image="images/blank.gif" data-imagecss="@item.ImageClass" data-title="@item.Name"></option>
+                                }
+                            </select>
+
+
+                        </form>
+
+
+                        <div id="ms-global" class="ms-ctn  ms-ctn-bootstrap-focus" style="width: 260px; float: left; height: 34px; margin-bottom: 15px;">
+                            <div id="ms-trigger-0" class="ms-trigger">
+                                <div class="ms-trigger-ico"></div>
+                            </div>
+                            <div class="ms-helper " style="display: none;"></div>
+                            <div id="ms-sel-ctn-0" class="ms-sel-ctn">
+                                <input id="ms-input-0" type="text" class="" value="Enter the country you wish to call" style="width: 190px;"><input type="hidden" value="[]">
+                            </div>
+                        </div>
+                        <script type="text/javascript" charset="utf-8">
+
+                            var jsonData6 = [];
+                            var predata6 = [];
+
+                            $.ajax({
+                                url: "/Account/GetCountryToListFlag/",
+                                type: 'GET',
+                                success: function (data) {
+                                    predata6 = data;
+
+                                    $.each(data, function () {
+                                        jsonData6.push({ id: this.Id, name: this.CountryFlag, Code: this.CountCode, dt: this.Name, status: 'Already visited' });
+                                    });
+
+                                    var msglobal = $('#ms-global').magicSuggest({
+                                        data: jsonData6,
+                                        resultAsString: true,
+                                        maxSelection: 1,
+
+                                        maxSelectionRenderer: function () {
+                                        }
+                                    });
+
+
+                                    $(msglobal).on('selectionchange', function (event, selection) {
+                                        var selected = msglobal.getSelectedItems();
+                                        var countryto = selected[0].id;
+                                        var countryfrom = $("#retail-global-countries").val();
+
+                                        window.location.href = "/Rate/SearchRate?countryfrom=" + countryfrom + "&countryto=" + countryto + "";
+                                    });
+                                }
+                            });
+                        </script>
+                        <script>
+                            var countryid = $("#country-byip").val();
+
+                            function setSelectedIndex(s, valsearch) {
+                                // Loop through all the items in drop down list
+                                for (var i = 0; i < s.options.length; i++) {
+                                    if (s.options[i].value == valsearch) {
+                                        // Item is found. Set its property and exit
+                                        s.options[i].selected = true;
+                                        break;
+                                    }
+                                }
+                                return;
+                            }
+                            setSelectedIndex(document.getElementById("rate-countries"), countryid);
+                            setSelectedIndex(document.getElementById("retail-global-countries"), countryid);
+
+                        </script>
+                    </div>
+
+
+
+                    <div class="spacer"></div>
+                    <div class="sprator"></div>
+                    <div class="clear"></div>
+                    <div class="width_percent">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <a class="features_bottom_link" href="@Url.Action("MyAccount", "Account")">New Customer? Signup Now  </a>
+                        }
+                        @if (!User.Identity.IsAuthenticated)
+                        { 
+                            <a href="@Url.Action("logon", "Account")" class="features_bottom_link">New Customer? Signup Now  </a>
+                              
+                        }
+                        &nbsp;&nbsp;&nbsp;&nbsp; <a href="@Url.Action("MyAccount", "Account")" class="features_bottom_link">Existing Customer?Recharge Now</a>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+            <div id="newtabs-under-6" class="global_call-under">
+                <div class="pos-rel">
+                    <div class="globalcall">
+                        <p style="font-size: 15px;">Using our Global call feature is simple and easy .If you are a USA or Canada customer travelling abroad, calling back to your home country or any other country in the world has never been easy. You need not look for an international calling card anymore. </p>
+                        <h3>Please follow these steps..</h3>
+                        <ul>
+                            <li>Dial the Raza Toll free or local access number (if available).</li>
+                            <li>Up on prompt enter your pin number or authorization code.</li>
+                            <li>Enter the international code + country code+ phone number + # key.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="newtabs-under-7" class="global_call-under">
+                <div class="pos-rel">
+                    <ul id="acc1" class="accordion toggle1">
+                        <li class="shown" onclick="getIDofAccLi(11)">
+                            <h6 class="h trigger" id="hid_1_11">How do I setup global calling feature to my account?</h6>
+                            <div class="outer" id="1_11" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>Please call our 24/7 customer service to setup the global calling feature. It will take not take     more than 2 minutes</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="shown" onclick="getIDofAccLi(12)">
+                            <h4 class="h trigger" id="hid_1_12">Can I use the same pin from any country listed under Global calling?</h4>
+                            <div class="outer" id="1_12" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>Yes, the pin number will remain the same; however your access number changes when you move from country to country.</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="shown" onclick="getIDofAccLi(13)">
+                            <h4 class="h trigger" id="hid_1_13">How soon can I start making calls once I set up this feature?</h4>
+                            <div class="outer" id="1_13" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>Immediately!</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="shown" onclick="getIDofAccLi(14)">
+                            <h4 class="h trigger" id="hid_1_14">Where can I find the rates for this feature?</h4>
+                            <div class="outer" id="1_14" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>Check our rates online by visiting our website, to view the rates for this feature </p>
+                                </div>
+                            </div>
+
+
+                        </li>
+
+                        <li class="shown" onclick="getIDofAccLi(15)">
+                            <h4 class="h trigger" id="hid_1_15">Can I recharge my account using any credit card?</h4>
+                            <div class="outer" id="1_15" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>We accept all major credit cards; however the card should be issued by USA or CANADA banks only.</p>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+
+
+                </div>
+            </div>
+
+            <div id="newtabs-under-8" class="global_call-under">
+                <div class="pos-rel">
+                    <div class="globalcall_country">
+                        <form method="POST" id="global-call-setup" action="@Url.Action("GlobalCallSetup","Account")">
+                        <div class="globalcall_countryleft">
+                            <select name="CallingFrom" class="global_select" id="global-setupfrom">
+                                <option value="" selected="selected">Calling From Country</option>
+                                <option value="1" selected="selected">U.S.A</option>
+                                <option value="2" selected="selected">Canada</option>
+                            </select>
+                        </div>
+
+                        <div class="globalcall_countryright">
+                            <select name="CallingTo" class="global_select" id="global-setupto">
+                                <option selected="selected" value="">Calling To Country</option>
+                                @foreach (var item in Model.CountryListTo)
+                                {
+                                    <option value="@item.Id">@item.Name</option> 
+                                }
+                            </select>
+                        </div>
+
+
+                        <div class="globe_div">
+                            <img src="@Url.Content("~/images/img_country_codes.png")" alt="" />
+                            <p id="global-setup-msg" style="display: none; color: red;"><strong>Please select Calling From and Calling To country.</strong></p>
+                        </div>
+
+                        <a style="cursor: pointer;margin-top:10px;" class="country_sub_btn" onclick="return validateglobalsetup();"></a>
+                            @*<input type="submit" class="country_sub_btn"/>*@
+                            <script>
+                                function validateglobalsetup() {
+                                    var cfrom = $("#global-setupfrom").val();
+                                    var cto = $("#global-setupto").val();
+                                    if (cfrom == "" || cto == "") {
+                                        $("#global-setup-msg").css("display", "");
+                                        return false;
+                                    }
+                                    document.getElementById('global-call-setup').submit();
+                                    return true;
+                                }
+                            </script>
+                            </form>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+
+
+        @RenderPage("../Account/Agent/Retail_signup.cshtml")
+
+        <div id="newtabs-4" class="newtab-section" style="display: none;">
+
+            <ul id="web-affiliate">
+
+                <li><a href="#newtabs-under-13"><b class="arrow_first"></b>Overview </a></li>
+                <li><a href="#newtabs-under-14"><b class="arrow_second"></b>How it Works </a></li>
+                <li><a href="#newtabs-under-15"><b class="arrow_third"></b>FAQ</a></li>
+                <li><a href="#newtabs-under-16"><b class="arrow_four"></b>Apply </a></li>
+            </ul>
+
+
+            <div id="newtabs-under-13" class="web-affiliate-under">
+
+
+                @RenderPage("../Account/Agent/AgentSignUp.cshtml")
+
+            </div>
+
+            <div id="newtabs-under-14" class="web-affiliate-under">
+                <div class="clear"></div>
+                <div class="pos-rel">
+                    <div class="retail_second">
+                        <ul>
+                            <li>When you register for our program (it's free!), you'll get your own unique affiliate link that you can use to promote Raza Communications.</li>
+                            <li>when someone that you referred buys from us, you'll automatically get credited with the commission!</li>
+                            <li>With most other affiliate programs, your customer has to buy within 30 days for you to receive a commission on a purchase, but with Raza, if  buys from us anytime within the next 6 months!, our affiliate program tracks this and gives you credit for the sale.</li>
+                            <li>A  great way to bring in real income every month.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="newtabs-under-15" class="web-affiliate-under">
+                <div class="pos-rel">
+                    <ul id="acc1" class="accordion toggle1">
+                        <li class="shown" onclick="getIDofAccLi(21)">
+                            <h6 class="h trigger" id="hid_1_21">What is an Affiliate Program?</h6>
+                            <div class="outer" id="1_21" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>An Affiliate Program allows you to place links to our products on your web site. By placing these links, visitors to your site have the opportunity to buy products. If a product is purchased by one of your visitors through our web sites, we pay you a commission for each sale </p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="shown" onclick="getIDofAccLi(22)">
+                            <h4 class="h trigger" id="hid_1_22">Why should I join?</h4>
+                            <div class="outer" id="1_22" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>There are many reasons to join. Becoming an Affiliate is free, and you will have the opportunity to increase your revenue potential with very little effort. As an Affiliate, you can add value to the content of your site. </p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="shown" onclick="getIDofAccLi(23)">
+                            <h4 class="h trigger" id="hid_1_23">How do I sign up?</h4>
+                            <div class="outer" id="1_23" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>First, you must read and accept our Affiliate Application. After your application is submitted, we will contact you to let you know if you've been accepted as an Affiliate, and we will provide you with information on how to get started.  </p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="shown" onclick="getIDofAccLi(24)">
+                            <h4 class="h trigger" id="hid_1_24">How does the program work?</h4>
+                            <div class="outer" id="1_24" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>An Affiliate Program allows you to make money by referring customers to our web sites. You do this by placing links on your site. Every time you refer a customer to one of our sites, and that customer makes a purchase, you earn a commission. Every month, during which you have earned more than $25, we send you a check for a percentage of the sales you referred to our site. </p>
+                                </div>
+                            </div>
+
+
+                        </li>
+
+                        <li class="shown" onclick="getIDofAccLi(25)">
+                            <h4 class="h trigger" id="hid_1_25">Does it cost anything to become an Affiliate?</h4>
+                            <div class="outer" id="1_25" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>No. It's absolutely free to join our Affiliate Program. There is no charge to apply and there is no minimum sales requirement. </p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="shown" onclick="getIDofAccLi(26)">
+                            <h4 class="h trigger" id="hid_1_26">What are my responsibilities as an Affiliate?</h4>
+                            <div class="outer" id="1_26" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>The only thing you are responsible for is using the Get Links feature in your Commission Junction Account Manager to retrieve your desired Raza.Com links and post them on your site. We handle everything else. </p>
+                                </div>
+                            </div>
+                        </li>
+
+
+
+                        <li class="shown" onclick="getIDofAccLi(27)">
+                            <h4 class="h trigger" id="hid_1_27">Can I use the Raza.Com name and logo on my web site?</h4>
+                            <div class="outer" id="1_27" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p><strong>Yes!</strong> Users want to know they are buying from a company they can trust. But you cannot alter our logo in any way. </p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="shown" onclick="getIDofAccLi(28)">
+                            <h4 class="h trigger" id="hid_1_28">Can I use your content on my site?</h4>
+                            <div class="outer" id="1_28" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>As an Affiliate, you may take advantage of the wealth of content on our site, promotional banners. Use this valuable content on your site to enhance your selling areas and provide even greater value to your users. Content that is clearly marked with copyright notice from a third party other than Raza.Com cannot be used on your site.   </p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="shown" onclick="getIDofAccLi(29)">
+                            <h4 class="h trigger" id="hid_1_29">How do I check my account information?</h4>
+                            <div class="outer" id="1_29" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>You can manage all your account settings in your Commission Junction Account Manager. Here you can update most of your account information, such as e-mail address, mailing and pay to address, and user name/password.   </p>
+                                </div>
+                            </div>
+                        </li>
+
+
+
+                        <li class="shown" onclick="getIDofAccLi(30)">
+                            <h4 class="h trigger" id="hid_1_30">Will becoming an Affiliate increase traffic to my site?</h4>
+                            <div class="outer" id="1_30" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>Our Affiliate Program is a revenue-sharing program. It is not designed to help you increase traffic to your site; however, it enhances your site with content, so your user return rate may be higher.   </p>
+                                </div>
+                            </div>
+                        </li>
+
+
+
+                        <li class="shown" onclick="getIDofAccLi(31)">
+                            <h4 class="h trigger" id="hid_1_31">How can I contact you if I still have questions?</h4>
+                            <div class="outer" id="1_31" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>
+                                        If you still have questions about the Raza.Com Affiliate Program, please contact us at
+                                    </p>
+                                    <img  src="@Url.Content("~/images/us-flag.png")">
+                                    <div style="margin-left: 142px; margin-top: -22px;">
+                                        <img  alt="Canada" src="@Url.Content("~/images/ca-flag.png")" /><div>1-416-848-0234</div>
+                                    </div>
+                                    <img alt="UK" src="@Url.Content("~/images/uk-flag.png")" >
+                                    0808-234-7012
+								
+                                </div>
+                            </div>
+                        </li>
+
+
+                        <li class="shown" onclick="getIDofAccLi(32)">
+                            <h4 class="h trigger" id="hid_1_32">I operate more than one web site. Can I still be an Affiliate?</h4>
+                            <div class="outer" id="1_32" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p><strong>Yes,</strong> You can have multiple sites as an Affiliate. You can have one Affiliate account with us that will include all of your sites. You can track the progress of each of your sites separately and be paid with only one commission check.    </p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="shown" onclick="getIDofAccLi(33)">
+                            <h4 class="h trigger" id="hid_1_33">I'm a customer. Can my web site be an Affiliate?</h4>
+                            <div class="outer" id="1_33" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p><strong>Yes,</strong>  We particularly encourage our customers to become Raza.Com affiliates. Affiliate commissions are separate from your Rewards points.      </p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="shown" onclick="getIDofAccLi(34)">
+                            <h4 class="h trigger" id="hid_1_34">Is my web site eligible to become an Affiliate?</h4>
+                            <div class="outer" id="1_34" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>Most sites will qualify to participate in the program. Anyone may submit an application, but we do reserve the right to refuse membership to a site or revoke a site's membership at any time if we deem that it contains objectionable content or images.</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="shown" onclick="getIDofAccLi(35)">
+                            <h4 class="h trigger" id="hid_1_35">I don't have a web site. Can I still apply?</h4>
+                            <div class="outer" id="1_35" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>Unfortunately, you must have a web site to become a Raza.Com affiliate. In order for us to accept you as an Affiliate, we must be able to view your web site.    </p>
+                                </div>
+                            </div>
+                        </li>
+
+
+
+                        <li class="shown" onclick="getIDofAccLi(36)">
+                            <h4 class="h trigger" id="hid_1_36">Can I participate in other affiliate programs?</h4>
+                            <div class="outer" id="1_36" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>you can also have links to other affiliate partners on your site.   </p>
+                                </div>
+                            </div>
+                        </li>
+
+
+
+                        <li class="shown" onclick="getIDofAccLi(37)">
+                            <h4 class="h trigger" id="hid_1_37">How do I create links?</h4>
+                            <div class="outer" id="1_37" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>In your Commission Junction Account Manager, you will use the Get Links feature to access Wiley links. If the link and/or banner art you're looking for isn't here, then you can contact <strong>affiliates@raza.com</strong>  and we will provide you with more options. </p>
+                                </div>
+                            </div>
+                        </li>
+
+
+
+                        <li class="shown" onclick="getIDofAccLi(38)">
+                            <h4 class="h trigger" id="hid_1_38">Where should I place the links on my site?</h4>
+                            <div class="outer" id="1_38" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>You should place links where they are easy for your site visitors to find, such as on your home page and any other high-traffic areas. If you place the links in an easily accessible location on your site, your visitors will be more likely to make a purchase. </p>
+                                </div>
+                            </div>
+                        </li>
+
+
+                        <li class="shown" onclick="getIDofAccLi(39)">
+                            <h4 class="h trigger" id="hid_1_39">How often should I update my links?</h4>
+                            <div class="outer" id="1_39" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>You should update links to our products frequently. We are constantly adding new products, so you should create new links that fit the interests of your visitors.   </p>
+                                </div>
+                            </div>
+                        </li>
+
+
+
+
+                    </ul>
+
+
+                </div>
+            </div>
+
+            <div id="newtabs-under-16" class="web-affiliate-under">
+
+                @RenderPage("../Account/Agent/WebSignUpApply.cshtml")
+
+            </div>
+
+
+
+
+
+        </div>
+        <div id="newtabs-5" class="newtab-section" style="display: none;">
+
+            <ul id="one-touch">
+
+                <li><a href="#newtabs-under-17"><b class="arrow_first"></b>Overview </a></li>
+                <li><a href="#newtabs-under-18"><b class="arrow_second"></b>How it Works  </a></li>
+                <li><a href="#newtabs-under-19"><b class="arrow_third"></b>FAQ</a></li>
+                <li><a href="#newtabs-under-20"><b class="arrow_four"></b>Setup </a></li>
+            </ul>
+
+
+            <div id="newtabs-under-17" class="one-touch-under">
+
+                <div class="pos-rel">
+                    <h3 class="otd_overview">Call any international number with the touch of a button!!! </h3>
+                    <div class="pos-rel">
+
+                        <div class="retail_global">
+                            <ul>
+                                <li>It's FREE.</li>
+                                <li>As easy as making a local call.</li>
+                                <li>Save a considerable amount of Time and Effort.</li>
+                                <li>Choose from a huge database of access numbers.</li>
+                                <li>Call any country in the world using this feature.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="spacer"></div>
+                    <div class="sprator"></div>
+                    <div class="clear"></div>
+                    <!--<div class="left-panel">
+                        <h3>How it Works?</h3>
+                        <strong class="left-panel-para" >Works just like making a local call.</strong>
+                        <div class="clear"></div>
+                        <ul>
+                          <li>Assign One Touch Dial number to your destination phone number.</li>
+                          <li>Dial the One Touch Dial number saved in your contact list.</li>
+                          <li>Just make sure to call from a phone that is registered with us.
+                            
+                            
+                            
+                            The rest will be taken care by Raza, Just keep talking. </li>
+                        </ul>
+                      </div>-->
+                    <div class="right-panel right-panel-new">
+                        <h3>Setup</h3>
+                        <ul>
+                            <li class="ui-corner-left">Login to your <a href="@Url.Action("MyAccount", "Account")" class="features_all_link">My Account</a> page.</li>
+                            <li class="ui-corner-left">Click on the Edit button under the One Touch Dial option.</li>
+                            <li class="ui-corner-left">Select your One Touch Dial number</li>
+                            <li class="ui-corner-left">Save and select the One Touch Dial number to reach your destination number directly.</li>
+                        </ul>
+                    </div>
+                    <div class="spacer"></div>
+                    <div class="sprator"></div>
+                    <div class="clear"></div>
+
+
+                    <div class="width_percent">
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <a href="@Url.Action("Logon", "Account")" class="features_bottom_link">New Customer? Signup Now </a>
+                        }
+                        <a href="@Url.Action("MyAccount", "Account")" class="features_bottom_link">Existing Customer? View/Edit One touch dial.</a>
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+
+            <div id="newtabs-under-18" class="one-touch-under">
+                <div class="clear"></div>
+                <div class="pos-rel">
+                    <div class="retail_second">
+                        <h3 class="onetouch_heading">Works just like making a local call.</h3>
+                        <ul>
+                            <li>Assign One Touch Dial number to your destination phone number.</li>
+                            <li>Dial the One Touch Dial number saved in your contact list.</li>
+                            <li>Just make sure to call from a phone that is registered with us.
+                          The rest will be taken care by Raza, Just keep talking.
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="newtabs-under-19" class="one-touch-under">
+                <div class="pos-rel">
+                    <ul id="acc1" class="accordion toggle1">
+                        <li class="shown" onclick="getIDofAccLi(40)">
+                            <h6 class="h trigger" id="hid_1_40">How can I make a call using the One Touch Dialing feature?</h6>
+                            <div class="outer" id="1_40" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>
+                                        It's as easy as local calling!!<br>
+                                        Make sure you are calling from a phone registered with us.<br />
+                                        <br />
+                                        Just Pick-Up your phone and dial the local # corresponding to your friend's name that you had saved in your phone
+                                        <br />
+                                        <br />
+                                        The rest will be taken care by Raza..Just Keep Talking.<br />
+                                        <br />
+                                        (Once you dial the One Touch # from your phone, our system recognizes your account and connects the call appropriately to the pre-assigned destination number).
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="shown" onclick="getIDofAccLi(41)">
+                            <h4 class="h trigger" id="hid_1_41">Does One Touch Dialing feature work with all service providers?</h4>
+                            <div class="outer" id="1_41" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>Yes. If your phone service provider supports caller ID. Some internet phone service providers like Skype for example, do not provide its users with caller ID for outbound calls. In this case you would need to use your account's PIN number that could be provided to you on request upon activation of your account based on the plan purchased.</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="shown" onclick="getIDofAccLi(42)">
+                            <h4 class="h trigger" id="hid_1_42">How can I place an international call from my phone to a number that is not set up for One Touch Dialing?</h4>
+                            <div class="outer" id="1_42" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>After you sign up, you can start making international calls from any of the registered phone right away,i.e using any other Raza access Numbers that is not setup for One Touch Dialing. Our system recognizes your phone and automatically would prompt you to dial the destination number. After being prompted, </p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="shown" onclick="getIDofAccLi(43)">
+                            <h4 class="h trigger" id="hid_1_43">Can I use "One Touch Dial" if my caller ID is blocked?</h4>
+                            <div class="outer" id="1_43" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>Yes!. If you are saving <strong>'One Touch Dial'</strong> Number into your phone's memory you have to save it with *82 in front of it (*82 646 xxx yyyy). Caller ID of your phone will still be blocked if you are placing any other calls.</p>
+                                </div>
+                            </div>
+
+
+                        </li>
+
+                        <li class="shown" onclick="getIDofAccLi(44)">
+                            <h4 class="h trigger" id="hid_1_44">Can I use One Touch Dialing to call any country in the world? </h4>
+                            <div class="outer" id="1_44" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>You can make calls to absolutely any country in the world using your <strong>Raza.Com service</strong>. Make sure you select the appropriate country in the drop down provided while setting up your One Touch Dialing. You can check the rates for any specific country by <a href="#">clicking here.</a> </p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="shown" onclick="getIDofAccLi(45)">
+                            <h4 class="h trigger" id="hid_1_45">How many One Touch Dialing numbers can I register?</h4>
+                            <div class="outer" id="1_45" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>You can register as many One Touch Dialing numbers as you prefer in your account..  </p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="shown" onclick="getIDofAccLi(46)">
+                            <h4 class="h trigger" id="hid_1_46">How soon can I start using the service after setting up the One Touch Dialing?</h4>
+                            <div class="outer" id="1_46" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>Instantly! </p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="shown" onclick="getIDofAccLi(47)">
+                            <h4 class="h trigger" id="hid_1_47">Is my plan eligible for activating the One touch Dialing feature?</h4>
+                            <div class="outer" id="1_47" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>Yes! All of our plans are eligible for activation of this One Touch Dialing feature as an introductory promotion. </p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="shown" onclick="getIDofAccLi(48)">
+                            <h4 class="h trigger" id="hid_1_48">Do I get charged anything extra to avail this feature?</h4>
+                            <div class="outer" id="1_48" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>No. This new value adding feature is offered to all the Raza.Com customers for better convenience at no cost . </p>
+                                </div>
+                            </div>
+                        </li>
+
+
+
+
+
+                    </ul>
+
+
+                </div>
+            </div>
+
+            <div id="newtabs-under-20" class="one-touch-under">
+                <div class="pos-rel">
+                    <div class="how-page include_mar_2">
+                        <img alt="" src="@Url.Content("~/images/steps-img.jpg")"><div class="clear"></div>
+                        <div class="spacer"></div>
+                        <div class="spacer"></div>
+                        <div class="spacer"></div>
+                        <a id="credit_select" onclick="show_form()" style="cursor: pointer;"><span class="try-text-new try-text">How can I set up One Touch Dialing feature online?</span>
+                            <span class="learnbtn"></span>
+                        </a>
+                        <div class="learn-show" id="credit" style="display: none;">
+                            <h3>How can I set up One Touch Dialing feature online?</h3>
+                            <div class="spacer"></div>
+                            <span><strong>Here is how you can set up this feature for your plan Online.</strong></span>
+                            <ul>
+                                <li class="ui-corner-left">Log on into your account by entering your email address and password in the respective<strong> LOGIN </strong>tab or by clicking on My account tab.</li>
+                                <li class="ui-corner-left">Under the <strong>"My Orders"</strong> segment click on the Red colored<strong>"Edit"</strong> button under the <strong>"One Touch Dialing setup"</strong> column corresponding to the plan that you are currently using (To know the name of the plan you are using currently check " order history")</li>
+                                <li class="ui-corner-left">Select the country and state you will be calling from. Now choose any access number and enter your destination number you would want to assign it to. </li>
+                            </ul>
+                            <span class="save-text"><strong>Save this access # in your phone with the name of the person the destination number belongs to.</strong><br>
+                            </span>
+
+                            <span class="us-flag"><strong>If you are facing any difficulties setting up One Touch Dialing  to your plan, Please call our customer service </strong>
+                                <br>
+                                <style>
+                                    .usflag-new, .learn-show .candaflag-new, .learn-show .ukflag-new {
+                                        margin: 15px 0px 1px 63px!important;
+                                    }
+
+                                    .how-page .try-text-new {
+                                        width: 667px !important;
+                                    }
+                                </style>
+                                <span class="fl">
+                                    <span class="usflag-new">
+                                        <img class="imgus" alt="US" src="@Url.Content("~/images/us-flag.png")">
+                                        1-877-463-4233</span> <span class="candaflag-new">
+                                            <img class="imgus" alt="Canada" src="@Url.Content("~/images/ca-flag.png")" />1-416-848-0234</span> <span class="ukflag-new">
+                                                <img alt="UK" src="@Url.Content("~/images/uk-flag.png")" class="imgus">
+                                                0808-234-7012</span>
+                                </span>
+
+                            </span>
+
+
+                            <a class="click-chat-btn" onclick="openwindow();"></a>
+                            <div class="spacer"></div>
+                            <div class="clear"></div>
+
+                            <a class="new_setup" href="#"></a>
+                            <button class="close" onclick="close_form()">Close</button>
+                        </div>
+
+
+
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+
+        <div id="newtabs-6" class="newtab-section" style="display: none;">
+
+            <ul id="raza_rewards">
+
+                <li><a href="#newtabs-under-21"><b class="arrow_first"></b>Overview </a></li>
+                <li><a href="#newtabs-under-22"><b class="arrow_second"></b>How it Works  </a></li>
+                <li><a href="#newtabs-under-23"><b class="arrow_third"></b>FAQ</a></li>
+                <li><a href="#newtabs-under-24"><b class="arrow_four"></b>Apply </a></li>
+            </ul>
+
+            <div id="newtabs-under-21" class="raza_rewards-under">
+
+                <div class="include_mar">
+                    <h3 class="otd_overview">Become a Member Today!</h3>
+                    <div class="pos-rel">
+
+                        <div class="retail_global">
+                            <ul>
+                                <li class="ui-corner-left">No Membership Fees.</li>
+                                <li class="ui-corner-left">Free 200 Bonus Points For Signup.</li>
+                                <li class="ui-corner-left">4 Points For every dollarspent on Raza.com.</li>
+                                <li class="ui-corner-left">Combine with Refer-A-Friend Program</li>
+                                <li class="ui-corner-left">Reedem points forFree Minutes!</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="spacer"></div>
+                    <div class="sprator"></div>
+                    <div class="clear"></div>
+                    <!--<div class="left-panel">
+                        <h3>How it Works?</h3>
+                        <strong class="left-panel-para" >Works just like making a local call.</strong>
+                        <div class="clear"></div>
+                        <ul>
+                          <li>Assign One Touch Dial number to your destination phone number.</li>
+                          <li>Dial the One Touch Dial number saved in your contact list.</li>
+                          <li>Just make sure to call from a phone that is registered with us.
+                            
+                            
+                            
+                            The rest will be taken care by Raza, Just keep talking. </li>
+                        </ul>
+                      </div>-->
+                    @RenderPage("AgentRewardSignUp.cshtml")
+                    <div class="spacer"></div>
+                    <div class="sprator"></div>
+                    <div class="clear"></div>
+                    <div class="width_percent"><a href="@Url.Action("Logon", "Account")" class="features_bottom_link">New Customer? Signup Now </a><a href="@Url.Action("MyAccount", "Account")" class="features_bottom_link">Existing Customer? View Rewards.</a> </div>
+                </div>
+
+
+
+
+            </div>
+
+            <div id="newtabs-under-22" class="raza_rewards-under">
+                <div class="clear"></div>
+                <div class="pos-rel">
+                    <div class="retail_second">
+                        <ul>
+                            <li><strong>Sign up :</strong> Get 200 Instant bonus points for signing up for Raza Rewards&trade;.</li>
+                            <li><strong>Recharge  : </strong>For every $1 spent on eligible purchases or recharge, you will receive 4 Reward points</li>
+                            <li><strong>Refer a friend: </strong>Earn 250 points from each successful sale converted from your referral.</li>
+                            <li>Combine all your points to get free minutes.</li>
+                            <li>1000 points will get you free $10 worth of minutes</li>
+                            <li>Redeem your reward points online or by calling customer service</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="newtabs-under-23" class="raza_rewards-under">
+                <div class="pos-rel">
+                    <h3 class="raza_faq_heading">By simply signing up for Raza RewardsT you will get 200 FREE Bonus points added to you account.</h3>
+                    <ul id="acc1" class="accordion toggle1">
+                        <li class="shown" onclick="getIDofAccLi(49)">
+                            <h6 class="h trigger" id="hid_1_49">Any time you make an eligible purchase or recharges you are eligible for Raza RewardsT. </h6>
+                            <div class="outer" id="1_49" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>
+                                        For every $1 you spend, you will receive 4 reward points. For instance if you recharge or purchase for $100 you will get 400 Raza RewardsT points.
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="shown" onclick="getIDofAccLi(50)">
+                            <h4 class="h trigger" id="hid_1_50">How does the Raza RewardsT work with Refer-A-Friend?</h4>
+                            <div class="outer" id="1_50" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>If a person that you refer through the Refer-A-Friend Program opens a Raza.com account and makes a purchase, you will be creditted 250 points to your account. </p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="shown" onclick="getIDofAccLi(51)">
+                            <h4 class="h trigger" id="hid_1_51">How long can I keep my Reward points before exchanging them for rewards?</h4>
+                            <div class="outer" id="1_51" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>Your Raza RewardsT points never expire and hence you can keep adding your points on your valid plan and exchange the points anytime. </p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!--<li class="shown" onclick="getIDofAccLi(52)">
+                        <h4 class="h trigger">Can I use "One Touch Dial" if my caller ID is blocked?</h4>
+                        <div class="outer"  id="1_52" style="display: none; ">
+                        <div class="accordion_pare">
+						<p>Yes!. If you are saving <strong>'One Touch Dial'</strong> Number into your phone's memory you have to save it with *82 in front of it (*82 646 xxx yyyy). Caller ID of your phone will still be blocked if you are placing any other calls.</p>	
+						</div>
+                        </div>
+
+
+                      </li>-->
+
+                        <li class="shown" onclick="getIDofAccLi(53)">
+                            <h4 class="h trigger" id="hid_1_53">Can I redeem my reward points and give it as a gift sent to someone else? </h4>
+                            <div class="outer" id="1_53" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>No. You need to redeem the point under your account name; but, you can buy a Raza.com's Gift card and give it to anyone. </p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="shown" onclick="getIDofAccLi(54)">
+                            <h4 class="h trigger" id="hid_1_54">Can I redeem my reward points for Mobile Talk or City Talk Plans or Talk Mobile or Talk City?</h4>
+                            <div class="outer" id="1_54" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>No. The reward points can only be redeemed for regular plans. </p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="shown" onclick="getIDofAccLi(55)">
+                            <h4 class="h trigger" id="hid_1_55">Do I have to pay service charge if I redeem my points?</h4>
+                            <div class="outer" id="1_55" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>It depends upon the plan you select to recharge or purchase. If your plan has service fee, then total points required to redeem will be equivalent to the final amount including service fee. For example if you want to redeem for $10 and your plan has service fee of $1, total points required will be 1100 not 1000.</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="shown" onclick="getIDofAccLi(56)">
+                            <h4 class="h trigger" id="hid_1_56">How will I know about the reward points that I have accumulated?</h4>
+                            <div class="outer" id="1_56" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>You can log in to Your Account, and check/redeem your reward points. Your reward points may not reflect immediately after a purchase, it will reflect within 24 hours after the transaction is completed. </p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <div style="margin: 19px 33px;">
+                            <span style="font-size: 14px;"><strong>Crediting Account -</strong> <span class="weigth">Raza Rewards&trade; Points will be credited to a customer's account within 2 weeks of the qualifying activity. Customers are responsible for verifying that Points are credited to their account. All account discrepancies must be reported in writing within one month of date of activity. </span></span>
+                        </div>
+
+
+                        <div style="margin: 19px 33px;">
+                            <span style="font-size: 14px;"><strong>Expiration and Termination -</strong><span class="weigth">Raza and Raza Rewards&trade; reserves the right to terminate your membership in the Program at any time if you violate the Program's rules or policies or any term or condition of the website, including the Subscriber Agreement and the Conditions of Use. Termination of your membership will result in a loss of all accumulated Raza Rewards&trade; Bonus Points and the loss of all other Program benefits. Terminated members are not eligible to participate in any aspect of the Program. In lieu of termination, Raza and Raza Rewards&trade; may at its sole discretion deduct Raza Rewards&trade; Bonus Points from your account, but permit you to continue participating in the Program. If a customer returns a card (PIN) and receives a refund, then all of the Bonus Points associated with that card (PIN) will be automatically cancelled. Bonus Points do not expire except as expressly set forth herein.</span></span>
+                        </div>
+
+                        <div style="margin: 19px 33px;">
+                            <span style="font-size: 14px;"><strong>Points Eligiblity </strong>- <span class="weigth">Raza Rewards&trade; Points are only eligible for purchases made through Raza.com website. Points are only available through recharges, purchases or gift purchases through the Raza.com website. Special Promotions that require the use of a "Coupon Code" at checkout are <strong>NOT ELIGIBLE</strong> for Points accumulation.</span></span>
+                        </div>
+
+
+
+
+                    </ul>
+
+
+                </div>
+            </div>
+
+            <div id="newtabs-under-24" class="raza_rewards-under">
+                @RenderPage("ApplyAgentReward.cshtml")
+            </div>
+
+
+
+
+
+
+        </div>
+
+        <div id="newtabs-7" class="newtab-section" style="display: none;">
+
+            <ul id="auto_refill">
+
+                <li><a href="#newtabs-under-25"><b class="arrow_first"></b>Overview </a></li>
+                <li><a href="#newtabs-under-26"><b class="arrow_second"></b>How it Works  </a></li>
+                <li><a href="#newtabs-under-27"><b class="arrow_third"></b>FAQ</a></li>
+                <li><a href="#newtabs-under-28"><b class="arrow_four"></b>Setup </a></li>
+            </ul>
+
+
+
+            <div id="newtabs-under-25" class="auto_refill-under">
+
+                <div class="pos-rel">
+                    <h3 class="otd_overview">Insufficient credit? Not to worry!!</h3>
+
+
+                    <div class="retail_global">
+                        <ul>
+                            <li class="ui-corner-left">Never run out of your minutes.</li>
+                            <li class="ui-corner-left">Our system will automatically recharge your plan when your balance reaches below $2.</li>
+                            <li class="ui-corner-left">Easy to cancel online by a click of a button.</li>
+                            <li class="ui-corner-left">Save time.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="spacer"></div>
+                <div class="sprator"></div>
+                <div class="clear"></div>
+                <!--<div class="left-panel">
+                        <h3>How it Works?</h3>
+                        <strong class="left-panel-para" >Works just like making a local call.</strong>
+                        <div class="clear"></div>
+                        <ul>
+                          <li>Assign One Touch Dial number to your destination phone number.</li>
+                          <li>Dial the One Touch Dial number saved in your contact list.</li>
+                          <li>Just make sure to call from a phone that is registered with us.
+                            
+                            
+                            
+                            The rest will be taken care by Raza, Just keep talking. </li>
+                        </ul>
+                      </div>-->
+                <div class="right-panel right-panel-new">
+                    <h3>Setup</h3>
+                    <ul>
+                        <li class="ui-corner-left">Login to your <a href="@Url.Action("Myaccount", "Account")" class="features_all_link">My Account</a> page</li>
+                        <li class="ui-corner-left">Click Activate button under the <a href="@Url.Action("Myaccount", "Account")" class="features_all_link">Auto-refill</a> option against the plan you wish to enroll.</li>
+                        <li class="ui-corner-left">Select the auto-recharge amount.</li>
+                        <li class="ui-corner-left">Checkthe box to confirm the enrollment.</li>
+                        <li class="ui-corner-left">Click on submit to enroll.</li>
+                    </ul>
+                </div>
+                <div class="spacer"></div>
+                <div class="sprator"></div>
+                <div class="clear"></div>
+                <div class="width_percent"><a href="@Url.Action("Logon", "Account")" class="features_bottom_link">New Customer? Signup Now </a><a href="@Url.Action("Myaccount", "Account")" class="features_bottom_link">Existing Customer? Edit Auto-Refill.</a> </div>
+
+
+
+
+
+            </div>
+
+            <div id="newtabs-under-26" class="auto_refill-under">
+                <div class="clear"></div>
+                <div class="pos-rel">
+                    <div class="retail_second">
+                        <ul>
+                            <li>Plan recharges automatically when your balance goes down below $2 only.</li>
+                            <li>Get additional 10% extra minutes on every recharge.</li>
+                            <li>With balance-driven Instant Refills, you don't have to worry about making refills at all.</li>
+                            <li>You can manage activating and deactivating the auto-refill feature at any time.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="newtabs-under-27" class="auto_refill-under">
+                <div class="pos-rel">
+                    <ul id="acc1" class="accordion toggle1">
+                        <li class="shown" onclick="getIDofAccLi(57)">
+                            <h6 class="h trigger" id="hid_1_57">How can I enroll my plan to auto-refill?</h6>
+                            <div class="outer" id="1_57" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>
+                                        You can enroll your plan to auto-refill by logging into your account or by calling our customer service. Click on the brown color <strong>ACTIVATE</strong> tab corresponding to your plan and choose the amount you would want to enroll for.
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="shown" onclick="getIDofAccLi(52)">
+                            <h4 class="h trigger" id="hid_1_52">When can I cancel my auto-refill?</h4>
+                            <div class="outer" id="1_52" style="display: none;">
+                                <div class="accordion_pare">
+                                    <p>You can cancel the auto-refill feature at any given time. Under my account just click on the <strong>DEACTIVATE</strong> button to cancel. ( some restrictions may apply to discounted plans)</p>
+                                </div>
+                            </div>
+                        </li>
+
+
+                    </ul>
+
+
+                </div>
+            </div>
+
+            <div id="newtabs-under-28" class="auto_refill-under">
+                <div class="pos-rel">
+
+                    <div style="margin: 63px 0px 0px 0px;">
+
+                        <div class="setup_auto">
+                            <h3>Setting up Auto-recharge</h3>
+                            <p class="weigth setup_auto_para">
+                                Setting up an Auto-recharge is fast and easy, we do not automatically enroll you to any of our plans without your permission. You have an option to either enroll or Cancel it online at any given time. Our 24/7 customer service agents will be glad to setup by phone at any time. Note that few plans may not have the option to cancel the auto-refill feature online, please contact our 24/7 customer service team for details.<br>
+                                <br>
+                                How to setup Auto-recharge
+                            </p>
+                            <ul>
+                                <li class="ui-corner-left"><a href="@Url.Action("LogOn", "Account")">Login</a> to your account.</li>
+                                <li class="ui-corner-left">Click <strong>Activate</strong> button under the auto-refill option against the plan you wish to enroll.</li>
+                                <img alt="" src="@Url.Content("~/images/myaccount_screen.jpg")">
+                                <li class="ui-corner-left">Select the <strong>auto-recharge</strong> amount.</li>
+                                <li class="ui-corner-left"><strong>Check</strong> the box to confirm the enrollment.</li>
+                                <li class="ui-corner-left"><strong>Click</strong> on submit to enroll.</li>
+                                <img alt="" src="@Url.Content("~/images/autorefil_screen.jpg")">
+                            </ul>
+                        </div>
+
+                        @*<div class="setup_auto">
+                      <h3>Setting up Auto-recharge</h3>
+                      <p class="weigth">If you wish to cancel your auto-refill for any reason:</p>
+                      <ul>
+                        <li class="ui-corner-left"><a href="#">Sign in</a> to your account.</li>
+                        <li class="ui-corner-left">In the orders section, click Activate; if your account is already enrolled for auto-refill it will give you an option to Deactivate.</li>
+                        <img alt="" src="@Url.Content("~/images/autorefill-myorder.jpg")">
+                        <li class="ui-corner-left"><strong>Click</strong> ok to confirm the cancellation.</li>
+                        <img alt="" src="@Url.Content("~/images/enroll_screen.jpg")">
+                      </ul>
+                    </div>	*@
+                        <div class="setup_auto">
+                            <h3 class="cacellation_heading">Cancellation of Auto-refill</h3>
+                            <p class="weigth">If you wish to cancel your auto-refill for any reason:</p>
+                            <ul>
+                                <li class="ui-corner-left"><a href="@Url.Action("LogOn", "Account")">Sign in</a> to your account.</li>
+                                <li class="ui-corner-left">In the orders section, click EDIT under the auto-refill option against your plan.</li>
+                                <li class="ui-corner-left"><strong>Click</strong> Deactivate and confirm to cancel your auto-refill.</li>
+                                <img alt="" src="@Url.Content("~/images/enroll_screen.jpg")">
+
+                                <!--<img alt="" src="images/autorefill-cancellation-myorder-step2.jpg">-->
+                            </ul>
+                        </div>
+
+                        <div class="setup_3">
+                            <p class="weigth">
+                                For any questions or concern you can chat with us online or call our 24/7 support
+                                <br>
+                                team  <strong>Toll-Free: 877.463.4233</strong>
+                            </p>
+                            <a class="setup_3_enroll" href="@Url.Action("MyAccount", "Account")"></a>
+                        </div>
+
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+
+
+        <div class="clear"></div>
+
+
+
+    </div>
+
+</div>
+<!--end body container-->
+
+
+<!--footer start-->
+<script>
+    function show_form() {
+
+
+        $("#credit").slideDown("slow");
+
+    }
+    function close_form() {
+        $("#credit").slideUp("slow");
+
+    }
+</script>

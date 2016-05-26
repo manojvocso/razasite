@@ -1,0 +1,164 @@
+﻿@model MvcApplication1.Models.PinlessSetupEdit
+
+ <div id="edit-profile">
+                   
+                    <p>Once the phone number is added to the pin-less setup, there is no need to dial a pin from all the "Calling from" numbers. <strong><br />
+
+                                                                                                                                                     Phone Number(s) Successfully Added!!</strong><br />
+
+                    </p>
+
+                    <div class="spacer"></div>
+
+                    <div class="clear"></div>
+
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <form id="form1" name="form1" method="post" action="">
+                             <input name="OrderID" id="OrderID" type="hidden" value="@Model.OrderID"/>
+                            <tr>
+
+                                <td>
+                           
+                                    <label>
+
+                                        <select name="CoutryCode" id="CoutryCode" class="select-exp">
+                                            @foreach (var res in Model.CountryFromList)
+                                            {
+                                                <option value="@res.Id">@res.Name</option>
+
+                         @* <option>Canada</option>
+
+                          <option>UK</option>*@
+                                            }
+
+                                        </select>
+
+                                    </label>
+
+                                </td>
+
+                                <td align="right"><label class="number_space">Enter Phone                                   Number:</label></td>
+
+                                <td>
+
+                                    <p>
+
+                                        <input type="text" name="txtAreaCodeFrom1"  id="textfield" class="phone"  maxlength="3" size="3"  onkeypress="return numberOnly();" onblur = "checkFilled()"  />
+
+                                        -
+
+                                        <input type="text" name="txtPhoneFrom1" id="textfield" class="phone"  maxlength="3" size="3"  onkeypress="return numberOnly();" onblur = "checkFilled()"  />
+
+                                        -
+
+                                        <input type="text" name="txtPhoneFrom2"  id="textfield" class="phone"   maxlength="4" size="4"  onkeypress="return numberOnly();" onblur = "checkFilled()"  />
+
+                                    </p>
+                                     <script type="text/javascript">
+                                         function numberOnly() {
+                                             // 48 = 0
+                                             // 57 = 9
+                                             if ((event.keyCode < 48) || (event.keyCode > 57)) {
+                                                 return false;
+                                             }
+                                             return true;
+                                         }   
+
+
+
+                                                                                    </script>
+                                </td>
+                         
+
+                                <td align="center"><p><span class="white">
+
+                                                          <input type="submit" id="btnSubmit" action="@Url.Action("PinLessSetupEdit", "account")" name="image2" id="image2" value="" disabled="disabled" class="setup_modify"/>
+
+                                                      </span></p></td>  
+                                                
+
+                            </tr>
+                        </form>
+
+                        <tr height="20">
+
+                            <td colspan="4">&nbsp;</td>
+
+                        </tr>
+
+                        <tr height="40" bgcolor="757575" class="col">
+
+                            <td class="bold">Your Current "Calling From" Numbers</td>
+
+                            <td >&nbsp;</td>
+
+                            <td  >&nbsp;</td>
+
+                            <td>&nbsp;</td>
+
+                        </tr>
+                        @if (Model.PinlessNumberList != null)
+                        {
+                            int count = 1;
+                            foreach (var i in Model.PinlessNumberList)
+                            {
+                                string trid = i.PinlessNumber;
+                                <tr>
+
+                                    <td height="33" bgcolor="#f5f4e9" class="white">Phone# @count.</td>
+
+                                    <td align="right" style="font-size: 17px; margin-left: 10px;" height="33" bgcolor="#f5f4e9" class="white phone_hex"> @i.PinlessNumber</td>
+
+                                    <td height="33" bgcolor="#f5f4e9" class="white">&nbsp;</td>
+
+                                    <td align="center" height="33" align="center" bgcolor="#f5f4e9" class="white">
+
+                                      <a id="delete" class="ajaxAction" href="@Url.Action("DeletePinLessSetup", new { pn = i.PinlessNumber, cd = i.CountryCode, oid = Model.OrderID })"><img src="@Url.Content("~/images/new_delete_icon.png")" alt="Delete" /></a>
+
+                                    </td>
+
+                                </tr>
+                                count++;
+                            }
+                        }
+
+                       @* <tr>
+
+                            <td height="33" bgcolor="#f5f4e9" class="white">Phone# 2.</td>
+
+                            <td align="right" style="font-size:17px; margin-left:10px;" height="33" bgcolor="#f5f4e9" class="white"> (345) - 666 - 7878</td>
+
+                            <td height="33" bgcolor="#f5f4e9" class="white">&nbsp;</td>
+
+                            <td height="33" align="center" bgcolor="#f5f4e9" class="white"><a href="#" title="Delete"><img src="@Url.Content("~/images/new_delete_icon.png")" alt="Delete" /></a> </td>
+
+                        </tr>*@
+                         
+    <tr>
+
+        <td bgcolor="#f5f4e9" class="white">&nbsp;</td>
+
+        <td bgcolor="#f5f4e9" class="white">&nbsp;</td>
+
+        <td bgcolor="#f5f4e9" class="white">&nbsp;</td>
+
+        <td bgcolor="#f5f4e9" class="white">&nbsp;</td>
+
+    </tr>
+
+                        <tr>
+
+                            <td  class="white">&nbsp;</td>
+
+                            <td class="white">&nbsp;</td>
+
+                            <td  class="white">&nbsp;</td>
+
+                            <td  class="white">&nbsp;</td>
+
+                        </tr>
+
+                    </table>
+                    
+
+                </div>

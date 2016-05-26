@@ -1,0 +1,468 @@
+﻿@model MvcApplication1.Models.CheckOutModel
+@{
+    ViewBag.Title = "ReSubmit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<form method="POST" action="@Url.Action("ReviewOrder","Cart")">
+    Cvv Number<input type="text" name="CvvNumber"/>
+    <input type="submit"/>
+    </form>*@
+
+<script src="@Url.Content("~/scripts/jquery.tools.new.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/creditcard.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/revieworder.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/liteaccordion.jquery.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.easing.1.3.html")"></script>
+
+<!--Body Container Start-->
+
+<div id="inner_body_container">
+
+    <div id="banner">
+        <img src="@Model.ReviewOrderBanner" />
+    </div>
+
+    <!-- End demo -->
+
+    <form method="POST" action="@Url.Action("ReviewOrder", "Cart")" >
+        <div id="review-bind">
+            <div id="wizard">
+                <div class="review_order">
+                    <img src="@Url.Content("~/images/review_order.jpg")" alt="" class="" />
+                </div>
+                <div class="clear"></div>
+                <!-- <li><span>Payment Information </span></li>
+                    <li><span>Review your order</span></li>
+                    <li><span>Confirmation</span></li>-->
+
+                <div class="expandable" id="errorValidation">
+                    <div id="close-val" class="close-confirm">
+                    </div>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+                        <tr>
+                            <td width="14">
+                                <img src="@Url.Content("~/images/expand_top_left.png")" width="14" height="13" /></td>
+                            <td style="background: url(/images/expand_drop_top.png) repeat-x left 2px;"></td>
+                            <td width="14">
+                                <img src="@Url.Content("~/images/expand_top_right.png")" width="14" height="13" /></td>
+                        </tr>
+                        <tr>
+                            <td style="background: url(/images/expand_drop_left.png) repeat-y 0px top;"></td>
+                            <td style="background: #fff;">
+                                <div class="expandable_mid">
+                                    <img src="@Url.Content("~/images/error_sign.png")" style="float:left;margin-top:15px;margin-left:30px;" />
+                                    <div id="validation-msgs" style="margin-left: 150px; color: red" class="validation-error-msg">
+
+                                        <ul data-bind="foreach: validationmessages">
+                                            <strong>
+                                                <li data-bind="text: $data"></li>
+                                            </strong>
+                                        </ul>
+                                        <ul id="val2-rech" style="display: none" class="validation-error-msg">
+                                            <li id="val2-rech1" style="display: none">
+                                                <div id="status-user">
+                                                </div>
+                                            </li>
+                                            <li id="val2-rech2" style="display: none">
+                                                <div id="status-user1">
+                                                </div>
+                                            </li>
+                                            <li id="val2-rech3" style="display: none">
+                                                <div id="status-user2">
+                                                </div>
+                                            </li>
+                                            <li id="val2-rech4" style="display: none">
+                                                <div id="status-user3">
+                                                </div>
+                                            </li>
+                                            <li id="val2-cvv" style="display: none">
+                                                <div id="status-cvv">
+                                                </div>
+                                            </li>
+                                            <li id="val2-rech5" style="display: none">
+                                                <div id="status-user4">
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <div id="paypal-hidmsg" style="display: none">
+                                            <p>
+                                                If you buy this plan thru paypal you can not get autorefill extra minute.
+                                                                                                                                                                                     If you want to continue please <a style="cursor: pointer" id="process-withoutrefill">Click here.</a>
+                                            </p>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                            </td>
+                            <td style="background: url(/images/expand_drop_right.png) repeat-y 0px top;"></td>
+                        </tr>
+                        <tr>
+                            <td width="14" style="padding: 0px!important;">
+                                <img src="@Url.Content("~/images/expand_bot_left.png")" width="14" height="13" /></td>
+                            <td style="background: url(/images/expand_drop_bottom.png) repeat-x left 0px;" width="100%"></td>
+                            <td width="14" style="padding: 0px!important;">
+                                <img src="@Url.Content("~/images/expand_bot_right.png")" width="14" height="13" /></td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="backgroundPopup">
+                </div>
+
+                <input type="hidden" id="hid-cardtype" value="@Model.CardType" />
+                <input type="hidden" id="hid-cardname" value="@Model.NameOnCard" />
+                <input type="hidden" id="hid-cardnumber" value="@Model.CardNumber" />
+                <input type="hidden" id="hid-expmonth" value="@Model.ExpMonth" />
+                <input type="hidden" id="hid-expyear" value="@Model.ExpYear" />
+
+                <div class="items">
+                    <!-- Review order Step3 -->
+                    <div class="form_field">
+                        <!--div for display message -->
+                        <div class="logonexpandable" style="margin-left:332px;">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td width="14">
+                                        <img src="@Url.Content("~/images/expand_top_left.png")" width="14" height="13" /></td>
+                                    <td style="background: url(/images/expand_drop_top.png) repeat-x left 2px;"></td>
+                                    <td width="14">
+                                        <img src="@Url.Content("~/images/expand_top_right.png")" width="14" height="13" /></td>
+                                </tr>
+                                <tr>
+                                    <td style="background: url(/images/expand_drop_left.png) repeat-y 0px top;"></td>
+                                    <td style="background: #fff;">
+                                        <div class="expandable_mid2">
+                                            <img src="@Url.Content("~/images/error_sign.png")" style="float:left;margin-top:9px;margin-left:20px;" />
+                                            <div style="margin-top: 10px; margin-left: 100px;">
+                                                <div style="font-family: Arial, Helvetica, sans-serif; color: red; font-size: 14px;">Please try again.</div>
+                                                <div style="font-family: Arial, Helvetica, sans-serif; font-size: 14px;">
+                                                    <!-- here is msg to display-->
+                                                    @Model.ErrorMessage
+
+                                                    <br />
+                                                    
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </td>
+                                    <td style="background: url(/images/expand_drop_right.png) repeat-y 0px top;"></td>
+                                </tr>
+                                <tr>
+                                    <td width="14" style="padding: 0px!important;">
+                                        <img src="@Url.Content("~/images/expand_bot_left.png")" width="14" height="13" /></td>
+                                    <td style="background: url(/images/expand_drop_bottom.png) repeat-x left 0px;" width="100%"></td>
+                                    <td width="14" style="padding: 0px!important;">
+                                        <img src="@Url.Content("~/images/expand_bot_right.png")" width="14" height="13" /></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!-- end div for display message -->
+                        <h2 class="title_black"></h2>
+                        <div id="auto-refill">
+                            <div id="auto-refill-scroller">
+                                <div class="top-bg">
+                                    <h1>Please Review Your information </h1>
+                                </div>
+                                <div class="repeat-scroller-bg">
+                                    <div class="editprofile_b">
+                                        <div id="edit-profile">
+                                            <table width="100%" cellpadding="0" cellspacing="0" class="view-cdr-pins">
+                                                <tr>
+                                                    <td colspan="6" class="tdcsscode">
+                                                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                            <tr>
+                                                                <td width="50%" align="right" valign="top" class="tdpadding">Plan Name:</td>
+                                                                <td width="50%" class="tdpadding_r"><strong>@Model.PlanName</strong></td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="6" style="border: none;" height="5"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="6" class="tdcsscode_invert">
+                                                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                            <tr>
+                                                                <td width="50%" align="right" valign="top" class="tdpadding">Billing Information:</td>
+                                                                <td width="50%" class="tdpadding_r"><strong class="margin-top_tables">
+                                                                                                        <span id="billing-span">
+                                                                                                            <!-- ko if: FirstName -->
+                                                                                                            <strong data-bind="text: FirstName" style="margin-right: 2px;"></strong><strong data-bind="    text: LastName"></strong>
+                                                                                                            <br />
+                                                                                                            <strong data-bind="text: Address"></strong>
+                                                                                                            <br />
+                                                                                                            <strong data-bind="text: City"></strong>,
+                                                                                                            <!-- ko if: State -->
+                                                                                                            <strong data-bind="text: State"></strong>,
+                                                                                                            <!-- /ko -->
+                                                                                                            <strong data-bind="text: ZipCode"></strong>
+                                                                                                            <br />
+                                                                                                            @*<strong data-bind="text: ZipCode"></strong>
+                                                                                                            <br />*@
+                                                                                                            <!-- /ko -->
+                                                                                                        </span>
+                                                                                                        <span id="billingspan-edit" style="display: none">
+                                                                                                            <input type="text" data-bind="value: FirstName" placeholder="First Name" id="edit-firstname" />
+                                                                                                            <input type="text" data-bind="value: LastName" placeholder="Last Name" id="edit-lastname" />
+                                                                                                            <input type="text" data-bind="value: Address" placeholder="Address" id="edit-address" />
+                                                                                                            <input type="text" data-bind="value: City" placeholder="City" id="edit-city" />
+                                                                                                            <input type="text" id="editsateuk" data-bind="value: City" placeholder="State" style="display: none" />
+                                                                                                            <div id="editstate">
+                                                                                                                @Html.DropDownListFor(x => x.State, (SelectList)@ViewBag.State, new { id = "State", @class = "optionselect", tabindex = "6", data_bind = "value: State" })
+                                                                                                            </div>
+                                                                                                            <input type="text" data-bind="value: ZipCode" placeholder="Zipcode" id="edit-zipcode" />
+                                                                                                        </span>
+                                                                                                        <a style="cursor: pointer" class="fr" id="edit-billinfo">Edit</a>
+                                                                                                        <a style="cursor: pointer; display: none;" class="fr" id="done-billinfo">Done</a>
+                                                                                                    </strong></td>
+                                                                `
+                                                            </tr>
+
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="6" style="border: none;" height="5"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="6" class="tdcsscode">
+                                                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                            <tr>
+                                                                <td width="50%" align="right" valign="top" class="tdpadding">Payment Method:<br />
+                                                                    <br />
+                                                                    <span class="text-ltr"><b class="red">Note:</b> In order to expedite the Recharge of your Plan, please ensure that your Credit card billing address matches with your Raza profile address.</span>							  </td>
+                                                                <td width="50%" class="tdpadding_r">
+                                                                    <div class="credit-form credit-form-new credit-form-latest" id="credit" style="display: block;">
+                                                                        <h3>Edit/Add New Credit Card</h3>
+
+                                                                        <fieldset class="fieldset_special">
+                                                                            <label>Credit Cards</label>
+
+                                                                            <b>
+                                                                                <input type="radio" name="CardType" value="Visa" class="radio_bt latest_rad" data-bind="checked: CardTypeChk">
+                                                                                <img alt=" " src="@Url.Content("~/images/review_visa.jpg")">
+                                                                            </b>
+                                                                            <b>
+                                                                                <input type="radio" name="CardType" value="MasterCard" class="radio_bt latest_rad" data-bind="checked: CardTypeChk">
+                                                                                <img alt=" " src="@Url.Content("~/images/review_mastro.jpg")">
+                                                                            </b>
+                                                                            <b>
+                                                                                <input type="radio" name="CardType" value="Amex" class="radio_bt latest_rad" data-bind="checked: CardTypeChk">
+                                                                                <img alt=" " src="@Url.Content("~/images/review_american.jpg")">
+                                                                            </b>
+                                                                            <b>
+                                                                                <input type="radio" name="CardType" value="Discover" class="radio_bt latest_rad" data-bind="checked: CardTypeChk">
+                                                                                <img alt=" " src="@Url.Content("~/images/review_discover.jpg")">
+                                                                            </b>
+                                                                            @*<b class="right_b"><img alt=" " src=@Url.Content("~/images/review_paypal.jpg")"> <input type="radio" class="radio_bt latest_rad"> </b>*@
+                                                                        </fieldset>
+
+
+                                                                        <fieldset>
+                                                                            <label>Name on Card</label>
+                                                                            <input type="text" value="" class="input" data-bind="value: NameOnCard" />
+                                                                        </fieldset>
+
+
+                                                                        <fieldset>
+                                                                            <label>Credit Card</label>
+                                                                            <input type="text" value="" name="CardNumber" onkeypress="return numberOnly();" maxlength="16" class="input" data-bind="value: CreditCard" />
+                                                                        </fieldset>
+
+                                                                        <fieldset>
+                                                                            <label>Expiration Date</label>
+
+                                                                            <select name="ExpMonth" id="cmbExpMonth" class="popup_selectbox1" data-bind="value: Exp_Month">
+                                                                                <option value="">Month</option>
+                                                                                <option value="01">Jan.</option>
+                                                                                <option value="02">Feb.</option>
+                                                                                <option value="03">March.</option>
+                                                                                <option value="04">April.</option>
+                                                                                <option value="05">May.</option>
+                                                                                <option value="06">June.</option>
+                                                                                <option value="07">July.</option>
+                                                                                <option value="08">Aug.</option>
+                                                                                <option value="09">Sep.</option>
+                                                                                <option value="10">Oct.</option>
+                                                                                <option value="11">Nov.</option>
+                                                                                <option value="12">Dec.</option>
+
+                                                                            </select>
+                                                                            <select class="popup_selectbox2" id="cmbExpYear" name="ExpYear" data-bind="value: Exp_Year">
+                                                                                <option value="">Year</option>
+                                                                                <option value="2014">2014</option>
+                                                                                <option value="2015">2015</option>
+                                                                                <option value="2016">2016</option>
+                                                                                <option value="2017">2017</option>
+                                                                                <option value="2018">2018</option>
+                                                                                <option value="2019">2019</option>
+                                                                                <option value="2020">2020</option>
+                                                                                <option value="2021">2021</option>
+                                                                                <option value="2022">2022</option>
+                                                                                <option value="2023">2023</option>
+                                                                                <option value="2024">2024</option>
+
+                                                                            </select>
+
+
+
+
+                                                                        </fieldset>
+
+                                                                        <fieldset>
+                                                                            <label>CVV</label>
+                                                                            <input type="password" value="" name="CvvNumber" onkeypress="return numberOnly();" maxlength="4" data-bind="value: CVV" class="input-new" />
+                                                                        </fieldset>
+
+
+                                                                        @*<fieldset>
+
+                                                                        <input type="submit" class="update-btn input_middle" value="" />
+                                                                        <input type="button" class="close-btn input_center_close" value="" onclick="close_form()" />
+                                                                    </fieldset>*@
+
+                                                                    </div>
+                                                                    <br />
+                                                                    @*<strong><a href="#" class="fr" style="margin-top: 279px;">Edit</a></strong>*@
+
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="6" style="border: none;" height="5"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="6" class="tdcsscode_invert">
+                                                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                            <tr>
+                                                                <td width="50%" align="right" valign="top" class="tdpadding">Service fee </td>
+                                                                <td width="50%" class="tdpadding_r"><strong>@Model.CurrencyCode @Model.ServiceFee </strong></td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="6" style="border: none;" height="5"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="6" class="tdcsscode">
+                                                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                            <tr>
+                                                                <td width="50%" align="right" valign="top" class="tdpadding">Recharge Amount:</td>
+                                                                <td width="50%" class="tdpadding_r"><strong>@Model.CurrencyCode @Model.Amount</strong></td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="6" style="border: none;" height="5"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="6" class="tdcsscode_invert">
+                                                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                            <tr>
+                                                                <td width="50%" align="right" valign="top" class="tdpadding">Total Charge Amount:</td>
+                                                                @{
+                                                                    double totalAmount = Model.Amount + Model.ServiceFee;
+                                                                }
+                                                                <td width="50%" class="tdpadding_r"><strong>@Model.CurrencyCode @totalAmount</strong></td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr style="border: none;">
+                                                    <td style="border: none;">
+                                                        <p class="please-note-text">
+                                                            <strong>Please Note:</strong> Do not click the Submit button twice.<br />
+                                                            <br />
+                                                            <br />
+                                                            <input type="submit" value="" data-bind="click: $root.ReSubmitOrder" class="next" />
+                                                        </p>
+                                                        <br />
+                                                        <br />
+                                                        <div class="sprator saprator_bottom"></div>
+                                                        <p class="us-flag">
+                                                            <br />
+                                                            If you are facing any difficulties recharging your plan,please call our customer service team<br />
+                                                            <!--span class="usflag"><img src="images/us-flag.png" alt="US" class="imgus"/> <img src="images/chat-icon.png" class="chat-icon" alt="Chat"/>1-877-463-4233</span> <span class="candaflag"><img src="images/ca-flag.png" alt="Canada" class="imgus"/><img src="images/chat-icon.png" class="chat-icon" alt="Chat"/>1-416-848-0234</span> <span class="ukflag"><img class="imgus" src="images/uk-flag.png" alt="UK"/><img src="images/chat-icon.png" class="chat-icon" alt="Chat"/> 0808-234-7012</span> <a href="" class="click-chat-btn"></a>-->
+
+                                                            <div style="margin: 15px 0px 0 22px; float: left;">
+                                                                <span class="ftr-contact_left">
+                                                                    <b>
+                                                                        <img src="@Url.Content("~/images/us.png")" alt="" />1-877.463.4233</b>
+                                                                    <b>
+                                                                        <img src="@Url.Content("~/images/canada-Flag.png")" alt="" />1-800.550.3501</b>
+                                                                    <b>
+                                                                        <img src="@Url.Content("~/images/united-Kingdom_flat.png")" alt="" />+ 44 800-520-0329</b>
+                                                                    <p class="fl" style="color: #000;"><strong>Chicago: 1-773.792.8150</strong></p>
+                                                                    <span class="toronto">Toronto: 416-746-9797</span>
+                                                                    <b style="font-size: 13px;"><strong>UK London: + 44  207-100-3090</strong></b>
+                                                                </span>
+
+                                                                <span class="ftr-contact_center">
+                                                                    <b style="font-size: 13px!important; margin: 0px 0px 0px 0px;"><strong>Want to ask a question now.<br />
+                                                                                                                                       Chat with our Rep here</strong>
+                                                                    </b>
+                                                                    <a style="cursor: pointer;" onclick="openwindow();" target="blank" class="live_chatftr"></a>
+                                                                    @* <b>Meet us on facebook like</b>
+                                                                <a href="" class="fb_ftr"></a>*@
+                                                                </span>
+
+                                                                <span class="ftr-contact_right">
+                                                                    <div class="clear"></div>
+                                                                    <span class="mail_iconftr">
+                                                                        <img src="@Url.Content("~/images/email.png")" alt="" /></span>
+                                                                    <span><a href="mailto:support@raza.com" class="links_id">support@raza.com</a><br />
+                                                                        <a href="mailto:sales@raza.com" class="links_id">sales@raza.com</a><br />
+                                                                        <a href="mailto:info@raza.com" class="links_id">info@raza.com</a>
+                                                                    </span>
+
+                                                                    <p style="margin: 8px 0 6px 0!important;">Fax Numbers's:</p>
+                                                                    <span class="fax_us" style="margin: 0px 0px 8px 0px;">
+                                                                        <img src="@Url.Content("~/images/us.png")" alt="" /><p class="fax_p" style="margin: -1px 0px 0px 6px!important;">1-773.792.8291</p>
+                                                                    </span>
+                                                                    <span class="fax_canada">
+                                                                        <img src="@Url.Content("~/images/canada-Flag.png")" alt="" /><p class="fax_p" style="margin: -1px 0px 0px 6px!important;">1-416.746.5239</p>
+                                                                    </span>
+
+                                                                </span>
+
+
+                                                            </div>
+
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="6" style="border: none; padding: 0;">
+                                                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bottom-scroller-bg"></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+</div>
+
+
+

@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "CCVerifier";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model MvcApplication1.Models.CCVerifyModel
+
+
+@*<script language="Javascript">
+<!--
+    function onLoadHandler() {
+        document.frmResultsPage.submit();
+    }
+    //-->
+</script>*@
+
+<h2>Processing Your Transaction</h2>
+
+
+@* <form name="frmResultsPage" method="Post" action="@Model.RedirectUrl" target="_parent">
+    <noscript>
+        <br>
+        <br>
+        <center>
+            <font color="red">
+                <h1>
+                    Processing Your Transaction</h1>
+                <h2>
+                    JavaScript is currently disabled or is not supported by your browser.<br>
+                </h2>
+                <h3>
+                    Please click Submit to continue the processing of your transaction.</h3>
+            </font>
+            <input type="submit" value="Submit">
+        </center>
+    </noscript>
+    </form>*@
+
+<center>
+    @*@Model.Message*@
+        </center>

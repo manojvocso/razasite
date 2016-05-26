@@ -1,0 +1,24 @@
+#a1,#b1,#c1{background:url(../images/homepage_slider/internationaltopup_bg_1.jpg)}
+#a2,#b2,#c2{background:url(../images/homepage_slider/ap_bg.jpg)}
+#a3,#b3,#c3{background:url(../images/homepage_slider/cf_bg.jpg)}
+#a4,#b4,#c4{background:url(../images/homepage_slider/ot_bg.jpg)}
+/*#a5,#b5,#c5{background:url(../images/rz_bg.jpg)}*/
+#a5,#b5,#c5{background:url(https://www.raza.com/images/homepage_slider/freetrial_bg.jpg)}
+.b1{background:url(../images/homepage_slider/itop_thumb.jpg) no-repeat 10px 15px;float:left}
+.b2{background:url(../images/homepage_slider/ab_thumb.jpg) no-repeat 10px 15px;float:left}
+.b3{background:url(../images/homepage_slider/cf_thumb.jpg) no-repeat 10px 15px;float:left}
+.b4{background:url(../images/homepage_slider/otd_thumb.jpg) no-repeat 10px 15px;float:left}
+/*.b5{background:url(../images/rz_thumb.jpg) no-repeat 10px 15px;float:left}*/
+.b5{background:url(https://www.raza.com/images/homepage_slider/freetrial_thumb.jpg) no-repeat 10px 15px;float:left}
+.slider-nav .active{font-weight:normal;background:url(../images/homepage_slider/slider-arrow.png) no-repeat}
+.s2{position:relative;width:757px;height:365px;background:url(../images/homepage_slider/sliderbg.png) no-repeat top;color:#F00 !important}
+.s2 .slider-wrapper{position:relative;height:365px;overflow:hidden;width:551px}
+.s2 .slider-holder{display:block;height:365px;position:relative;width:551px}
+.s2 .slider-holder li.slide{height:365px;float:left;width:551px}
+.s2 .slider-nav{position:absolute;right:-1px;top:0;z-index:1000;width:206px;padding:8px 0 0 0;margin:0}
+.s2 .slider-nav li{list-style:none;float:left;width:219px;margin:0 0 -18px -45px;padding-left:45px}
+.s2 .slider-nav a:link,.s2 .slider-nav a:visited{border:0;overflow:hidden;width:206px;height:85px;display:block}
+.s2 .slider-nav .active a:link,.s2 .slider-nav .active a:visited,.s2 .slider-nav a:hover,.s2 .slider-nav a:focus,.s2 .slider-nav a:active{margin:0;font-weight:normal;color:red}
+.s2 .slider-nav a:focus{border:0;outline:0}
+.s2 .slider-nav li a{color:#000}
+.slider-nav li b{float:left;width:90px;text-align:center;font-weight:normal !important;font-size:16px;margin:22px 0 0 72px}

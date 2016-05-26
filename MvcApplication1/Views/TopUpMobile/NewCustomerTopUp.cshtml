@@ -1,0 +1,1601 @@
+﻿@model MvcApplication1.Models.TopupModel
+<script src="@Url.Content("~/scripts/jquery.tools.new.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/creditcard.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/scripts/Newcust-topup.js")" type="text/javascript"></script>
+@*<script>
+
+    $(document).ready(function () {
+
+
+        $("#status li:first").addClass("active");
+    });
+
+    $(function () {
+        var root = $("#wizard").scrollable();
+        // some variables that we need
+
+        var api = root.scrollable(), drawer = $("#drawer");
+        // validation logic is done inside the onBeforeSeek callback
+        api.onBeforeSeek(function (event, i) {
+
+            // we are going 1 step backwards so no need for validation
+            if (api.getIndex() < i) {
+
+                // 1. get current page
+                var page = root.find(".form_field").eq(api.getIndex()),
+                // 2. .. and all required fields inside the page
+			 inputs = page.find(".required :input").removeClass("error"),
+                // 3. .. which are empty
+
+			 empty = inputs.filter(function () {
+			     return $(this).val().replace(/\s*/g, '') == '';
+			 });
+
+                // if there are empty fields, then
+                if (empty.length) {
+                    // slide down the drawer
+                    drawer.slideDown(function () {
+
+                        // colored flash effect
+                        drawer.css("backgroundColor", "#229");
+                        setTimeout(function () { drawer.css("backgroundColor", "#fff"); }, 1000);
+                    });
+
+                    // add a CSS class name "error" for empty & required fields
+                    empty.addClass("error");
+
+                    // cancel seeking of the scrollable by returning false
+                    return false;
+                    // everything is good
+
+                } else {
+
+                    // hide the drawer
+                    drawer.slideUp();
+                }
+            }
+
+            // update status bar
+
+            $("#status li").removeClass("active").eq(i).addClass("active");
+
+        });
+
+        // if tab is pressed on the next button seek to next page
+
+
+        root.find("button.next").keydown(function (e) {
+            if (e.keyCode == 9) {
+                // seeks to next tab by executing our validation routine
+                api.next();
+
+                e.preventDefault();
+
+            }
+
+        });
+
+    });
+
+</script>*@
+<!--Body Container Start-->
+<div id="inner_body_container">
+
+    <div id="banner">
+        <img src="@Url.Content("~/images/checkout_chaged.jpg")" />
+    </div>
+    <div class="expandable" id="toPopup1">
+        <div id="close-val" class="close-confirm">
+        </div>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+            <tr>
+                <td width="14">
+                    <img src="@Url.Content("~/images/expand_top_left.png")" width="14" height="13" /></td>
+                <td style="background: url(/images/expand_drop_top.png) repeat-x left 2px;"></td>
+                <td width="14">
+                    <img src="@Url.Content("~/images/expand_top_right.png")" width="14" height="13" /></td>
+            </tr>
+            <tr>
+                <td style="background: url(/images/expand_drop_left.png) repeat-y 0px top;"></td>
+                <td style="background: #fff;">
+                    <div class="expandable_mid">
+                        <img src="@Url.Content("~/images/error_sign.png")" style="float:left;margin-top:15px;margin-left:30px;" />
+                        <div id="validation-message" style="margin-left: 150px; color: red; margin-top: 15px;" class="validation-error-msg">
+
+                            <ul data-bind="foreach: Validationarray">
+                                <strong>
+                                    <li data-bind="text: $data" style="list-style-type: disc"></li>
+                                </strong>
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </td>
+                <td style="background: url(/images/expand_drop_right.png) repeat-y 0px top;"></td>
+            </tr>
+            <tr>
+                <td width="14" style="padding: 0px!important;">
+                    <img src="@Url.Content("~/images/expand_bot_left.png")" width="14" height="13" /></td>
+                <td style="background: url(/images/expand_drop_bottom.png) repeat-x left 0px;" width="100%"></td>
+                <td width="14" style="padding: 0px!important;">
+                    <img src="@Url.Content("~/images/expand_bot_right.png")" width="14" height="13" /></td>
+            </tr>
+        </table>
+
+    </div>
+    <div class="loader">
+    </div>
+    <div id="backgroundPopup">
+    </div>
+
+
+
+
+    <!-- <div id="toPopup" style="min-height: 100px">
+                    <div class="close">
+                    </div>
+                    <div class="contact-detail-new">
+                        <h2>Mobile Topup Validation
+                        </h2>
+                        <div id="close-val" class="close-confirm">
+                        </div>
+                        @* <fieldset>*@
+
+                        <div id="validation-msgs" style="color: red; float: left;" class="validation-error-msg">
+                            <ul data-bind="foreach: Validationarray">
+                                <strong>
+                                    <li data-bind="text: $data"></li>
+                                </strong>
+                            </ul>
+                        </div>
+                        @*  </fieldset>*@
+                    </div>
+                </div>
+                <div class="loader">
+                </div>
+      <div id="backgroundPopup">
+      </div>--
+           >
+
+
+      <!-- End demo -->
+    <form action="#">
+        <div id="wizard">
+            <ul id="status">
+                <li id="slider1"><span>Personal Info</span></li>
+                <li id="slider2"><span>Mobile Top Up Info </span></li>
+                <li id="slider3"><span>Billing  &amp; Payment Info</span></li>
+                <li id="slider4"><span>Confirmation</span></li>
+            </ul>
+            <div class="items">
+                <input type="hidden" id="hidden-phonenumber" value="@Model.MobileNumber" />
+                                <input type="hidden" id="hidden-countryid" value="@Model.Country" />
+                <!-- Personal Info Step1 -->
+                <div class="form_field">
+                    <div id="auto-refill">
+                        <div id="auto-refill-scroller">
+                            <div class="top-bg">
+                                <h1><span class="fr small_text margin-right20"><a href="#" class="blue_hover"></a></span>Mobile Top Up Login/Signup</h1>
+                            </div>
+                            <div class="repeat-scroller-bg">
+                                
+                                <div class="editprofile_b">
+
+                                    <div id="edit-profile" class="edi_pro">
+                                        <!-- validation for existing customer-->
+                                        <div class="logonexpandable">
+                                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td width="14">
+                                                        <img src="@Url.Content("~/images/expand_top_left.png")" width="16" height="13" /></td>
+                                                    <td style="background: url(/images/expand_drop_top.png) repeat-x left 2px;"></td>
+                                                    <td width="14">
+                                                        <img src="@Url.Content("~/images/expand_top_right.png")" width="14" height="13" /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="background: url(/images/expand_drop_left.png) repeat-y 0px top;"></td>
+                                                    <td style="background: #fff;">
+                                                        <div class="expandable_mid2">
+
+                                                            <img src="@Url.Content("~/images/error_sign.png")" style="float:left;margin-top:4px;margin-left:13px;" />
+                                                            <div style="margin-top: 10px; margin-left: 85px;">
+
+                                                                <ul data-bind="foreach: Validationarray">
+                                                                    <strong>
+                                                                        <li data-bind="text: $data" style="list-style-type: disc"></li>
+                                                                    </strong>
+                                                                </ul>
+
+                                                                <div class="validationerorr" style="font-family: Arial, Helvetica, sans-serif; font-size: 14px;">
+                                                                    Email and password do not match.
+
+Please try again.
+
+                                                                    <a href="#" class="click_error">Click here</a> for more help or <a href="#" id="click_error" class="modal-new">reset your password</a>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </td>
+                                                    <td style="background: url(/images/expand_drop_right.png) repeat-y 0px top;"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="14" style="padding: 0px!important;">
+                                                        <img src="@Url.Content("~/images/expand_bot_left.png")" width="16" height="13" /></td>
+                                                    <td style="background: url(/images/expand_drop_bottom.png) repeat-x left 0px;" width="100%"></td>
+                                                    <td width="14" style="padding: 0px!important;">
+                                                        <img src="@Url.Content("~/images/expand_bot_right.png")" width="14" height="13" /></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="left big-hth">
+                                            <span class="loginname"><strong>Existing  Customers:</strong></span>
+                                            
+                                                <p>
+
+                                                    <label class="email">Email Address: </label>
+
+                                                    <input name="" type="text" id="" placeholder="Email address" tabindex="1" data-bind="value: LoginEmail" />
+
+                                                </p>
+
+                                                <div class="spacer"></div>
+
+                                                <div class="clear"></div>
+
+                                                <p>
+
+                                                    <label class="email">Password:</label>
+
+                                                    <input name="" type="password" tabindex="2" placeholder="Password" data-bind="value: LoginPassword" />
+
+                                                </p>
+                                            
+                                                <div class="spacer"></div>
+
+                                                <div class="clear"></div>
+
+
+
+                                                <p>
+
+                                                    <label></label>
+                                                    <span data-bind="text: LoginFailMessage" class="validation-error-msg"></span>
+                                                    <input name="Submit" type="button" tabindex="3" id="topuplogin" value="" class="new-next">
+                                                </p>
+                                           
+                                            <div class="spacer"></div>
+
+                                            <div class="clear"></div>
+
+                                            <p style="margin-bottom: 0;">
+
+                                                <label></label>
+
+                                                <label class="remember" for="remember">
+
+                                                    <input type="checkbox" class="none-border">
+                                                    Remember Password
+                                                </label>
+
+
+
+                                                <strong><a href="#" class="pass-forgot modal-new" tabindex="4">Forgot Password?</a></strong>
+
+                                            </p>
+                                        </div>
+
+
+
+                                        <div class="rightlogin">
+
+                                            <span class="loginname"><strong>New Customer Sign up</strong></span>
+
+                                            <div id="close"></div>
+
+                                            <fieldset class="none login_width">
+                                            </fieldset>
+
+                                            <div class="color_latest">
+
+                                                <div class="field-space">
+
+                                                    <input type="text" tabindex="4" placeholder="Enter your email address" class="right-input_again" maxlength="50" data-bind="value: Email" />
+
+                                                    <input type="text" tabindex="5" placeholder="Confirm Email Addresss" class="right-input_again" maxlength="50" data-bind="value: ConfEmail" />
+
+                                                </div>
+                                                
+                                                
+
+                                                <div class="field-space">
+
+                                                    <input type="password" tabindex="6" placeholder="Password" class="right-input_again" maxlength="50" data-bind="value: Password" />
+
+                                                    <input type="password" tabindex="7" placeholder="Confirm Password" class="right-input_again" maxlength="50" data-bind="value: ConfPassword" />
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="clear"></div>
+
+                                            <input type="button" value="" tabindex="8" class="hop next second_tab_mar">
+
+                                            <div class="clear"></div>
+
+                                            <div class="sprator"></div>
+
+                                            <div class="text-bar">By opening an account on Raza.com you agree to the <a href="#" class="tabs_more_tag"><strong>Terms and Conditions.</strong></a></div>
+
+                                        </div>
+
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="bottom-scroller-bg"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mobile Top up Info2 -->
+                <div class="form_field">
+                    <div id="auto-refill">
+                        <div id="auto-refill-scroller">
+                            <div class="top-bg">
+                                <h1><span class="fr small_text margin-right20"><a href="#" class="blue_hover"></a></span>Mobile Top Up Details</h1>
+                            </div>
+                            <div class="repeat-scroller-bg">
+                                <div class="editprofile_b">
+                                    <div id="edit-profile" class="edi_pro">
+                                        <div class="mobil-div">
+                                            <p>
+                                                <label>Country : </label>
+                                                @*<select>
+                            <option>Papua New Guinea</option>
+                            <option>India</option>
+                          </select>*@
+                                                <select name="CountryTo" id="topup-country" data-bind="options: CountryListTo, optionsText: 'Name', optionsValue: 'Id', optionsCaption: 'Select Country..', value: TopupCountryId ">
+                                                </select>
+
+
+
+                                            </p>
+                                            <div class="spacer"></div>
+                                            <div class="clear"></div>
+                                            <p>
+                                                <label>Phone Number : </label>
+                                                <input type="text" style="width: 50px" readonly="readonly" data-bind="value: DisplayCountryCode" />
+                                                <input name="" type="text" id="topup-mobilenum" style="width: 223px;" placeholder=" Enter Phone Number" data-bind="value: TopupMobileNumber" onkeypress="return numberOnly();" maxlength="10">
+                                            </p>
+                                            <div class="spacer"></div>
+                                            <div class="clear"></div>
+                                            <p>
+                                                <label>Operator : </label>
+                                                <!-- ko if: IsAutoOperatorFind -->
+                                                <span>
+                                                    <!-- ko if: OperatorImageName -->
+                                                    <img data-bind="attr: { src: OperatorImageName }" alt=" " class="logo-icon" />
+                                                    <!-- /ko -->
+                                                    <!-- ko ifnot: OperatorImageName -->
+                                                    <span data-bind="text: OperatorName" style="font-size: 20px;"></span>
+                                                    <!-- /ko -->
+                                                </span>
+                                                <!-- /ko -->
+
+                                                <!-- ko ifnot: IsAutoOperatorFind -->
+                                                @*<strong style="color:red;font-size:13px;" >Invalid Carier or Country.!!</strong>*@
+                                                <select name="selectoperator" id="SelectOpearotor" data-bind="options: AllCountryOpearatorlist, optionsText: 'OperatorName', optionsValue: 'OperatorName', optionsCaption: 'Select Operator..', value: SelectedOperatorName">
+                                                </select>
+                                                <!-- /ko -->
+
+                                            </p>
+                                            <div class="spacer"></div>
+                                            <div class="clear"></div>
+                                            <p>
+                                                <label>Amount :</label>
+                                                <select name="SelectAmount" id="Purchaseamount" data-bind="options: Opearatordatalist, optionsText: 'SourceAmountwithSign', optionsValue: 'SourceAmount', optionsCaption: 'Select Amount..', value: SourceAmount">
+                                                </select>
+
+                                            </p>
+                                            <div class="spacer"></div>
+                                            <div class="clear"></div>
+                                            <p>
+                                                <label>&nbsp;</label>
+                                                <textarea readonly="readonly" data-bind="value: TextAreaAmount">  </textarea>
+                                            </p>
+                                            <div class="spacer"></div>
+                                            <div class="clear"></div>
+                                            <p>
+                                                <label></label>
+                                                <input name="Submit" type="button" id="Submit" value="" class="submit-btn-new next second_tab_mar2">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bottom-scroller-bg"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Billing Info Step2 -->
+                <div class="form_field">
+                    <div id="auto-refill">
+                        <div id="auto-refill-scroller">
+                            <div class="top-bg">
+                                <h1>Billing Info</h1>
+                            </div>
+                            <div class="repeat-scroller-bg">
+                                <div class="editprofile_b">
+                                    <div id="edit-profile">
+
+                                        <div class="new_payment">
+
+                                            <div class="new_payment_left">
+
+                                                <fieldset>
+                                                    <b class="red fl">*</b>
+                                                    <input name="" type="text" placeholder="First name" class="new_payment_in1" maxlength="50" data-bind="value: FirstName" />
+                                                    <b class="red fl">*</b>
+                                                    <input name="" type="text" placeholder="Last name" class="new_payment_in1" maxlength="50" data-bind="value: LastName" />
+                                                    <b class="red fl">*</b>
+                                                    <input name="" type="text" placeholder="Phone Number" class="new_payment_in1" maxlength="10" data-bind="value: BillngPhoneNumber" onkeypress="return numberOnly();" />
+                                                    <b class="red fl">*</b>
+                                                    <input name="" type="text" placeholder="Zip/Postal Code" class="new_payment_in1" maxlength="6" data-bind="value: ZipCode" onkeypress="return numberOnly();" />
+                                                </fieldset>
+
+                                                <fieldset>
+                                                    <b class="red fl">*</b>
+                                                    <input name="" type="text" placeholder="Address" class="new_payment_in1" maxlength="50" data-bind="value: Address" />
+                                                    <b class="red fl">*</b>
+                                                    <input name="" type="text" placeholder="City" class="new_payment_in1" maxlength="50" data-bind="value: City" />
+                                                    <b class="red fl">*</b>
+                                                    <select class="select_country_payment" name="CountryTo" id="billng-country" data-bind="options: BillingCountryList, optionsText: 'Name', optionsValue: 'Id', optionsCaption: 'Select Country..', value: BillngCountry">
+                                                    </select>
+                                                    <b class="red fl">*</b>
+
+
+                                                    @* <select class="select_country_payment" name="State" id="billng-State"  data-bind="options: StateList, optionsText: 'Name', optionsValue: 'Id', optionsCaption: 'Select State..', value: State">
+                    </select> *@
+                                                    @* @Html.DropDownListFor(x => x.State, (SelectList)@ViewBag.State, new { id = "State", @class = "select_country_payment",tabindex="4", data_bind = "value: State" })*@
+                                                    <select id="billing-country" class="select_country_payment" data-bind="options: BillingStateList, optionsText: 'Name', optionsValue: 'Id', optionsCaption: 'State..', value: State "></select>
+
+                                                </fieldset>
+
+                                                <div class="clear"></div>
+                                                <h1 class="payment-heding">Payment Info</h1>
+
+
+
+                                                <fieldset>
+                                                    <label class="payment_topup_label payment_topup_label-new">Select Card Type:</label>
+                                                    <b>
+                                                        <img src="@Url.Content("~/images/visa-icon.png")" alt="Visa" />
+                                                        <input type="radio" name="cardtype" class="radio_bt none-border" value="Visa" data-bind="checked: CardType" />
+                                                    </b><b>
+                                                        <img src="@Url.Content("~/images/master-card-icon.jpg")" alt="Master Card" />
+                                                        <input type="radio" name="cardtype" class="radio_bt none-border" value="MasterCard" data-bind="checked: CardType" />
+                                                    </b><b>
+                                                        <img src="@Url.Content("~/images/amex-icon.jpg")" alt="Amex" />
+                                                        <input type="radio" name="cardtype" class="radio_bt none-border" value="Amex" data-bind="checked: CardType" />
+                                                    </b><b>
+                                                        <img src="@Url.Content("~/images/discover-icon.jpg")" alt="Discover" />
+                                                        <input type="radio" name="cardtype" class="radio_bt none-border" value="Discover" data-bind="checked: CardType" />
+                                                    </b>
+                                                    <p class="extra addtional-new ">
+                                                        Additional 50 ¢ will be charged for using AMEX card.
+                                                    </p>
+                                                </fieldset>
+
+
+                                                <fieldset>
+                                                    <input type="text" class="payment_topup_input" placeholder="Credit Card" maxlength="16" data-bind="value: CardNumber" onkeypress="return numberOnly();" />
+                                                    <select name="" class="payment_topup_select" data-bind="value: ExpMonth">
+                                                        <option value="">Month</option>
+                                                        <option value="01">Jan.</option>
+                                                        <option value="02">Feb.</option>
+                                                        <option value="03">March.</option>
+                                                        <option value="04">April.</option>
+                                                        <option value="05">May.</option>
+                                                        <option value="06">June.</option>
+                                                        <option value="07">July.</option>
+                                                        <option value="08">Aug.</option>
+                                                        <option value="09">Sep.</option>
+                                                        <option value="10">Oct.</option>
+                                                        <option value="11">Nov.</option>
+                                                        <option value="12">Dec.</option>
+                                                    </select>
+
+                                                    <span class="payment_topup_arrow">/</span>
+                                                    <select name="" class="payment_topup_select" data-bind="value: ExpYear">
+                                                        <option value="">Year</option>
+                                                        <option value="14">2014</option>
+                                                        <option value="15">2015</option>
+                                                        <option value="16">2016</option>
+                                                        <option value="17">2017</option>
+                                                        <option value="18">2018</option>
+                                                        <option value="19">2019</option>
+                                                        <option value="20">2020</option>
+                                                        <option value="21">2021</option>
+                                                        <option value="22">2022</option>
+                                                        <option value="23">2023</option>
+                                                        <option value="24">2024</option>
+
+                                                    </select>
+
+                                                    <input style="width: 80px" class="coupon12 payment_topup_input_2" placeholder="CVV" id="txtCVV2" maxlength="4" size="5" name="txtCVV2" data-bind="value: CvvNumber" onkeypress="return numberOnly();" />
+                                                    &nbsp;<span class="small_txt_msg1"><a class="learn-more-text modal-learn blue_hover" href="">What
+                  is CVV?</a></span>
+
+                                                    <div id="contact-learn">
+                                                        <div class="contact-detail-learn">
+                                                            <h2>What is CVV?</h2>
+                                                            <div id="close-learn"></div>
+                                                            <div class="learn_card">
+                                                                <h3>Where is my Card Id/PIN?</h3>
+                                                                <div class="learn_card_left">
+                                                                    <h3 class="american_text">American Express Card
+                        Holders</h3>
+                                                                    <p class="identy_text">
+                                                                        <strong>The Card Identification
+                        #</strong> is the 4 digit, non embossed number
+                        printed above your account number on the
+                        face of your card. This number is recorded
+                        as an additional security precaution.
+                                                                    </p>
+                                                                    <img src="@Url.Content("~/images/learn_popup_img.jpg")" alt="" />
+                                                                </div>
+                                                                <div class="learn_card_right">
+                                                                    <h3 class="american_text">Visa and MasterCard
+                        Card Holders</h3>
+                                                                    <p class="identy_text">
+                                                                        <strong>CVV2: A new Three-Digit
+                        Value</strong><br />
+                                                                        An important new security feature for card-not
+                        present transactions now appears on the back
+                        of most visa cards
+                                                                    </p>
+                                                                    <img src="@Url.Content("~/images/card_cvv2.jpg")" alt="card" align="middle" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div id="mask-learn"></div>
+                                                </fieldset>
+
+                                            </div>
+
+
+                                            <div class="new_payment_right">
+                                                <div class="new-payment-top"></div>
+                                                <div class="new-payment-mid">
+                                                    <table width="100%" cellpadding="0" cellspacing="0" border="0" class="border-top">
+                                                        <tr bgcolor="#e8e8e8">
+                                                            <td width="75%" height="30" class="border_right border_bottom" align="left"><strong>Product</strong></td>
+                                                            <td width="25%" height="30" class="border_bottom" align="left"><strong>Amount</strong></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td height="10px" class="border_right">&nbsp;</td>
+                                                            <td height="10px">&nbsp;</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td width="75%" height="50" class="border_right border_bottom" align="left"><strong>Mobile Recharge</strong><br />
+                                                                <p class="pay_space" data-bind="text: TextAreaAmount"></p>
+                                                                <p class="pay_space">Mobile Number: <span style="font-weight: normal; font-size: 11px;" data-bind="text: MobileNumberWithCode"></span></p>
+                                                                <p class="pay_space">Operator: <span style="font-weight: normal; font-size: 11px;" data-bind="text: OperatorName"></span></p>
+                                                                <p><strong>Service fee</strong></p>
+                                                            </td>
+                                                            <td width="25%" height="50" class="border_bottom" align="left"><span></span><span style="font-weight: normal; font-size: 11px;" data-bind="text: SourceAmountWithSign"></span>
+                                                                <br />
+                                                                <p class="pay_space_1">$ 0</p>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td width="75%" height="30" class="border_right" align="left" bgcolor="#e8e8e8">
+                                                                <input name="" type="text" class="pay_table_input" placeholder="Coupon" data-bind="value: CouponCode" /><strong class="pay_table_total-text">Total</strong>
+                                                            </td>
+                                                            <td width="25%" height="30" align="left" bgcolor="#e8e8e8"><strong class="black"><span data-bind="text: SourceAmountWithSign"></span></strong></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <p style="color: red; font-weight: bold;" data-bind="text: CouponCodeMsg"></p>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="new_payment_bottom">
+                                            </div>
+
+                                            <div class="below_checkbox below_checkbox_mobile">
+                                                <input name="" id="terms-new-topup" type="checkbox" value="T" checked="checked" class="condition_input none-border" />
+                                                <a href="" class="condition_label modal-ie blue_hover">I agree to terms and conditions.</a>
+                                                <div id="contact-ie">
+                                                    <div class="contact-detail-cvv">
+                                                        <h2 class="terms-width center">Terms &amp; conditions</h2>
+                                                        <div id="close-ie"></div>
+                                                        <!--<div class="terms terms-credit left">
+                  <p>Use of this web site is expressly conditioned on your acceptance of all terms and conditions stated herein and any other place on this web site. DO NOT USE THIS WEBSITE if you do not accept all the terms and conditions stated herein and at other places (including Frequently Asked Questions, and "Detail" section of the respective prepaid phone plan) on this website.</p>
+                  <ul>
+                    <li><a href="#General" class="bllink">General</a></li>
+                    <li><a href="#Membership Information">Membership Information</a></li>
+                    <li><a href="#Username and Password">Username and Password</a></li>
+                    <li><a href="#Your data">Your data</a></li>
+                    <li><a href="#Your account">Your account</a> </li>
+                    <li><a href="#The Services Top-Up">The Services Top-Up</a> </li>
+                    <li><a href="#Your obligation">Your obligations</a> </li>
+                    <li><a href="#Transactions on the Account / Refunds / Returns">Transactions on the Account / Refunds / Returns</a></li>
+					<li><a href="#Third Party Services and Information">Third Party Services and Information</a> </li>
+					<li><a href="#Termination of the Agreement">Termination of the Agreement</a> </li>
+					<li><a href="#Your contribution">Your contribution</a> </li>
+				    <li><a href="#VAT and Tax">VAT and Tax</a> </li>
+					<li><a href="#Links to other websites">Links to other websites</a> </li>
+					<li><a href="#Variations of the Agreement">Variations of the Agreement</a> </li>
+					<li><a href="#Use of Information and Confidentiality">Use of Information and Confidentiality</a> </li>
+					<li><a href="#Intellectual Property">Intellectual Property</a> </li>
+					<li><a href="#Data Protection">Data Protection</a> </li>
+					<li><a href="#Temporary Withdrawal of Service">Temporary Withdrawal of Service</a> </li>
+					<li><a href="#Security, Maintenance and Availability">Security, Maintenance and Availability</a> </li>
+					<li><a href="#Language">Language</a> </li>
+					<li><a href="#Limited Disclosures to Affiliates">Limited Disclosures to Affiliates</a> </li>
+					<li><a href="#Incorrect or Fraudulent Personal Information">Incorrect or Fraudulent Personal Information</a> </li>
+					<li><a href="#Other User Conduct">Other User Conduct</a> </li>
+					<li><a href="#Remedies for Misuse of Your Account">Remedies for Misuse of Your Account</a> </li>
+					<li><a href="#Accuracy of Information Submitted to Raza.com">Accuracy of Information Submitted to Raza.com</a> </li>
+					<li><a href="#Chargeback's">Chargeback's</a> </li>
+					<li><a href="#Secure Email Address Required">Secure Email Address Required</a> </li>
+					<li><a href="#No Obligation to Verify">No Obligation to Verify</a> </li>
+					<li><a href="#All charges in U.S. Dollars">All charges in U.S. Dollars</a> </li>
+					<li><a href="#Credit Card Verification">Credit Card Verification</a> </li>
+					<li><a href="#Credit Card Denial">Credit Card Denial</a> </li>
+					<li><a href="#Customer Responsible for Credit or Debit Card Fees">Customer Responsible for Credit or Debit Card Fees</a> </li>
+					<li><a href="#Adequate Disclosure of Prepaid Mobile Recharge Information">Adequate Disclosure of Prepaid Mobile Recharge Information</a> </li>
+					<li><a href="#Authority to Purchase">Authority to Purchase</a> </li>
+					<li><a href="#Ownership of Data">Ownership of Data</a> </li>
+					<li><a href="#Use of Intellectual Property">Use of Intellectual Property</a> </li>
+					<li><a href="#Limitation of Liability">Limitation of Liability</a> </li>
+					
+                  </ul>
+                  <p>This Raza.com Customer Agreement ("Agreement") sets forth the terms and conditions that apply to your purchases of calling plans and other products from www.Raza.com (the "Raza.communications Website")
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    By registering to use  this Website or by purchasing and using our products, You (as hereinafter defined) agree to the terms and conditions in this Agreement, the Conditions of Use for the<strong> Raza.com</strong> website, and any changes that may be made to the Agreement or to the Conditions of Use.  If you do not agree to the terms of this Agreement or have any questions about the Agreement, do not purchase or use our products without contacting Raza.communications  immediately at 1877-463-4233.</p>
+					
+					
+					
+                  <h2 class="headinginner"><a name="General" id="all">General.</a></h2>
+                  <p>The provision of Services to you through the Website is subject to your acceptance of the Agreement. By completing the Registration Form and/or by using the Website, you expressly agree to be bound by the terms and conditions below, the Raza.com Privacy Policy, and any other terms and conditions of this Agreement.<br />
+If you object to this Agreement or any subsequent modifications to it, or become dissatisfied with your membership of the Website in any way, your only remedy is too immediately:
+		
+				<ul>
+				<li>Discontinue your use of the Website; and</li>
+				<li>Terminate your membership by notifying us in writing. Click here for our contact information.</li>
+				</ul>
+
+</p>
+                  <p>Certain words in this Agreement have the meanings set under them at the end of this webpage.</p>
+				  
+				  
+                  <h2 class="headinginner"><a name="Membership Information" id="all">Membership Information.</a></h2>
+                  <p>When registering as a member of the Website, you must provide us with accurate, complete and up-to-date information as requested on the Registration Form. You agree that the information supplied with your Registration Form will be truthful, accurate and complete. It is your responsibility to inform us of any changes to that information, including your region of residence. You may do this at any time by clicking on the 'Personal Settings' section of the Website. All personal information you provide us as a member will be treated in accordance with the <strong>Raza.com</strong> Privacy Policy.
+If you are under 18 years of age, you must obtain a parent/guardian's consent prior to using the Website. If you are an employee of a company or other entity or are acting on behalf of a company, you must be authorized to enter into these Terms of Use on behalf of your employer.
+There are no fees to become a member of Raza.com. It is free to sign up and become a <strong>Raza.com</strong> member. All registered users can utilize all of the great features My Account offers at no cost
+</p>
+              		 
+				  
+				  
+                  <h2 class="headinginner"><a name="Username and Password" id="all">Username and Password</a></h2>
+                  <p>Once you become a member of the Website, we will use your email address as your username and the Password you created during registration. You are entirely responsible for all activities which occur under your username and Password, including unauthorized use of your or any other credit card. You must notify us immediately if you become aware of any unauthorized use of your username and Password. If you forget or lose your password, you should request a new password by visiting the 'Forgot your password' section on the sign in page. Our system will then automatically send your password to the email address on file. You also agree that you will only register in your own name. Each username and password must be used by a single user and is not transferable.</p>
+                    
+                 
+                  <h2 class="headinginner"><a name="Your data" id="all">Your data</a></h2>
+                  <p>We will only send you information about the products that you have selected. You will be able to change preferences or opt-out of this service at any time in the 'Personal Settings' area. Personal information collected by us as part of this service will be treated in accordance with the Raza.com Privacy Policy ((Click here for the privacy policy, which forms part of this Agreement.
+Please note that the sending of personal information via e-mail over the internet may not be secure and can be intercepted by third parties or incorrectly delivered. You should not divulge personal information over the internet unless you are using a secure or encrypted communications technology.
+We shall be entitled, but not obliged, to record all communications from, or instructions given by, you to us, or messages sent by us to you through the Website.
+</p>
+				  
+				  
+                  <h2 class="headinginner"><a name="Your account" id="all">Your account</a></h2>
+                  <p>If you are not resident in one of the listed regions and if the financial institution with which you have an Account is not in one of the listed regions you are not permitted to avail of the Services.
+The Website can only be used by you to affect a limited number of Top-Ups and/or Top-Ups to a limited value over specific time periods. You will be automatically notified through the Website when these limits are reached or should attempt to affect Top-Ups in excess of the limits. Other limits and exclusions may apply to the way which you can use this Website from time to time and you will be notified of these through your use of the Website.
+You shall ensure that all instructions given by you to us through the Website are accurate and complete, and that, where appropriate, you correctly identify the mobile phone account to which any amount is to be credited or debited. In particular, prior to confirming any instruction to us, you shall ensure that the instruction which is relayed back to you confirming the instruction that you send through the Website is the instruction which you intend to give. We are entitled to rely on any instruction from you using and, for the avoidance of doubt, the processing by us of any such confirmed instruction shall be final and binding on you.<br /><br />
+
+You shall carefully examine any Top-Up information received by you, or any other information provided by us to you through the Website from time to time and shall report any errors or omissions to us in writing within 30 days from the date of dispatch of such statements or receipt of such information. In the event that no error or omission is reported by you within the time specified, we shall be entitled to rely on the conclusiveness of the relevant statement of account as respects further transactions, provided that nothing herein will prevent us or you subsequently adjusting information to correct an error or omission, but in that case without any claim to compensation or damages arising on account thereof.
+
+</p>
+				  
+				  
+				  
+                  <h2 class="headinginner"><a name="The Services Top-Up" id="all">The Services Top-Up</a></h2>
+                  <p>A transfer of an amount from an Account to a mobile network operator (authorized by us from time to time) to pay for the provision of telecommunication services by that mobile network operator to a pre-paid mobile telephone effected using the Services and the Website.
+The Services shall only be provided to you by us in respect of Accounts in the listed territories (available on the website, and subject to change).TopUp's are purely for use domestically within the relevant listed jurisdictions (available on the website, and subject to change) and not for roaming within the EU.<br />
+
+The Website (including the Services delivered through it) and the Password must be used by you strictly in accordance with this Agreement. The Password will be provided by us direct to you. You must not disclose the Password, whether directly or indirectly, to any other person (including, but not limited to, any account aggregation service provider).
+</p>
+				  
+				  
+				  
+                  <h2 class="headinginner"><a name="Your obligations" id="all">Your obligations</a></h2>
+                 <p>The equipment necessary for you to access the Website shall be provided and be maintained by and at your expense of and we may change the requirements for such equipment from time to time.
+You undertake to us to comply strictly with this Agreement. You acknowledge that your compliance with this Agreement is designed to minimize the risk of unauthorized use of the Website. You agree to indemnify us in full in respect of any loss or damages which may arise to us, you or any third party as a consequence of your non-compliance with this Agreement
+</p>
+				  
+				  
+				  
+				  
+                  <h2 class="headinginner"><a name="Transactions on the Account / Refunds / Returns" id="all">Transactions on the Account / Refunds / Returns</a></h2>
+            		<p>You authorize us to act upon any instruction to debit an Account received through the Website which has been transmitted using the Password and/or any other authentication process which we may require to be used in connection with the Website without requiring us to make any further authentication or enquiry, and all such debits shall constitute your liability.
+Upon receipt of a proper and complete request from you for a Top-Up we will debit the Account and will forward an electronic request to the relevant mobile network operator to provide a credit of the amount transferred for the benefit of the pre-paid mobile phone number nominated by you. The mobile network operator shall be solely liable to you in respect of the provision of the mobile services to which the Top-Up applies.<br /></p>
+<p><strong> NO REFUNDS OR RETURNS ARE PERMITTED AS THIS IS A DIRECT TRANSFER.</strong><br />
+
+Raza.com is an independent entity appointed by mobile network operators to act on their behalf to facilitate the purchase of Top-Up.
+Subject to your compliance with the Agreement and provided you have not acted fraudulently or in a negligent manner, we shall accept liability for the non-execution or defective execution of a Top-Up effected through the Website but such liability shall be limited to the amount of the unexecuted or defectively executed Top-Up.
+</p>
+
+
+
+
+				
+                  <h2 class="headinginner"><a name="Third Party Services and Information" id="all">Third Party Services and Information</a></h2>
+            		<p>Many of the products and services offered for sale on Raza.com or through services that we may offer you, are submitted, created or developed by third parties, about the products, services and information of third parties. Information about some of the products and services on the Website is subject to specific restrictions concerning the persons to whom such information may be made available. Details of such restrictions are set out on the pages to which they relate and you should read those details carefully before proceeding to the rest of the relevant page.<br />
+Information about some of the products and services on this Website may be subject to additional Legal Notices and Warnings, identified as such. These notices and warnings are important and are for the protection of both you and us. Please take the time to carefully read all Legal Notices and Warnings on the pages of this Website that you visit.
+The third party products, services and information are not provided or endorsed by us and your legal relationship is with the third party supplier when purchasing such services or goods. We have not checked the accuracy or completeness of the information or the suitability or quality of the products and services of the third parties. You must make your own enquiries with the relevant third party supplier directly before relying on the third party information or entering into a transaction in relation to the third party products and services referred to on the Website.<br />
+We may receive fees and/or commissions from third parties for the sale goods and services displayed or made available on the Website, for advertising goods and services on the Website, or in connection with the amount of visitors from that leave the Website to go to a linked site. You acknowledge and consent to us receiving the fees. You will be notified of the fees payable to us when you use the Website.
+
+</p>
+
+
+
+			
+                  <h2 class="headinginner"><a name="Termination of the Agreement" id="all">Termination of the Agreement</a></h2>
+            		<p>We may terminate the Agreement and withdraw the Website and the Services provided through it:<br />
+					<ul class="termination_list ">
+					<li>On giving you at least 1 day prior written notice;</li>
+					<li>Immediately upon breach by you of any of the terms of this Agreement or where there are serious grounds for doing so and provided you are informed by notice in writing as soon as is reasonably possible after termination;</li>
+					<li>Immediately upon your bankruptcy or other contractual incapacity;</li>
+					<li>If you have not accessed the Website in any period of 12 consecutive months; or</li>
+					<li>If we reasonably believe that any of the Services have been used negligently, illegally or fraudulently by you, or by a third party as a result of your negligence or recklessness.</li>
+					</ul>
+
+					</p>
+					
+					<p>This Agreement does not have a minimum or finite duration and will continue to be binding on the parties until it is terminated. You may terminate the Agreement at any time by giving us not less than 1 days prior written notice to that effect, but without prejudice to your liability for any outstanding indebtedness on any Account or otherwise prior to the date of termination.<br />
+
+We reserve the right to process or cancel any transactions in progress on termination of this Agreement or on suspension or withdrawal of the Services. We are not responsible for any loss you may incur as a result of any transaction not being processed as part of the Services after termination of the Agreement or after any suspension or withdrawal of the Services.
+</p>
+
+
+
+				
+                  <h2 class="headinginner"><a name="Your contribution" id="all">Your contribution</a></h2>
+            		<p>When you send us any feedback, suggestions, ideas or other materials in relation to or via our site or the services, you agree that we can use, reproduce, publish, modify, adapt and transmit them to others free of charge and without restriction, subject to our obligations in our Privacy Statement.
+
+</p>
+
+			  <h2 class="headinginner"><a name="VAT and Tax" id="all">VAT and Tax</a></h2>
+            		<p>If VAT, sales tax or any other duty or tax is imposed on any supply made by us through <strong>Raza.com</strong> or the services, you must pay to us, in addition to any consideration payable or to be provided by you for this supply, an additional amount for the supply calculated by multiplying the prevailing VAT rate by the consideration for the relevant supply payable or to be provided (without any deduction or set off) by you under any other clause in this Agreement. Any amount payable by you is payable on demand by us, whether such demand is made by an invoice or otherwise.</p>
+					
+<p> This Website is established in United States in accordance with the laws and will be governed by the laws of that country. When you use the Website, you accept that your use of the Website and any information on the Website, will also be governed by the laws of United States and if any claim or dispute arises from your use of the Website or any of the information on it, you agree that the domestic courts will have exclusive jurisdiction over all such claims or disputes.</p>
+
+<p><strong>Service Fees:</strong> When using the Services you and we agree that we each will not attempt to attempt to repudiate the validity of your instructions relating to the Services or the communications regarding the instructions sent to you by us. Both you and we agree that the instructions, information, communications and/or authorizations given through the Services shall be treated as satisfying any legal requirements for communication in writing.</p>
+
+<p>Your agreement for the purchase of Top-Up is with the network operator. TopUp is an independent entity appointed by Mobile Network Operators to act on its behalf to facilitate the purchase of the mobile Top-Up.</p>
+
+</p>
+
+
+						<h2 class="headinginner"><a name="Links to other websites" id="all">Links to other websites</a></h2>
+            		<p>Some pages on this Website contain hypertext links to web sites not maintained by us. You are reminded that when you enter other web sites via such hypertext links, you will not be subject to these terms and conditions and you will not benefit from the protections afforded to you in using our Site. We will not be liable in any way for the content, availability or use of such linked web sites and you use such links entirely at your own risk.</p>
+					
+<p> Access to and use of this Website is at the user's own risk and we do not represent or warrant that the use of this Website or any material downloaded from it will not cause damage to property, including but not limited to loss of data or computer virus infection. In no event do we accept liability of any description including liability for negligence for any damages whatsoever resulting from loss of use, data or profits arising out of or in connection with the access, use or performance of this Website or any its contents.</p>
+
+<p>When using the Services you and we agree that we each will not attempt to attempt to repudiate the validity of your instructions relating to the Services or the communications regarding the instructions sent to you by us. Both you and we agree that the instructions, information, communications and/or authorizations given through the Services shall be treated as satisfying any legal requirements for communication in writing.</p>
+
+
+
+				
+						<h2 class="headinginner"><a name="Variations of the Agreement" id="all">Variations of the Agreement</a></h2>
+            		<p>Where we are not required to notify you otherwise by law, we may alter the Agreement from time to time. Any such alteration shall become effective and shall be binding upon you 14 days after notice of such alteration has been sent to you by any of the following means: through the post or by electronic message through Site. You shall be entitled, upon receiving notice of any alteration to this Agreement, to immediately terminate the Agreement but without prejudice to any rights or obligations which have arisen prior the termination date, including your liability for any indebtedness on any Account or which has otherwise arisen prior to that termination date.</p>
+					
+					
+					
+					<h2 class="headinginner"><a name="Use of Information and Confidentiality" id="all">Use of Information and Confidentiality</a></h2>
+            		<p>Subject to the terms of the Privacy Policy, and except to the extent that such disclosure is required under compulsion of law or pursuant to a direction or request issued by the Financial Regulator or other competent statutory or regulatory authority, we shall ensure that all your confidential personal data held by us in relation to this Agreement shall only be accessible to us, our agents or a company controlled by us and shall be processed or used by us for purposes and in a way compatible with the discharge of our obligation to you under the Agreement.</p>
+					
+					<p>You shall ensure that all information obtained from us by you relating to our operations, services, software, hardware and/or systems in connection with this Agreement shall be treated by you in strictest confidence and shall not be disclosed by you to any third party unless it is already in the public domain.</p>
+					
+					
+					
+					<h2 class="headinginner"><a name="Intellectual Property" id="all">Intellectual Property</a></h2>
+            		<p>The Intellectual Property Rights in all data, information, systems, processes or other material used by or developed by us for the purposes of providing the Services or performing its obligations under this Agreement shall, or upon their creation, remain vested in us or its licensors. You shall use such material only for the purpose of receiving the Services, as contemplated by this Agreement.</p>
+					
+                    <p> Save where otherwise specified, the Intellectual Property Rights and contents of all the Website are owned by us or its licensors. Reproduction of part or all of the contents of the Website in any form is prohibited without our prior consent, other than that you may print or download one copy of the contents of the Website for personal non-commercial use.</p>
+					
+					
+						
+					<h2 class="headinginner"><a name="Data Protection" id="all">Data Protection</a></h2>
+            		<p>We will comply with its obligations under applicable data protection law as regards relevant data in its possession relating to you and shall make available for inspection by you any information held by us about you in accordance with those laws. The Privacy Policy published on the Website from time to time shall apply to the use of personal data relating to you and shall form part of this Agreement.</p>
+					
+					
+						
+					<h2 class="headinginner"><a name="Temporary Withdrawal of Service" id="all">Temporary Withdrawal of Service</a></h2>
+            		<p>In the event of a breakdown, fault or malfunction of, or connected to, any system used in connection with the Website and the Services, or where there is a real or potential security risk, we shall be entitled, without incurring any liability to you, to temporarily suspend the relevant Services or access to the Website for such reasonable period as may be required to remedy, address or resolve the system issue.</p>
+					
+					<p><strong>Force Majeure:</strong> We shall not be in breach of its obligations under this Agreement if there is any total or partial failure of performance of our duties and obligations occasioned by any act of God, fire, act of government or state, war, civil commotion, insurrection, embargo, inability to communicate with third parties for whatever reason, failure of any computer dealing or settlement system, failure of or delay in any mobile phone network, prevention from or hindrance in obtaining any energy or other supplies, labor disputes of whatever nature, late or mistaken payment by an agent or any other reason (whether or not similar in kind to any of the above) beyond our control</p>
+					
+					
+					<h2 class="headinginner"><a name="Security, Maintenance and Availability" id="all">Security, Maintenance and Availability</a></h2>
+            		<p>You accept that electronic communications, the internet, telephone lines or SMS-based telecommunications media may not be secure and communications via such media may be intercepted by unauthorized persons or delivered incorrectly. In consequence we cannot guarantee the privacy or confidentiality of communications via such media although it will put in place security measures to protect these methods of communications</p>
+					
+					
+					<p><strong>From time to time it may be necessary to or desirable for security reasons, maintenance, upgrades or other reasons to:</strong></p>
+					
+					<ul class="termination_list">
+					<li>make certain or all of the Services unavailable to you; and/or</li>
+					<li>delay implementation of any new Services; and/or</li>
+					<li>withdraw, replace or reissue Passwords; and/or</li>
+					<li>change authentication procedures or processes for accessing the Website or the Services</li>
+					</ul>
+					
+					
+					<p>And while we will use reasonable endeavors to minimize any inconvenience caused to you, you accept that these events may occur and that we have no liability to it in the event of this happening. Where we change authentication procedures for accessing the Website or the Services then, notwithstanding any other term of this Agreement, we may introduce these procedures by giving instructions to you via the Website in respect of which such procedures are being introduced</p>
+					
+					
+					<h2 class="headinginner"><a name="Language" id="all">Language</a></h2>
+            		<p>The Agreement and all other documentation which will be provide by us to communicate with you throughout the duration of the Agreement will be prepared in the English language, and all communications between us and you will also be conducted in the English language.</p>
+					
+					
+					
+					
+					<h2 class="headinginner"><a name="Limited Disclosures to Affiliates" id="all">Limited Disclosures to Affiliates</a></h2>
+            		<p>If you became a customer through an affiliate web site or a link from an affiliate, that affiliate may receive a commission on our sales to you. We are obligated to disclose certain information about your purchases to affiliates in accounting for the affiliate's commissions. Information disclosed to affiliates is limited to: first name, first initial of last name, date of purchase, purchase amount, number of free trials, trials to activation, number of new customer orders and number of repeat customer orders. We do not disclose any <strong>CPNI</strong> to affiliates and we do not disclose any calling information or credit card information to affiliates.</p>
+					
+					
+					<h2 class="headinginner"><a name="Incorrect or Fraudulent Personal Information" id="all">Incorrect or Fraudulent Personal Information</a></h2>
+            		<p><strong>Raza.com</strong> also reserves the right to terminate any PINs on any services it Affiliated entities offers and to deny service or assistance to any customer or company that has provided incorrect personal information in posted orders.</p>
+					
+					
+					<h2 class="headinginner"><a name="Other User Conduct" id="all">Other User Conduct</a></h2>
+            		<p>You understand that all information, data, text, messages or other materials, whether publicly posted or privately transmitted, are the sole responsibility of the person from which such content originated. This means that you, and not <strong>Raza.com</strong>, are entirely responsible for all content that you upload post, email, transmit or otherwise make available via the Services. <strong>Raza.com</strong> does not control the content posted via the Service and, as such, does not guarantee the accuracy, integrity or quality of such Content. You understand that by using the Services, you may be exposed to Content that is offensive, indecent or objectionable. Under no circumstances will <strong>Raza.com</strong> be liable in any way for any Content, including, but not limited to, for any errors or omissions in any Content, or for any loss or damage of any kind incurred as a result of the use of any Content posted, emailed, transmitted or otherwise made available via the Service.<br />
+</p>
+					<p><strong>You agree to not use the Services to:</strong><br />	
+					
+					
+					<ul class="termination_list ">
+					<li>upload, post, email, transmit or otherwise make available any Content that is unlawful, harmful, threatening, abusive, harassing, tortuous, defamatory, vulgar, obscene, libelous, invasive of another's privacy, hateful, or racially, ethnically or otherwise objectionable;</li>
+					<li>impersonate any person or entity, including, but not limited to, an Raza.com official, or falsely state or otherwise misrepresent your affiliation with a person or entity;</li>
+					<li>intentionally or unintentionally violate any applicable local, state, national or international law, or any regulations having the force of law;</li>
+					<li>"stalk" or otherwise harass another User; or</li>
+					<li>Collect or store personal data about other Users</li>
+					</ul>
+					
+					
+					</p>
+					
+					
+					
+					<h2 class="headinginner"><a name="Remedies for Misuse of Your Account" id="all">Remedies for Misuse of Your Account</a></h2>
+            		<p>Without limiting any other remedies, <strong>Raza.com</strong> may terminate or suspend your account and status as a Member if you misuse your account or any services.
+</p>
+
+
+				  <h2 class="headinginner"><a name="Accuracy of Information Submitted to Raza.com" id="all">Accuracy of Information Submitted to <strong>Raza.com</strong></a></h2>
+            		<p>You are responsible for the truth and accuracy of all information you provide publicly or privately to us or other Users during the registration, or in any public message area, including but not limited to chat, discussion forms, and your e-mail. Your Information: (a) shall not be fraudulent; (b) shall not infringe any third party's copyright, patent, trademark, trade secret or other proprietary rights or rights of publicity or privacy; (c) shall not violate any law, statute, ordinance or regulation (including without limitation those governing export control, consumer protection, unfair competition, anti-discrimination or false advertising; (d) shall not be defamatory, trade libelous, unlawfully threatening or unlawfully harassing; (e) shall not be obscene or contain child pornography or, if otherwise harmful to minors; (f) shall not contain any viruses, or other computer programming routines that are intended to damage, detrimentally interfere with, surreptitiously intercept or expropriate any system, data or personal information; and (g) shall not link directly or indirectly to any other site; (h) shall not contain any item that, by paying to us the listing fee or the final value fee, could cause us to violate any applicable law, statute, ordinance or regulation.
+</p>
+
+
+				 <h2 class="headinginner"><a name="Chargeback's" id="all">Chargeback's</a></h2>
+            	<p>If You, in breach of this User Agreement and the Refund Policy, request a chargeback on any order from Raza.com, Raza.com may, at its sole discretion (1) terminate your membership registration; (2) to deny service or assistance to You; (3) cancel all outstanding PINs from any mobile recharges you have purchased from Raza.com and seek refund from the Carriers on those PINs; (4) report information about You and the transaction to a chargeback abuser database; and (5) collect the amount due from You directly, including through legal action, if necessary.
+</p>
+
+				<h2 class="headinginner"><a name="Secure Email Address Required" id="all">Secure Email Address Required</a></h2>
+            	<p>A <strong>"Secure Email Address"</strong> is an email address issued by employer, military, government or university. An email address from a free service (such as Yahoo.com, Hotmail.com, Gmail.com, etc.) is not a Secure Email Address. <strong>Raza.com</strong> may require you to have a Secure Email Address. If You do not register Your membership with a Secure Email Address, <strong>Raza.com</strong> may either (1) deny Your membership application; or (2) confirm your membership and Your order is by having a Raza.com customer service agent call from Our office switchboard to a phone number provided by You, which must match the phone number associated with Your credit card. <strong>Raza.com</strong> may confirm either the initial order and/or any subsequent orders, at the sole option of <strong>Raza.com.</strong>
+</p>
+
+					<h2 class="headinginner"><a name="No Obligation to Verify" id="all">No Obligation to Verify</a></h2>
+            		<p><strong>Raza.com</strong> has no obligation to verify your information or your order and <strong>Raza.com</strong> may opt to process an order immediately, without verification, at its sole discretion. All verification performed is solely for the benefit of <strong>Raza.com</strong> and neither you, nor your credit card company, nor any other person is a third party beneficiary of any <strong>Raza.com</strong> verification.
+</p>	
+
+					<h2 class="headinginner"><a name="All charges in U.S. Dollars" id="all">All charges in U.S. Dollars</a></h2>
+            		<p>All payments to <strong>Raza.com</strong> must be made in U.S. Dollars. Your credit card must be able to process charges in U.S. Dollars.</p>	
+			
+					
+					
+					<h2 class="headinginner"><a name="Credit Card Verification" id="all">Credit Card Verification</a></h2>
+            		<p><strong>Raza.com</strong> may use credit card verification (CCV) services. If your name, phone number, address, security code, or other credit card information does not pass CCV, <strong>Raza.com</strong> may cancel your order without notice and not deliver your mobile recharges.</p>	
+					
+					
+					<h2 class="headinginner"><a name="Credit Card Denial" id="all">Credit Card Denial</a></h2>
+            		<p>If your credit card charge is denied for any reason, including, but not limited to, insufficient credit availability, failed CCV, presentment of the payment in U.S. Dollars, or any other reason, <strong>Raza.com</strong> will cancel your order and not deliver the mobile recharges requested</p>	
+					
+					
+					<h2 class="headinginner"><a name="Customer Responsible for Credit or Debit Card Fees" id="all">Customer Responsible for Credit or Debit Card Fees</a></h2>
+            		<p>You are responsible for any fees charged by your credit or debit card provider for purchases made at <strong>Raza.com</strong>, including, but not limited to, charges for currency exchange, over limit fees, interest, cash advance fees, and other charges.</p>	
+					
+					
+						
+					<h2 class="headinginner"><a name="Adequate Disclosure of Prepaid Mobile Recharge Information" id="all">Adequate Disclosure of Prepaid Mobile Recharge Info.</a></h2>
+            		<p>You acknowledge that all prices, charges, expiration dates, service fees, and other terms and conditions for each and every card offered by 
+					<strong>Raza.com</strong> are available on the <strong>Raza.com</strong> web site or by calling our customer service department at 866-299-3937. You acknowledge that all such information has been provided or made available to you in a manner in compliance with applicable law.
+You expressly represent that you have investigated the prices, charges, expiration dates, service fees, and other terms and conditions of each mobile recharge you purchase from <strong>Raza.com</strong> or have waived your right to do so.
+</p>	
+
+
+					<h2 class="headinginner"><a name="Authority to Purchase" id="all">Authority to Purchase</a></h2>
+            		<p>You represent and warranty that you are an authorized user of all credit cards used to make purchases on <strong>Raza.com</strong> or have received permission from the owner of such account to make purchases
+</p>	
+				
+					
+					<h2 class="headinginner"><a name="Ownership of Data" id="all">Ownership of Data</a></h2>
+            		
+					<ul class="termination_list ">
+					<li>Since <strong>Raza.com</strong> is a reseller of mobile recharges, we have do not have direct access to any call records, except for limited use for customer service. In order to obtain a call history, you should contact the carrier directly</li>
+					<li>If, through a subpoena or other legal process, You, Your representations, or a third party, seek to compel production of Your calling history, purchase history, CPNI, or other information, You will pay us a handling fee of $100 to obtain these records, plus a copying fee of $1 per page for each record produced.</li>
+					<li>You acknowledge and agree that any information obtained by <strong>Raza.com</strong> through Your use of the Web Site or Services, or through your purchase of mobile recharges, is the property of <strong>Raza.com</strong>, and <strong>Raza.com</strong> reserves all rights to such property.</li>
+					<li><strong>Agency</strong>
+You agree that you have entered into this Agreement for your own benefit and not for the benefit of another person, and that you may not subcontract or assign any of your rights or obligations under this Agreement
+</li>
+					<li><strong>Governing Law</strong> 
+All relations established by us with you prior to this Agreement being entered into and this Agreement, are governed by and will be construed with the laws of United States, and the courts of Texas shall have exclusive jurisdiction to resolve any disputes in connection with them.
+</li>
+					<li><strong>Severability</strong> 
+If, at any time, any provision of this Agreement (or any part of a provision of this Agreement) is or becomes illegal, invalid or unenforceable, that shall not affect or impair the legality, validity or enforceability the remainder of this Agreement (including the remainder of a provision where only part thereof is or has become illegal, invalid or unenforceable).
+</li>
+					<li><strong>Waiver</strong> 
+Any waiver by us of a breach or default of any of the provisions of this Agreement shall not be construed as a waiver of any succeeding breach of the same or other provisions, nor shall any delay or omission on our part to exercise or avail of any right, power or privilege that we have or may have, operate as a waiver of any breach or default by you.
+</li>
+					
+					</ul>
+					
+					
+					
+					
+					<h2 class="headinginner"><a name="Use of Intellectual Property" id="all">Use of Intellectual Property</a></h2>
+            		<p>You shall not reproduce any of the Raza.com trademarks, copyrights content, or other intellectual property rights without the prior written permission of <strong>Raza.com.</strong>
+</p>	
+					
+					<p>The agreement concluded between us and you for the purposes of receiving the any of the Services through the Website which consists of (1) the Registration Form; (2) these Terms and Conditions; and (3) the Privacy Policy appearing on the Website from time to time. In the event of any conflict or ambiguity between any of these documents, then these Terms and Conditions will prevail.</p>
+					
+					
+					
+					<h2 class="headinginner"><a name="Limitation of Liability" id="all">Limitation of Liability</a></h2>
+            		<p ><strong>Raza.com</strong> is not liable for any third party’s failure to perform obligation arrising out of a mobke recharge. All mobkoe recharges are sold without recourse against Raza.com for perrormance of the carrier’s obligations under such recharges.
+					
+					<p><strong>Raza.com</strong> offers significant discoutns on the purchase of mobke recharges. You Acknowledtge that we are able to only offer these prices because of the liability limiations, indemnification provisions, and other provisions contained within this user agreement.</p>
+					<p>The maximum liability of <strong>Raza.com</strong> for any loss, whether arrising under aTort, contaract, or other legal theory out of any mobile Recharge purchase from Raza.com is the lesser of (1) the actual purchase price paid by you for the mobile recharge out of which the dispute arrises; or (2) one hundred dolars ($100).</p>
+					<p><strong>Raza.com</strong> will not be liable, under any circumstances, for any indirect, special incidential, or consequential damages of any kind (including lost profits, mental anguish, or emotional distress) aarrising out of your use or inability to use any mobile recharge purchased at <strong>Raza.com</strong></p>
+					<p>Neither <strong>Raza.com</strong> nor its affliates, officers dirctors, shareholers members or employes is liable to you for the negligence or grosse negligence of any party.
+In the event that the above limitaion is greater than the limitaion allowed by applicable law, our liabilty will limited to the maximum permitted by applicable law.
+You ackknowledge that since Raza.com is a reseller, It is not liable for any 3rd parrty (carriers & suppliers) obligations due to rates, quality and all other instances, you acknowledge and agree that Raza.com will not be liablke, under any circumstances, for any indirect, special incidental, or consequential damages of any kine (including lost profits) regardless of the form of action whether in contract, tort (including negligence), or otherwise, even if <strong>Raza.com</strong> has been advised of the possibility of such damages, in no event shall Raza.com’s maximus aggregate liabi8lity exceed the total amount paid by you for the services. Because some states do not allow the exclusin or limitaion of liability for consequential or incidental damages, in such states, our liability is limited to the mzximum extend permitted by law.</p>
+					
+
+
+
+
+
+					
+					
+					
+					
+
+	
+
+
+
+
+
+
+
+	
+                </div>-->
+                                                        <div class="terms terms-credit left">
+
+                                                            <p>
+                                                                <img align="right" class="inner_images" src="@Url.Content("~/images/terms-content-img.jpg")">Use of this web site is expressly conditioned on your acceptance of all terms and conditions stated herein and any other place on this web site. DO NOT USE THIS WEBSITE if you do not accept all the terms and conditions stated herein and at other places (including Frequently Asked Questions, and "Detail" section of the respective prepaid phone plan) on this website.
+                                                            </p>
+                                                            <ul>
+                                                                <li><a href="#General" class="bllink">General</a></li>
+                                                                <li><a href="#Membership Information">Membership Information</a></li>
+                                                                <li><a href="#Username and Password">Username and Password</a></li>
+                                                                <li><a href="#Your data">Your data</a></li>
+                                                                <li><a href="#Your account">Your account</a> </li>
+                                                                <li><a href="#The Services Top-Up">The Services Top-Up</a> </li>
+                                                                <li><a href="#Your obligations">Your obligations</a> </li>
+                                                                <li><a href="#Transactions on the Account / Refunds / Returns">Transactions on the Account / Refunds / Returns</a></li>
+                                                                <li><a href="#Third Party Services and Information">Third Party Services and Information</a> </li>
+                                                                <li><a href="#Termination of the Agreement">Termination of the Agreement</a> </li>
+                                                                <li><a href="#Your contribution">Your contribution</a> </li>
+                                                                <li><a href="#VAT and Tax">VAT and Tax</a> </li>
+                                                                <li><a href="#Links to other websites">Links to other websites</a> </li>
+                                                                <li><a href="#Variations of the Agreement">Variations of the Agreement</a> </li>
+                                                                <li><a href="#Use of Information and Confidentiality">Use of Information and Confidentiality</a> </li>
+                                                                <li><a href="#Intellectual Property">Intellectual Property</a> </li>
+                                                                <li><a href="#Data Protection">Data Protection</a> </li>
+                                                                <li><a href="#Temporary Withdrawal of Service">Temporary Withdrawal of Service</a> </li>
+                                                                <li><a href="#Security, Maintenance and Availability">Security, Maintenance and Availability</a> </li>
+                                                                <li><a href="#Language">Language</a> </li>
+                                                                <li><a href="#Limited Disclosures to Affiliates">Limited Disclosures to Affiliates</a> </li>
+                                                                <li><a href="#Incorrect or Fraudulent Personal Information">Incorrect or Fraudulent Personal Information</a> </li>
+                                                                <li><a href="#Other User Conduct">Other User Conduct</a> </li>
+                                                                <li><a href="#Remedies for Misuse of Your Account">Remedies for Misuse of Your Account</a> </li>
+                                                                <li><a href="#Accuracy of Information Submitted to Raza.com">Accuracy of Information Submitted to Raza.com</a> </li>
+                                                                <li><a href="#Chargeback's">Chargeback's</a> </li>
+                                                                <li><a href="#Secure Email Address Required">Secure Email Address Required</a> </li>
+                                                                <li><a href="#No Obligation to Verify">No Obligation to Verify</a> </li>
+                                                                <li><a href="#All charges in U.S. Dollars">All charges in U.S. Dollars</a> </li>
+                                                                <li><a href="#Credit Card Verification">Credit Card Verification</a> </li>
+                                                                <li><a href="#Credit Card Denial">Credit Card Denial</a> </li>
+                                                                <li><a href="#Customer Responsible for Credit or Debit Card Fees">Customer Responsible for Credit or Debit Card Fees</a> </li>
+                                                                <li><a href="#Adequate Disclosure of Prepaid Mobile Recharge Information">Adequate Disclosure of Prepaid Mobile Recharge Information</a> </li>
+                                                                <li><a href="#Authority to Purchase">Authority to Purchase</a> </li>
+                                                                <li><a href="#Ownership of Data">Ownership of Data</a> </li>
+                                                                <li><a href="#Use of Intellectual Property">Use of Intellectual Property</a> </li>
+                                                                <li><a href="#Limitation of Liability">Limitation of Liability</a> </li>
+
+                                                            </ul>
+                                                            <p>
+                                                                This Raza.com Customer Agreement ("Agreement") sets forth the terms and conditions that apply to your purchases of calling plans and other products from www.Raza.com (the "Raza.communications Website")
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    By registering to use  this Website or by purchasing and using our products, You (as hereinafter defined) agree to the terms and conditions in this Agreement, the Conditions of Use for the<strong> Raza.com</strong> website, and any changes that may be made to the Agreement or to the Conditions of Use.  If you do not agree to the terms of this Agreement or have any questions about the Agreement, do not purchase or use our products without contacting Raza.communications  immediately at 1877-463-4233.
+                                                            </p>
+
+
+
+                                                            <h2 class="headinginner"><a name="General" id="all">General.</a></h2>
+                                                            <p>
+                                                                The provision of Services to you through the Website is subject to your acceptance of the Agreement. By completing the Registration Form and/or by using the Website, you expressly agree to be bound by the terms and conditions below, the Raza.com Privacy Policy, and any other terms and conditions of this Agreement.<br />
+                                                                If you object to this Agreement or any subsequent modifications to it, or become dissatisfied with your membership of the Website in any way, your only remedy is too immediately:
+			<ul>
+                <li>Discontinue your use of the Website; and</li>
+                <li>Terminate your membership by notifying us in writing. Click here for our contact information</li>
+            </ul>
+
+                                                            </p>
+                                                            <p>Certain words in this Agreement have the meanings set under them at the end of this webpage.</p>
+
+
+                                                            <h2 class="headinginner"><a name="Membership Information" id="all">Membership Information.</a></h2>
+                                                            <p>
+                                                                When registering as a member of the Website, you must provide us with accurate, complete and up-to-date information as requested on the Registration Form. You agree that the information supplied with your Registration Form will be truthful, accurate and complete. It is your responsibility to inform us of any changes to that information, including your region of residence. You may do this at any time by clicking on the <strong>'EDIT PROFILE'</strong> section of the <strong>MY ACCOUNT</strong> on our Website. All personal information you provide us as a member will be treated in accordance with the <strong>Raza.com</strong> Privacy Policy.<br />
+                                                                If you are under 18 years of age, you must obtain a parent/guardian's consent prior to using the Website. If you are an employee of a company or other entity or are acting on behalf of a company, you must be authorized to enter into these Terms of Use on behalf of your employer.
+There are no fees to become a member of <strong>Raza.com</strong>. It is free to sign up and become a <strong>Raza.com</strong> member. All registered users can utilize all of the great features My Account offers at no cost
+
+                                                            </p>
+
+
+
+                                                            <h2 class="headinginner"><a name="Username and Password" id="all">Username and Password</a></h2>
+                                                            <p>Once you become a member of the Website, we will use your email address as your username and the Password you created during registration. You are entirely responsible for all activities which occur under your username and Password, including unauthorized use of your or any other credit card. You must notify us immediately if you become aware of any unauthorized use of your username and Password. If you forget or lose your password, you should request a new password by visiting the <strong>'Forgot password'</strong> section on the LOG IN page. Our system will then automatically send your password to the email address on file. You also agree that you will only register in your own name. Each username and password must be used by a single user and is not transferable</p>
+
+
+                                                            <h2 class="headinginner"><a name="Your data" id="all">Your data</a></h2>
+                                                            <p>
+                                                                We will only send you information about the products that you have selected. Personal information collected by us as part of this service will be treated in accordance with the <strong>Raza.com</strong> Privacy Policy.<br />
+                                                                Please note that the sending of personal information via e-mail over the internet may not be secure and can be intercepted by third parties or incorrectly delivered. You should not divulge personal information over the internet unless you are using a secure or encrypted communications technology.<br />
+                                                                We shall be entitled, but not obliged, to record all communications from, or instructions given by, you to us, or messages sent by us to you through the Website.
+
+                                                            </p>
+
+
+                                                            <h2 class="headinginner"><a name="Your account" id="all">Your account</a></h2>
+                                                            <p>
+                                                                If you are not resident in one of the listed regions and if the financial institution with which you have an Account is not in one of the listed regions you are not permitted to avail of the Services.<br />
+                                                                The Website can only be used by you to affect a limited number of Top-Ups and/or Top-Ups to a limited value over specific time periods. You will be automatically notified through the Website when these limits are reached or should attempt to affect Top-Ups in excess of the limits. Other limits and exclusions may apply to the way which you can use this Website from time to time and you will be notified of these through your use of the Website.<br />
+                                                                You shall ensure that all instructions given by you to us through the Website are accurate and complete, and that, where appropriate, you correctly identify the mobile phone account to which any amount is to be credited or debited. In particular, prior to confirming any instruction to us, you shall ensure that the instruction which is relayed back to you confirming the instruction that you send through the Website is the instruction which you intend to give. We are entitled to rely on any instruction from you using and, for the avoidance of doubt, the processing by us of any such confirmed instruction shall be final and binding on you.<br />
+                                                                You shall carefully examine any <strong>Top-Up</strong> information received by you, or any other information provided by us to you through the Website from time to time and shall report any errors or omissions to us in writing within 30 days from the date of dispatch of such statements or receipt of such information. In the event that no error or omission is reported by you within the time specified, we shall be entitled to rely on the conclusiveness of the relevant statement of account as respects further transactions, provided that nothing herein will prevent us or you subsequently adjusting information to correct an error or omission, but in that case without any claim to compensation or damages arising on account thereof
+
+
+                                                            </p>
+
+
+
+                                                            <h2 class="headinginner"><a name="The Services Top-Up" id="all">The Services Top-Up</a></h2>
+                                                            <p>
+                                                                A transfer of an amount from an Account to a mobile network operator (authorized by us from time to time) to pay for the provision of telecommunication services by that mobile network operator to a pre-paid mobile telephone effected using the Services and the Website.<br />
+                                                                The Services shall only be provided to you by us in respect of Accounts in the listed territories (available on the website, and subject to change). The Website (including the Services delivered through it) and the Password must be used by you strictly in accordance with this Agreement. The Password will be provided by us direct to you. You must not disclose the Password, whether directly or indirectly, to any other person (including, but not limited to, any account aggregation service provider).
+
+                                                            </p>
+
+
+
+                                                            <h2 class="headinginner"><a name="Your obligations" id="all">Your obligations</a></h2>
+                                                            <p>
+                                                                The equipment necessary for you to access the Website shall be provided and be maintained by and at your expense of and we may change the requirements for such equipment from time to time.<br />
+                                                                You undertake to us to comply strictly with this Agreement. You acknowledge that your compliance with this Agreement is designed to minimize the risk of unauthorized use of the Website. You agree to indemnify us in full in respect of any loss or damages which may arise to us, you or any third party as a consequence of your non-compliance with this Agreement.
+
+                                                            </p>
+
+
+
+
+                                                            <h2 class="headinginner"><a name="Transactions on the Account / Refunds / Returns" id="all">Transactions on the Account / Refunds / Returns</a></h2>
+                                                            <p>
+                                                                You authorize us to act upon any instruction to debit an Account received through the Website which has been transmitted using the Password and/or any other authentication process which we may require to be used in connection with the Website without requiring us to make any further authentication or enquiry, and all such debits shall constitute your liability.<br />
+                                                                Upon receipt of a proper and complete request from you for a <strong>Top-Up</strong> we will debit the Account and will forward an electronic request to the relevant mobile network operator to provide a credit of the amount transferred for the benefit of the pre-paid mobile phone number nominated by you. The mobile network operator shall be solely liable to you in respect of the provision of the mobile services to which the <strong>Top-Up</strong> applies.<strong> NO REFUNDS OR RETURNS ARE PERMITTED AS THIS IS A DIRECT TRANSFER</strong>.<br />
+
+                                                                <strong>Raza.com</strong> is an independent entity appointed by mobile network operators to act on their behalf to facilitate the purchase of <strong>Top-Up</strong>.<br />
+
+                                                                Subject to your compliance with the Agreement and provided you have not acted fraudulently or in a negligent manner, we shall accept liability for the non-execution or defective execution of a Top-Up effected through the Website but such liability shall be limited to the amount of the unexecuted or defectively executed Top-Up.
+
+                                                            </p>
+
+
+
+
+
+                                                            <h2 class="headinginner"><a name="Third Party Services and Information" id="all">Third Party Services and Information</a></h2>
+                                                            <p>
+                                                                Many of the products and services offered for sale on <strong>Raza.com</strong> or through services that we may offer you, are submitted, created or developed by third parties, about the products, services and information of third parties. Information about some of the products and services on the Website is subject to specific restrictions concerning the persons to whom such information may be made available. Details of such restrictions are set out on the pages to which they relate and you should read those details carefully before proceeding to the rest of the relevant page.<br />
+                                                                Information about some of the products and services on this Website may be subject to additional Legal Notices and Warnings, identified as such. These notices and warnings are important and are for the protection of both you and us. Please take the time to carefully read all Legal Notices and Warnings on the pages of this Website that you visit.
+The third party products, services and information are not provided or endorsed by us and your legal relationship is with the third party supplier when purchasing such services or goods. We have not checked the accuracy or completeness of the information or the suitability or quality of the products and services of the third parties. You must make your own enquiries with the relevant third party supplier directly before relying on the third party information or entering into a transaction in relation to the third party products and services referred to on the Website.<br />
+                                                                We may receive fees and/or commissions from third parties for the sale goods and services displayed or made available on the Website, for advertising goods and services on the Website, or in connection with the amount of visitors from that leave the Website to go to a linked site. You acknowledge and consent to us receiving the fees. You will be notified of the fees payable to us when you use the Website
+
+
+                                                            </p>
+
+
+
+
+                                                            <h2 class="headinginner"><a name="Termination of the Agreement" id="all">Termination of the Agreement</a></h2>
+                                                            <p>
+                                                                We may terminate the Agreement and withdraw the Website and the Services provided through it:<br />
+                                                                <ul class="termination_list ">
+                                                                    <li>On giving you at least 1 day prior written notice;</li>
+                                                                    <li>Immediately upon breach by you of any of the terms of this Agreement or where there are serious grounds for doing so and provided you are informed by notice in writing as soon as is reasonably possible after termination;</li>
+                                                                    <li>Immediately upon your bankruptcy or other contractual incapacity;</li>
+                                                                    <li>If you have not accessed the Website in any period of 12 consecutive months; or</li>
+                                                                    <li>If we reasonably believe that any of the Services have been used negligently, illegally or fraudulently by you, or by a third party as a result of your negligence or recklessness</li>
+                                                                </ul>
+
+                                                            </p>
+
+                                                            <p>
+                                                                This Agreement does not have a minimum or finite duration and will continue to be binding on the parties until it is terminated. You may terminate the Agreement at any time by giving us not less than 1 days prior written notice to that effect, but without prejudice to your liability for any outstanding indebtedness on any Account or otherwise prior to the date of termination.<br />
+                                                                We reserve the right to process or cancel any transactions in progress on termination of this Agreement or on suspension or withdrawal of the Services. We are not responsible for any loss you may incur as a result of any transaction not being processed as part of the Services after termination of the Agreement or after any suspension or withdrawal of the Services.
+
+                                                            </p>
+
+
+
+
+                                                            <h2 class="headinginner"><a name="Your contribution" id="all">Your contribution</a></h2>
+                                                            <p>
+                                                                When you send us any feedback, suggestions, ideas or other materials in relation to or via our site or the services, you agree that we can use, reproduce, publish, modify, adapt and transmit them to others free of charge and without restriction, subject to our obligations in our Privacy Statement
+                                                            </p>
+
+
+                                                            <h2 class="headinginner"><a name="VAT and Tax" id="all">VAT and Tax</a></h2>
+                                                            <p>If VAT, sales tax or any other duty or tax is imposed on any supply made by us through <strong>Raza.com</strong> or the services, you must pay to us, in addition to any consideration payable or to be provided by you for this supply, an additional amount for the supply calculated by multiplying the prevailing VAT rate by the consideration for the relevant supply payable or to be provided (without any deduction or set off) by you under any other clause in this Agreement. Any amount payable by you is payable on demand by us, whether such demand is made by an invoice or otherwise.</p>
+
+                                                            <p>This Website is established in United States in accordance with the laws and will be governed by the laws of that country. When you use the Website, you accept that your use of the Website and any information on the Website, will also be governed by the laws of United States and if any claim or dispute arises from your use of the Website or any of the information on it, you agree that the domestic courts will have exclusive jurisdiction over all such claims or disputes.</p>
+
+                                                            <p><strong>Service Fees:</strong> When using the Services you and we agree that we each will not attempt to attempt to repudiate the validity of your instructions relating to the Services or the communications regarding the instructions sent to you by us. Both you and we agree that the instructions, information, communications and/or authorizations given through the Services shall be treated as satisfying any legal requirements for communication in writing.</p>
+
+                                                            <p>Your agreement for the purchase of <strong>Top-Up</strong> is with the network operator. <strong>TopUp</strong> is an independent entity appointed by Mobile Network Operators to act on its behalf to facilitate the purchase of the mobile <strong>Top-Up</strong>.</p>
+                                                            </p>
+
+</p>
+
+
+						<h2 class="headinginner"><a name="Links to other websites" id="all">Links to other websites</a></h2>
+                                                            <p>Some pages on this Website contain hypertext links to web sites not maintained by us. You are reminded that when you enter other web sites via such hypertext links, you will not be subject to these terms and conditions and you will not benefit from the protections afforded to you in using our Site. We will not be liable in any way for the content, availability or use of such linked web sites and you use such links entirely at your own risk.</p>
+
+                                                            <p>Access to and use of this Website is at the user's own risk and we do not represent or warrant that the use of this Website or any material downloaded from it will not cause damage to property, including but not limited to loss of data or computer virus infection. In no event do we accept liability of any description including liability for negligence for any damages whatsoever resulting from loss of use, data or profits arising out of or in connection with the access, use or performance of this Website or any its contents.</p>
+
+                                                            <p>When using the Services you and we agree that we each will not attempt to attempt to repudiate the validity of your instructions relating to the Services or the communications regarding the instructions sent to you by us. Both you and we agree that the instructions, information, communications and/or authorizations given through the Services shall be treated as satisfying any legal requirements for communication in writing.</p>
+                                                            </p>
+
+
+
+				
+						<h2 class="headinginner"><a name="Variations of the Agreement" id="all">Variations of the Agreement</a></h2>
+                                                            <p>Where we are not required to notify you otherwise by law, we may alter the Agreement from time to time. Any such alteration shall become effective and shall be binding upon you 14 days after notice of such alteration has been sent to you by any of the following means: through the post or by electronic message through Site. You shall be entitled, upon receiving notice of any alteration to this Agreement, to immediately terminate the Agreement but without prejudice to any rights or obligations which have arisen prior the termination date, including your liability for any indebtedness on any Account or which has otherwise arisen prior to that termination date.</p>
+
+
+
+                                                            <h2 class="headinginner"><a name="Use of Information and Confidentiality" id="all">Use of Information and Confidentiality</a></h2>
+                                                            <p>Subject to the terms of the Privacy Policy, and except to the extent that such disclosure is required under compulsion of law or pursuant to a direction or request issued by the Financial Regulator or other competent statutory or regulatory authority, we shall ensure that all your confidential personal data held by us in relation to this Agreement shall only be accessible to us, our agents or a company controlled by us and shall be processed or used by us for purposes and in a way compatible with the discharge of our obligation to you under the Agreement.</p>
+
+                                                            <p>
+                                                                You shall ensure that all information obtained from us by you relating to our operations, services, software, hardware and/or systems in connection with this Agreement shall be treated by you in strictest confidence and shall not be disclosed by you to any third party unless it is already in the public domain.
+                                                            </p>
+
+
+
+
+                                                            <h2 class="headinginner"><a name="Intellectual Property" id="all">Intellectual Property</a></h2>
+                                                            <p>The Intellectual Property Rights in all data, information, systems, processes or other material used by or developed by us for the purposes of providing the Services or performing its obligations under this Agreement shall, or upon their creation, remain vested in us or its licensors. You shall use such material only for the purpose of receiving the Services, as contemplated by this Agreement.</p>
+
+                                                            <p>Save where otherwise specified, the Intellectual Property Rights and contents of all the Website are owned by us or its licensors. Reproduction of part or all of the contents of the Website in any form is prohibited without our prior consent, other than that you may print or download one copy of the contents of the Website for personal non-commercial use.</p>
+
+
+
+
+                                                            <h2 class="headinginner"><a name="Data Protection" id="all">Data Protection</a></h2>
+                                                            <p>We will comply with its obligations under applicable data protection law as regards relevant data in its possession relating to you and shall make available for inspection by you any information held by us about you in accordance with those laws. The Privacy Policy published on the Website from time to time shall apply to the use of personal data relating to you and shall form part of this Agreement</p>
+
+
+
+                                                            <h2 class="headinginner"><a name="Temporary Withdrawal of Service" id="all">Temporary Withdrawal of Service</a></h2>
+                                                            <p>In the event of a breakdown, fault or malfunction of, or connected to, any system used in connection with the Website and the Services, or where there is a real or potential security risk, we shall be entitled, without incurring any liability to you, to temporarily suspend the relevant Services or access to the Website for such reasonable period as may be required to remedy, address or resolve the system issue.</p>
+
+                                                            <p><strong>Force Majeure</strong>: We shall not be in breach of its obligations under this Agreement if there is any total or partial failure of performance of our duties and obligations occasioned by any act of God, fire, act of government or state, war, civil commotion, insurrection, embargo, inability to communicate with third parties for whatever reason, failure of any computer dealing or settlement system, failure of or delay in any mobile phone network, prevention from or hindrance in obtaining any energy or other supplies, labor disputes of whatever nature, late or mistaken payment by an agent or any other reason (whether or not similar in kind to any of the above) beyond our control.</p>
+
+
+
+                                                            <h2 class="headinginner"><a name="Security, Maintenance and Availability" id="all">Security, Maintenance and Availability</a></h2>
+                                                            <p>You accept that electronic communications, the internet, telephone lines or SMS-based telecommunications media may not be secure and communications via such media may be intercepted by unauthorized persons or delivered incorrectly. In consequence we cannot guarantee the privacy or confidentiality of communications via such media although it will put in place security measures to protect these methods of communications.</p>
+
+
+                                                            <p><strong>From time to time it may be necessary to or desirable for security reasons, maintenance, upgrades or other reasons to:</strong></p>
+                                                            <p>make certain or all of the Services unavailable to you; and/or</p>
+
+                                                            <ul class="termination_list">
+                                                                <li>delay implementation of any new Services; and/or</li>
+                                                                <li>withdraw, replace or reissue Passwords; and/or</li>
+                                                                <li>change authentication procedures or processes for accessing the Website or the Services</li>
+                                                            </ul>
+
+
+                                                            <p>And while we will use reasonable endeavors to minimize any inconvenience caused to you, you accept that these events may occur and that we have no liability to it in the event of this happening. Where we change authentication procedures for accessing the Website or the Services then, notwithstanding any other term of this Agreement, we may introduce these procedures by giving instructions to you via the Website in respect of which such procedures are being introduced</p>
+
+
+                                                            <h2 class="headinginner"><a name="Language" id="all">Language</a></h2>
+                                                            <p>The Agreement and all other documentation which will be provide by us to communicate with you throughout the duration of the Agreement will be prepared in the English language, and all communications between us and you will also be conducted in the English language.</p>
+
+
+
+
+                                                            <h2 class="headinginner"><a name="Limited Disclosures to Affiliates" id="all">Limited Disclosures to Affiliates</a></h2>
+                                                            <p>If you became a customer through an affiliate web site or a link from an affiliate, that affiliate may receive a commission on our sales to you. We are obligated to disclose certain information about your purchases to affiliates in accounting for the affiliate's commissions. Information disclosed to affiliates is limited to: first name, first initial of last name, date of purchase, purchase amount, number of free trials, trials to activation, number of new customer orders and number of repeat customer orders. We do not disclose any <strong>CPNI</strong> to affiliates and we do not disclose any calling information or credit card information to affiliates.</p>
+
+
+                                                            <h2 class="headinginner"><a name="Incorrect or Fraudulent Personal Information" id="all">Incorrect or Fraudulent Personal Information</a></h2>
+                                                            <p><strong>Raza.com</strong> also reserves the right to terminate any PINs on any services it Affiliated entities offers and to deny service or assistance to any customer or company that has provided incorrect personal information in posted orders.</p>
+
+
+                                                            <h2 class="headinginner"><a name="Other User Conduct" id="all">Other User Conduct</a></h2>
+                                                            <p>
+                                                                You understand that all information, data, text, messages or other materials, whether publicly posted or privately transmitted, are the sole responsibility of the person from which such content originated. This means that you, and not <strong>Raza.com</strong>, are entirely responsible for all content that you upload post, email, transmit or otherwise make available via the Services. <strong>Raza.com</strong> does not control the content posted via the Service and, as such, does not guarantee the accuracy, integrity or quality of such Content. You understand that by using the Services, you may be exposed to Content that is offensive, indecent or objectionable. Under no circumstances will <strong>Raza.com</strong> be liable in any way for any Content, including, but not limited to, for any errors or omissions in any Content, or for any loss or damage of any kind incurred as a result of the use of any Content posted, emailed, transmitted or otherwise made available via the Service.<br />
+                                                                You agree to not use the Services to:
+                                                                <br />
+                                                            </p>
+                                                            <p>
+                                                                <strong>You agree to not use the Services to:</strong><br />
+
+
+                                                                <ul class="termination_list ">
+                                                                    <li>upload, post, email, transmit or otherwise make available any Content that is unlawful, harmful, threatening, abusive, harassing, tortuous, defamatory, vulgar, obscene, libelous, invasive of another's privacy, hateful, or racially, ethnically or otherwise objectionable;</li>
+                                                                    <li>impersonate any person or entity, including, but not limited to, an <strong>Raza.com</strong> official, or falsely state or otherwise misrepresent your affiliation with a person or entity;</li>
+                                                                    <li>intentionally or unintentionally violate any applicable local, state, national or international law, or any regulations having the force of law;</li>
+                                                                    <li><strong>"stalk"</strong> or otherwise harass another User; or</li>
+                                                                    <li>Collect or store personal data about other Users.</li>
+                                                                </ul>
+
+
+                                                            </p>
+
+
+
+                                                            <h2 class="headinginner"><a name="Remedies for Misuse of Your Account" id="all">Remedies for Misuse of Your Account</a></h2>
+                                                            <p>
+                                                                Without limiting any other remedies, <strong>Raza.com</strong> may terminate or suspend your account and status as a Member if you misuse your account or any services.
+                                                            </p>
+
+
+                                                            <h2 class="headinginner"><a name="Accuracy of Information Submitted to Raza.com" id="all">Accuracy of Information Submitted to <strong>Raza.com</strong></a></h2>
+                                                            <p>
+                                                                You are responsible for the truth and accuracy of all information you provide publicly or privately to us or other Users during the registration, or in any public message area, including but not limited to chat, discussion forms, and your e-mail. Your Information: (a) shall not be fraudulent; (b) shall not infringe any third party's copyright, patent, trademark, trade secret or other proprietary rights or rights of publicity or privacy; (c) shall not violate any law, statute, ordinance or regulation (including without limitation those governing export control, consumer protection, unfair competition, anti-discrimination or false advertising; (d) shall not be defamatory, trade libelous, unlawfully threatening or unlawfully harassing; (e) shall not be obscene or contain child pornography or, if otherwise harmful to minors; (f) shall not contain any viruses, or other computer programming routines that are intended to damage, detrimentally interfere with, surreptitiously intercept or expropriate any system, data or personal information; and (g) shall not link directly or indirectly to any other site; (h) shall not contain any item that, by paying to us the listing fee or the final value fee, could cause us to violate any applicable law, statute, ordinance or regulation.
+                                                            </p>
+
+
+                                                            <h2 class="headinginner"><a name="Chargeback's" id="all">Chargeback's</a></h2>
+                                                            <p>
+                                                                If You, in breach of this User Agreement and the Refund Policy, request a chargeback on any order from<strong> Raza.com</strong>, <strong>Raza.com</strong> may, at its sole discretion (1) terminate your membership registration; (2) to deny service or assistance to You; (3) cancel all outstanding PINs from any mobile recharges you have purchased from <strong>Raza.com</strong> and seek refund from the Carriers on those PINs; (4) report information about You and the transaction to a chargeback abuser database; and (5) collect the amount due from You directly, including through legal action, if necessary.
+                                                            </p>
+
+                                                            <h2 class="headinginner"><a name="Secure Email Address Required" id="all">Secure Email Address Required</a></h2>
+                                                            <p>
+                                                                A <strong>"Secure Email Address"</strong> is an email address issued by employer, military, government or university. An email address from a free service (such as Yahoo.com, Hotmail.com, Gmail.com, etc.) is not a Secure Email Address. <strong>Raza.com</strong> may require you to have a Secure Email Address. If You do not register Your membership with a Secure Email Address, <strong>Raza.com</strong> may either (1) deny Your membership application; or (2) confirm your membership and Your order is by having a <strong>Raza.com</strong> customer service agent call from Our office switchboard to a phone number provided by You, which must match the phone number associated with Your credit card. <strong>Raza.com</strong> may confirm either the initial order and/or any subsequent orders, at the sole option of <strong>Raza.com</strong>
+                                                            </p>
+
+                                                            <h2 class="headinginner"><a name="No Obligation to Verify" id="all">No Obligation to Verify</a></h2>
+                                                            <p>
+                                                                <strong>Raza.com</strong> has no obligation to verify your information or your order and <strong>Raza.com</strong> may opt to process an order immediately, without verification, at its sole discretion. All verification performed is solely for the benefit of <strong>Raza.com</strong> and neither you, nor your credit card company, nor any other person is a third party beneficiary of any <strong>Raza.com</strong> verification.
+                                                            </p>
+
+                                                            <h2 class="headinginner"><a name="All charges in U.S. Dollars" id="all">All charges in U.S. Dollars</a></h2>
+                                                            <p>All payments to <strong>Raza.com</strong> must be made in U.S. Dollars. Your credit card must be able to process charges in U.S. Dollars.</p>
+
+
+
+                                                            <h2 class="headinginner"><a name="Credit Card Verification" id="all">Credit Card Verification</a></h2>
+                                                            <p><strong>Raza.com</strong> may use credit card verification (CCV) services. If your name, phone number, address, security code, or other credit card information does not pass CCV, <strong>Raza.com</strong> may cancel your order without notice and not deliver your mobile recharges.</p>
+
+
+                                                            <h2 class="headinginner"><a name="Credit Card Denial" id="all">Credit Card Denial</a></h2>
+                                                            <p>If your credit card charge is denied for any reason, including, but not limited to, insufficient credit availability, failed CCV, presentment of the payment in U.S. Dollars, or any other reason, <strong>Raza.com</strong> will cancel your order and not deliver the mobile recharges requested.</p>
+
+
+                                                            <h2 class="headinginner"><a name="Customer Responsible for Credit or Debit Card Fees" id="all">Customer Responsible for Credit or Debit Card Fees</a></h2>
+                                                            <p>You are responsible for any fees charged by your credit or debit card provider for purchases made at <strong>Raza.com</strong>, including, but not limited to, charges for currency exchange, over limit fees, interest, cash advance fees, and other charges.</p>
+
+
+
+                                                            <h2 class="headinginner"><a name="Adequate Disclosure of Prepaid Mobile Recharge Information" id="all">Adequate Disclosure of Prepaid Mobile Recharge Info.</a></h2>
+                                                            <p>You acknowledge that all prices, charges, expiration dates, service fees, and other terms and conditions for each and every card offered by <strong>Raza.com</strong> are available on the <strong>Raza.com</strong> web site or by calling our customer service department at 866-299-3937. You acknowledge that all such information has been provided or made available to you in a manner in compliance with applicable law.</p>
+
+                                                            <p>You expressly represent that you have investigated the prices, charges, expiration dates, service fees, and other terms and conditions of each mobile recharge you purchase from <strong>Raza.com</strong> or have waived your right to do so.</p>
+                                                            </p>	
+
+
+
+					<h2 class="headinginner"><a name="Authority to Purchase" id="all">Authority to Purchase</a></h2>
+                                                            <p>
+                                                                You represent and warranty that you are an authorized user of all credit cards used to make purchases on <strong>Raza.com</strong> or have received permission from the owner of such account to make purchases.
+                                                            </p>
+
+
+                                                            <h2 class="headinginner"><a name="Ownership of Data" id="all">Ownership of Data</a></h2>
+
+                                                            <ul class="termination_list ">
+                                                                <li>Since <strong>Raza.com</strong> is a reseller of mobile recharges, we have do not have direct access to any call records, except for limited use for customer service. In order to obtain a call history, you should contact the carrier directly.</li>
+
+                                                                <li>If, through a subpoena or other legal process, You, Your representations, or a third party, seek to compel production of Your calling history, purchase history, CPNI, or other information, You will pay us a handling fee of $100 to obtain these records, plus a copying fee of $1 per page for each record produced.</li>
+
+                                                                <li>You acknowledge and agree that any information obtained by Raza.com through Your use of the Web Site or Services, or through your purchase of mobile recharges, is the property of <strong>Raza.com</strong>, and <strong>Raza.com</strong> reserves all rights to such property.</li>
+
+                                                                <li><strong>Agency</strong>
+                                                                    You agree that you have entered into this Agreement for your own benefit and not for the benefit of another person, and that you may not subcontract or assign any of your rights or obligations under this Agreement.
+
+                                                                </li>
+
+                                                                <li><strong>Governing Law</strong>
+                                                                    All relations established by us with you prior to this Agreement being entered into and this Agreement, are governed by and will be construed with the laws of United States, and the courts of Texas shall have exclusive jurisdiction to resolve any disputes in connection with them
+
+                                                                </li>
+                                                                <li><strong>Severability</strong>
+                                                                    If, at any time, any provision of this Agreement (or any part of a provision of this Agreement) is or becomes illegal, invalid or unenforceable, that shall not affect or impair the legality, validity or enforceability the remainder of this Agreement (including the remainder of a provision where only part 
+
+                                                                </li>
+                                                                <li><strong>Waiver</strong>
+                                                                    Any waiver by us of a breach or default of any of the provisions of this Agreement shall not be construed as a waiver of any succeeding breach of the same or other provisions, nor shall any delay or omission on our part to exercise or avail of any right, power or privilege that we have or may have, operate as a waiver of any breach or default by you
+                                                                </li>
+
+                                                            </ul>
+
+
+
+
+                                                            <h2 class="headinginner"><a name="Use of Intellectual Property" id="all">Use of Intellectual Property</a></h2>
+                                                            <p>You shall not reproduce any of the Raza.com trademarks, copyrights content, or other intellectual property rights without the prior written permission of <strong>Raza.com</strong>.</p>
+
+                                                            <p>The agreement concluded between us and you for the purposes of receiving the any of the Services through the Website which consists of (1) the Registration Form; (2) these Terms and Conditions; and (3) the Privacy Policy appearing on the Website from time to time. In the event of any conflict or ambiguity between any of these documents, then these Terms and Conditions will prevail.</p>
+                                                            </p>
+					
+					
+					
+					<h2 class="headinginner"><a name="Limitation of Liability" id="all">Limitation of Liability</a></h2>
+                                                            <p>
+                                                                <strong>Raza.com</strong>
+                                                            is not liable for any third party’s failure to perform obligation arrising out of a mobke recharge. All mobkoe recharges are sold without recourse against Raza.com for perrormance of the carrier’s obligations under such recharges.
+					
+					<p><strong>Raza.com</strong> offers significant discoutns on the purchase of mobke recharges. You Acknowledtge that we are able to only offer these prices because of the liability limiations, indemnification provisions, and other provisions contained within this user agreement.</p>
+                                                            <p>The maximum liability of <strong>Raza.com</strong> for any loss, whether arrising under aTort, contaract, or other legal theory out of any mobile Recharge purchase from Raza.com is the lesser of (1) the actual purchase price paid by you for the mobile recharge out of which the dispute arrises; or (2) one hundred dolars ($100).</p>
+                                                            <p><strong>Raza.com</strong> will not be liable, under any circumstances, for any indirect, special incidential, or consequential damages of any kind (including lost profits, mental anguish, or emotional distress) aarrising out of your use or inability to use any mobile recharge purchased at <strong>Raza.com</strong></p>
+                                                            <p>
+                                                                Neither <strong>Raza.com</strong> nor its affliates, officers dirctors, shareholers members or employes is liable to you for the negligence or grosse negligence of any party.
+In the event that the above limitaion is greater than the limitaion allowed by applicable law, our liabilty will limited to the maximum permitted by applicable law.
+You ackknowledge that since Raza.com is a reseller, It is not liable for any 3rd parrty (carriers & suppliers) obligations due to rates, quality and all other instances, you acknowledge and agree that Raza.com will not be liablke, under any circumstances, for any indirect, special incidental, or consequential damages of any kine (including lost profits) regardless of the form of action whether in contract, tort (including negligence), or otherwise, even if <strong>Raza.com</strong> has been advised of the possibility of such damages, in no event shall Raza.com’s maximus aggregate liabi8lity exceed the total amount paid by you for the services. Because some states do not allow the exclusin or limitaion of liability for consequential or incidental damages, in such states, our liability is limited to the mzximum extend permitted by law.
+                                                            </p>
+
+
+
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="mask-ie"></div>
+                                            </div>
+
+
+
+                                            <div class="spacer"></div>
+                                            <div class="clear"></div>
+                                            <fieldset class="biger bigger_submit_new">
+                                                @*  <a href="" class="topup-btn modal-imail"></a>*@
+                                                <button type="button" class="topup-btn next"></button>
+
+                                                <div id="contact-imail">
+                                                    <div class="contact-detail-con">
+                                                        <h2>Please reconfirm the transaction Information and Mobile Top Up Number before clicking the Top Up button.</h2>
+                                                        <div id="close-imail"></div>
+                                                        <fieldset>
+                                                            <p>
+                                                                <strong class="rad">Note:</strong> Refunds cannot be issued against the transactions for entering Incorrect Mobile Top up Number. 
+                                                            </p>
+                                                        </fieldset>
+                                                    </div>
+
+                                                </div>
+                                                <div id="mask-imail"></div>
+                                            </fieldset>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="bottom-scroller-bg"></div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- Confirmation Step4 -->
+                <div class="form_field">
+                    <h2 class="title_black"></h2>
+                    <div id="auto-refill">
+                        <div id="auto-refill-scroller">
+                            <div class="top-bg">
+                                <h1>Order Confirmation</h1>
+                            </div>
+                            <div class="repeat-scroller-bg">
+                                <div class="editprofile_b">
+                                    <div id="edit-profile">
+                                        <div class="hanging">
+                                            <p class="hanging_para">Date of Purchase:<span class="hanging_s"> 9/30/2013 3:04:10 PM</span></p>
+
+                                        </div>
+                                        <div class="clear"></div>
+                                        <h3 class="align_centet">Mobile Top Up Successful!!<br />
+                                            <span class="twenty">“Thank you for Ordering!&rsquo;&rsquo;</span></h3>
+
+                                        <table width="100%" cellpadding="0" cellspacing="0" class="conform-table">
+
+                                            <tr>
+                                                <th colspan="2" class=""></th>
+                                            </tr>
+                                            <tr>
+                                                <th colspan="2">
+                                                    <h5 class="bglight">Order Information</h5>
+                                                </th>
+                                            </tr>
+                                            <tr class="even">
+                                                <td>Order Number</td>
+                                                <td>BR86473B9B5A</td>
+                                            </tr>
+                                            <tr class="odd">
+                                                <td>Mobile Top Up Number</td>
+                                                <td data-bind="text: TopupMobileNumber"></td>
+                                            </tr>
+                                            <tr class="even">
+                                                <td>Credit Card </td>
+                                                <td data-bind="text: SelectedMaskCard"></td>
+                                            </tr>
+                                            <tr class="odd">
+                                                <td>Top up Amount</td>
+                                                <td><strong data-bind="text: SourceAmountWithSign"></strong></td>
+                                            </tr>
+                                            <tr class="even">
+                                                <td>Payment Method</td>
+                                                <td>Credit Card</td>
+                                            </tr>
+                                            <tr class="odd">
+                                                <td>Amount Excluding Tax</td>
+                                                <td><strong data-bind="text: SourceAmountWithSign"></strong></td>
+                                            </tr>
+
+                                            <tr class="even">
+                                                <td>Tax Amount</td>
+                                                <td>0%</td>
+                                            </tr>
+                                            <tr class="odd">
+                                                <td><strong>Total Amount Charged</strong></td>
+                                                <td><strong data-bind="text: SourceAmountWithSign"></strong></td>
+                                            </tr>
+                                            <tr class="odd">
+                                                <th colspan="2">
+                                                    <h5 class="bglight">Confirmation send to   </h5>
+                                                </th>
+                                            </tr>
+                                            <tr class="even">
+                                                <td>E-mail</td>
+                                                <td><strong data-bind="text: LoginEmail">Young@gmail.com</strong>
+
+                                                </td>
+                                            </tr>
+                                            <tr class="odd">
+                                                <td>Phone Number:</td>
+                                                <td data-bind="text: TopupMobileNumber"></td>
+                                            </tr>
+
+                                        </table>
+
+                                        <p class="us-flag">
+                                            <span class="usflag">
+                                                <img src="@Url.Content("~/images/us-flag.png")" alt="US" class="imgus"/>
+                                                <img src="@Url.Content("~/images/chat-icon.png")" class="chat-icon" alt="Chat"/>1-877-463-4233</span> <span class="candaflag">
+                                                    <img src="@Url.Content("~/images/ca-flag.png")" alt="Canada" class="imgus"/><img src="@Url.Content("~/images/chat-icon.png")" class="chat-icon" alt="Chat"/>1-416-848-0234</span> <span class="ukflag">
+                                                        <img class="imgus" src="@Url.Content("~/images/uk-flag.png")" alt="UK" /><img src="@Url.Content("~/images/chat-icon.png")" class="chat-icon" alt="Chat"/>
+                                                        0808-234-7012</span> <a href="" class="click-chat-btn"></a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bottom-scroller-bg"></div>
+                        </div>
+                    </div>
+                    <!--<fieldset class="biger">
+
+
+
+     <input type="submit" class="prev"></button>
+
+
+
+     <input type="submit" value="Next" class="next">
+
+
+
+     </fieldset>-->
+                </div>
+
+            </div>
+        </div>
+    </form>
+    <!--Body Container End-->
+    <div class="spacer"></div>
+    <div class="clear"></div>
+
+</div>
+<!--End Body Container-->
+
+
+<script>
+    $(document).ready(function () {
+        $(".close_fixed").click(function () {
+            $(".footer_fixed").hide();
+        });
+    });
+
+</script>
+
+@*<script src="@Url.Content("~/scripts/scripts.js")"></script>*@
+<!-- <msdropdown> -->
+<script src="@Url.Content("~/scripts/jquery.dd.min.js")"></script>
+<script src="@Url.Content("~/scripts/jquery.dropkick-min.js")"></script>
+<script>
+    $(document).ready(function () {
+
+        $("#countries_signup_popup").msDropdown();
+        $("#countries_searchrates_footer").msDropdown();
+        $("#countries_tryusfree_footer").msDropdown();
+        $("#countries_plans").msDropdown();
+        $("#countries").msDropdown();
+
+    });
+</script>

@@ -1,0 +1,35 @@
+﻿@model MvcApplication1.Models.HomeViewModel
+           
+
+           <form method="Post" action="@Url.Action("Searchrate","Rate")">
+            <div class="country_call">
+                     
+                         
+                <div class="contry_flag_dropdown fl">
+                    <select name="countryfrom" id="countryfrom" style="width:132px;">
+                     @*<option>select the country you wish to all</option>*@
+                    @foreach (var res in Model.CountryListFrom)
+                    {
+                    <option value="@res.Id">@res.Name</option>
+                   @* <option value='ca' data-image="@Url.Content("~/images/blank.gif")" data-imagecss="flag ca" data-title="Canada">Canada</option>
+                    <option value='uk' data-image="@Url.Content("~/images/blank.gif")" data-imagecss="flag england" data-title="United Kingdom">U.K</option>
+                    <option value='nz' data-image="@Url.Content("~/images/blank.gif")" data-imagecss="flag nz" data-title="New Zealand">New Zealand</option>
+                    <option value='au' data-image="@Url.Content("~/images/blank.gif")" data-imagecss="flag au" data-title="Australia">Australia</option>*@
+                    }
+                        </select>
+                  
+                </div>     
+
+                          <select class="call_input" name="countryto">
+                          <option>select the country you wish to all</option>
+                          @foreach(var res in Model.CountryListTo)
+                          {
+                            
+                            <option value="@res.Id">@res.Name</option>
+                              }
+                          </select>
+                          <input type="submit" value="" class="rates_button" @*onclick="window.open('rate-page.html')"*@ />
+                
+                      </div>
+
+                      </form>
