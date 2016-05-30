@@ -4647,10 +4647,16 @@ ul.browers {
     padding: 0 0 0 20px;
 }
 
-.dropdown_account1 {
+/*.dropdown_account1 {
     width: 560px;
     float: left;
     margin: 0 0 0 -32px;
+}*/
+
+.dropdown_account1 {
+    width: 455px;
+    float: left;
+    margin: 0 0 0 0;
 }
 
     .dropdown_account1 .account_box1 h3, .recharge_drop_account .account_box1 h3, .dropdown_account1 .details1 h3 {
@@ -4665,7 +4671,7 @@ ul.browers {
     padding-bottom: 10px;
 }
 
-.navigation ul ul .dropdown_account1 .details1 ul {
+/*.navigation ul ul .dropdown_account1 .details1 ul {
     border-left: none !important;
     position: static !important;
     display: block;
@@ -4673,6 +4679,27 @@ ul.browers {
     width: 159px;
     margin-left: 0 !important;
 }
+*/
+
+
+.navigation ul ul .dropdown_account1 .details1 ul {
+    border-left: none !important;
+    position: static !important;
+    display: block;
+    float: left;
+    width: 212px;
+    margin-left: 0 !important;
+}
+
+.navigation ul ul .dropdown_account1 .details1 {
+    width: 455px;
+    float: left;
+    min-height: 200px;
+    margin: 0 0 0 10px;
+    padding: 0 0 0 0;
+}
+
+
 
     .navigation ul ul .dropdown_account1 .details1 ul li {
         float: left;
@@ -4681,6 +4708,9 @@ ul.browers {
         width: 155px;
         margin-left: 0 !important;
     }
+	
+	
+	
 
         .navigation ul ul .dropdown_account1 .details1 ul li a {
             width: inherit !important;
