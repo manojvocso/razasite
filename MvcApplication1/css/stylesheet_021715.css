@@ -4508,14 +4508,23 @@ a.forgot-pass {
     font-weight: bold;
 }
 
-.international_submit {
+/*.international_submit {
     background: url(../images/international_submit.png) no-repeat left top;
     width: 70px;
     height: 29px;
     float: left;
     margin: 2px 0 0 8px;
 }
+*/
 
+
+.international_submit {
+    background: url(../images/international_submit.png) no-repeat left top;
+    width: 67px;
+    height: 29px;
+    float: left;
+    margin: 2px 0 0 2px;
+}
     .international_submit:hover {
         background: url(../images/international_submit.png) no-repeat left bottom;
     }
