@@ -500,8 +500,6 @@ a:hover {
 
 #banner-india {
 
-	/*background: url(../images/rate-save-big-banner.jpg) no-repeat top left;*/
-
 	width: 990px;
 
 	margin:0px 0px 0px 0px;
@@ -864,22 +862,6 @@ a:hover {
 }
 
 #news .country img {
-
-	/*width:34px;
-
-
-
-
-
-
-
-	height:27px;*/
-
-
-
-
-
-
 
 	margin: 2px 17px 0 0;
 
@@ -1326,12 +1308,6 @@ a:hover {
 
 
 /*----------Right Panel Css Start---------------------*/
-
-
-
-
-
-
 
 #right_panel {
 
@@ -1900,14 +1876,6 @@ a:hover {
 
 #feedback {
 
-	/*background:url(../images/feedback-bg.png) no-repeat;*/
-
-
-
-
-
-
-
 	background-position: right;
 
 	margin: 0px;
@@ -2397,10 +2365,6 @@ input.submit {
 }
 
 /*Contact Divs end*/
-
-
-
-
 
 
 
@@ -3067,14 +3031,6 @@ input.submit {
 }
 
 .contentcntrtext h1 {
-
-	/*width:625px;*/
-
-
-
-
-
-
 
 	font-size: 14px;
 
@@ -4884,30 +4840,13 @@ questiontab {
 	color:#c70000;
 
 
-
-
-
-
-
-
-
-
-
-
-
 }
-
-
-
-
 
 
 
 .ratepagebanner {
 
 	border: #dddddd 1px solid;
-
-/*	padding: 10px 0 10px 0;*/
 
 }
 
@@ -5958,14 +5897,6 @@ a.cart_text {
 
 
 
-
-
-
-
-
-
-
-
 /*--tooltip css start--*/
 
 
@@ -6154,12 +6085,6 @@ a.tooltip:hover span{
 
 
 
-
-
-
-
-
-
 #menu-nav ul ul ul{
 
 	position:inherit!important;
@@ -6221,8 +6146,6 @@ a.tooltip:hover span{
 
 	width: auto;
 
-	/*background: url(../images/dropdown_top.jpg) no-repeat left top;*/
-
 	padding: 0px 14px 0 0px!important;
 
 	z-index: 99999;
@@ -6240,14 +6163,6 @@ a.tooltip:hover span{
 	margin: 0 0 0 0px;
 
 }
-
-
-
-/*#menu-nav ul ul li ul li{
-
-	background: url(../images/arrowred.jpg) no-repeat left!important;
-
-}*/
 
 
 
@@ -6523,14 +6438,6 @@ ul.below_icon  li a strong b{
 #css4 li:hover, #css5 li:hover  { opacity:1; }
 
 #css4 li:hover a strong, #css5 li:hover a strong  { opacity:1; top:-10px; }
-
-
-
-
-
-
-
-
 
 
 
@@ -7087,11 +6994,6 @@ ul.below_icon  li a strong b{
 
 
 
-
-
-
-
-
 /*fixed css start*/
 
 
@@ -7213,14 +7115,6 @@ a.feedback_float_right {
 	font-size:14px;
 
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -7903,11 +7797,6 @@ input:focus {
 
 }
 
-/*.tabs-css li a:hover{
-
-	color:#d04343;
-
-}*/
 
 
 
@@ -8017,168 +7906,6 @@ margin:2px 7px 0px -2px;
 
 
 
-
-
-/*
-
-.accordionWrapper{display:inline-block; background-color:#fff; overflow:hidden; margin:8px 11px 0;}
-
-.accordionWrapper img{vertical-align:middle; border:0; margin:0; padding:0}
-
-.accordionWrapper div{display:inline; float:left; margin:0 2px 0 0;}
-
-.accordionWrapper div.title{cursor:pointer;}
-
-.accordionWrapper div.content{display:none;}
-
-
-
-.accordionWrapper div.content{
-
-	width:452px;
-
-	float:left;	
-
-	margin:0 8px;
-
-}
-
-.accordionWrapper div.content .flag{
-
-	width:41px;
-
-	float:left;
-
-	border: 1px solid #dddddd;
-
-	padding:7px 7px 7px 12px;
-
-	
-
-}
-
-.accordionWrapper div.content .small_box{
-
-	
-
-	min-height:33px;
-
-	float:left;
-
-	border: 1px solid #dddddd;
-
-	margin-left: 10px;
-
-    min-height: 24px;
-
-    padding: 5px;
-
-    width: 57px;}
-
-	
-
-.accordionWrapper div.content .big_box{
-
-	width:284px;
-
-	float:left;	
-
-    border: 2px solid #1f73d0;
-
-	min-height:25px;
-
-	margin: 0 0 0 10px;
-
-	padding:4px;
-
-	}
-
-.accordionWrapper div.content ul.according-logo{
-
-	float:left;
-
-	margin:7px 0 12px 0;
-
-	padding:0;}
-
-	
-
-.accordionWrapper div.content ul.according-logo li{
-
-	float:left;
-
-	width:77px;
-
-	height:39px;
-
-	list-style:none;
-
-	padding-top:5px;
-
-	text-align:center;
-
-	background:url(../images/aroow.jpg) left top no-repeat;
-
-	margin:5px 34px 0px 0px
-
-}
-
-.accordionWrapper div.content .more{
-
-	font-family:Arial, Helvetica, sans-serif;
-
-	color:#1c70cf;
-
-	font-size:11px;
-
-	float:right;
-
-	text-decoration:underline;
-
-}
-
-.accordionWrapper div.content .more:hover{
-
-	text-decoration:none;
-
-	color:#333;
-
-}
-
-	
-
-.accordionWrapper div.content .span{
-
-	min-width:70px;
-
-	padding:0px 0px 0px 4px;
-
-	float:left;
-
-
-
-}
-
-
-
-
-
-.accordionWrapper div.content .input{
-
-	width:25px;
-
-	height:18px;
-
-	padding:4px;
-
-	margin:0 0 0 7px;
-
-	border:1px solid #ddd;
-
-}*/
-
-
-
 h2.intertopup_head{
 
 	padding:0 0 5px 0 ;
@@ -8232,13 +7959,6 @@ a.promotion_btn:hover{
 	color:#333;	
 
 }
-
-
-
-
-
-
-
 
 
 .contact_add{
@@ -8322,14 +8042,6 @@ padding:10px 0px 10px 0px;
 float:left;
 
 }
-
-
-
-
-
-
-
-
 
 
 div.panel {
@@ -8494,11 +8206,6 @@ div.panel .submit_login{
 	float:left;
 
 }
-
-
-
-
-
 
 
 .contact_add{
@@ -8717,8 +8424,6 @@ position: relative;
 
 top:2px;
 
-/*width: 718px;*/
-
 overflow: hidden;
 
 }
@@ -8800,8 +8505,6 @@ float: right; /* important: display inline gives incorrect results when you chec
 margin: 0;
 
 list-style:none!important;
-
-/*background: #fff;*/
 
 }
 
@@ -8916,14 +8619,6 @@ list-style:none!important;
 }
 
 
-
-
-
-
-
-
-
-
 .container_tabbing .ui-tabs .ui-tabs-nav{
 
 	padding:0;
@@ -8934,17 +8629,11 @@ list-style:none!important;
 
 
 
-
-
-
-
 .container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-panel {
 
     float: left;
 
     width: 684px;
-
-	/*min-height:563px;*/
 
     position: relative;
 
@@ -8979,14 +8668,7 @@ list-style:none!important;
 
 }
 
-
-
-
-
 .container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-panel h2, .container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-panel h3{	
-
-	/*background:url(../images/support_accordion_img2.jpg) repeat-x left top;*/
-
 	padding:10px 0px 10px 13px;
 
 	font-weight:bold;
@@ -8999,13 +8681,6 @@ list-style:none!important;
 
 }
 
-
-
-
-
-
-
-	
 
   .container_tabbing .ui-tabs-vertical .ui-tabs-panel { padding: 1em; float: right; width: 40em;}
 
@@ -9157,18 +8832,6 @@ a.forgot-pass:hover{
 
 
 
-/*.try-free .left-part {
-
-	float:left;
-
-	 margin-left:28px;
-
-	padding:0px 20px 0px 0;
-
-	border-right:1px solid #9e9e9e;
-
-}*/
-
 .try-free .click-here{
 
 	width:84px;
@@ -9317,8 +8980,6 @@ a.tabs_more_tag:hover{
 
 	font-size:14px;
 
-	/*padding:0px 0px 0px 25px!important;	*/
-
 }
 
 .howit .text{
@@ -9368,7 +9029,6 @@ a.tabs_more_tag:hover{
 .inner_faq{
 
 	padding-right:15px;
-/*	margin: -5px 0px -12px 15px;*/
 
 }
 
@@ -9836,14 +9496,6 @@ padding: 9px 0 3px;
 
 
 
-	
-
-	
-
-	
-
-
-
 /*---------Explore Our Services Accrodio Css-----------*/
 
   #accordion-explore {
@@ -9887,8 +9539,6 @@ text-decoration: none;
 font-size: 12px;
 
 line-height: 1.5em;
-
-/*background-color:#fff;*/
 
 margin-right:4px;
 
@@ -9945,8 +9595,6 @@ width: 510px;
 
 
 #accordion-explore li .content{
-
-/* margin: 0px 8px 0 40px;*/
 	margin:0 0 0 0;
 
     min-height: 310px;
@@ -10037,12 +9685,6 @@ width: 510px;
 
 	
 
-	
-
-	
-
-	
-
 #accordion-explore li .content ul.according-logo{
 
 	float:left;
@@ -10110,8 +9752,6 @@ width: 510px;
 
 
 }
-
-
 
 
 
@@ -10205,11 +9845,6 @@ a.promotion_btn:hover{
 	position:relative;
 
 	padding:0 6px;
-
-	
-/*	border:1px solid #ddd;
-	
-	border-radius:6px;*/
 	
 	margin:3px 0px 0px 6px;
 	border-right:1px solid #ddd!important;		
@@ -10224,10 +9859,6 @@ a.promotion_btn:hover{
 	position:relative;
 
 	padding:0;
-	
-/*	border:1px solid #ddd;
-	
-	border-radius:6px;*/
 	
 	margin:0px 27px 0px 0px;	
 }
@@ -10543,13 +10174,6 @@ padding:0px;
 
 }
 
-	
-
-
-
-
-
-
 
 /*===========new-css start=======*/
 
@@ -10735,9 +10359,6 @@ padding:0px;
 .main-text-bg{
 
 	width:100%;
-
-	/*margin-bottom:10px;*/
-
 	float:left;
 
 }
@@ -10761,10 +10382,6 @@ padding:0px;
 	margin:10px 0px 0px 0px;
 
 }
-
-
-
-
 
 
 
@@ -11219,14 +10836,6 @@ float: left;
 
 
 
-
-
-
-
-
-
-
-
 .city_code1{
 
 	width: 135px;
@@ -11490,9 +11099,6 @@ float: left;
 	text-align:center;
 
 }
-
-
-
 
 
 .contry_flag_dropdown_popup{
@@ -11924,25 +11530,6 @@ background:url(../images/flag_arrow.png) no-repeat 80px 10px!important;
 
 }
 
-/*.world_flag_dropdown_popup {
-
-	width: 45px!important;
-
-	float: left;
-
-	position: relative;
-
-	background: #fff;
-
-	border: 1px solid #ddd;
-
-	padding: 12px 5px;
-
-	margin-right: 5px;
-
-	border-radius: 4px;
-
-}*/
 
 
 
@@ -12119,14 +11706,6 @@ a.tooltip span a{
 	color:#0000FF!important;
 
 }
-
-
-
-
-
-
-
-
 
 	
 
@@ -12731,18 +12310,6 @@ background:url(../images/flag_arrow.png) no-repeat 80px 10px!important;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 a.tooltip-new {
 
 	outline:none;
@@ -13326,9 +12893,8 @@ a.tooltip-new:hover span{
 .how_padding{
 	padding:11px 0px 0px 32px!important;
 }
-/*.view_heading3{
-	margin: -13px 0px 30px 14px!important;
-}*/
+
+
 .quick_how h3{
 	margin:0px 0px -6px 0px!important;
 }
@@ -13601,12 +13167,9 @@ ul.app_tooltip  li a strong b, ul.app-new_tooltip  li a strong b {
 	
 	margin:10px 0px;
 
-
-	/*padding:24px 8px 11px!important;*/
-
 	text-transform:uppercase;
 
-	/*background:url(../images/support_accordion_img.png) repeat-x left top;*/
+	
 
 }
 .container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li a {
@@ -13635,10 +13198,7 @@ ul.app_tooltip  li a strong b, ul.app-new_tooltip  li a strong b {
 
 }
 
-/*.container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active {
-   background:url(..//images/tab-nav-bg.jpg) left top repeat-x!important;
 
-}*/
 .icon-1, .icon-2, .icon-3, .icon-4, .icon-5, .icon-6, .icon-7, .icon-8{
 	width:46px;
 	height:46px;
@@ -13850,72 +13410,6 @@ ul.app_tooltip  li a strong b, ul.app-new_tooltip  li a strong b {
 .container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active .icon-26{
 	background:url(../images/why-raza_sprite.png) -48px -143px no-repeat;
 }
-
-/*.container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active.green-bg{
-	background: url(../images/t-green-bg.png) left top repeat-x!important; 
-}
-.container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active.light-blue-bg {
-	background:url(../images/globalcall_bg.png) repeat-x left top!important;
-		border:none!important;
-}
-.container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active.blue-bg {
-	background:url(../images/t-blue-bg.png) repeat-x left top!important;
-		border:none!important;
-}
-.container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active.light-green-bg {
-	background:url(../images/t-light-green-bg.png) repeat-x left top!important;
-		border:none!important;
-}
-.container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active.red-bg{
-	background:url(../images/t-red-bg.png) repeat-x left top!important;
-		border:none!important;
-		
-		
-}
-.container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active.red-dark-bg {
-	background:url(../images/t-red-dark-bg.png) repeat-x left top!important;
-		border:none!important;
-}
-.container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active.pink-bg {
-	background:url(../images/t-pink-bg.png) repeat-x left top!important;
-		border:none!important;
-}
-.container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active.sky-bg {
-	background:url(../images/t-sky-bg.png) repeat-x left top!important;
-	border:none!important;
-	width:98%;
-}
-.container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active.voilet_bg {
-	background:url(../images/voilet_bg.jpg) repeat-x left top!important;
-	border:none!important;
-}
-.container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active.brown_bg {
-	background:#a84b06 url(../images/brown_bg.jpg) repeat-x left top!important;
-	border:none!important;
-}
-.container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active.dark_green_bg{
-	background:#209c6a url(../images/dark_green_bg.jpg) repeat-x left top!important;
-	border:none!important;
-
-
-}
-.container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active.dark_orange_bg{
-	background:#fd8517 url(../images/dark_orange_bg.jpg) repeat-x left top!important;
-	border:none!important;
-
-
-}
-.container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active.light_blue-bg{
-	background:#196bff url(../images/light_blue_bg.jpg) repeat-x left top!important;
-	border:none!important;
-
-
-}
-.container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active.light_bg_blueish{
-	background:#196bff url(../images/dark_blueish_bg.png) repeat-x left top!important;
-	border:none!important;
-}
-*/
 
 	
 /*--------23oct css start--------*/
@@ -14370,199 +13864,110 @@ color:green;
 	margin:0px 0px 0px -25px;
 }
 .container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active.green-bg{
-/*	background: url(../images/ouetouch_fullbg.png) left top repeat-x!important; */
 	width:299px;
 	background:url(../images/onetouch_nwbg.png) no-repeat left top;
-	/*margin:10px 0px 0px -25px;*/
+	
 	
 }
 
-/*.container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li:hover.green-bg{
-	background: url(../images/ouetouch_fullbg.png) left top repeat-x!important; 
-	cursor:pointer;
-	width:254px;
-}
-*/
 
 
 .container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active.sky-bg {
-	/*background:url(../images/pinlessfull_bg.png) repeat-x left top!important;*/
 	width:299px;
 	background:url(../images/pinless_nwbg.png) no-repeat left top;
-	/*margin:10px 0px 0px -25px;*/
+	
 
 	
 }
-/*.container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li:hover.sky-bg{
-	background: url(../images/pinlessfull_bg.png) left top repeat-x!important; 
-	cursor:pointer;
-	width:254px;
-	
-}*/
+
 
 .container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active.light-blue-bg {
-	/*background:url(../images/globalcallfulbg_right.png) repeat-x left top!important;
-	border:none!important;*/
 	width:299px;
 	background:url(../images/lightblue_nwbg.png) no-repeat left top;
 
 	
 	
 }
-/*.container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li:hover.light-blue-bg{
-	background: url(../images/globalcallfulbg_right.png) left top repeat-x!important; 
-	cursor:pointer;
-	width:254px;
-}*/
 
 .container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active.blue-bg {
-	/*background:url(../images/callforwardingfull_bg.png) repeat-x left top!important;
-	border:none!important;*/
 	width:299px;
 	background:url(../images/blue_nwbg.png) no-repeat left top;
 	
 }
-/*.container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li:hover.blue-bg{
-	background: url(../images/callforwardingfull_bg.png) left top repeat-x!important; 
-	cursor:pointer;
-	width:254px;
-}
-*/
+
+
 .container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active.light-green-bg {
-	/*background:url(../images/razarewardsfull_bg.png) repeat-x left top!important;
-	border:none!important;*/
 	width:299px;
 	background:url(../images/lightgreen_nwbg.png) no-repeat left top;
 
 }
 
-/*.container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li:hover.light-green-bg{
-	background: url(../images/razarewardsfull_bg.png) left top repeat-x!important; 
-	cursor:pointer;
-	width:254px;
-}*/
-
 .container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active.red-bg{
-/*	background:url(../images/autorefillfull_bg.png) repeat-x left top!important;
-	border:none!important;*/
 	width:299px;
 	background:url(../images/red_nwbg.png) no-repeat left top;
 
 }
-/*.container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li:hover.red-bg{
-	background: url(../images/autorefillfull_bg.png) left top repeat-x!important; 
-	cursor:pointer;
-	width:254px;
-}*/
+
+
 .container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active.red-dark-bg {
-	/*background:url(../images/quickeyfull_bg.png) repeat-x left top!important;
-	border:none!important;*/
 	width:299px;
 	background:url(../images/quickey_nwbg.png) no-repeat left top;
 
 }
-/*.container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li:hover.red-dark-bg{
-	background: url(../images/quickeyfull_bg.png) left top repeat-x!important; 
-	cursor:pointer;
-	width:254px;
-}*/
 
 .container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active.pink-bg {
-	/*background:url(../images/calldetailfull_bg.png) repeat-x left top!important;
-	border:none!important;*/
 	width:299px;
 	background:url(../images/calldetail_nwbg.png) no-repeat left top;
 
 }
-/*.container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li:hover.pink-bg{
-	background: url(../images/calldetailfull_bg.png) left top repeat-x!important; 
-	cursor:pointer;
-	width:254px;
-}*/
-
 
 .container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active.voilet_bg {
-	/*background:url(../images/signingfull_bg.png) repeat-x left top!important;
-	border:none!important;*/
 	width:299px;
 	background:url(../images/signingup_nwbg.png) no-repeat left top;
 	
 
 }
-/*.container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li:hover.voilet_bg{
-	background: url(../images/signingfull_bg.png) left top repeat-x!important; 
-	cursor:pointer;
-	width:254px;
-}*/
+
 
 
 .container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active.brown_bg {
-	/*background:#a84b06 url(../images/billingandpayment_fullbg.png) repeat-x left top!important;
-	border:none!important;*/
 	width:299px;
 	background:url(../images/billing_and_payment_nwbg.png) no-repeat left top;
 
 }
 
 
-/*.container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li:hover.brown_bg{
-	background: url(../images/billingandpayment_fullbg.png) left top repeat-x!important; 
-	cursor:pointer;
-	width:254px;
-}*/
+
 .container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active.dark_green_bg{
-	/*background:#209c6a url(../images/onlineaccoutnfull.png) repeat-x left top!important;
-	border:none!important;*/
 	width:299px;
 	background:url(../images/online_account_nwbg.png) no-repeat left top;
 
 }
 
-/*.container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li:hover.dark_green_bg{
-	background: url(../images/onlineaccoutnfull.png) left top repeat-x!important; 
-	cursor:pointer;
-	width:254px;
-}*/
+
+
 .container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active.dark_orange_bg{
-	/*background:#fd8517 url(../images/securityfull_bg.png) repeat-x left top!important;
-	border:none!important;*/
 	width:299px;
 	background:url(../images/security_nwbg.png) no-repeat left top;
 	
 }
 
-/*.container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li:hover.dark_orange_bg{
-	background: url(../images/securityfull_bg.png) left top repeat-x!important; 
-	cursor:pointer;
-	width:254px;
-}*/
+
+
 .container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active.light_blue-bg{
-	/*background:#196bff url(../images/connectionfull_bg.png) repeat-x left top!important;
-	border:none!important;*/
 	width:299px;
 	background:url(../images/connection_nwbg.png) no-repeat left top;
-;
+
 }
 
-/*.container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li:hover.light_blue-bg{
-	background: url(../images/connectionfull_bg.png) left top repeat-x!important; 
-	cursor:pointer;
-	width:254px;
-}*/
+
+
 .container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active.light_bg_blueish{
-	/*background:#196bff url(../images/feedbackfull_bg.png) repeat-x left top!important;
-	border:none!important;*/
 	width:299px;
 	background:url(../images/feedback_nwbg.png) no-repeat left top;
 
 }
 
-/*.container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li:hover.light_bg_blueish{
-	background: url(../images/feedbackfull_bg.png) left top repeat-x!important; 
-	cursor:pointer;
-	width:254px;
-}
-*/
 
 
 .top_contact_mumber{
@@ -14709,15 +14114,9 @@ outline:none!important;
 	height:27px;
 	position:absolute;
 }
-/*#my-account .left:hover{
-	outline: #93B8E6 solid  medium;
-}
-#my-account .right-small:hover{
-	outline: #93B8E6 solid medium;
-}
-#my-account .right-small1:hover{
-	outline: #93B8E6 solid medium;
-}	*/
+
+	
+	
 	
 #my-account .left:hover {
 	border: 1px solid #93B8E6;
@@ -14894,8 +14293,6 @@ ul.termination_list li{
 	margin:-15px 9px 0px -10px;
 }
 .container_tabbing .ui-tabs.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active.skybluiesh_bg {
-	/*background:url(../images/signingfull_bg.png) repeat-x left top!important;
-	border:none!important;*/
 	width:299px;
 	background:url(../images/mobiletopup_nwbg.png) no-repeat left top;
 	
