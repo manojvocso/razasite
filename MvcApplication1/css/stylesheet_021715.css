@@ -3959,7 +3959,7 @@ a.forgot-pass {
     width: auto;
 }
 
-.copy_left {
+/*.copy_left {
     width: 676px;
     float: left;
     margin: 14px 0 0 0;
@@ -3969,7 +3969,19 @@ a.forgot-pass {
     color: #5e5e5e;
     font-weight: bold;
 }
+*/
 
+.copy_left {
+    width: 100%;
+    margin: 14px 0 0 0;
+    padding: 9px 0;
+    font-family: arial;
+    font-size: 12px;
+    color: #5e5e5e;
+    font-weight: bold;
+    text-align: center;
+    float: left;
+}
 .copy_right {
     margin: 14px 0 0 55px;
     float: left;
