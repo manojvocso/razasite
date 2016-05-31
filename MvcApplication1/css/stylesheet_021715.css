@@ -4887,25 +4887,6 @@ ul.browers {
     top: 0;
 }
 
-/*---index stump flag css start---*/
-/*.magic_1, .magic_387, .magic_2, .magic_3, .magic_4, .magic_5, .magic_6, .magic_7, .magic_8, .magic_9, .magic_10, 
- .magic_17,.magic_18,.magic_498{
-    background: url(../images/raza_flag_sprite.jpg) no-repeat left top;
-    width: 23px;
-    height: 16px;
-    padding: 0;
-    float: left;
-    font-style: normal;
-    margin: 0 12px 0 5px;
-}*/
-
-/*.magic_1 p, .magic_387 p, .magic_2 p, .magic_3 p, .magic_4 p, .magic_5 p, .magic_6 p, .magic_7 p, .magic_8 p, .magic_9 p, .magic_10 p,
-    .magic_10 p, .magic_17 p, .magic_18 p, .magic_498 {
-        float: left;
-        margin: 0 0 9px 28px;
-        width: 179px;
-    }*/
-
 .magic_1, .magic_347, .magic_387, .magic_2, .magic_335, .magic_681, .magic_682, .magic_3, .magic_386, .magic_683,
 .magic_684, .magic_685, .magic_686, .magic_4, .magic_336, .magic_5, .magic_388, .magic_6, .magic_337, .magic_7,
 .magic_389, .magic_687, .magic_8, .magic_496, .magic_9, .magic_333, .magic_10, .magic_12, .magic_11, .magic_16,
