@@ -5225,10 +5225,18 @@ h2.light_blue-bg{
 			  line-height: 14px;
 			}
  
-		.nav-tabs {
+		/*.nav-tabs {
 padding-top: 7px;
 width: 93.6%;
 margin: -63px 0px 0px 259px;
+}*/
+
+.nav-tabs {
+    padding-top: 7px;
+    width: auto;
+    position: absolute;
+    top: 12px;
+    left: 228px;
 }
  
 			.nav-tabs > li {
@@ -9257,6 +9265,7 @@ h2.onetouchfull {
 	height:43px;
 	border-radius:12px;
 	padding:9px 0px 11px 11px!important;
+	position:relative;
 }
 h2.pinlessfull {
 	background:url(../images/featurs_head_bg.png) repeat-x left top!important;
