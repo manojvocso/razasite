@@ -19,133 +19,30 @@
 <!-- Tabs JS start -->
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
-<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js" type="text/javascript"></script>
-
-<script src="@Url.Content("~/Scripts/knockout-2.2.1.js")" type="text/javascript"></script>
+ <script src="@Url.Content("~/js_new/jquery-1.9.1.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/js_new/jquery-ui.js")" type="text/javascript"></script> 
 @* @System.Web.Optimization.Scripts.Render("~/bundle/js")*@
 @*      @System.Web.Optimization.Styles.Render("~/bundle/css")*@
-
-<link rel="stylesheet" href="@Url.Content("~/css/carouslide_raza.css")" />
-
-<script type="text/javascript">
-    //New Slider Js Start
-
-    $(window).load(function () {
-        $('.flexslider').flexslider({
-            animation: "fade",
-            start: function (slider) {
-                $('body').removeClass('loading');
-            }
-        });
-    });
-</script>
-
-<script src="@Url.Content("~/Scripts/easySlider1.7.js")" type="text/javascript"></script>
-
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#slider").easySlider({
-            auto: false,
-            continuous: true,
-            nextId: "slider1next",
-            prevId: "slider1prev"
-        });
-
-    });
-</script>
+<script src="@Url.Content("~/js_new/popup_jquery.js")" type="text/javascript"></script>
 
 
-
-
-<!--New Fade In Fade Out Main JS -->
-
-<!--New Fade In Fade Out Main JS -->
-
-
-<script src="@Url.Content("~/Scripts/jquery.flexslider.js")" type="text/javascript"></script>
-
-<script src="@Url.Content("~/Scripts/popup_jquery.js")" type="text/javascript"></script>
-
-<script src="@Url.Content("~/Scripts/jquery.CarouSlide.min.js")" type="text/javascript"></script>
-
-<script type="text/javascript">
-    $(document).ready(function () {
-        $(".s2").CarouSlide({
-
-            animType: "none",
-            hoverLinks: true
-
-        });
-
-    });
-</script>
-
-
-<script type="text/javascript">
-    // for tabs
-    $(document).ready(function () {
-
-        $(".stump_bg").css({ "visibility": "visible" });
-
-    });
-</script>
 <!--end header-->
 
 <!--end nav-->
 <!--start banner-->
 
 <div class="slder-bg">
-    <div class="stump_bg">
+
+  <ul class="bxslider">
+    <li style="background:url(images_new/multiple-country-banner-new.jpg) no-repeat center center; width:100%; 
+  height:495px; display:block;"></li>
+  </ul>
+   
         @RenderPage("SearchBoxWidget.cshtml")
 
-        <div></div>
-    </div>
-
-    <div class="flexslider">
-        <ul class="slides">
-            <li><a href="@Url.Action("Buy1Get1", "Promotion")">
-                <img alt="" class="banner_featurescent" /></a>
-                <img src="@Url.Content("~/images/homepage_banners/genericbanner-buy1get1-2016-compressed.jpg")" height="315" width="990" alt="Call Worldwide with minimum 1 cent" />
-            </li>
-
-@*            <li><a href="@Url.Action("MobileApp", "account")">
-                <img alt="" class="banner_featurescent" /></a>
-                <img src="@Url.Content("~/images/homepage_banners/genericbannner-baisakhi16.jpg")" height="315" width="990" alt="Call Worldwide with minimum 1 cent" />
-            </li>*@            
-
-            
-            <li><a href="@Url.Action("RetailAgent", "Account")">
-                <img alt="" class="banner_learn" /></a>
-                <img src="@Url.Content("~/images/homepage_banners/hed-banner-second-compressed.jpg")"  height="315" width="990" alt="Call forwarding Service" />
-            </li>
-
-
-@*            <li><a href="@Url.Action("IndiaUnlimited", "Rate")">
-                <img alt="" class="banner_featurescent" /></a>
-                <img src="@Url.Content("~/images/homepage_banners/hed-banner-second-999.jpg")" height="315" width="990" alt="second banner" />
-            </li>*@
-
-            <li><a href="@Url.Action("index", "Features")">
-                <img alt="" class="banner_features" /></a>
-                <img src="@Url.Content("~/images/homepage_banners/hed-banner-third-compressed.jpg")"  height="315" width="990" alt="features of Raza calling cards" />
-            </li>
-
-
-            <li><a href="@Url.Action("RetailAgent", "Account")#newtabs-2">
-                <img alt="" class="banner_global" /></a>
-                <img src="@Url.Content("~/images/homepage_banners/hed-banner-fourth-compressed.jpg")"  height="315" width="990" alt="call back from 20 different countries" />
-            </li>
-@*            <li><a href="@Url.Action("OneCentPlan", "Promotion")">
-                <img alt="" class="banner_featurescent" /></a>
-                <img src="@Url.Content("~/images/homepage_banners/hed-banner-1cent_generic.jpg")" height="315" width="990" alt="first banner" />
-            </li>*@
-        </ul>
-    </div>
-
-
-
-</div>
+        <div>
+	   </div>
+       </div>
 <!--end banner-->
 
 <!--start body container-->
@@ -175,6 +72,8 @@
     </div>
 </div>
 <!--end body Container-->
+
+
 <div class="clear"></div>
 <!--footer start-->
 
