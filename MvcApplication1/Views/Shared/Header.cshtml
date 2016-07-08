@@ -1,602 +1,400 @@
-﻿<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
-<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js" type="text/javascript"></script>
+﻿
+<div class="topmain-allsecdiv">
 
-<script src="@Url.Content("~/Scripts/atooltip.min.js")"></script>
+  <div id="main_container">
+	 <ul class="header-left">
+			<li><a href="#">home</a></li>
+			<li><a href="#">my account</a></li>
+		 </ul>
+	<ul class="top-header-righttop">
+	 <li><span class="number"><i class="fa fa-volume-control-phone" aria-hidden="true"></i> 1-(800) 463-4233</span></li>
+	 <li><div class="contry_flag_dropdown_1">
+				  
+					<form action="#" method="post" accept-charset="utf-8" class="example_form">
+					  <select name="countries" id="rate-countries">
+						<option value='us' data-image="images/blank.gif" data-imagecss="usa_big" data-title="U.S.A"></option>
+						<option value='ca' data-image="images/blank.gif" data-imagecss="canada_big" data-title="Canada"></option>
+						<option value='uk' data-image="images/blank.gif" data-imagecss="uk_big" data-title="United Kingdom"></option>
+					  </select>
+					</form>
+				  </div></li>
+	</ul>
 
-<script src="@Url.Content("~/Scripts/Header.js")" type="text/javascript"></script>
-<script src="@Url.Content("~/Scripts/password-retrival.js")" type="text/javascript"></script>
-
-<script src="@Url.Content("~/Scripts/Support.js")" type="text/javascript"></script>
-
-<script src="@Url.Content("~/Scripts/popup_jquery.js")"></script>
-
-<script src="@Url.Content("~/Scripts/magicsuggest-1.3.1.js")"></script>
-<link href="@Url.Content("~/css/jquery-customselect.css")" rel="stylesheet" />
- <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
-@*<div id="wrapper">*@
+  </div><!--main_container-->
 
 
-<!--header start -->
-<div id="header">
-    <div class="logo_2">
-        <a href="@Url.Action("Index", "account")">
-            <img src="@Url.Content("~/images/logo/raza_logo.jpg")" alt="Keep talking with Raza international calling cards" /></a>
-            @*<img src="@Url.Content("~/images/logo/raza-christmas-logo.jpg")" alt="Keep talking with Raza international calling cards" /></a>*@
-        
-        <!--img src="@Url.Content("~/images/anniversary.jpg")" alt="" class="anniversary" /-->
-
-    </div>
-  
-    <div class="header_right" style="width: 349px;">
-        
+<!--header start-->
+<div class="header-mainbg">
+    <div id="main_container">
+       <div id="wrapper">
+	   
+		<div id="header">
+			<div class="logo_2">
+				<a href="@Url.Action("Index", "account")">
+					<img src="@Url.Content("~/images/logo/raza_logo.jpg")" alt="Keep talking with Raza international calling cards" /></a>
+					@*<img src="@Url.Content("~/images/logo/raza-christmas-logo.jpg")" alt="Keep talking with Raza international calling cards" /></a>*@
+				
+				<!--img src="@Url.Content("~/images/anniversary.jpg")" alt="" class="anniversary" /-->
 		
-        <div class="contry_flag_dropdown_1">
-		<li><a href="#"> <i class="fa fa-comments-o" aria-hidden="true"></i>live chat</a></li>
-            <li><a href="#"> <i class="fa fa-user-plus" aria-hidden="true"></i>sign up</a></li>
-            <li>
-            <form action="@Url.Action("CountryChange", "Account")" method="post" accept-charset="utf-8" class="example_form" id="country-change" >
-
-                <select name="countries" id="countries" style="width: 64px; float: left; margin: 0px 19px 0px 33px; height: 23px;" onchange="updatenumber();">
-                  @*  <option value='1' data-image="images/blank.gif" data-imagecss="usa_big" data-title="U.S.A"></option>
-                    <option value='2' data-image="images/blank.gif" data-imagecss="canada_big" data-title="Canada"></option>
-                    <option value='3' data-image="images/blank.gif" data-imagecss="uk_big" data-title="United Kingdom"></option>*@
-@foreach (var item in Model.ListOfTop3FromCountries)
-          {
-           <option value='@item.Id' data-image="@Url.Content("~/images/blank.gif")" data-imagecss="@item.ImageClass" data-title="@item.Name"></option>
-          }
-                </select>
-                <input type="hidden" id="country-byip" value="@Session["CountrybyIp"]" />
-            </form>
-			</li>
-			
-
-        </div>
-
-        <div class="clear"></div>
-        @if (!User.Identity.IsAuthenticated)
-        {            
-            <a href="@Url.Action("LogOn","Account")?ReturnUrl=%2faccount%2fMyaccount"> <input type="submit" value="" class="login panel" /></a>            
-        }
-        else
-        {
-            <form method="post" action="@Url.Action("Logoff", "account")">
-                <input type="submit" id="#logff1" value="" class="top_logoff panel" />
-            </form>
-        }
-        <div id="contact-new">
-
-            <div class="contact-detail-new">
-                <h2>Password Retrieval</h2>
-                <div id="close-new"></div>
-                <fieldset>
-                    <p>
-                        Please Enter the Email Address you registered with Raza.Com
-                        and your password will be automatically sent to your Email Address.
-                    </p>
-                    <label>Email Address:</label>
-                    <input type="text" data-bind="value: email" style="margin-bottom: 10px;" />
-                    <span style="margin-left: 125px; color: red;"><strong data-bind="text: status"></strong></span>
-                </fieldset>
-
-                <input type="submit" id="password_retrieve" value="" class="sumit-btn" style="margin-left:171px !important" />
-            </div>
-
-        </div>
-        <div id="mask-new"></div>
-
-
-        <span class="live-border"><a onclick="openwindow();" style="cursor: pointer" target="_blank" class="live_chat"></a></span>
-     <div class="logo_3">
-        @if (User.Identity.IsAuthenticated)
-        {
-            if (!string.IsNullOrWhiteSpace((User as MvcApplication1.Models.RazaPrincipal).FullName))
-            {
-            <span style="color: blue;">You are logged in as @(((MvcApplication1.Models.RazaPrincipal)User).FullName)</span>
-            }
-        }
-    </div>
-    
-    </div>
-    <div id="Headersearch">
-        <div class="navigation">
-		<ul>
-		 <li class="ico3"><a href="@Url.Action("Plans", "Rate")" title="PLANS"><span>PLANS</span></a>
-                    <ul>
-                        <li>
-                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                <tr>
-                                    <td width="21">
-                                        <img src="@Url.Content("~/images/drop_top_left_bg.jpg")" width="30" height="30" /></td>
-                                    <td style="background: url(/images/drop_top_mid_bg.jpg) repeat-x;"></td>
-                                    <td width="21">
-                                        <img src="@Url.Content("~/images/drop_top_right_bg.jpg")" width="30" height="30" /></td>
-                                </tr>
-                                <tr>
-                                    <td style="background: url(/images/drop_left_bg.jpg) repeat-y;"></td>
-                                    <td style="background: #fff;">
-                                        <div class="whyraza_dropdown">
-                                            <ul>
-                                                <li><span class="global_call"></span><a href="@Url.Action("Plans", "rate")#newtabs-1" class="tooltip">Global Call</a></li>
-															
-                                                <li><span class="mobile_direct"></span><a href="@Url.Action("Plans", "rate")#newtabs-2" class="tooltip">Mobile Direct</a></li>
-															
-                                                <li><span class="landline"></span><a href="@Url.Action("Plans", "rate")#newtabs-3" class="tooltip">Landline Special</a></li>
-
-                                            </ul>
-                                            <ul>
-                                                <li><span class="why_icon"></span><a href="@Url.Action("Plans", "rate")#newtabs-4">Compare Plan</a></li>
-                                                <li><span class="howit_icon"></span><a href="@Url.Action("Plans", "rate")#newtabs-5">HOW IT WORKS</a></li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                    <td style="background: url(/images/drop_right_bg.jpg) repeat-y;"></td>
-                                </tr>
-                                <tr>
-                                    <td width="21">
-                                        <img src="@Url.Content("~/images/drop_bot_left_bg.png")" width="30" height="30" /></td>
-                                    <td>
-                                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                                            <tr>
-                                                <td width="94">
-                                                    <img src="@Url.Content("~/images/drop_botsahde_bg_l.jpg")" width="96" height="30" /></td>
-                                                <td style="background: url(/images/drop_bot_mid_bg.jpg) repeat-x;" width="100%"></td>
-                                                <td width="94">
-                                                    <img src="@Url.Content("~/images/drop_botsahde_bg_r.jpg")" width="96" height="30" /></td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                    <td width="21">
-                                        <img src="@Url.Content("~/images/drop_bot_right_bg.png")" width="30" height="30" /></td>
-                                </tr>
-                            </table>
-                        </li>
-                    </ul>
-                </li>
-
-                    <ul>
-                        <li>
-                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                <tr>
-                                    <td width="21">
-                                        <img src="@Url.Content("~/images/drop_top_left_bg.jpg")" width="30" height="30" /></td>
-                                    <td style="background: url(/images/drop_top_mid_bg.jpg) repeat-x;"></td>
-                                    <td width="21">
-                                        <img src="@Url.Content("~/images/drop_top_right_bg.jpg")" width="30" height="30" /></td>
-                                </tr>
-                                <tr>
-                                    <td style="background: url(/images/drop_left_bg.jpg) repeat-y;"></td>
-                                    <td style="background: #fff;">
-                                        <div class="whyraza_dropdown">
-										
-										<ul>
-                            <li><span class="global_call"></span><a href="plan.html#newtabs-1" class="">Global Call</a></li>
-                            <li><span class="mobile_direct"></span><a href="plan.html#newtabs-2" class="">Mobile Direct</a></li>
-                            <li><span class="landline"></span><a href="plan.html#newtabs-3" class="">Landline Special</a></li>
-                          </ul> 
-						  
-                                            <ul>
-                                                <li><span class="why_icon"></span><a href="@Url.Action("index", "whyraza")#tabs-3">ABOUT US</a></li>
-                                                <li><span class="howit_icon"></span><a href="@Url.Action("index", "whyraza")#tabs-2">HOW IT WORKS</a></li>
-                                            </ul>
-											
-                                         
-                                        </div>
-                                    </td>
-                                    <td style="background: url(/images/drop_right_bg.jpg) repeat-y;"></td>
-                                </tr>
-                                <tr>
-                                    <td width="21">
-                                        <img src="@Url.Content("~/images/drop_bot_left_bg.png")" width="30" height="30" /></td>
-                                    <td>
-                                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                                            <tr>
-                                                <td width="94">
-                                                    <img src="@Url.Content("~/images/drop_botsahde_bg_l.jpg")" width="96" height="30" /></td>
-                                                <td style="background: url(/images/drop_bot_mid_bg.jpg) repeat-x;" width="100%"></td>
-                                                <td width="94">
-                                                    <img src="@Url.Content("~/images/drop_botsahde_bg_r.jpg")" width="96" height="30" /></td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                    <td width="21">
-                                        <img src="@Url.Content("~/images/drop_bot_right_bg.png")" width="30" height="30" /></td>
-                                </tr>
-                            </table>
-                        </li>
-                    </ul>
-                   </li>
-
-               <li><a href="#" title="top-deals"><span>top-deals</span></a>
-                <ul>
-                <li>
-                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                    <tr>
-                      <td width="21"><img src="images/drop_top_left_bg.jpg" width="30" height="30" /></td>
-                      <td style="background:url(images/drop_top_mid_bg.jpg) repeat-x;"></td>
-                      <td width="21"><img src="images/drop_top_right_bg.jpg" width="30" height="30" /></td>
-                    </tr>
-                    <tr>
-                      <td style="background:url(images/drop_left_bg.jpg) repeat-y;"></td>
-                      <td style="background:#fff;"><div class="topdeals_dropdown">
-                          <ul>
-                            <li><span class="india-unlimited"></span><a href="#" class="">India Unlimited $9.99/Month</a></li>
-                            <li><span class="buy-get"></span><a href="#" class="">Buy 1 Get 1 free</a></li>
-                          </ul>
-                          <ul>
-                            <li><span class="nepal-offer"></span><a href="#" class="">Nepal 6.9cents per minute</a></li>
-                            <li><span class="ramadan-offer"></span><a href="#"  class="">Ramadan Offer</a> </li>
-                          </ul>
-                        </div></td>
-                      <td style="background:url(images/drop_right_bg.jpg) repeat-y;"></td>
-                    </tr>
-                    <tr>
-                      <td width="21"><img src="images/drop_bot_left_bg.png" width="30" height="30" /></td>
-                      <td><table width="100%" cellpadding="0" cellspacing="0" border="0">
-                          <tr>
-                            <td width="94"><img src="images/drop_botsahde_bg_l.jpg" width="96" height="30" /></td>
-                            <td style="background:url(images/drop_bot_mid_bg.jpg) repeat-x;" width="100%"></td>
-                            <td width="94"><img src="images/drop_botsahde_bg_r.jpg" width="96" height="30" /></td>
-                          </tr>
-                        </table></td>
-                      <td width="21"><img src="images/drop_bot_right_bg.png" width="30" height="30" /></td>
-                    </tr>
-                  </table>
-                </li>
-              </ul>
-               </li>
-
-
-
-                <li class="ico4"><a href="@Url.Action("index", "Features")" title="Features"><span>Features</span></a>
-                    <ul>
-                        <li>
-                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                <tr>
-                                    <td width="21">
-                                        <img src="@Url.Content("~/images/drop_top_left_bg.jpg")" width="30" height="30" /></td>
-                                    <td style="background: url(/images/drop_top_mid_bg.jpg) repeat-x;"></td>
-                                    <td width="21">
-                                        <img src="@Url.Content("~/images/drop_top_right_bg.jpg")" width="30" height="30" /></td>
-                                </tr>
-                                <tr>
-                                    <td style="background: url(/images/drop_left_bg.jpg) repeat-y;"></td>
-                                    <td style="background: #fff;">
-                                        <div class="features_dropdown">
-                                            <ul>
-                                                <li><span class="onetouch"></span><a href="@Url.Action("index", "Features")#tabs-2" class="tooltip">ONE
-                                                                                                                 TOUCH DIALING</a></li>
-                                                <li><span class="pinless"></span><a href="@Url.Action("index", "Features")#tabs-3 " class="tooltip">PIN-LESS
-                                                                                                                SETUP</a></li>
-                                                <li><span class="calldetails"></span><a href="@Url.Action("index", "Features")#tabs-4" class="tooltip">CALL
-                                                                                                                    DETAILS</a></li>
-                                                <li><span class="quickey"></span><a href="@Url.Action("index", "Features")#tabs-5"  class="tooltip">QUICKEYS</a>
-                                                </li>
-                                            </ul>
-                                            <ul>
-                                                <li><span class="autorefill"></span><a href="@Url.Action("index", "Features")#tabs-6" class="tooltip">AUTO-REFILL</a></li>
-                                                <li><span class="razarewards"></span><a href="@Url.Action("index", "Features")#tabs-7" class="tooltip">RAZA
-                                                                                                                    REWARDS</a></li>
-                                                <li><span class="callforwarding"></span><a href="@Url.Action("index", "Features")#tabs-8" class="tooltip">CALL
-                                                                                                                       FORWARDING</li>
-                                                @*<li><span class="globalcall"></span><a href="@Url.Action("index", "Features")#tabs-9" class="tooltip">GLOBAL
-                                                                                                                   CALL</a></li>*@
-                                            </ul>
-                                        </div>
-                                    </td>
-                                    <td style="background: url(/images/drop_right_bg.jpg) repeat-y;"></td>
-                                </tr>
-                                <tr>
-                                    <td width="21">
-                                        <img src="@Url.Content("~/images/drop_bot_left_bg.png")" width="30" height="30" /></td>
-                                    <td>
-                                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                                            <tr>
-                                                <td width="94">
-                                                    <img src="@Url.Content("~/images/drop_botsahde_bg_l.jpg")" width="96" height="30" /></td>
-                                                <td style="background: url(/images/drop_bot_mid_bg.jpg) repeat-x;" width="100%"></td>
-                                                <td width="94">
-                                                    <img src="@Url.Content("~/images/drop_botsahde_bg_r.jpg")" width="96" height="30" /></td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                    <td width="21">
-                                        <img src="@Url.Content("~/images/drop_bot_right_bg.png")" width="30" height="30" /></td>
-                                </tr>
-                            </table>
-                        </li>
-                    </ul>
-               </li>
+			</div>
+			<div class="navigation">
+				<ul>
 				
+				 <li><a href="#" title="top-deals"><span class="trash-font">top-deals</span></a>
+					  <ul>
+						<li>
+						  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+							  <td width="21"><img src="images/drop_top_left_bg.jpg" width="30" height="30" /></td>
+							  <td style="background:url(images/drop_top_mid_bg.jpg) repeat-x;"></td>
+							  <td width="21"><img src="images/drop_top_right_bg.jpg" width="30" height="30" /></td>
+							</tr>
+							<tr>
+							  <td style="background:url(images/drop_left_bg.jpg) repeat-y;"></td>
+							  <td style="background:#fff;"><div class="topdeals_dropdown">
+								  <ul>
+									<li><span class="india-unlimited"></span><a href="#" class="">India Unlimited $9.99/Month</a></li>
+									<li><span class="buy-get"></span><a href="#" class="">Buy 1 Get 1 free</a></li>
+								  </ul>
+								  <ul>
+									<li><span class="nepal-offer"></span><a href="#" class="">Nepal 6.9cents per minute</a></li>
+									<li><span class="ramadan-offer"></span><a href="#"  class="">Ramadan Offer</a> </li>
+								  </ul>
+								</div></td>
+							  <td style="background:url(images/drop_right_bg.jpg) repeat-y;"></td>
+							</tr>
+							<tr>
+							  <td width="21"><img src="images/drop_bot_left_bg.png" width="30" height="30" /></td>
+							  <td><table width="100%" cellpadding="0" cellspacing="0" border="0">
+								  <tr>
+									<td width="94"><img src="images/drop_botsahde_bg_l.jpg" width="96" height="30" /></td>
+									<td style="background:url(images/drop_bot_mid_bg.jpg) repeat-x;" width="100%"></td>
+									<td width="94"><img src="images/drop_botsahde_bg_r.jpg" width="96" height="30" /></td>
+								  </tr>
+								</table></td>
+							  <td width="21"><img src="images/drop_bot_right_bg.png" width="30" height="30" /></td>
+							</tr>
+						  </table>
+						</li>
+					  </ul>
+					</li>
+					
+				 <li class="ico3"><a href="@Url.Action("Plans", "Rate")" title="PLANS"><span>PLANS</span></a>
+							<ul>
+								<li>
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td width="21">
+												<img src="@Url.Content("~/images/drop_top_left_bg.jpg")" width="30" height="30" /></td>
+											<td style="background: url(/images/drop_top_mid_bg.jpg) repeat-x;"></td>
+											<td width="21">
+												<img src="@Url.Content("~/images/drop_top_right_bg.jpg")" width="30" height="30" /></td>
+										</tr>
+										<tr>
+											<td style="background: url(/images/drop_left_bg.jpg) repeat-y;"></td>
+											<td style="background: #fff;">
+												<div class="whyraza_dropdown">
+													<ul>
+														<li><span class="global_call"></span><a href="@Url.Action("Plans", "rate")#newtabs-1" class="tooltip">Global Call</a></li>
+																	
+														<li><span class="mobile_direct"></span><a href="@Url.Action("Plans", "rate")#newtabs-2" class="tooltip">Mobile Direct</a></li>
+																	
+														<li><span class="landline"></span><a href="@Url.Action("Plans", "rate")#newtabs-3" class="tooltip">Landline Special</a></li>
+		
+													</ul>
+													<ul>
+														<li><span class="why_icon"></span><a href="@Url.Action("Plans", "rate")#newtabs-4">Compare Plan</a></li>
+														<li><span class="howit_icon"></span><a href="@Url.Action("Plans", "rate")#newtabs-5">HOW IT WORKS</a></li>
+													</ul>
+												</div>
+											</td>
+											<td style="background: url(/images/drop_right_bg.jpg) repeat-y;"></td>
+										</tr>
+										<tr>
+											<td width="21">
+												<img src="@Url.Content("~/images/drop_bot_left_bg.png")" width="30" height="30" /></td>
+											<td>
+												<table width="100%" cellpadding="0" cellspacing="0" border="0">
+													<tr>
+														<td width="94">
+															<img src="@Url.Content("~/images/drop_botsahde_bg_l.jpg")" width="96" height="30" /></td>
+														<td style="background: url(/images/drop_bot_mid_bg.jpg) repeat-x;" width="100%"></td>
+														<td width="94">
+															<img src="@Url.Content("~/images/drop_botsahde_bg_r.jpg")" width="96" height="30" /></td>
+													</tr>
+												</table>
+											</td>
+											<td width="21">
+												<img src="@Url.Content("~/images/drop_bot_right_bg.png")" width="30" height="30" /></td>
+										</tr>
+									</table>
+								</li>
+							</ul>
+						</li>
+		
+							<ul>
+								<li>
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td width="21">
+												<img src="@Url.Content("~/images/drop_top_left_bg.jpg")" width="30" height="30" /></td>
+											<td style="background: url(/images/drop_top_mid_bg.jpg) repeat-x;"></td>
+											<td width="21">
+												<img src="@Url.Content("~/images/drop_top_right_bg.jpg")" width="30" height="30" /></td>
+										</tr>
+										<tr>
+											<td style="background: url(/images/drop_left_bg.jpg) repeat-y;"></td>
+											<td style="background: #fff;">
+												<div class="whyraza_dropdown">
+												
+												<ul>
+									<li><span class="global_call"></span><a href="plan.html#newtabs-1" class="">Global Call</a></li>
+									<li><span class="mobile_direct"></span><a href="plan.html#newtabs-2" class="">Mobile Direct</a></li>
+									<li><span class="landline"></span><a href="plan.html#newtabs-3" class="">Landline Special</a></li>
+								  </ul> 
+								  
+													<ul>
+														<li><span class="why_icon"></span><a href="@Url.Action("index", "whyraza")#tabs-3">ABOUT US</a></li>
+														<li><span class="howit_icon"></span><a href="@Url.Action("index", "whyraza")#tabs-2">HOW IT WORKS</a></li>
+													</ul>
+													
+												 
+												</div>
+											</td>
+											<td style="background: url(/images/drop_right_bg.jpg) repeat-y;"></td>
+										</tr>
+										<tr>
+											<td width="21">
+												<img src="@Url.Content("~/images/drop_bot_left_bg.png")" width="30" height="30" /></td>
+											<td>
+												<table width="100%" cellpadding="0" cellspacing="0" border="0">
+													<tr>
+														<td width="94">
+															<img src="@Url.Content("~/images/drop_botsahde_bg_l.jpg")" width="96" height="30" /></td>
+														<td style="background: url(/images/drop_bot_mid_bg.jpg) repeat-x;" width="100%"></td>
+														<td width="94">
+															<img src="@Url.Content("~/images/drop_botsahde_bg_r.jpg")" width="96" height="30" /></td>
+													</tr>
+												</table>
+											</td>
+											<td width="21">
+												<img src="@Url.Content("~/images/drop_bot_right_bg.png")" width="30" height="30" /></td>
+										</tr>
+									</table>
+								</li>
+							</ul>
+						   </li>
+						   
+							<li class="ico4"><a href="@Url.Action("index", "Features")" title="Features"><span>Features</span></a>
+							<ul>
+								<li>
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td width="21">
+												<img src="@Url.Content("~/images/drop_top_left_bg.jpg")" width="30" height="30" /></td>
+											<td style="background: url(/images/drop_top_mid_bg.jpg) repeat-x;"></td>
+											<td width="21">
+												<img src="@Url.Content("~/images/drop_top_right_bg.jpg")" width="30" height="30" /></td>
+										</tr>
+										<tr>
+											<td style="background: url(/images/drop_left_bg.jpg) repeat-y;"></td>
+											<td style="background: #fff;">
+												<div class="features_dropdown">
+													<ul>
+														<li><span class="onetouch"></span><a href="@Url.Action("index", "Features")#tabs-2" class="tooltip">ONE
+																														 TOUCH DIALING</a></li>
+														<li><span class="pinless"></span><a href="@Url.Action("index", "Features")#tabs-3 " class="tooltip">PIN-LESS
+																														SETUP</a></li>
+														<li><span class="calldetails"></span><a href="@Url.Action("index", "Features")#tabs-4" class="tooltip">CALL
+																															DETAILS</a></li>
+														<li><span class="quickey"></span><a href="@Url.Action("index", "Features")#tabs-5"  class="tooltip">QUICKEYS</a>
+														</li>
+													</ul>
+													<ul>
+														<li><span class="autorefill"></span><a href="@Url.Action("index", "Features")#tabs-6" class="tooltip">AUTO-REFILL</a></li>
+														<li><span class="razarewards"></span><a href="@Url.Action("index", "Features")#tabs-7" class="tooltip">RAZA
+																															REWARDS</a></li>
+														<li><span class="callforwarding"></span><a href="@Url.Action("index", "Features")#tabs-8" class="tooltip">CALL
+																															   FORWARDING</li>
+														@*<li><span class="globalcall"></span><a href="@Url.Action("index", "Features")#tabs-9" class="tooltip">GLOBAL
+																														   CALL</a></li>*@
+													</ul>
+												</div>
+											</td>
+											<td style="background: url(/images/drop_right_bg.jpg) repeat-y;"></td>
+										</tr>
+										<tr>
+											<td width="21">
+												<img src="@Url.Content("~/images/drop_bot_left_bg.png")" width="30" height="30" /></td>
+											<td>
+												<table width="100%" cellpadding="0" cellspacing="0" border="0">
+													<tr>
+														<td width="94">
+															<img src="@Url.Content("~/images/drop_botsahde_bg_l.jpg")" width="96" height="30" /></td>
+														<td style="background: url(/images/drop_bot_mid_bg.jpg) repeat-x;" width="100%"></td>
+														<td width="94">
+															<img src="@Url.Content("~/images/drop_botsahde_bg_r.jpg")" width="96" height="30" /></td>
+													</tr>
+												</table>
+											</td>
+											<td width="21">
+												<img src="@Url.Content("~/images/drop_bot_right_bg.png")" width="30" height="30" /></td>
+										</tr>
+									</table>
+								</li>
+							</ul>
+					   </li>
+					   
+						<li class="ico6"><a href="@Url.Action("Myaccount", "account")"  title="Recharge"><span>Recharge</span></a></li>
+		
+					   
+						 <li class="ico7 "><a href="@Url.Action("index", "support")"  title="Support" class="line-bg"><span>Support</span></a>
+							<ul class="right_spacing">
+								<li>
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td width="21">
+												<img src="@Url.Content("~/images/drop_top_left_bg.jpg")" width="30" height="30" /></td>
+											<td style="background: url(/images/drop_top_mid_bg.jpg) repeat-x;"></td>
+											<td width="21">
+												<img src="@Url.Content("~/images/drop_top_right_bg.jpg")" width="30" height="30" /></td>
+										</tr>
+										<tr>
+											<td style="background: url(/images/drop_left_bg.jpg) repeat-y;"></td>
+											<td style="background: #fff;">
+												<div class="support_dropdown">
+													<ul>
+														<li><span class="contact_icon"></span><a href="@Url.Action("index", "support")#tabs-1">CONTACT
+																															 US</a></li>
+														<li><span class="faq_icon"></span><a href="@Url.Action("index", "support")#tabs-2">FAQ</a></li>
+														<li><span class="terms_icon"></span><a href="@Url.Action("index", "support")#tabs-3">TERMS</a></li>
+														<li><span class="privacypolicy_icon"></span><a href="@Url.Action("index", "support")#tabs-4">PRIVACY
+																																   POLICY</a></li>
+														<li><span class="billing-payment"></span><a href="@Url.Action("index", "support")#tabs-10">BILLING  &amp; PAYMENT </a></li>
+														<li><span class="connection"></span><a href="@Url.Action("index", "support")#tabs-12">CONNECTION</a></li>
+													</ul>
+													<ul>
+														@if (User.Identity.IsAuthenticated)
+														{
+															<li><span class="localaddress"></span><a href="@Url.Action("index", "support")#tabs-5">LOCAL
+																															 ACCESS NUMBERS</a></li>
+														}
+														else
+														{
+															<li><span class="localaddress"></span><a href="/Account/LogOn?returnUrl=Support_tabs-5">LOCAL
+																															 ACCESS NUMBERS</a></li> 
+														}
+														@* <li><span class="citiescodes"></span><a href="@Url.Action("index","support")#tabs-6">COUNTRY
+																															/ CITY CODES</a></li>*@
+														<li><span class="complaints"></span><a href="@Url.Action("index", "support")#tabs-7">OPEN
+																														   COMPLAINT</a></li>
+														<li><span class="guarantee"></span><a href="@Url.Action("index", "support")#tabs-8">OUR
+																														  GUARANTEE </a></li>
+														<li><span class="account-management"></span><a href="@Url.Action("index", "support")#tabs-11">ONLINE
+																																   ACCOUNT MNGT. </a></li>
+														<li><span class="support_securtiy"></span><a href="@Url.Action("index", "support")#tabs-13">SECURITY</a></li>
+													</ul>
+												</div>
+											</td>
+											<td style="background: url(/images/drop_right_bg.jpg) repeat-y;"></td>
+										</tr>
+										<tr>
+											<td width="21">
+												<img src="@Url.Content("~/images/drop_bot_left_bg.png")" width="30" height="30" /></td>
+											<td>
+												<table width="100%" cellpadding="0" cellspacing="0" border="0">
+													<tr>
+														<td width="94">
+															<img src="@Url.Content("~/images/drop_botsahde_bg_l.jpg")" width="96" height="30" /></td>
+														<td style="background: url(/images/drop_bot_mid_bg.jpg) repeat-x;" width="100%"></td>
+														<td width="94">
+															<img src="@Url.Content("~/images/drop_botsahde_bg_r.jpg")" width="96" height="30" /></td>
+													</tr>
+												</table>
+											</td>
+											<td width="21">
+												<img src="@Url.Content("~/images/drop_bot_right_bg.png")" width="30" height="30" /></td>
+										</tr>
+									</table>
+								</li>
+							</ul>
+						</li>
+						
+						<li class="ico5"><a href="@Url.Action("Myaccount", "account")" title="My Account"><span>login</span></a>
+							<ul class="right_spacing-first">
+								<li>
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td width="19">
+												<img src="@Url.Content("~/images/drop_top_left_bg.jpg")" width="30" height="30" /></td>
+											<td style="background: url(/images/drop_top_mid_bg.jpg) repeat-x;"></td>
+											<td width="19">
+												<img src="@Url.Content("~/images/drop_top_right_bg.jpg")" width="30" height="30" /></td>
+										</tr>
+										<tr>
+											<td style="background: url(/images/drop_left_bg.jpg) repeat-y;"></td>
+											<td style="background: #fff;">
+												<div class="dropdown_account1">
+		
+													<div class="details1">
+														<h3>Please Sign in to access your account</h3>
+														<ul>
+															<li><span class="editprofile"></span><a href="@Url.Action("BillingInfo", "Account")">EDIT PROFILE</a></li>
+															<li><span class="onetouch"></span><a href="@Url.Action("Myaccount", "account")">ONE TOUCH DIALING</a></li>
+															<li><span class="calldetails"></span><a href="@Url.Action("Myaccount", "account")">VIEW CALL DETAILS</a></li>
+															<li><span class="autorefill"></span><a href="@Url.Action("Myaccount", "account")">AUTO-REFILL</a></li>
+															<li><span class="recharge"></span><a href="@Url.Action("Myaccount", "account")">RECHARGE</a></li>
+														</ul>
+														<ul>
+															<li><span class="pinless"></span><a href="@Url.Action("Myaccount", "account")">PIN-LESS SET UP</a></li>
+															<li><span class="quickey"></span><a href="@Url.Action("Myaccount", "account")">QUICK KEYS</a></li>
+															<li><span class="razarewards"></span><a href="@Url.Action("Myaccount", "account")">REWARDS POINT</a></li>
+															<li><span class="razamailbox"></span><a href="@Url.Action("Myaccount", "account")">CALL FORWARDING</a></li>
+															<li><span class="referralpoint"></span><a href="@Url.Action("Myaccount", "account")">REFERRAL POINTS</a></li>
+														</ul>
+													</div>
+												</div>
+											</td>
+											<td style="background: url(/images/drop_right_bg.jpg) repeat-y;"></td>
+										</tr>
+										<tr>
+											<td width="21">
+												<img src="@Url.Content("~/images/drop_bot_left_bg.png")" width="30" height="30" /></td>
+											<td>
+												<table width="100%" cellpadding="0" cellspacing="0" border="0">
+													<tr>
+														<td width="94">
+															<img src="@Url.Content("~/images/drop_botsahde_bg_l.jpg")" width="96" height="30" /></td>
+														<td style="background: url(/images/drop_bot_mid_bg.jpg) repeat-x;" width="100%"></td>
+														<td width="94">
+															<img src="@Url.Content("~/images/drop_botsahde_bg_r.jpg")" width="96" height="30" /></td>
+													</tr>
+												</table>
+											</td>
+											<td width="21">
+												<img src="@Url.Content("~/images/drop_bot_right_bg.png")" width="30" height="30" /></td>
+										</tr>
+									</table>
+								</li>
+							</ul>
+						</li>
+						<li><span class="number"><i class="fa fa-volume-control-phone" aria-hidden="true"></i> 1-(877) 463-4233</span> </li>
+					   
+					   
+					</ul>
+				</div><!--navigation-->
+				   <div class="header_right"> 
+				  <ul>
+					<li><a href="#"> <i class="fa fa-user-plus" aria-hidden="true"></i>sign up</a></li>
+				  </ul>
+				  </div><!--header_right-->
 				
-				 <li class="ico7 "><a href="@Url.Action("index", "support")"  title="Support" class="line-bg"><span>Support</span></a>
-                    <ul class="right_spacing">
-                        <li>
-                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                <tr>
-                                    <td width="21">
-                                        <img src="@Url.Content("~/images/drop_top_left_bg.jpg")" width="30" height="30" /></td>
-                                    <td style="background: url(/images/drop_top_mid_bg.jpg) repeat-x;"></td>
-                                    <td width="21">
-                                        <img src="@Url.Content("~/images/drop_top_right_bg.jpg")" width="30" height="30" /></td>
-                                </tr>
-                                <tr>
-                                    <td style="background: url(/images/drop_left_bg.jpg) repeat-y;"></td>
-                                    <td style="background: #fff;">
-                                        <div class="support_dropdown">
-                                            <ul>
-                                                <li><span class="contact_icon"></span><a href="@Url.Action("index", "support")#tabs-1">CONTACT
-                                                                                                                     US</a></li>
-                                                <li><span class="faq_icon"></span><a href="@Url.Action("index", "support")#tabs-2">FAQ</a></li>
-                                                <li><span class="terms_icon"></span><a href="@Url.Action("index", "support")#tabs-3">TERMS</a></li>
-                                                <li><span class="privacypolicy_icon"></span><a href="@Url.Action("index", "support")#tabs-4">PRIVACY
-                                                                                                                           POLICY</a></li>
-                                                <li><span class="billing-payment"></span><a href="@Url.Action("index", "support")#tabs-10">BILLING  &amp; PAYMENT </a></li>
-                                                <li><span class="connection"></span><a href="@Url.Action("index", "support")#tabs-12">CONNECTION</a></li>
-                                            </ul>
-                                            <ul>
-                                                @if (User.Identity.IsAuthenticated)
-                                                {
-                                                    <li><span class="localaddress"></span><a href="@Url.Action("index", "support")#tabs-5">LOCAL
-                                                                                                                     ACCESS NUMBERS</a></li>
-                                                }
-                                                else
-                                                {
-                                                    <li><span class="localaddress"></span><a href="/Account/LogOn?returnUrl=Support_tabs-5">LOCAL
-                                                                                                                     ACCESS NUMBERS</a></li> 
-                                                }
-                                                @* <li><span class="citiescodes"></span><a href="@Url.Action("index","support")#tabs-6">COUNTRY
-                                                                                                                    / CITY CODES</a></li>*@
-                                                <li><span class="complaints"></span><a href="@Url.Action("index", "support")#tabs-7">OPEN
-                                                                                                                   COMPLAINT</a></li>
-                                                <li><span class="guarantee"></span><a href="@Url.Action("index", "support")#tabs-8">OUR
-                                                                                                                  GUARANTEE </a></li>
-                                                <li><span class="account-management"></span><a href="@Url.Action("index", "support")#tabs-11">ONLINE
-                                                                                                                           ACCOUNT MNGT. </a></li>
-                                                <li><span class="support_securtiy"></span><a href="@Url.Action("index", "support")#tabs-13">SECURITY</a></li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                    <td style="background: url(/images/drop_right_bg.jpg) repeat-y;"></td>
-                                </tr>
-                                <tr>
-                                    <td width="21">
-                                        <img src="@Url.Content("~/images/drop_bot_left_bg.png")" width="30" height="30" /></td>
-                                    <td>
-                                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                                            <tr>
-                                                <td width="94">
-                                                    <img src="@Url.Content("~/images/drop_botsahde_bg_l.jpg")" width="96" height="30" /></td>
-                                                <td style="background: url(/images/drop_bot_mid_bg.jpg) repeat-x;" width="100%"></td>
-                                                <td width="94">
-                                                    <img src="@Url.Content("~/images/drop_botsahde_bg_r.jpg")" width="96" height="30" /></td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                    <td width="21">
-                                        <img src="@Url.Content("~/images/drop_bot_right_bg.png")" width="30" height="30" /></td>
-                                </tr>
-                            </table>
-                        </li>
-                    </ul>
-                </li>
-				
-				 <li class="ico6"><a href="@Url.Action("Myaccount", "account")"  title="Recharge"><span>Recharge</span></a></li>
-				
-                <li class="ico5"><a href="@Url.Action("Myaccount", "account")" title="My Account"><span>login</span></a>
-                    <ul class="right_spacing-first">
-                        <li>
-                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                <tr>
-                                    <td width="19">
-                                        <img src="@Url.Content("~/images/drop_top_left_bg.jpg")" width="30" height="30" /></td>
-                                    <td style="background: url(/images/drop_top_mid_bg.jpg) repeat-x;"></td>
-                                    <td width="19">
-                                        <img src="@Url.Content("~/images/drop_top_right_bg.jpg")" width="30" height="30" /></td>
-                                </tr>
-                                <tr>
-                                    <td style="background: url(/images/drop_left_bg.jpg) repeat-y;"></td>
-                                    <td style="background: #fff;">
-                                        <div class="dropdown_account1">
+		</div><!--header-->
+       </div><!--wrapper-->
+    </div><!--main_container-->
+</div><!--header-mainbg-->
+	
+</div><!--topmain-allsecdiv-->
 
-                                            <div class="details1">
-                                                <h3>Please Sign in to access your account</h3>
-                                                <ul>
-                                                    <li><span class="editprofile"></span><a href="@Url.Action("BillingInfo", "Account")">EDIT PROFILE</a></li>
-                                                    <li><span class="onetouch"></span><a href="@Url.Action("Myaccount", "account")">ONE TOUCH DIALING</a></li>
-                                                    <li><span class="calldetails"></span><a href="@Url.Action("Myaccount", "account")">VIEW CALL DETAILS</a></li>
-                                                    <li><span class="autorefill"></span><a href="@Url.Action("Myaccount", "account")">AUTO-REFILL</a></li>
-                                                    <li><span class="recharge"></span><a href="@Url.Action("Myaccount", "account")">RECHARGE</a></li>
-                                                </ul>
-                                                <ul>
-                                                    <li><span class="pinless"></span><a href="@Url.Action("Myaccount", "account")">PIN-LESS SET UP</a></li>
-                                                    <li><span class="quickey"></span><a href="@Url.Action("Myaccount", "account")">QUICK KEYS</a></li>
-                                                    <li><span class="razarewards"></span><a href="@Url.Action("Myaccount", "account")">REWARDS POINT</a></li>
-                                                    <li><span class="razamailbox"></span><a href="@Url.Action("Myaccount", "account")">CALL FORWARDING</a></li>
-                                                    <li><span class="referralpoint"></span><a href="@Url.Action("Myaccount", "account")">REFERRAL POINTS</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td style="background: url(/images/drop_right_bg.jpg) repeat-y;"></td>
-                                </tr>
-                                <tr>
-                                    <td width="21">
-                                        <img src="@Url.Content("~/images/drop_bot_left_bg.png")" width="30" height="30" /></td>
-                                    <td>
-                                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                                            <tr>
-                                                <td width="94">
-                                                    <img src="@Url.Content("~/images/drop_botsahde_bg_l.jpg")" width="96" height="30" /></td>
-                                                <td style="background: url(/images/drop_bot_mid_bg.jpg) repeat-x;" width="100%"></td>
-                                                <td width="94">
-                                                    <img src="@Url.Content("~/images/drop_botsahde_bg_r.jpg")" width="96" height="30" /></td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                    <td width="21">
-                                        <img src="@Url.Content("~/images/drop_bot_right_bg.png")" width="30" height="30" /></td>
-                                </tr>
-                            </table>
-                        </li>
-                    </ul>
-                </li>
-                <li><span class="number"><i class="fa fa-volume-control-phone" aria-hidden="true"></i> 1-(877) 463-4233</span> </li>
-               
-               
-            </ul>
-            @if (User.Identity.IsAuthenticated)
-            {
-                 
-<div class="signin_icon">
-		<a href="@Url.Action("MobileApp", "Account")" class="signin_apple"></a>
-		<a href="@Url.Action("MobileApp", "Account")" class="signin_andriod"></a>
-		</div>
-            }
-            else
-            {
-                <div class="signin1">
-                    <a href="" class="modal">
-                        <img src="@Url.Content("~/images/signin1.png")" border="0"/></a>
-                </div>
-            }
-            @*<div class="signin1"><a href="" class="modal"><img src="@Url.Content("~/images/signin1.png")" border="0"/></a></div>*@
-            <div id="contact">
-                <form method="POST" action="@Url.Action("QuicksignUp", "Account")">
-
-                    <div class="contact-detail" onclick="closedrop_down();">
-
-                        <h2 class="heading_align_center popup_signhead">Sign Up</h2>
-                        <img src="@Url.Content("~/images/signup-logo.png")" class="signup_logo" />
-                        <div id="close"></div>
-                        <fieldset style="min-height: 72px;">
-                            <div class="contry_flag_dropdown_sigup edit_margin">
-                                <select name="CountryFrom" id="countries_signup_popup" style="width: 142px;">
-                                  @*  <option value='1' data-image="images/blank.gif" data-imagecss="flag us" data-title="U.S.A">U.S.A</option>
-                                    <option value='2' data-image="images/blank.gif" data-imagecss="flag ca" data-title="Canada">Canada</option>
-                                    <option value='3' data-image="images/blank.gif" data-imagecss="flag england" data-title="United Kingdom">U.K</option>*@
-                                      @foreach (var item in Model.ListOfFromCountries)
-                                      {
-           <option value='@item.Id' data-image="images/blank.gif" data-imagecss="@item.ImageClass" data-title="@item.Name">@item.Name</option>
-                                      }
-                                </select>
-                            </div>
-
-                            <!--<select class="custom-select" name='standard' id="standard" style="margin-left: 10px;" data-bind="options: CountryListTo, optionsText: 'Name', optionsValue: 'Id', optionsCaption: 'Enter the country you wish to call'">
-                              </select>-->
-
-                            <select class="custom-select" name="CountryTo" id="standard" >
-
-                                <option value=''>Enter the country you wish to call</option>
-
-                                @foreach (var res in Model.CountryListTo)
-                                {
-                                    <option style="font-weight:bold" value='@res.Id'>@res.Name (+@res.CountCode)</option> 
-
-
-                                }
-
-                            </select>
-                            <br />
-
-
-                        </fieldset>
-                        <div class="gray-bg">
-                            <!-- <fieldset>
-                                       <input type="text" placeholder="Enter your email address" id="Email" name="Email"
-                                              maxlength="50" size="52"  />
-                                       <input type="text" id="Phone_Number" name="Phone_Number" placeholder="Enter your Phone Number "
-                                              maxlength="10" size="12" onkeypress="return numberOnly();" />
-                                   </fieldset>-->
-
-                            <fieldset>
-                                <input type="text" onclick="getBlank('Email', 'Email address');" onblur="getVal('Email','Email address');" id="Email" name="Email" maxlength="50" size="52" />
-                                <input type="text" onclick="getBlank('Phone_Number', 'Phone Number');" onblur="getVal('Phone_Number','Phone Number');" id="Phone_Number" name="Phone_Number" maxlength="10" size="12" onkeypress="return numberOnly();" />
-
-                            </fieldset>
-                            <!-- <fieldset>
-                                       <input type="password" placeholder="Password" id="TypePassword" name="Password" maxlength="20"
-                                              size="22" /> <input type="password" id="TypePassword2" maxlength="20"
-                                                                  size="22" name="Confirm_Email" />
-                                   </fieldset>-->
-
-
-                            <fieldset>
-                                <input type="text" onclick="getBlank('TypePassword', 'Password');" onfocus="changeAttrPwd(this.id),getBlank('TypePassword','Password');" onblur="changeAttrPwd(this.id),getVal('TypePassword','Password');" id="TypePassword" name="Password" maxlength="20" size="22" />
-                                <input type="text" onclick="getBlank('TypePassword2', 'Confirm Password');" onfocus="changeAttrPwd2(this.id),getBlank('TypePassword2','Confirm Password');" onblur="changeAttrPwd(this.id),getVal('TypePassword2','Confirm Password');" id="TypePassword2" maxlength="20" size="22" name="Confirm_Email" />
-
-                            </fieldset>
-                        </div>
-
-                        <div class="expandable1" id="errorexpandable" style="display: none;">
-                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                <tr>
-                                    <td width="14">
-                                        <img src="@Url.Content("~/images/expand_top_left.png")" width="16" height="13" /></td>
-                                    <td style="background: url(/images/expand_drop_top.png) repeat-x left 2px;"></td>
-                                    <td width="14">
-                                        <img src="@Url.Content("~/images/expand_top_right.png")" width="14" height="13" /></td>
-                                </tr>
-                                <tr>
-                                    <td style="background: url(/images/expand_drop_left.png) repeat-y 0px top;"></td>
-                                    <td style="background: #fff;">
-                                        <div class="expandable_mid1">
-
-                                            <img src="@Url.Content("~/images/error_sign.png")" style="float:left;margin-top:4px;margin-left:13px;" />
-                                            <div id="errordiv" style="margin-top: 5px; margin-left: 60px">
-
-                                                <div id="signup-hed-error1" style="color: red; margin-left: 20px; color: #960000;">
-                                                </div>
-                                                <div id="signup-hed-error2" style="color: red; margin-left: 20px; color: #960000;">
-                                                </div>
-                                                <div id="signup-hed-error3" style="color: red; margin-left: 20px; color: #960000;">
-                                                </div>
-                                                <div id="signup-hed-error4" style="color: red; margin-left: 20px; color: #960000;">
-                                                </div>
-                                                <div id="signup-hed-error5" style="color: red; margin-left: 20px; color: #960000;">
-                                                </div>
-                                                <div id="Form2error" style="color: red; margin-left: 20px; font-size: 14px; color: #960000;">
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td style="background: url(/images/expand_drop_right.png) repeat-y 0px top;"></td>
-                                </tr>
-                                <tr>
-                                    <td width="14" style="padding: 0px!important;">
-                                        <img src="@Url.Content("~/images/expand_bot_left.png")" width="16" height="13" /></td>
-                                    <td style="background: url(/images/expand_drop_bottom.png) repeat-x left 0px;" width="100%"></td>
-                                    <td width="14" style="padding: 0px!important;">
-                                        <img src="@Url.Content("~/images/expand_bot_right.png")" width="14" height="13" /></td>
-                                </tr>
-                            </table>
-                        </div>
-
-                        <div class="clear"></div>
-                        <input type="submit" value="Shop Now" class="btn_shop" id="clickonbtn" onclick="return quicksignup_header()" />
-                        <div class="clear"></div>
-                        <div class="sprator"></div>
-                        <div class="text-bar">
-                            <i>We will not sell or rent your personally
-                                                    identifiable information to third parties.</i>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-            <div class="contact_popup_bot"></div>
-           </div>
-        <div id="mask"></div>
-        <div class="clear"></div>
-    </div>
-</div>
-
-<div class="loader-block" id="load-blk" style="display: none;">
-</div>
-<div id="loader-back"></div>
-
-
-@*</div>*@
-
-
+<!--header end-->
 
