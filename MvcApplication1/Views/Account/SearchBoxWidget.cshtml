@@ -16,16 +16,16 @@
         <div class="home_blue_bg">
             <form action="#" method="post" accept-charset="utf-8" class="example_form" style="position: relative; z-index: 99999;">
                 @* <select name="countries" id="stamp_flag" style="width:50px; float:left; margin:0px 4px 0px 0px;" >
-          <option value='1' data-image="images/blank.gif" data-imagecss="usa_big" data-title="U.S.A"></option>
-          <option value='2' data-image="images/blank.gif" data-imagecss="canada_big" data-title="Canada"></option>
-          <option value='3' data-image="images/blank.gif" data-imagecss="uk_big" data-title="United Kingdom"></option>
+          <option value='1' data-image="images_new/blank.gif" data-imagecss="usa_big" data-title="U.S.A"></option>
+          <option value='2' data-image="images_new/blank.gif" data-imagecss="canada_big" data-title="Canada"></option>
+          <option value='3' data-image="images_new/blank.gif" data-imagecss="uk_big" data-title="United Kingdom"></option>
           
         </select>
 			*@
                 <select name="countries" id="stamp_flag" style="width: 50px; float: left; margin: 0px 4px 0px 0px;">
                     @foreach (var item in Model.ListOfFromCountries)
                     {
-                        <option value='@item.Id' data-image="@Url.Content("~/images/blank.gif")" data-imagecss="@item.ImageClass" data-title="@item.Name"></option>
+                        <option value='@item.Id' data-image="@Url.Content("~/images_new/blank.gif")" data-imagecss="@item.ImageClass" data-title="@item.Name"></option>
                     }
 
                 </select>
